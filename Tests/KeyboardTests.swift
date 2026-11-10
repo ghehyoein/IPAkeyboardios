@@ -3,6 +3,27 @@ import UIKit
 @testable import IPAKeyboard
 
 final class KeyboardTests: XCTestCase {
+    func testLocalizedSectionIndexesAndSpacing() {
+        let original = L10n.selection
+        defer { L10n.selection = original }
+        for language in L10n.languages {
+            L10n.selection = language
+            let labels = IPACatalog.shared.categories.map { L10n.indexTitle(for: $0.id) }
+            XCTAssertEqual(labels.count, Set(labels).count, language)
+            XCTAssertTrue(labels.allSatisfy { !$0.isEmpty && $0.count <= 5 })
+        }
+        let swipe = SwipeSettingsViewController()
+        swipe.loadViewIfNeeded()
+        XCTAssertEqual(swipe.sectionIndexTitles(for: swipe.tableView), ["ABC", " ", "123", " ", "#+="])
+        XCTAssertEqual(swipe.tableView(swipe.tableView, sectionForSectionIndexTitle: "123", at: 2), 1)
+        XCTAssertEqual(swipe.tableView.sectionIndexColor, .systemBlue)
+        let catalog = SymbolCatalogViewController()
+        catalog.loadViewIfNeeded()
+        let index = catalog.sectionIndexTitles(for: catalog.tableView) ?? []
+        XCTAssertEqual(index[1], " ")
+        XCTAssertEqual(catalog.tableView(catalog.tableView, sectionForSectionIndexTitle: index[2], at: 2), 1)
+        XCTAssertEqual(catalog.tableView.sectionIndexColor, .systemBlue)
+    }
     func testSearchKeyUsesTextAndSoftDarkFill() throws {
         let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 414, height: 301))
         keyboard.overrideUserInterfaceStyle = .dark
@@ -75,7 +96,7 @@ final class KeyboardTests: XCTestCase {
         L10n.selection = "ja"
         XCTAssertTrue(L10n.unicodeName("LATIN SMALL LETTER A").contains("ラテン"))
         let old = try JSONDecoder().decode(SymbolVisibility.self, from: Data(#"{"chinese":false}"#.utf8))
-        XCTAssertEqual(old.language, "system"); XCTAssertFalse(old.chinese)
+        XCTAssertEqual(old.language, L10n.resolve(selection: "system", preferred: Locale.preferredLanguages)); XCTAssertFalse(old.chinese)
         let prefs = SymbolVisibility(language: "ja")
         XCTAssertEqual(try JSONDecoder().decode(SymbolVisibility.self, from: JSONEncoder().encode(prefs)).language, "ja")
     }

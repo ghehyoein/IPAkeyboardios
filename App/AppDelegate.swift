@@ -7,7 +7,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         if CommandLine.arguments.contains("--reset-settings") { SymbolSettingsStore.shared.resetForTesting() }
         #endif
-        L10n.selection = SymbolSettingsStore.shared.load().language
+        let visibility = SymbolSettingsStore.shared.load()
+        // Resolve older automatic preferences once; the app now offers four explicit languages.
+        SymbolSettingsStore.shared.save(visibility)
+        L10n.selection = visibility.language
         let window = UIWindow(frame: UIScreen.main.bounds)
         var root: UIViewController = SymbolSettingsViewController()
         #if DEBUG

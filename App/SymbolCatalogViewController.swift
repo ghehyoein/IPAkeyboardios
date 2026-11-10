@@ -9,6 +9,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let note: String
     }
     private struct Group {
+        let id: String
         let title: String
         let entries: [Entry]
     }
@@ -25,6 +26,9 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         tableView.accessibilityIdentifier = "symbolCatalog"
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
+        tableView.sectionIndexColor = .systemBlue
+        tableView.sectionIndexBackgroundColor = .clear
+        tableView.sectionIndexTrackingBackgroundColor = .tertiarySystemFill
         let catalog = IPACatalog.shared
         let visibility = SymbolSettingsStore.shared.load()
         groups = catalog.categories.compactMap { category in
@@ -32,14 +36,14 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
                 let state = visibility.contains(symbol) ? "" : "\n" + "已隐藏".localized
                 return Entry(text: symbol.text, display: symbol.display, note: symbol.name + state)
             }
-            return entries.isEmpty ? nil : Group(title: category.title, entries: entries)
+            return entries.isEmpty ? nil : Group(id: category.id, title: category.title, entries: entries)
         }
         // Include any category not listed in the tab catalog without dropping it.
         let included = Set(groups.flatMap { $0.entries.map { $0.text } })
         let rest = catalog.symbols.filter { $0.atomic && !included.contains($0.text) }.map {
             Entry(text: $0.text, display: $0.display, note: $0.name)
         }
-        if !rest.isEmpty { groups.append(Group(title: "其他音标".localized, entries: rest)) }
+        if !rest.isEmpty { groups.append(Group(id: "remaining", title: "其他音标".localized, entries: rest)) }
         var seen = Set(catalog.symbols.filter { $0.atomic }.map { $0.text })
         var general: [Entry] = []
         let keys = KeyboardPage.letters.rows.flatMap { $0 } + KeyboardPage.numbers.rows.flatMap { $0 } + KeyboardPage.symbols.rows.flatMap { $0 } + [" ", "\n"]
@@ -50,7 +54,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
                 general.append(Entry(text: text, display: display, note: L10n.unicodeName(name)))
             }
         }
-        groups.append(Group(title: "字母、数字、标点及变体".localized, entries: general))
+        groups.append(Group(id: "basic", title: "字母、数字、标点及变体".localized, entries: general))
         filtered = groups
         configureCategoryMenu()
         search.searchResultsUpdater = self
@@ -87,16 +91,18 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let scope = groups.filter { selectedGroup == nil || $0.title == selectedGroup }
         filtered = query.isEmpty ? scope : scope.compactMap { group in
             let entries = group.entries.filter { searchableText($0).localizedCaseInsensitiveContains(query) }
-            return entries.isEmpty ? nil : Group(title: group.title, entries: entries)
+            return entries.isEmpty ? nil : Group(id: group.id, title: group.title, entries: entries)
         }
         tableView.reloadData()
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         guard !filtered.isEmpty else { return nil }
-        let abbreviations = ["肺部气流辅音".localized: "肺辅".localized, "非肺部气流辅音".localized: "非肺".localized, "旧版与非标准 IPA".localized: "旧IPA".localized, "Unicode 语音补充".localized: "UNI", "字母、数字、标点及变体".localized: "ABC", "extIPA": "ext", "上标字符".localized: "↑", "下标字符".localized: "↓", "超音段符号".localized: "ˈː", "组合附加符号".localized: "◌", "声调与词重音".localized: "˥˩"]
-        return filtered.map { abbreviations[$0.title] ?? String($0.title.prefix(2)) }
+        // Native index entries include blank slots for comfortable vertical spacing.
+        return filtered.enumerated().flatMap { index, group in
+            index == filtered.count - 1 ? [L10n.indexTitle(for: group.id)] : [L10n.indexTitle(for: group.id), " "]
+        }
     }
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { index }
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { min(index / 2, filtered.count - 1) }
     override func numberOfSections(in tableView: UITableView) -> Int { filtered.count }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { filtered[section].entries.count }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { "\(filtered[section].title)（\(filtered[section].entries.count)）" }

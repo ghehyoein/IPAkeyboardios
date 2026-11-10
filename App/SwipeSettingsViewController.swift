@@ -4,10 +4,10 @@ final class SwipeSettingsViewController: UITableViewController {
     private let pages: [KeyboardPage] = [.letters, .numbers, .symbols]
     init() { super.init(style: .insetGrouped) }
     required init?(coder: NSCoder) { fatalError() }
-    override func viewDidLoad() { super.viewDidLoad(); title = "四向滑动".localized; tableView.accessibilityIdentifier = "swipeSettings" }
+    override func viewDidLoad() { super.viewDidLoad(); title = "四向滑动".localized; tableView.accessibilityIdentifier = "swipeSettings"; tableView.sectionIndexColor = .systemBlue; tableView.sectionIndexBackgroundColor = .clear; tableView.sectionIndexTrackingBackgroundColor = .tertiarySystemFill }
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated); tableView.reloadData() }
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? { ["ABC", "123", "#+="] }
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { index }
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? { ["ABC", " ", "123", " ", "#+="] }
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { index / 2 }
     override func numberOfSections(in tableView: UITableView) -> Int { pages.count }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { pages[section].rows.flatMap { $0 }.count }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { ["字母".localized, "数字与标点".localized, "符号".localized][section] }

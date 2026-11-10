@@ -60,7 +60,11 @@ final class KeyboardUITests: XCTestCase {
         app.launch()
         let setting = app.cells["languageSetting"]
         for _ in 0..<10 { if setting.isHittable { break }; app.tables.firstMatch.swipeUp() }
-        setting.tap(); app.buttons["English"].tap()
+        setting.tap()
+        XCTAssertEqual(app.tables["languageSettings"].cells.count, 4)
+        XCTAssertFalse(app.staticTexts["跟随系统"].exists)
+        attach(app, name: "language-options")
+        app.cells["language_en"].tap()
         XCTAssertTrue(app.navigationBars["Symbol settings"].waitForExistence(timeout: 5))
         app.terminate()
         app.launchArguments = ["-AppleLanguages", "(zh-Hans)"]
