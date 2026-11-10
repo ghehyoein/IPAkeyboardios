@@ -213,12 +213,16 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         updateReturnKey()
     }
     private func updateReturnKey() {
-        let imageName: String? = returnTitle == "return" ? "return" : (returnTitle == "search" ? "magnifyingglass" : nil)
+        let imageName: String? = returnTitle == "return" ? "return" : nil
         let label = ["go": "前往", "search": "搜索", "send": "发送", "done": "完成", "next": "下一项", "return": "返回"][returnTitle]?.localized ?? returnTitle
         returnButton.setTitle(imageName == nil ? label : nil, for: .normal)
         returnButton.setImage(imageName.flatMap { UIImage(systemName: $0, withConfiguration: UIImage.SymbolConfiguration(pointSize: returnTitle == "search" ? 22 : 15)) }, for: .normal)
-        returnButton.backgroundColor = returnTitle == "search" ? .label : KeyboardMaterial.key
-        returnButton.tintColor = returnTitle == "search" ? .systemBackground : .label
+        returnButton.backgroundColor = returnTitle == "search" ? KeyboardMaterial.utility : KeyboardMaterial.key
+        returnButton.tintColor = .label
+        returnButton.setTitleColor(.label, for: .normal)
+        returnButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        returnButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        returnButton.titleLabel?.minimumScaleFactor = 0.75
         returnButton.accessibilityLabel = label
         returnButton.accessibilityIdentifier = "returnKey"
     }

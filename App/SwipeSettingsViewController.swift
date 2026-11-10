@@ -2,7 +2,7 @@ import UIKit
 
 final class SwipeSettingsViewController: UITableViewController {
     private let pages: [KeyboardPage] = [.letters, .numbers, .symbols]
-    init() { super.init(style: .plain) }
+    init() { super.init(style: .insetGrouped) }
     required init?(coder: NSCoder) { fatalError() }
     override func viewDidLoad() { super.viewDidLoad(); title = "四向滑动".localized; tableView.accessibilityIdentifier = "swipeSettings" }
     override func viewWillAppear(_ animated: Bool) { super.viewWillAppear(animated); tableView.reloadData() }
@@ -12,7 +12,7 @@ final class SwipeSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { pages[section].rows.flatMap { $0 }.count }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? { ["字母".localized, "数字与标点".localized, "符号".localized][section] }
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        section == 0 ? "只能选择该键长按菜单中的字符。关闭某个音标分类后，对应的自定义滑动暂不输入；重新开启即可恢复。".localized : nil
+        section == 0 ? "从此键的长按候选中选择。".localized : nil
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let key = pages[indexPath.section].rows.flatMap { $0 }[indexPath.row]

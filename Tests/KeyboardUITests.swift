@@ -33,6 +33,27 @@ final class KeyboardUITests: XCTestCase {
             app.terminate()
         }
     }
+    func testSymbolDetailsSupportSelectionAndCopy() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(zh-Hans)"]
+        app.launch()
+        let catalog = app.cells["openSymbolCatalog"]
+        for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
+        catalog.tap()
+        let search = app.searchFields.firstMatch
+        search.tap(); search.typeText("U+02B0")
+        let entry = app.cells["catalogEntry_U+02B0"]
+        XCTAssertTrue(entry.waitForExistence(timeout: 5))
+        entry.tap()
+        let details = app.textViews["selectableSymbolDetails"]
+        XCTAssertTrue(details.waitForExistence(timeout: 5))
+        XCTAssertTrue((details.value as? String ?? "").contains("送气"))
+        app.buttons["copySymbol"].tap()
+        attach(app, name: "selectable-symbol-details")
+        app.navigationBars.buttons["完成"].tap()
+        entry.press(forDuration: 1)
+        XCTAssertTrue(app.buttons["复制注释"].waitForExistence(timeout: 3))
+    }
     func testLanguageChoicePersists() {
         let app = XCUIApplication()
         app.launchArguments = ["--reset-settings", "-AppleLanguages", "(zh-Hans)"]
@@ -153,7 +174,7 @@ final class KeyboardUITests: XCTestCase {
             XCTAssertEqual(toggle.value as? String, "0")
         }
         let haptic = app.switches["feedback_haptics"]
-        if !haptic.isHittable { app.tables.firstMatch.swipeUp() }
+        for _ in 0..<6 { if haptic.isHittable { break }; app.tables.firstMatch.swipeUp() }
         haptic.tap()
         attach(app, name: "symbol-display-and-feedback-settings")
         app.navigationBars.buttons.element(boundBy: 0).tap()
@@ -176,7 +197,7 @@ final class KeyboardUITests: XCTestCase {
         XCTAssertTrue(app.tables["symbolSettings"].waitForExistence(timeout: 10))
         XCTAssertFalse(app.textViews["transcriptionEditor"].exists)
         let catalog = app.cells["openSymbolCatalog"]
-        app.tables.firstMatch.swipeUp()
+        for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
         XCTAssertTrue(catalog.isHittable)
         catalog.tap()
         XCTAssertTrue(app.tables["symbolCatalog"].waitForExistence(timeout: 5))

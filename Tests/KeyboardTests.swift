@@ -3,6 +3,31 @@ import UIKit
 @testable import IPAKeyboard
 
 final class KeyboardTests: XCTestCase {
+    func testSearchKeyUsesTextAndSoftDarkFill() throws {
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 414, height: 301))
+        keyboard.overrideUserInterfaceStyle = .dark
+        keyboard.returnTitle = "search"
+        let button = try XCTUnwrap(keyboard.subviews.compactMap { $0 as? UIButton }.first { $0.accessibilityIdentifier == "returnKey" })
+        XCTAssertEqual(button.title(for: .normal), "搜索".localized)
+        XCTAssertNil(button.image(for: .normal))
+        let dark = UITraitCollection(userInterfaceStyle: .dark)
+        var white: CGFloat = 0; var alpha: CGFloat = 0
+        XCTAssertTrue(try XCTUnwrap(button.backgroundColor).resolvedColor(with: dark).getWhite(&white, alpha: &alpha))
+        XCTAssertLessThan(white, 0.5)
+        XCTAssertGreaterThan(white, 0.2)
+    }
+    func testSymbolDetailsAllowSelectionAndCopyRawCombiningMark() throws {
+        let detail = SymbolDetailViewController(symbol: "\u{0308}", display: "◌̈", code: "U+0308", note: "央化")
+        detail.loadViewIfNeeded()
+        let text = try XCTUnwrap(detail.view.subviews.compactMap { $0 as? UITextView }.first)
+        XCTAssertTrue(text.isSelectable)
+        XCTAssertFalse(text.isEditable)
+        XCTAssertTrue(text.text.contains("U+0308"))
+        XCTAssertTrue(text.text.contains("央化"))
+        let copy = try XCTUnwrap(detail.view.subviews.compactMap { $0 as? UIButton }.first)
+        copy.sendActions(for: .touchUpInside)
+        XCTAssertEqual(UIPasteboard.general.string?.unicodeScalars.map { $0.value }, [0x0308])
+    }
     func testPanelInventoryIsUniqueCompleteAndModifiersFirst() {
         let catalog = IPACatalog.shared
         let sections = SymbolPanelInventory.sections(catalog: catalog, visibility: SymbolVisibility())

@@ -17,7 +17,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     private var filtered: [Group] = []
     private let search = UISearchController(searchResultsController: nil)
 
-    init() { super.init(style: .plain) }
+    init() { super.init(style: .insetGrouped) }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +103,99 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entry = filtered[indexPath.section].entries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "entry") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "entry")
-        cell.textLabel?.text = entry.display + "    " + codes(entry.text)
-        cell.textLabel?.font = .systemFont(ofSize: 23)
+        let heading = NSMutableAttributedString(string: entry.display, attributes: [.font: UIFont.preferredFont(forTextStyle: .title2), .foregroundColor: UIColor.label])
+        heading.append(NSAttributedString(string: "   " + codes(entry.text), attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1), .foregroundColor: UIColor.secondaryLabel]))
+        cell.textLabel?.attributedText = heading
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = entry.note
         cell.detailTextLabel?.numberOfLines = 0
-        cell.selectionStyle = .none
+        cell.detailTextLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        cell.detailTextLabel?.textColor = .secondaryLabel
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
+        cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
+        cell.accessoryType = .disclosureIndicator
+        cell.accessibilityIdentifier = "catalogEntry_" + codes(entry.text)
+        cell.selectionStyle = .default
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showDetails(filtered[indexPath.section].entries[indexPath.row])
+    }
+    private func showDetails(_ entry: Entry) {
+        let detail = SymbolDetailViewController(symbol: entry.text, display: entry.display, code: codes(entry.text), note: entry.note)
+        let navigation = UINavigationController(rootViewController: detail)
+        navigation.modalPresentationStyle = .pageSheet
+        navigation.sheetPresentationController?.detents = [.medium(), .large()]
+        navigation.sheetPresentationController?.prefersGrabberVisible = true
+        present(navigation, animated: true)
+    }
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let entry = filtered[indexPath.section].entries[indexPath.row]
+        let code = codes(entry.text)
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { [weak self] _ in
+            UIMenu(children: [
+                UIAction(title: "复制符号".localized, image: UIImage(systemName: "doc.on.doc")) { _ in UIPasteboard.general.string = entry.text },
+                UIAction(title: "复制注释".localized) { _ in UIPasteboard.general.string = entry.note },
+                UIAction(title: "复制全部".localized) { _ in UIPasteboard.general.string = [entry.text, code, entry.note].joined(separator: "\n") },
+                UIAction(title: "选择文本".localized, image: UIImage(systemName: "text.cursor")) { _ in self?.showDetails(entry) }
+            ])
+        }
+    }
+
+}
+
+
+final class SymbolDetailViewController: UIViewController {
+    private let symbol: String
+    private let display: String
+    private let code: String
+    private let note: String
+    init(symbol: String, display: String, code: String, note: String) {
+        self.symbol = symbol; self.display = display; self.code = code; self.note = note
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) { fatalError() }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "符号详情".localized
+        view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成".localized, style: .done, target: self, action: #selector(close))
+        let text = UITextView()
+        text.isEditable = false
+        text.isSelectable = true
+        text.backgroundColor = .clear
+        text.adjustsFontForContentSizeCategory = true
+        text.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 24, right: 20)
+        text.accessibilityIdentifier = "selectableSymbolDetails"
+        let content = NSMutableAttributedString(string: display + "\n", attributes: [.font: UIFont.preferredFont(forTextStyle: .largeTitle), .foregroundColor: UIColor.label])
+        content.append(NSAttributedString(string: code + "\n\n", attributes: [.font: UIFont.preferredFont(forTextStyle: .subheadline), .foregroundColor: UIColor.secondaryLabel]))
+        content.append(NSAttributedString(string: note, attributes: [.font: UIFont.preferredFont(forTextStyle: .body), .foregroundColor: UIColor.label]))
+        text.attributedText = content
+        let copy = UIButton(type: .system)
+        var config = UIButton.Configuration.gray()
+        config.title = "复制符号".localized
+        config.baseForegroundColor = .label
+        config.cornerStyle = .medium
+        copy.configuration = config
+        copy.accessibilityIdentifier = "copySymbol"
+        copy.addAction(UIAction { [weak self] _ in
+            guard let self = self else { return }
+            // Copy the actual character, never the dotted circle used to preview a mark.
+            UIPasteboard.general.string = self.symbol
+            UIAccessibility.post(notification: .announcement, argument: "已复制".localized)
+        }, for: .touchUpInside)
+        for child in [text as UIView, copy] { child.translatesAutoresizingMaskIntoConstraints = false; view.addSubview(child) }
+        NSLayoutConstraint.activate([
+            text.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            text.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            text.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            text.bottomAnchor.constraint(equalTo: copy.topAnchor, constant: -12),
+            copy.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            copy.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            copy.heightAnchor.constraint(greaterThanOrEqualToConstant: 48),
+            copy.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+    }
+    @objc private func close() { dismiss(animated: true) }
 }
