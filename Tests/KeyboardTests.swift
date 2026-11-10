@@ -81,29 +81,42 @@ final class KeyboardTests: XCTestCase {
         strip.cancel()
         XCTAssertNil(strip.selectedText)
     }
-    @MainActor func testTopRowCalloutFitsAboveEveryTopKey() {
-        for size in [CGSize(width: 428, height: 300), CGSize(width: 375, height: 300), CGSize(width: 926, height: 236)] {
+    @MainActor func testCompactTopRowCalloutStaysInsideKeyboard() {
+        for size in [CGSize(width: 428, height: 229), CGSize(width: 375, height: 229), CGSize(width: 926, height: 165)] {
             let keyboard = KeyboardSurface(frame: CGRect(origin: .zero, size: size))
             keyboard.systemManagedLayout = true; keyboard.needsGlobe = false; keyboard.layoutIfNeeded()
             for key in keyboard.subviews.compactMap({ $0 as? LetterKey }).filter({ "qwertyuiop".contains($0.letter) }) {
                 let strip = VariantStrip(keyFrame: key.frame, base: key.letter, variants: key.mapping?.variants ?? [], in: keyboard.bounds)
-                XCTAssertLessThan(strip.calloutFrame.maxY, key.frame.minY)
+                XCTAssertEqual(key.frame.minY, 8, accuracy: 0.01)
+                XCTAssertLessThanOrEqual(strip.calloutFrame.minY, key.frame.minY)
+                XCTAssertLessThanOrEqual(strip.calloutFrame.maxY, keyboard.bounds.height)
                 XCTAssertGreaterThanOrEqual(strip.calloutFrame.minY, 0)
                 XCTAssertLessThanOrEqual(strip.calloutFrame.maxX, size.width)
             }
         }
     }
-    @MainActor func testSystemLayoutUsesAllocatedHeightWithoutPreviewFooter() {
-        for height in [CGFloat(300), 342, 380] {
+    @MainActor func testSystemSurfaceHasNoSecondBackdropOrTopBand() {
+        for height in [CGFloat(229), 300] {
             let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: height))
             keyboard.systemManagedLayout = true
             keyboard.needsGlobe = false
             keyboard.layoutIfNeeded()
             let space = keyboard.subviews.first { $0.accessibilityIdentifier == "spaceKey" }!
-            XCTAssertEqual(height - space.frame.maxY, 8, accuracy: 0.01)
+            XCTAssertEqual(space.frame.maxY, 221, accuracy: 0.01)
+            XCTAssertEqual(keyboard.layer.cornerRadius, 0)
+            XCTAssertTrue(keyboard.subviews.compactMap { $0 as? UIVisualEffectView }.allSatisfy { $0.isHidden })
             XCTAssertEqual(keyboard.intrinsicContentSize.height, UIView.noIntrinsicMetric)
             for key in keyboard.subviews.compactMap({ $0 as? LetterKey }) { XCTAssertTrue(keyboard.bounds.contains(key.frame)) }
         }
+    }
+    @MainActor func testDarkUtilityKeysHaveDistinctOpaqueSurfaces() {
+        let traits = UITraitCollection(userInterfaceStyle: .dark)
+        let color = KeyboardMaterial.utility.resolvedColor(with: traits)
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        XCTAssertEqual(alpha, 1)
+        XCTAssertGreaterThan(red, 0.30)
+        XCTAssertNotEqual(color, KeyboardMaterial.key.resolvedColor(with: traits))
     }
     func testCustomSwipesStayInsideSourceMenuAndRespectVisibility() {
         let source = IPAKeyMapping(variants: ["ɑ", "ɋ"], swipes: ["up": "ɑ"])
@@ -158,7 +171,7 @@ final class KeyboardTests: XCTestCase {
         XCTAssertEqual(grid.contentOffset.x, aOffset + 13, accuracy: 0.1)
     }
     @MainActor func testNativeSizedKeyboardSnapshots() {
-        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 380))
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
         keyboard.layoutIfNeeded()
         for style in [UIUserInterfaceStyle.light, .dark] {
             keyboard.overrideUserInterfaceStyle = style
@@ -198,7 +211,7 @@ final class KeyboardTests: XCTestCase {
         }
     }
     @MainActor func testAllPagesKeepEnglishKeyboardGeometry() {
-        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 380))
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
         keyboard.layoutIfNeeded()
         let accessory = keyboard.subviews.first { $0.accessibilityIdentifier == "diacriticsKey" }!
         let number = keyboard.subviews.first { $0.accessibilityIdentifier == "numberModeKey" }!
@@ -222,7 +235,7 @@ final class KeyboardTests: XCTestCase {
         }
     }
     @MainActor func testVisualGuttersStillHitKeys() {
-        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 380))
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
         keyboard.layoutIfNeeded()
         let key = keyboard.subviews.compactMap { $0 as? LetterKey }.first { $0.letter == "a" }!
         XCTAssertTrue(keyboard.hitTest(CGPoint(x: key.frame.maxX + 2, y: key.frame.midY), with: nil) === key)
@@ -284,7 +297,7 @@ final class KeyboardTests: XCTestCase {
         drag.reset(); XCTAssertEqual(drag.consume(dx: 7), 0)
     }
     @MainActor func testSearchKeyHasImageAndListsHaveRightIndexes() {
-        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 380))
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
         keyboard.returnTitle = "search"
         let key = keyboard.subviews.compactMap { $0 as? UIButton }.first { $0.accessibilityIdentifier == "returnKey" }!
         XCTAssertNotNil(key.image(for: .normal)); XCTAssertNil(key.title(for: .normal))

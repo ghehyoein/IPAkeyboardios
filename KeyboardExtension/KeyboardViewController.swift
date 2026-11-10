@@ -3,6 +3,10 @@ import UIKit
 final class KeyboardViewController: UIInputViewController {
     private let keyboard = KeyboardSurface()
     private var heightConstraint: NSLayoutConstraint?
+    override func loadView() {
+        // UIKit owns the only keyboard backdrop, including its system footer.
+        view = UIInputView(frame: .zero, inputViewStyle: .keyboard)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         primaryLanguage = "mul"
@@ -16,7 +20,7 @@ final class KeyboardViewController: UIInputViewController {
             keyboard.topAnchor.constraint(equalTo: view.topAnchor),
             keyboard.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        let height = view.heightAnchor.constraint(equalToConstant: 300)
+        let height = view.heightAnchor.constraint(equalToConstant: 229)
         height.priority = .init(999); height.isActive = true; heightConstraint = height
         inputView?.allowsSelfSizing = true
         keyboard.onMoveCursor = { [weak self] offset in self?.textDocumentProxy.adjustTextPosition(byCharacterOffset: offset) }
@@ -36,9 +40,9 @@ final class KeyboardViewController: UIInputViewController {
         let screen = view.window?.windowScene?.screen.bounds.size ?? UIScreen.main.bounds.size
         keyboard.usesInlineGlobe = needsInputModeSwitchKey && max(screen.width, screen.height) <= 736
         let landscape = view.bounds.width > view.bounds.height && view.bounds.width > 600
-        // The 68pt callout band is inside our view, never drawn over the host.
+        // Four key rows, with small top/bottom insets and no permanent callout band.
         let ownGlobeFooter: CGFloat = needsInputModeSwitchKey && !keyboard.usesInlineGlobe ? 42 : 0
-        heightConstraint?.constant = (landscape ? 236 : 300) + ownGlobeFooter
+        heightConstraint?.constant = (landscape ? 165 : 229) + ownGlobeFooter
     }
     override func textDidChange(_ textInput: UITextInput?) { KeyFeedback.shared.soundAvailable = hasFullAccess; keyboard.refreshVisibility(); updateAppearance() }
     override func viewWillDisappear(_ animated: Bool) {

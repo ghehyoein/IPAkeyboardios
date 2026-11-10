@@ -30,7 +30,7 @@ final class KeyboardUITests: XCTestCase {
         let (app, editor) = launch()
         let a = key("a", in: app)
         let cellWidth = max(34, min(42, a.frame.width + 2))
-        // On the 428pt target the a key's callout is left-clamped at 8pt;
+        // The a key callout is left-clamped at 8pt;
         // base a is first and IPA ɑ is the next visible candidate.
         let destination = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 14 + cellWidth * 1.5, dy: a.frame.minY - 30))
         a.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.65, thenDragTo: destination)
@@ -71,7 +71,7 @@ final class KeyboardUITests: XCTestCase {
         // Long-press 2: [², 2, ₂, ⅔], with the base positioned over the key.
         let cell = max(34, min(42, two.frame.width + 2))
         let width = cell * 4 + 12
-        let left = min(max(8, two.frame.midX - width / 2), 428 - width - 8)
+        let left = min(max(8, two.frame.midX - width / 2), app.frame.width - width - 8)
         let target = app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: left + 6 + cell / 2, dy: two.frame.minY + 8))
         center.press(forDuration: 0.65, thenDragTo: target)
         XCTAssertEqual(editor.value as? String, "²₂²")
