@@ -1,7 +1,7 @@
 import Foundation
 
 struct SymbolVisibility: Codable, Equatable {
-    var language = "system"
+    var language = L10n.resolve(selection: "system", preferred: Locale.preferredLanguages)
     var chinese = true
     var historical = true
     var extipa = true
@@ -14,14 +14,14 @@ struct SymbolVisibility: Codable, Equatable {
     }
     init(language: String = "system", chinese: Bool = true, historical: Bool = true, extipa: Bool = true,
          panelUnavailable: Bool = true, panelModifiers: Bool = true, panelOrdinary: Bool = true) {
-        self.language = L10n.languages.contains(language) ? language : "system"
+        self.language = L10n.resolve(selection: language, preferred: Locale.preferredLanguages)
         self.chinese = chinese; self.historical = historical; self.extipa = extipa
         self.panelUnavailable = panelUnavailable; self.panelModifiers = panelModifiers; self.panelOrdinary = panelOrdinary
     }
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         let storedLanguage = try c.decodeIfPresent(String.self, forKey: .language) ?? "system"
-        language = L10n.languages.contains(storedLanguage) ? storedLanguage : "system"
+        language = L10n.resolve(selection: storedLanguage, preferred: Locale.preferredLanguages)
         chinese = try c.decodeIfPresent(Bool.self, forKey: .chinese) ?? true
         historical = try c.decodeIfPresent(Bool.self, forKey: .historical) ?? true
         extipa = try c.decodeIfPresent(Bool.self, forKey: .extipa) ?? true

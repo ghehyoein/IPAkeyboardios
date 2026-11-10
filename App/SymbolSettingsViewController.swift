@@ -118,24 +118,19 @@ final class SymbolSettingsViewController: UITableViewController {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sourceCell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         let indexPath = settingsPath(indexPath)
         if indexPath.section == 7 {
-            let actions = UIAlertController(title: "语言".localized, message: nil, preferredStyle: .actionSheet)
-            for code in L10n.languages {
-                actions.addAction(UIAlertAction(title: L10n.languageName(code), style: .default) { [weak self] _ in
-                    guard let self = self else { return }
-                    self.visibility.language = code
-                    self.shareAvailable = SymbolSettingsStore.shared.save(self.visibility)
-                    L10n.selection = code
-                    self.title = "符号显示".localized
-                    self.tableView.reloadData()
-                })
+            let languages = LanguageSettingsViewController(selected: visibility.language) { [weak self] code in
+                guard let self = self else { return }
+                self.visibility.language = code
+                self.shareAvailable = SymbolSettingsStore.shared.save(self.visibility)
+                L10n.selection = code
+                self.title = "符号显示".localized
+                self.tableView.reloadData()
             }
-            actions.addAction(UIAlertAction(title: "取消".localized, style: .cancel))
-            actions.popoverPresentationController?.sourceView = sourceCell
-            present(actions, animated: true); return
+            navigationController?.pushViewController(languages, animated: true)
+            return
         }
         if indexPath.section == 5 {
             navigationController?.pushViewController(SwipeSettingsViewController(), animated: true); return
@@ -168,4 +163,43 @@ final class SymbolSettingsViewController: UITableViewController {
         tableView.reloadData()
     }
 
+}
+
+private final class LanguageSettingsViewController: UITableViewController {
+    private var selected: String
+    private let onSelect: (String) -> Void
+    init(selected: String, onSelect: @escaping (String) -> Void) {
+        self.selected = selected; self.onSelect = onSelect
+        super.init(style: .insetGrouped)
+    }
+    required init?(coder: NSCoder) { fatalError() }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "语言".localized
+        tableView.accessibilityIdentifier = "languageSettings"
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 64
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { L10n.languages.count }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let code = L10n.languages[indexPath.row]
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = L10n.languageName(code)
+        cell.textLabel?.font = .preferredFont(forTextStyle: .body)
+        cell.textLabel?.adjustsFontForContentSizeCategory = true
+        cell.textLabel?.numberOfLines = 0
+        cell.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+        cell.accessoryType = selected == code ? .checkmark : .none
+        cell.accessibilityIdentifier = "language_" + code
+        cell.accessibilityTraits = selected == code ? [.button, .selected] : [.button]
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = L10n.languages[indexPath.row]
+        onSelect(selected)
+        title = "语言".localized
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.reloadData()
+        navigationController?.popViewController(animated: true)
+    }
 }
