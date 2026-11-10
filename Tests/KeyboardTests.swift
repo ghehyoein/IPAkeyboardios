@@ -36,6 +36,11 @@ final class KeyboardTests: XCTestCase {
         XCTAssertTrue(try XCTUnwrap(button.backgroundColor).resolvedColor(with: dark).getWhite(&white, alpha: &alpha))
         XCTAssertLessThan(white, 0.5)
         XCTAssertGreaterThan(white, 0.2)
+        keyboard.layoutIfNeeded()
+        let renderer = UIGraphicsImageRenderer(bounds: keyboard.bounds)
+        let attachment = XCTAttachment(image: renderer.image { _ in keyboard.drawHierarchy(in: keyboard.bounds, afterScreenUpdates: true) })
+        attachment.name = "dark-text-search-key"; attachment.lifetime = .keepAlways
+        add(attachment)
     }
     func testSymbolDetailsAllowSelectionAndCopyRawCombiningMark() throws {
         let detail = SymbolDetailViewController(symbol: "\u{0308}", display: "◌̈", code: "U+0308", note: "央化")
@@ -384,16 +389,16 @@ final class KeyboardTests: XCTestCase {
         XCTAssertEqual(drag.consume(dx: -17), -2)
         drag.reset(); XCTAssertEqual(drag.consume(dx: 7), 0)
     }
-    @MainActor func testSearchKeyHasImageAndListsHaveRightIndexes() {
+    @MainActor func testTextSearchKeyAndGroupedListsKeepRightIndexes() {
         let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
         keyboard.returnTitle = "search"
         let key = keyboard.subviews.compactMap { $0 as? UIButton }.first { $0.accessibilityIdentifier == "returnKey" }!
-        XCTAssertNotNil(key.image(for: .normal)); XCTAssertNil(key.title(for: .normal))
+        XCTAssertNil(key.image(for: .normal)); XCTAssertEqual(key.title(for: .normal), "搜索".localized)
         let settings = SwipeSettingsViewController(); settings.loadViewIfNeeded()
-        XCTAssertEqual(settings.tableView.style, .plain)
-        XCTAssertEqual(settings.sectionIndexTitles(for: settings.tableView), ["ABC", "123", "#+="])
+        XCTAssertEqual(settings.tableView.style, .insetGrouped)
+        XCTAssertEqual(settings.sectionIndexTitles(for: settings.tableView), ["ABC", " ", "123", " ", "#+="])
         let catalog = SymbolCatalogViewController(); catalog.loadViewIfNeeded()
-        XCTAssertEqual(catalog.tableView.style, .plain)
+        XCTAssertEqual(catalog.tableView.style, .insetGrouped)
         XCTAssertGreaterThan(catalog.sectionIndexTitles(for: catalog.tableView)?.count ?? 0, 10)
         let cell = catalog.tableView(catalog.tableView, cellForRowAt: IndexPath(row: 0, section: 0))
         XCTAssertFalse(cell.detailTextLabel?.text?.contains("输入") ?? true)
