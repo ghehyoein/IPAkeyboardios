@@ -73,7 +73,7 @@ enum SymbolPanelInventory {
                 guard !values.isEmpty else { continue }
                 let reused = result.contains { $0.id == category.id }
                 result.append(SymbolSection(id: category.id + (reused ? "-letters" : ""),
-                    title: category.title + (reused ? " · 字母" : ""), values: values))
+                    title: category.title + (reused ? " · 字母".localized : ""), values: values))
             }
         }
         return result
@@ -183,7 +183,7 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         let offset = max(0, contentOffset.x + 0.5)
         let section = columns.starts.lastIndex(where: { $0 <= offset }) ?? 0
         let value = sections[section]
-        onSectionChange?(value.id, value.title + (value.values.isEmpty ? " · 暂无最近使用" : ""))
+        onSectionChange?(value.id, value.title + (value.values.isEmpty ? " · 暂无最近使用".localized : ""))
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int { sections.count }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { sections[section].values.count }
@@ -195,7 +195,7 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         cell.glyph.text = PhoneticDisplay.title(for: display)
         cell.glyph.font = .systemFont(ofSize: PhoneticDisplay.isSupported(display) ? 22 : 10)
         cell.accessibilityLabel = "\(display)，\(symbol?.name ?? text)"
-        cell.accessibilityHint = "轻点输入，长按查看注释"
+        cell.accessibilityHint = "轻点输入，长按查看注释".localized
         cell.accessibilityIdentifier = "symbol_" + (symbol?.id ?? text)
         return cell
     }

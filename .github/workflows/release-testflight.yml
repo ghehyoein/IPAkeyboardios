@@ -1,4 +1,3 @@
-# Publish the versioned source through the protected signing workflow.
 name: Send published keyboard release to TestFlight
 on:
   workflow_run:
@@ -30,7 +29,11 @@ jobs:
       - name: Dispatch the published commit on the protected signing branch
         run: |
           set -euo pipefail
-          tag=${PUBLISHED_TAG:-v0.4.$RUN_NUMBER}
+          tag=$PUBLISHED_TAG
+          if [[ -z "$tag" ]]; then
+            version=$(gh api "repos/$GITHUB_REPOSITORY/contents/VERSION?ref=$RUN_SHA" --jq .content | base64 --decode)
+            tag="v$version"
+          fi
           [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Not a keyboard version tag: $tag"; exit 0; }
           release=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag")
           jq -e --arg tag "$tag" '.draft == false and .tag_name == $tag' <<<"$release" >/dev/null
@@ -42,3 +45,4 @@ jobs:
           gh workflow run testflight.yml -R "$GITHUB_REPOSITORY" --ref main \
             -f "app_version=${tag#v}" -f "release_sha=$sha" -f upload=true
           echo "Dispatched internal TestFlight for $tag ($sha)." >> "$GITHUB_STEP_SUMMARY"
+

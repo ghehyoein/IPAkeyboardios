@@ -102,12 +102,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          tag="v0.4.${GITHUB_RUN_NUMBER}"
+          tag="v$(cat VERSION)"
           cat > build/RELEASE.md <<EOF
           IPA Keyboard. Tested on iOS $TEST_IOS_VERSION.
 
           Download **IPAKeyboard-unsigned.ipa** below directly. No outer ZIP is needed.
           This is an UNSIGNED device IPA. Sign the app and its keyboard extension before installing.
+
+          Neutral grayscale keyboard styling. The symbol panel expands to five rows while the letter keyboard keeps its compact height.
+          Interface and symbol descriptions support Simplified Chinese, Traditional Chinese, English and Japanese, with a shared language preference.
 
           Source: $GITHUB_SHA
           Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID

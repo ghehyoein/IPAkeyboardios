@@ -23,6 +23,7 @@ final class KeyboardViewController: UIInputViewController {
         let height = view.heightAnchor.constraint(equalToConstant: 229)
         height.priority = .init(999); height.isActive = true; heightConstraint = height
         inputView?.allowsSelfSizing = true
+        keyboard.onHeightChange = { [weak self] in self?.view.setNeedsLayout() }
         keyboard.onMoveCursor = { [weak self] offset in self?.textDocumentProxy.adjustTextPosition(byCharacterOffset: offset) }
         keyboard.onInsert = { [weak self] text in self?.textDocumentProxy.insertText(text) }
         keyboard.onDelete = { [weak self] in self?.textDocumentProxy.deleteBackward() }
@@ -42,7 +43,7 @@ final class KeyboardViewController: UIInputViewController {
         let landscape = view.bounds.width > view.bounds.height && view.bounds.width > 600
         // Four key rows, with small top/bottom insets and no permanent callout band.
         let ownGlobeFooter: CGFloat = needsInputModeSwitchKey && !keyboard.usesInlineGlobe ? 42 : 0
-        heightConstraint?.constant = (landscape ? 165 : 229) + ownGlobeFooter
+        heightConstraint?.constant = keyboard.contentHeight(landscape: landscape, globeFooter: ownGlobeFooter)
     }
     override func textDidChange(_ textInput: UITextInput?) { KeyFeedback.shared.soundAvailable = hasFullAccess; keyboard.refreshVisibility(); updateAppearance() }
     override func viewWillDisappear(_ animated: Bool) {
