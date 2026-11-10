@@ -2,7 +2,7 @@ import UIKit
 
 final class SandboxViewController: UIViewController {
     private let editor = UITextView()
-    private let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 380))
+    private let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG

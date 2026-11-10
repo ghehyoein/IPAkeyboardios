@@ -33,8 +33,8 @@ final class VariantStrip: UIView {
         let width = CGFloat(visibleCount) * cellWidth + 12
         let left = min(max(8, keyFrame.midX - width / 2), bounds.width - width - 8)
         let height: CGFloat = showsSelection ? 57 : 55
-        // The keyboard reserves a top band so the first-row callout also
-        // fits entirely above its key. Clamp only for undersized previews.
+        // Prefer above-key placement. At the top edge, temporarily overlay the
+        // first row rather than reserving space or drawing outside the extension.
         let top = max(4, keyFrame.minY - height - 7)
         body.frame = CGRect(x: left, y: top, width: width, height: height)
         baseIndex = min(visibleCount - 1, max(0, Int((keyFrame.midX - left - 6) / cellWidth)))

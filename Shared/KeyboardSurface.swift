@@ -13,7 +13,12 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     var onNextKeyboard: ((UIButton, UIEvent) -> Void)?
     var usesInlineGlobe = false { didSet { setNeedsLayout() } }
     private var swipePreferences = SymbolSettingsStore.shared.loadSwipes()
-    var systemManagedLayout = false { didSet { invalidateIntrinsicContentSize(); setNeedsLayout() } }
+    var systemManagedLayout = false { didSet {
+        backgroundMaterial?.isHidden = systemManagedLayout
+        layer.cornerRadius = systemManagedLayout ? 0 : 20
+        invalidateIntrinsicContentSize(); setNeedsLayout()
+    } }
+    private var backgroundMaterial: UIVisualEffectView?
     var needsGlobe = true { didSet { setNeedsLayout() } }
     var returnTitle = "return" { didSet { updateReturnKey() } }
     private let catalog = IPACatalog.shared
@@ -47,7 +52,8 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         layer.cornerRadius = 20
         layer.cornerCurve = .continuous
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        _ = KeyboardMaterial.install(in: self)
+        backgroundMaterial = KeyboardMaterial.install(in: self)
+        isOpaque = false
         rebuildRows()
         configure(shiftButton, title: "", action: #selector(shift))
         configure(deleteButton, title: "", action: nil)
@@ -93,7 +99,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         applyColors()
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : 380) }
+    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : 301) }
 
     private func configure(_ button: UIButton, title: String, action: Selector?) {
         button.setTitle(title, for: .normal)
@@ -121,7 +127,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         let available = max(140, bounds.height - footer - 8)
         let rowPitch: CGFloat = min(width > 600 ? 40 : 56, (available + 11) / 4)
         let keyHeight = max(24, rowPitch - 11)
-        let top: CGFloat = max(8, bounds.height - footer - 3 * rowPitch - keyHeight)
+        let top: CGFloat = 8
         for (r, row) in rows.enumerated() {
             // Five punctuation keys occupy exactly the seven-letter region.
             let middleWidth = 7 * keyWidth + 6 * gap
@@ -177,10 +183,13 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         for button in [shiftButton, deleteButton, numberButton, globeButton, symbolsButton, returnButton] {
             button.backgroundColor = KeyboardMaterial.utility
             button.tintColor = dark ? .white : .black
+            button.layer.borderWidth = dark ? 0.5 : 0
+            button.layer.borderColor = UIColor.white.withAlphaComponent(0.12).cgColor
         }
         spaceButton.backgroundColor = KeyboardMaterial.key
         spaceButton.tintColor = dark ? .white : .black
-        globeButton.backgroundColor = usesInlineGlobe ? KeyboardMaterial.key : .clear
+        globeButton.backgroundColor = usesInlineGlobe ? KeyboardMaterial.utility : .clear
+        if !usesInlineGlobe { globeButton.layer.borderWidth = 0 }
         preview.backgroundColor = dark ? UIColor(white: 0.4, alpha: 1) : .white
         preview.textColor = dark ? .white : .black
         updateReturnKey()
