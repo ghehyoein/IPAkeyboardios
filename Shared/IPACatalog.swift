@@ -4,7 +4,11 @@ struct IPASymbol: Decodable {
     let id: String
     let text: String
     let display: String
-    let name: String
+    let rawName: String
+    var name: String { L10n.symbolName(rawName) }
+    private enum CodingKeys: String, CodingKey {
+        case id, text, display, rawName = "name", category, combining, official, atomic, family, priority, collections, baseKey
+    }
     let category: String
     let combining: Bool
     let official: Bool
@@ -14,7 +18,12 @@ struct IPASymbol: Decodable {
     let collections: [String]
     let baseKey: String?
 }
-struct IPACategory: Decodable { let id: String; let title: String }
+struct IPACategory: Decodable {
+    let id: String
+    let rawTitle: String
+    var title: String { rawTitle.localized }
+    private enum CodingKeys: String, CodingKey { case id, rawTitle = "title" }
+}
 struct IPAKeyMapping: Decodable {
     let variants: [String]
     let swipes: [String: String]

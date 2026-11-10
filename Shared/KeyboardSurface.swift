@@ -3,6 +3,9 @@ import UIKit
 /// Shared by the app's local sandbox and the actual system keyboard extension.
 final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     var enableInputClicksWhenVisible: Bool { KeyFeedback.shared.preferences.clicks }
+    var onHeightChange: (() -> Void)?
+    private(set) var isSymbolPanelVisible = false
+    private var displayedLanguage = L10n.language
     var onInsert: ((String) -> Void)?
     var onMoveCursor: ((Int) -> Void)?
     private var cursorDrag = CursorDrag()
@@ -48,6 +51,8 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     override init(frame: CGRect) {
         super.init(frame: frame)
         KeyFeedback.shared.reload()
+        L10n.selection = visibility.language
+        displayedLanguage = L10n.language
         clipsToBounds = true
         layer.cornerRadius = 20
         layer.cornerCurve = .continuous
@@ -65,28 +70,28 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         spaceButton.accessibilityIdentifier = "spaceKey"
         spaceButton.accessibilityLabel = "space"
         deleteButton.accessibilityIdentifier = "deleteKey"
-        deleteButton.accessibilityLabel = "删除"
+        deleteButton.accessibilityLabel = "删除".localized
         deleteButton.addTarget(self, action: #selector(deleteDown), for: .touchDown)
         deleteButton.addTarget(self, action: #selector(deleteUp), for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])
         configure(numberButton, title: "123", action: #selector(showNumbers))
         configure(globeButton, title: "◎", action: nil)
         globeButton.setImage(UIImage(systemName: "globe"), for: .normal)
         globeButton.setTitle(nil, for: .normal)
-        globeButton.accessibilityLabel = "切换输入法"
+        globeButton.accessibilityLabel = "切换输入法".localized
         globeButton.addTarget(self, action: #selector(nextKeyboard(_:event:)), for: .allTouchEvents)
         configure(spaceButton, title: "", action: #selector(space))
         spaceButton.addTarget(self, action: #selector(spaceTouchBegan), for: .touchDown)
         let trackpad = UILongPressGestureRecognizer(target: self, action: #selector(moveCursor(_:)))
         trackpad.minimumPressDuration = 0.4; trackpad.allowableMovement = 18
         trackpad.cancelsTouchesInView = true; spaceButton.addGestureRecognizer(trackpad)
-        spaceButton.accessibilityHint = "轻点输入空格；长按后左右拖动移动光标"
+        spaceButton.accessibilityHint = "轻点输入空格；长按后左右拖动移动光标".localized
         spaceButton.accessibilityCustomActions = [
-            UIAccessibilityCustomAction(name: "光标左移") { [weak self] _ in self?.onMoveCursor?(-1); return true },
-            UIAccessibilityCustomAction(name: "光标右移") { [weak self] _ in self?.onMoveCursor?(1); return true }
+            UIAccessibilityCustomAction(name: "光标左移".localized) { [weak self] _ in self?.onMoveCursor?(-1); return true },
+            UIAccessibilityCustomAction(name: "光标右移".localized) { [weak self] _ in self?.onMoveCursor?(1); return true }
         ]
         configure(symbolsButton, title: "◌̃", action: #selector(showSymbols))
         symbolsButton.titleLabel?.font = .systemFont(ofSize: 28)
-        symbolsButton.accessibilityLabel = "IPA 附加符号与全部符号"
+        symbolsButton.accessibilityLabel = "IPA 附加符号与全部符号".localized
         configure(returnButton, title: "", action: #selector(newline))
         updateReturnKey()
         preview.font = .systemFont(ofSize: 33)
@@ -97,9 +102,10 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         preview.isHidden = true
         addSubview(preview)
         applyColors()
+        updateLocalizedLabels()
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : 301) }
+    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : (isSymbolPanelVisible ? 377 : 301)) }
 
     private func configure(_ button: UIButton, title: String, action: Selector?) {
         button.setTitle(title, for: .normal)
@@ -118,7 +124,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         super.layoutSubviews()
         let width = bounds.width
         guard width > 0 else { return }
-        if previousSize != .zero && previousSize != bounds.size { closePanel(); dismissVariants(); preview.isHidden = true }
+        if previousSize != .zero && previousSize != bounds.size { dismissVariants(); preview.isHidden = true }
         previousSize = bounds.size
         let gap: CGFloat = width < 360 ? 5 : 6
         let inset: CGFloat = 8.5
@@ -161,7 +167,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         }
         globeButton.isHidden = overlay != nil || !needsGlobe
         if !usesInlineGlobe { globeButton.frame = CGRect(x: width - 64, y: footerY, width: 42, height: 42) }
-        overlay?.frame = bounds
+        layoutSymbolPanel()
     }
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard isUserInteractionEnabled, !isHidden, alpha > 0.01, bounds.contains(point) else { return nil }
@@ -194,13 +200,26 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         preview.textColor = dark ? .white : .black
         updateReturnKey()
     }
+    private func updateLocalizedLabels() {
+        globeButton.accessibilityLabel = "切换输入法".localized
+        deleteButton.accessibilityLabel = "删除".localized
+        symbolsButton.accessibilityLabel = "IPA 附加符号与全部符号".localized
+        spaceButton.accessibilityLabel = "空格".localized
+        spaceButton.accessibilityHint = "轻点输入空格；长按后左右拖动移动光标".localized
+        spaceButton.accessibilityCustomActions = [
+            UIAccessibilityCustomAction(name: "光标左移".localized) { [weak self] _ in self?.onMoveCursor?(-1); return true },
+            UIAccessibilityCustomAction(name: "光标右移".localized) { [weak self] _ in self?.onMoveCursor?(1); return true }
+        ]
+        updateReturnKey()
+    }
     private func updateReturnKey() {
         let imageName: String? = returnTitle == "return" ? "return" : (returnTitle == "search" ? "magnifyingglass" : nil)
-        returnButton.setTitle(imageName == nil ? returnTitle : nil, for: .normal)
+        let label = ["go": "前往", "search": "搜索", "send": "发送", "done": "完成", "next": "下一项", "return": "返回"][returnTitle]?.localized ?? returnTitle
+        returnButton.setTitle(imageName == nil ? label : nil, for: .normal)
         returnButton.setImage(imageName.flatMap { UIImage(systemName: $0, withConfiguration: UIImage.SymbolConfiguration(pointSize: returnTitle == "search" ? 22 : 15)) }, for: .normal)
-        returnButton.backgroundColor = returnTitle == "search" ? .systemBlue : KeyboardMaterial.key
-        returnButton.tintColor = returnTitle == "search" ? .white : .label
-        returnButton.accessibilityLabel = returnTitle
+        returnButton.backgroundColor = returnTitle == "search" ? .label : KeyboardMaterial.key
+        returnButton.tintColor = returnTitle == "search" ? .systemBackground : .label
+        returnButton.accessibilityLabel = label
         returnButton.accessibilityIdentifier = "returnKey"
     }
     private func rebuildRows() {
@@ -226,7 +245,10 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         KeyFeedback.shared.reload()
         let updated = SymbolSettingsStore.shared.load()
         let swipes = SymbolSettingsStore.shared.loadSwipes()
-        guard updated != visibility || swipes != swipePreferences else { return }
+        L10n.selection = updated.language
+        guard updated != visibility || swipes != swipePreferences || displayedLanguage != L10n.language else { return }
+        displayedLanguage = L10n.language
+        updateLocalizedLabels()
         visibility = updated; swipePreferences = swipes
         showPage(page)
     }
@@ -263,7 +285,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         shiftButton.setTitle(nil, for: .normal)
         rows.flatMap { $0 }.forEach { $0.uppercase = uppercase }
         shiftButton.setImage(UIImage(systemName: capsLocked ? "capslock.fill" : (uppercase ? "shift.fill" : "shift"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 15)), for: .normal)
-        shiftButton.accessibilityLabel = capsLocked ? "大写锁定" : (uppercase ? "大写" : "小写")
+        shiftButton.accessibilityLabel = capsLocked ? "大写锁定".localized : (uppercase ? "大写".localized : "小写".localized)
     }
     @objc private func deleteDown() {
         deleteUp(); onDelete?()
@@ -282,7 +304,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
             cursorDrag.reset(); cursorPoint = gesture.location(in: self)
             dismissVariants(); touchPreview?.removeFromSuperview(); touchPreview = nil
             rows.flatMap { $0 }.forEach { $0.legendHidden = true }
-            spaceButton.setTitle("移动光标", for: .normal)
+            spaceButton.setTitle("移动光标".localized, for: .normal)
             KeyFeedback.shared.candidateChanged()
         case .changed:
             guard trackingCursor else { return }
@@ -310,12 +332,16 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     }
     @objc private func closePanel() {
         overlay?.removeFromSuperview(); overlay = nil; panelTitle = nil
+        if isSymbolPanelVisible {
+            isSymbolPanelVisible = false; invalidateIntrinsicContentSize(); onHeightChange?()
+        }
         subviews.compactMap { $0 as? UIControl }.forEach { $0.isHidden = false }
         setNeedsLayout()
     }
     @objc private func returnToLetters() { showPage(.letters) }
     private func makePanel() -> UIView {
-        closePanel(); dismissVariants(); preview.isHidden = true
+        overlay?.removeFromSuperview(); overlay = nil
+        dismissVariants(); preview.isHidden = true
         touchPreview?.removeFromSuperview(); touchPreview = nil
         subviews.compactMap { $0 as? UIControl }.forEach { $0.isHidden = true }
         let panel = UIView(frame: bounds)
@@ -355,11 +381,14 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     }
     @objc private func showSymbols() { showCategory(panelCategory) }
     private func showCategory(_ id: String) {
+        if !isSymbolPanelVisible {
+            isSymbolPanelVisible = true; invalidateIntrinsicContentSize(); onHeightChange?()
+        }
         let panel = makePanel()
         let inventory = SymbolPanelInventory.sections(catalog: catalog, visibility: visibility)
         let allowed = Set(inventory.flatMap { $0.values })
         let recent = RecentSymbols.shared.values.filter { allowed.contains($0) }
-        let sections = [SymbolSection(id: "recent", title: "最近使用", values: recent)] + inventory
+        let sections = [SymbolSection(id: "recent", title: "最近使用".localized, values: recent)] + inventory
         let tabs = UIScrollView(frame: CGRect(x: numberButton.frame.maxX + 6, y: numberButton.frame.minY, width: bounds.width - numberButton.frame.maxX - 14.5, height: numberButton.frame.height))
         tabs.showsHorizontalScrollIndicator = false
         tabs.accessibilityIdentifier = "symbolCategories"
@@ -369,7 +398,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         title.font = .systemFont(ofSize: 12, weight: .medium); title.textColor = .secondaryLabel
         title.accessibilityIdentifier = "symbolSectionTitle"; panel.addSubview(title)
         let grid = SymbolGrid(frame: CGRect(x: 0, y: top + 20, width: bounds.width, height: max(1, numberButton.frame.minY - top - 26)), sections: sections)
-        grid.keyHeight = min(36, numberButton.frame.height)
+        grid.keyHeight = 36
         grid.onInsert = { [weak self] text in self?.insert(text) }
         panel.addSubview(grid)
         var x: CGFloat = 0
@@ -379,7 +408,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
             button.setTitle(section.title, for: .normal)
             button.accessibilityIdentifier = "category_" + section.id
             button.titleLabel?.font = .systemFont(ofSize: 12)
-            let width = max(54, CGFloat(section.title.count) * 13 + 18)
+            let width = max(54, (section.title as NSString).size(withAttributes: [.font: UIFont.systemFont(ofSize: 12)]).width + 24)
             button.frame = CGRect(x: x, y: 0, width: width, height: numberButton.frame.height)
             button.layer.cornerRadius = 12; button.layer.cornerCurve = .continuous
             button.addAction(UIAction { [weak grid] _ in grid?.selectSection(section.id, animated: true) }, for: .touchUpInside)
@@ -389,16 +418,38 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         grid.onSectionChange = { [weak self, weak title] id, heading in
             self?.panelCategory = id; title?.text = heading
             for (key, button) in buttons {
-                button.backgroundColor = key == id ? UIColor.systemTeal.withAlphaComponent(0.18) : .clear
+                button.backgroundColor = key == id ? UIColor.tertiarySystemFill : .clear
                 button.tintColor = key == id ? .label : .secondaryLabel
                 button.setTitleColor(key == id ? .label : .secondaryLabel, for: .normal)
                 button.accessibilityTraits = key == id ? [.button, .selected] : [.button]
             }
             // Selection never changes the category strip's scroll offset.
         }
+        layoutSymbolPanel()
         let target = sections.contains { $0.id == id } ? id : (inventory.first?.id ?? "recent")
         grid.layoutIfNeeded()
         grid.selectSection(target)
+    }
+    func contentHeight(landscape: Bool, globeFooter: CGFloat) -> CGFloat {
+        (isSymbolPanelVisible ? 305 : (landscape ? 165 : 229)) + globeFooter
+    }
+    private func layoutSymbolPanel() {
+        guard let panel = overlay else { return }
+        panel.frame = bounds
+        let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : 80
+        let toolbarY = bounds.height - footer - 45
+        if let close = panel.subviews.first(where: { $0.accessibilityIdentifier == "closeSymbolPanel" }) {
+            close.frame = CGRect(x: numberButton.frame.minX, y: toolbarY, width: numberButton.frame.width, height: 45)
+        }
+        if let tabs = panel.subviews.first(where: { $0.accessibilityIdentifier == "symbolCategories" }) as? UIScrollView {
+            tabs.frame = CGRect(x: numberButton.frame.maxX + 6, y: toolbarY, width: bounds.width - numberButton.frame.maxX - 14.5, height: 45)
+            for button in tabs.subviews.compactMap({ $0 as? UIButton }) { button.frame.size.height = 45 }
+        }
+        if let grid = panel.subviews.compactMap({ $0 as? SymbolGrid }).first {
+            let changed = grid.frame.size != CGSize(width: bounds.width, height: min(204, max(1, toolbarY - 48)))
+            grid.frame = CGRect(x: 0, y: 36, width: bounds.width, height: min(204, max(1, toolbarY - 48)))
+            if changed { let selected = panelCategory; grid.layoutIfNeeded(); grid.selectSection(selected) }
+        }
     }
     @objc private func showNumbers() { showPage(page == .letters ? .numbers : .letters) }
     #if DEBUG

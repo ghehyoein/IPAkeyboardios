@@ -36,6 +36,48 @@ final class KeyboardTests: XCTestCase {
         let selection = SymbolVisibility(panelModifiers: false)
         XCTAssertEqual(try JSONDecoder().decode(SymbolVisibility.self, from: JSONEncoder().encode(selection)), selection)
     }
+    func testLocalizationAndPreferenceMigration() throws {
+        let previous = L10n.selection
+        defer { L10n.selection = previous }
+        XCTAssertEqual(L10n.resolve(selection: "system", preferred: ["zh-TW"]), "zh-Hant")
+        XCTAssertEqual(L10n.resolve(selection: "system", preferred: ["ja-JP", "en"]), "ja")
+        XCTAssertEqual(L10n.resolve(selection: "en", preferred: ["zh-Hans"]), "en")
+        for (language, title, note) in [("zh-Hans", "符号显示", "送气"), ("zh-Hant", "符號顯示", "送氣"), ("en", "Symbol settings", "Aspirated"), ("ja", "記号の設定", "有気音")] {
+            L10n.selection = language
+            XCTAssertEqual("符号显示".localized, title)
+            XCTAssertEqual(IPACatalog.shared.symbol("ʰ")?.name, note)
+        }
+        L10n.selection = "ja"
+        XCTAssertTrue(L10n.unicodeName("LATIN SMALL LETTER A").contains("ラテン"))
+        let old = try JSONDecoder().decode(SymbolVisibility.self, from: Data(#"{"chinese":false}"#.utf8))
+        XCTAssertEqual(old.language, "system"); XCTAssertFalse(old.chinese)
+        let prefs = SymbolVisibility(language: "ja")
+        XCTAssertEqual(try JSONDecoder().decode(SymbolVisibility.self, from: JSONEncoder().encode(prefs)).language, "ja")
+    }
+    @MainActor func testSymbolPanelHeightAndNeutralColors() {
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 229))
+        keyboard.systemManagedLayout = true; keyboard.needsGlobe = false; keyboard.layoutIfNeeded()
+        XCTAssertEqual(keyboard.contentHeight(landscape: false, globeFooter: 0), 229)
+        let entry = keyboard.subviews.first { $0.accessibilityIdentifier == "diacriticsKey" } as! UIButton
+        entry.sendActions(for: .touchUpInside)
+        XCTAssertTrue(keyboard.isSymbolPanelVisible)
+        XCTAssertEqual(keyboard.contentHeight(landscape: false, globeFooter: 0), 305)
+        keyboard.frame.size.height = 305; keyboard.layoutIfNeeded()
+        let panel = keyboard.subviews.last!
+        let grid = panel.subviews.compactMap { $0 as? SymbolGrid }.first!
+        XCTAssertEqual(grid.bounds.height, 204)
+        XCTAssertEqual(grid.keyHeight, 36)
+        let close = panel.subviews.first { $0.accessibilityIdentifier == "closeSymbolPanel" } as! UIButton
+        close.sendActions(for: .touchUpInside)
+        XCTAssertEqual(keyboard.contentHeight(landscape: false, globeFooter: 0), 229)
+        for style in [UIUserInterfaceStyle.light, .dark] {
+            for color in [KeyboardMaterial.key, KeyboardMaterial.utility] {
+                var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+                color.resolvedColor(with: UITraitCollection(userInterfaceStyle: style)).getRed(&r, green: &g, blue: &b, alpha: &a)
+                XCTAssertEqual(r, g, accuracy: 0.001); XCTAssertEqual(g, b, accuracy: 0.001)
+            }
+        }
+    }
     func testDirectionThresholdAndDominantAxis() {
         XCTAssertNil(KeyMotion.direction(dx: 19, dy: -19))
         XCTAssertEqual(KeyMotion.direction(dx: 20, dy: 3), .right)

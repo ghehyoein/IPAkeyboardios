@@ -6,7 +6,7 @@ P = R/'IPAKeyboard.xcodeproj'
 P.mkdir(exist_ok=True)
 bundle_id=os.environ.get('IPA_BUNDLE_IDENTIFIER', 'org.example.IPAKeyboard')
 app_group=os.environ.get('IPA_APP_GROUP_IDENTIFIER', 'group.org.example.IPAKeyboard')
-version=os.environ.get('IPA_MARKETING_VERSION', '0.4.0')
+version=os.environ.get('IPA_MARKETING_VERSION', (R/'VERSION').read_text().strip())
 build_number=os.environ.get('IPA_BUILD_NUMBER', '4')
 objects={}
 def ident(name): return hashlib.sha1(name.encode()).hexdigest()[:24].upper()
@@ -15,14 +15,14 @@ def add(token, **attrs):
 
 def plist(path, data):
  with (R/path).open('wb') as f: plistlib.dump(data, f, sort_keys=False)
-base={'CFBundleDevelopmentRegion':'en','CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'$(PRODUCT_NAME)','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)'}
+base={'CFBundleDevelopmentRegion':'en','CFBundleLocalizations':['en','zh-Hans','zh-Hant','ja'],'CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'$(PRODUCT_NAME)','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)'}
 plist('App/Info.plist', dict(base,CFBundlePackageType='APPL',CFBundleDisplayName='IPA Keyboard',ITSAppUsesNonExemptEncryption=False,LSRequiresIPhoneOS=True,UILaunchScreen={},UISupportedInterfaceOrientations=['UIInterfaceOrientationPortrait','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight'],**{'UISupportedInterfaceOrientations~ipad':['UIInterfaceOrientationPortrait','UIInterfaceOrientationPortraitUpsideDown','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight']}))
 plist('KeyboardExtension/Info.plist',dict(base,CFBundlePackageType='XPC!',CFBundleDisplayName='IPA Keyboard',NSExtension={'NSExtensionPointIdentifier':'com.apple.keyboard-service','NSExtensionPrincipalClass':'$(PRODUCT_MODULE_NAME).KeyboardViewController','NSExtensionAttributes':{'IsASCIICapable':True,'PrefersRightToLeft':False,'PrimaryLanguage':'mul','RequestsOpenAccess':True}}))
 for file in ['App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']:
  plist(file,{'com.apple.security.application-groups':['$(IPA_APP_GROUP_IDENTIFIER)']})
-shared=['Shared/SwipePreferences.swift','Shared/KeyboardMaterial.swift','Shared/KeyFeedback.swift','Shared/SymbolVisibility.swift','Shared/IPACatalog.swift','Shared/KeyboardLayout.swift','Shared/LetterKey.swift','Shared/KeyboardSurface.swift','Shared/VariantStrip.swift','Shared/SymbolGrid.swift']
+shared=['Shared/Localization.swift','Shared/SwipePreferences.swift','Shared/KeyboardMaterial.swift','Shared/KeyFeedback.swift','Shared/SymbolVisibility.swift','Shared/IPACatalog.swift','Shared/KeyboardLayout.swift','Shared/LetterKey.swift','Shared/KeyboardSurface.swift','Shared/VariantStrip.swift','Shared/SymbolGrid.swift']
 source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/SandboxViewController.swift','App/SymbolSettingsViewController.swift','App/SymbolCatalogViewController.swift','App/SwipeSettingsViewController.swift']+shared,'IPAKeyboardExtension':['KeyboardExtension/KeyboardViewController.swift']+shared,'IPAKeyboardTests':['Tests/KeyboardTests.swift'],'IPAKeyboardUITests':['Tests/KeyboardUITests.swift']}
-files=sorted(set(sum(source_sets.values(),[])+['Shared/PrivacyInfo.xcprivacy','Shared/ipa-catalog.json','App/Info.plist','KeyboardExtension/Info.plist','App/Assets.xcassets','App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']))
+files=sorted(set(sum(source_sets.values(),[])+['Shared/localization.json','Shared/PrivacyInfo.xcprivacy','Shared/ipa-catalog.json','App/Info.plist','KeyboardExtension/Info.plist','App/Assets.xcassets','App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']))
 refs={}
 for file in files:
  ext=Path(file).suffix
@@ -49,8 +49,9 @@ for target,fileset in source_sets.items():
  sources=[]
  for file in fileset:
   sources.append(add(target+':source:'+file,isa='PBXBuildFile',fileRef=refs[file]))
+ localized=add(target+':localization',isa='PBXBuildFile',fileRef=refs['Shared/localization.json'])
  resource=add(target+':resource',isa='PBXBuildFile',fileRef=refs['Shared/ipa-catalog.json'])
- phases=[add(target+':sources',isa='PBXSourcesBuildPhase',buildActionMask=2147483647,files=sources,runOnlyForDeploymentPostprocessing=0),add(target+':resources',isa='PBXResourcesBuildPhase',buildActionMask=2147483647,files=[resource],runOnlyForDeploymentPostprocessing=0),add(target+':frameworks',isa='PBXFrameworksBuildPhase',buildActionMask=2147483647,files=[],runOnlyForDeploymentPostprocessing=0)]
+ phases=[add(target+':sources',isa='PBXSourcesBuildPhase',buildActionMask=2147483647,files=sources,runOnlyForDeploymentPostprocessing=0),add(target+':resources',isa='PBXResourcesBuildPhase',buildActionMask=2147483647,files=[resource,localized],runOnlyForDeploymentPostprocessing=0),add(target+':frameworks',isa='PBXFrameworksBuildPhase',buildActionMask=2147483647,files=[],runOnlyForDeploymentPostprocessing=0)]
  if target in ['IPAKeyboard','IPAKeyboardExtension']:
   privacy=add(target+':privacy',isa='PBXBuildFile',fileRef=refs['Shared/PrivacyInfo.xcprivacy'])
   objects[phases[1]]['files'].append(privacy)
@@ -80,7 +81,7 @@ for target,fileset in source_sets.items():
   dependencies.append(add(target+'testHostDependency',isa='PBXTargetDependency',target=ident('target:IPAKeyboard'),targetProxy=proxy))
   productType='com.apple.product-type.bundle.ui-testing' if target=='IPAKeyboardUITests' else 'com.apple.product-type.bundle.unit-test'
  add('target:'+target,isa='PBXNativeTarget',buildConfigurationList=configs(target,settings),buildPhases=phases,buildRules=[],dependencies=dependencies,name=target,productName=target,productReference=products[target],productType=productType)
-add('project',isa='PBXProject',attributes={'LastUpgradeCheck':'1600','BuildIndependentTargetsInParallel':'YES'},buildConfigurationList=projectConfigs,compatibilityVersion='Xcode 14.0',developmentRegion='en',hasScannedForEncodings=0,knownRegions=['en','zh-Hans','Base'],mainGroup=mainGroup,productRefGroup=productGroup,projectDirPath='',projectRoot='',targets=[ident('target:'+t) for t in source_sets])
+add('project',isa='PBXProject',attributes={'LastUpgradeCheck':'1600','BuildIndependentTargetsInParallel':'YES'},buildConfigurationList=projectConfigs,compatibilityVersion='Xcode 14.0',developmentRegion='en',hasScannedForEncodings=0,knownRegions=['en','zh-Hans','zh-Hant','ja','Base'],mainGroup=mainGroup,productRefGroup=productGroup,projectDirPath='',projectRoot='',targets=[ident('target:'+t) for t in source_sets])
 def encode(v,indent=0):
  if isinstance(v,dict):
   return '{\n'+''.join('\t'*(indent+1)+json.dumps(k)+' = '+encode(val,indent+1)+';\n' for k,val in v.items())+'\t'*indent+'}'
@@ -103,3 +104,4 @@ def ref(t,ext): return f'<BuildableReference BuildableIdentifier="primary" Bluep
 </Scheme>
 ''')
 print('Generated IPAKeyboard.xcodeproj, shared scheme and Info.plists.')
+

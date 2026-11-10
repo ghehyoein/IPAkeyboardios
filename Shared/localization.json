@@ -1,0 +1,1928 @@
+{
+  "ui": {
+    "符号显示": {
+      "en": "Symbol settings",
+      "ja": "記号の設定"
+    },
+    "始终显示": {
+      "en": "Always available",
+      "ja": "常に表示"
+    },
+    "按需显示": {
+      "en": "Optional symbol sets",
+      "ja": "追加の記号"
+    },
+    "输入反馈": {
+      "en": "Typing feedback",
+      "ja": "入力フィードバック"
+    },
+    "系统键盘同步": {
+      "en": "Keyboard sync",
+      "ja": "キーボードとの同期"
+    },
+    "符号参考": {
+      "en": "Symbol reference",
+      "ja": "記号一覧"
+    },
+    "滑动自定义": {
+      "en": "Swipe customization",
+      "ja": "スワイプの設定"
+    },
+    "符号面板内容": {
+      "en": "Symbol panel contents",
+      "ja": "記号パネルの表示内容"
+    },
+    "现版 IPA": {
+      "en": "Current IPA",
+      "ja": "現行 IPA"
+    },
+    "始终显示，不可关闭": {
+      "en": "Always available",
+      "ja": "常に使用できます"
+    },
+    "中国通用音标": {
+      "en": "Chinese phonetic symbols",
+      "ja": "中国語の音声記号"
+    },
+    "旧版 IPA": {
+      "en": "Historical IPA",
+      "ja": "旧 IPA"
+    },
+    "历史与非标准形式": {
+      "en": "Historical and nonstandard forms",
+      "ja": "歴史的・非標準の記号"
+    },
+    "言语障碍等扩展音标": {
+      "en": "Extended symbols for disordered speech",
+      "ja": "発話障害などのための拡張記号"
+    },
+    "主键盘无法输入的符号": {
+      "en": "Symbols unavailable on the main keyboard",
+      "ja": "メインキーボードで入力できない記号"
+    },
+    "主键盘可输入的附加符号": {
+      "en": "Modifiers available on the main keyboard",
+      "ja": "メインキーボードで入力できる補助記号"
+    },
+    "主键盘可输入的普通符号": {
+      "en": "Ordinary symbols available on the main keyboard",
+      "ja": "メインキーボードで入力できる通常の記号"
+    },
+    "独立附加符号及其他未映射字符": {
+      "en": "Independent modifiers and unmapped characters",
+      "ja": "独立した補助記号・未割り当ての文字"
+    },
+    "上标、下标、叠加符号，例如 ʰ": {
+      "en": "Superscripts, subscripts and combining marks, such as ʰ",
+      "ja": "上付き・下付き・結合記号（ʰ など）"
+    },
+    "普通字母、音标和标点": {
+      "en": "Letters, phonetic symbols and punctuation",
+      "ja": "通常の文字・音声記号・句読点"
+    },
+    "按键声音": {
+      "en": "Key clicks",
+      "ja": "キーの操作音"
+    },
+    "按键触感": {
+      "en": "Key haptics",
+      "ja": "キーの触覚フィードバック"
+    },
+    "四向滑动设置": {
+      "en": "Configure swipe gestures",
+      "ja": "4方向スワイプの設定"
+    },
+    "全部符号与注释": {
+      "en": "All symbols and descriptions",
+      "ja": "すべての記号と説明"
+    },
+    "按分类浏览 · Unicode 编码 · 注释": {
+      "en": "Categories · Unicode codes · Descriptions",
+      "ja": "分類・Unicode コード・説明"
+    },
+    "共享设置已就绪": {
+      "en": "Shared settings available",
+      "ja": "設定を共有できます"
+    },
+    "仅在 App 内生效": {
+      "en": "Saved in this app only",
+      "ja": "このアプリ内のみ有効"
+    },
+    "切回键盘后读取最新开关": {
+      "en": "Reopen the keyboard to apply changes",
+      "ja": "キーボードに戻ると反映されます"
+    },
+    "签名需支持 App Groups": {
+      "en": "Signing must support App Groups",
+      "ja": "App Groups 対応の署名が必要です"
+    },
+    "四向滑动": {
+      "en": "Swipe gestures",
+      "ja": "4方向スワイプ"
+    },
+    "字母": {
+      "en": "Letters",
+      "ja": "文字"
+    },
+    "数字与标点": {
+      "en": "Numbers and punctuation",
+      "ja": "数字と句読点"
+    },
+    "符号": {
+      "en": "Symbols",
+      "ja": "記号"
+    },
+    "恢复此键默认设置": {
+      "en": "Reset this key",
+      "ja": "このキーをリセット"
+    },
+    "↑ 上滑": {
+      "en": "↑ Swipe up",
+      "ja": "↑ 上にスワイプ"
+    },
+    "↓ 下滑": {
+      "en": "↓ Swipe down",
+      "ja": "↓ 下にスワイプ"
+    },
+    "← 左滑": {
+      "en": "← Swipe left",
+      "ja": "← 左にスワイプ"
+    },
+    "→ 右滑": {
+      "en": "→ Swipe right",
+      "ja": "→ 右にスワイプ"
+    },
+    "无变体": {
+      "en": "No variant",
+      "ja": "候補なし"
+    },
+    "选择长按候选": {
+      "en": "Choose a long-press variant",
+      "ja": "長押し候補を選択"
+    },
+    "搜索候选字符或注释": {
+      "en": "Search variants or descriptions",
+      "ja": "候補や説明を検索"
+    },
+    "基础字符": {
+      "en": "Base character",
+      "ja": "基本の文字"
+    },
+    "其他音标": {
+      "en": "Other phonetic symbols",
+      "ja": "その他の音声記号"
+    },
+    "Unicode 字符": {
+      "en": "Unicode character",
+      "ja": "Unicode 文字"
+    },
+    "字母、数字、标点及变体": {
+      "en": "Letters, numbers, punctuation and variants",
+      "ja": "文字・数字・句読点と異体字"
+    },
+    "全部分类": {
+      "en": "All categories",
+      "ja": "すべての分類"
+    },
+    "分类": {
+      "en": "Categories",
+      "ja": "分類"
+    },
+    "选择符号分区": {
+      "en": "Choose a symbol category",
+      "ja": "記号の分類を選択"
+    },
+    "搜索符号、名称或 Unicode 编码": {
+      "en": "Search symbols, names or Unicode codes",
+      "ja": "記号・名前・Unicode コードを検索"
+    },
+    "已隐藏": {
+      "en": "Hidden",
+      "ja": "非表示"
+    },
+    "最近使用": {
+      "en": "Recently used",
+      "ja": "最近使った記号"
+    },
+    " · 暂无最近使用": {
+      "en": " · No recent symbols",
+      "ja": " · 履歴はありません"
+    },
+    " · 字母": {
+      "en": " · Letters",
+      "ja": " · 文字"
+    },
+    "肺部气流辅音": {
+      "en": "Pulmonic consonants",
+      "ja": "肺気流子音"
+    },
+    "非肺部气流辅音": {
+      "en": "Non-pulmonic consonants",
+      "ja": "非肺気流子音"
+    },
+    "元音": {
+      "en": "Vowels",
+      "ja": "母音"
+    },
+    "其他符号与连音线": {
+      "en": "Other symbols and tie bars",
+      "ja": "その他の記号・タイバー"
+    },
+    "附加符号": {
+      "en": "Diacritics",
+      "ja": "補助記号"
+    },
+    "超音段符号": {
+      "en": "Suprasegmentals",
+      "ja": "超分節要素"
+    },
+    "声调与词重音": {
+      "en": "Tones and word accents",
+      "ja": "声調と語アクセント"
+    },
+    "旧版与非标准 IPA": {
+      "en": "Historical and nonstandard IPA",
+      "ja": "旧 IPA・非標準 IPA"
+    },
+    "上标字符": {
+      "en": "Superscripts",
+      "ja": "上付き文字"
+    },
+    "下标字符": {
+      "en": "Subscripts",
+      "ja": "下付き文字"
+    },
+    "组合附加符号": {
+      "en": "Combining marks",
+      "ja": "結合記号"
+    },
+    "Unicode 语音补充": {
+      "en": "Unicode phonetic supplement",
+      "ja": "Unicode 音声記号補遺"
+    },
+    "转写辅助": {
+      "en": "Transcription aids",
+      "ja": "転写補助"
+    },
+    "肺辅": {
+      "en": "Pulm.",
+      "ja": "肺子音"
+    },
+    "非肺": {
+      "en": "Non-p.",
+      "ja": "非肺"
+    },
+    "旧IPA": {
+      "en": "Old IPA",
+      "ja": "旧IPA"
+    },
+    "切换输入法": {
+      "en": "Switch keyboard",
+      "ja": "キーボードを切り替え"
+    },
+    "删除": {
+      "en": "Delete",
+      "ja": "削除"
+    },
+    "IPA 附加符号与全部符号": {
+      "en": "IPA diacritics and symbols",
+      "ja": "IPA 補助記号とすべての記号"
+    },
+    "光标左移": {
+      "en": "Move cursor left",
+      "ja": "カーソルを左へ"
+    },
+    "光标右移": {
+      "en": "Move cursor right",
+      "ja": "カーソルを右へ"
+    },
+    "移动光标": {
+      "en": "Move cursor",
+      "ja": "カーソル移動"
+    },
+    "大写": {
+      "en": "Uppercase",
+      "ja": "大文字"
+    },
+    "小写": {
+      "en": "Lowercase",
+      "ja": "小文字"
+    },
+    "大写锁定": {
+      "en": "Caps Lock",
+      "ja": "大文字ロック"
+    },
+    "轻点输入字母；上下左右滑动输入变体；长按显示所有变体": {
+      "en": "Tap to type; swipe for variants; hold for all variants",
+      "ja": "タップで入力、スワイプで異体字、長押しで全候補を表示"
+    },
+    "轻点输入空格；长按后左右拖动移动光标": {
+      "en": "Tap for a space; hold and drag to move the cursor",
+      "ja": "タップで空白、長押しして左右にドラッグするとカーソル移動"
+    },
+    "轻点输入，长按查看注释": {
+      "en": "Tap to insert; hold for a description",
+      "ja": "タップで入力、長押しで説明を表示"
+    },
+    "语言": {
+      "en": "Language",
+      "ja": "言語"
+    },
+    "跟随系统": {
+      "en": "System default",
+      "ja": "システム設定に従う"
+    },
+    "界面与符号注释": {
+      "en": "Interface and symbol descriptions",
+      "ja": "表示言語と記号の説明"
+    },
+    "滑动设置": {
+      "en": "Swipe settings",
+      "ja": "スワイプ設定"
+    },
+    "按分类查看符号、名称与 Unicode 编码，支持搜索。": {
+      "en": "Browse and search symbols, names and Unicode codes by category.",
+      "ja": "分類別に記号・名前・Unicode コードを閲覧・検索できます。"
+    },
+    "现版 IPA 的独立字母、附加符号始终可用。组合形式仍需依次输入。": {
+      "en": "Current IPA letters and diacritics remain available. Enter composite forms one component at a time.",
+      "ja": "現行 IPA の独立した文字と補助記号は常に使用できます。組み合わせは順に入力してください。"
+    },
+    "只影响符号面板，不改变主键盘的长按或滑动候选。主键盘包含字母、数字、标点及其长按变体。附加符号优先显示，同一符号仅保留一个分类；最近使用遵循这些开关。": {
+      "en": "These filters affect only the symbol panel, including recents. Main-keyboard letters, numbers, punctuation and their variants remain unchanged. Modifiers appear first, with one category per symbol.",
+      "ja": "記号パネルと履歴のみを絞り込みます。メインキーボードの文字・数字・句読点や長押し・スワイプ候補は変わりません。補助記号を先に表示し、各記号は1つの分類にまとめます。"
+    },
+    "开关影响长按、四向滑动及符号面板。重复归类的符号，只要仍有一个所属分类开启就会显示；现版 IPA 不受影响。通用数字、标点及其他 Unicode 补充保留。": {
+      "en": "These switches affect long-press variants, swipes and the symbol panel. Symbols in multiple sets remain visible while any of their sets is enabled. Current IPA, general numbers, punctuation and other Unicode supplements remain available.",
+      "ja": "長押し・スワイプ候補と記号パネルに反映されます。複数の集合に属する記号は、いずれかが有効なら表示されます。現行 IPA、一般的な数字・句読点、その他の Unicode 補遺は引き続き使用できます。"
+    },
+    "点击声使用系统输入点击接口，受静音及系统声音设置约束。触感使用轻触震动，也会在滑选候选时反馈；此开关独立于苹果键盘的触感设置。": {
+      "en": "Key clicks follow system sound and silent-mode settings. Haptics provide light feedback when typing and choosing variants. This switch is independent of Apple's keyboard haptic setting.",
+      "ja": "操作音はシステムの音量・消音設定に従います。触覚フィードバックは入力時や候補選択時に軽い振動を返します。Apple キーボードの触覚設定とは独立しています。"
+    },
+    "逐键设置上、下、左、右滑动的输入字符；候选限于此键的长按菜单。与符号显示开关一样，需要共享容器才能同步到系统键盘。": {
+      "en": "Assign each key's four swipe directions using its long-press variants. A shared App Group is required to sync these settings to the keyboard.",
+      "ja": "各キーの長押し候補から、上下左右のスワイプに割り当てる文字を選べます。キーボードへの同期には共有 App Group が必要です。"
+    },
+    "只能选择该键长按菜单中的字符。关闭某个音标分类后，对应的自定义滑动暂不输入；重新开启即可恢复。": {
+      "en": "Choose from this key's long-press variants. Disabling a symbol set temporarily disables its swipe assignments; enabling it restores them.",
+      "ja": "このキーの長押し候補から選択します。記号集合を無効にすると対応するスワイプ入力も一時停止し、再度有効にすると復元します。"
+    },
+    "切回系统键盘即可读取开关，无需完全访问。若要播放扩展中的按键声音，请在系统键盘设置中开启「允许完全访问」。仅共享偏好；不联网、不记录正文。最近选用的符号仅保存在键盘本地。": {
+      "en": "Reopen the keyboard to apply settings. Read-only sync needs no Full Access; key-click audio requires Allow Full Access in system settings. Only preferences are shared. No network access or text logging; recents stay local.",
+      "ja": "キーボードに戻ると設定が反映されます。設定の読み取りにフルアクセスは不要ですが、操作音にはシステム設定で「フルアクセスを許可」が必要です。共有するのは設定のみです。通信・入力本文の記録は行わず、履歴は端末内に保存します。"
+    },
+    "当前签名没有可用的共享容器，偏好已保存在 App 中，但系统键盘暂时无法读取。重新签名时需为 App 和键盘扩展配置同一个 App Group；详见仓库签名说明。": {
+      "en": "Settings are saved in the app, but the current signature has no shared container. Configure the same App Group for the app and keyboard extension to enable sync; see the repository signing guide.",
+      "ja": "設定はアプリに保存されていますが、現在の署名では共有コンテナを使用できません。アプリとキーボード拡張に同じ App Group を設定してください。詳細はリポジトリの署名ガイドを参照してください。"
+    },
+    "取消": {
+      "en": "Cancel",
+      "ja": "キャンセル"
+    },
+    "前往": {
+      "en": "Go",
+      "ja": "移動"
+    },
+    "搜索": {
+      "en": "Search",
+      "ja": "検索"
+    },
+    "发送": {
+      "en": "Send",
+      "ja": "送信"
+    },
+    "完成": {
+      "en": "Done",
+      "ja": "完了"
+    },
+    "下一项": {
+      "en": "Next",
+      "ja": "次へ"
+    },
+    "返回": {
+      "en": "Return",
+      "ja": "改行"
+    },
+    "空格": {
+      "en": "Space",
+      "ja": "空白"
+    },
+    "使用说明": {
+      "en": "Help",
+      "ja": "使い方"
+    },
+    "把声音，写准确。": {
+      "en": "Write sounds precisely.",
+      "ja": "音を正確に書き表す。"
+    },
+    "IPA 试打区域": {
+      "en": "IPA typing area",
+      "ja": "IPA 入力欄"
+    },
+    "收起键盘": {
+      "en": "Dismiss keyboard",
+      "ja": "キーボードを閉じる"
+    },
+    "启用与输入": {
+      "en": "Setup and typing",
+      "ja": "設定と入力"
+    },
+    "键盘使用说明": {
+      "en": "Enable IPA Keyboard in system keyboard settings. Tap letters, swipe for variants, or hold to choose. Use the symbol panel for modifiers. Hold space and drag to move the cursor. Configure symbols, gestures and language in the app.",
+      "ja": "システムのキーボード設定で IPA Keyboard を追加してください。文字をタップ、スワイプで異体字、長押しで候補を選択できます。補助記号は記号パネルから入力します。空白キーを長押ししてドラッグするとカーソルを移動できます。記号・操作・言語はアプリで設定します。"
+    },
+    "轻点字母 · 四向滑动 · 长按选变体": {
+      "en": "Tap letters · Swipe for variants · Hold to choose",
+      "ja": "タップで入力・4方向スワイプ・長押しで候補選択"
+    },
+    "打开设置可调整符号、滑动和语言。": {
+      "en": "Open settings to customize symbols, swipes and language.",
+      "ja": "設定から記号・スワイプ・言語を変更できます。"
+    }
+  },
+  "names": {
+    "上连音线：在两字母之间输入": {
+      "en": "Tie bar above; enter between two letters",
+      "ja": "上側のタイバー（2文字の間に入力）"
+    },
+    "下连音线：在两字母之间输入": {
+      "en": "Tie bar below; enter between two letters",
+      "ja": "下側のタイバー（2文字の間に入力）"
+    },
+    "中央化": {
+      "en": "Mid-centralized",
+      "ja": "中舌中央化"
+    },
+    "中调": {
+      "en": "Mid tone",
+      "ja": "中平調"
+    },
+    "主重音": {
+      "en": "Primary stress",
+      "ja": "第一強勢"
+    },
+    "低升调": {
+      "en": "Low rising tone",
+      "ja": "低上昇調"
+    },
+    "低调": {
+      "en": "Low tone",
+      "ja": "低平調"
+    },
+    "前移": {
+      "en": "Advanced",
+      "ja": "前寄り"
+    },
+    "升调": {
+      "en": "Rising tone",
+      "ja": "上昇調"
+    },
+    "升阶": {
+      "en": "Upstep",
+      "ja": "アップステップ"
+    },
+    "升降调": {
+      "en": "Rising-falling tone",
+      "ja": "上昇下降調"
+    },
+    "升高": {
+      "en": "Raised",
+      "ja": "高め"
+    },
+    "半长音": {
+      "en": "Half-long",
+      "ja": "半長"
+    },
+    "卷舌化": {
+      "en": "Rhoticity",
+      "ja": "R音性"
+    },
+    "卷舌半开央元音（便捷预组字符）": {
+      "en": "Rhotacized open-mid central vowel (precomposed)",
+      "ja": "R音化した非円唇中舌半広母音（合成済み文字）"
+    },
+    "卷舌央元音（便捷预组字符）": {
+      "en": "Rhotacized central vowel (precomposed)",
+      "ja": "R音化した中舌母音（合成済み文字）"
+    },
+    "后移": {
+      "en": "Retracted",
+      "ja": "後ろ寄り"
+    },
+    "咽化": {
+      "en": "Pharyngealized",
+      "ja": "咽頭化"
+    },
+    "唇化": {
+      "en": "Labialized",
+      "ja": "唇音化"
+    },
+    "嘎裂声": {
+      "en": "Creaky voice",
+      "ja": "きしみ声"
+    },
+    "大语调组边界": {
+      "en": "Major intonation-group boundary",
+      "ja": "大きなイントネーション句の境界"
+    },
+    "央化": {
+      "en": "Centralized",
+      "ja": "中舌化"
+    },
+    "小型大写 A（央低元音）": {
+      "en": "Small capital A (low central vowel)",
+      "ja": "小型大文字 A（中舌広母音）"
+    },
+    "小型大写 E（前中元音）": {
+      "en": "Small capital E (mid front vowel)",
+      "ja": "小型大文字 E（前舌中央母音）"
+    },
+    "小韵律组边界": {
+      "en": "Minor group boundary",
+      "ja": "小さな韻律句の境界"
+    },
+    "成音节": {
+      "en": "Syllabic",
+      "ja": "音節主音的"
+    },
+    "挤喉音标记": {
+      "en": "Ejective marker",
+      "ja": "放出音の記号"
+    },
+    "整体上升": {
+      "en": "Global rise",
+      "ja": "全体的な上昇"
+    },
+    "整体下降": {
+      "en": "Global fall",
+      "ja": "全体的な下降"
+    },
+    "无可闻除阻": {
+      "en": "No audible release",
+      "ja": "聞き取れる開放なし"
+    },
+    "更圆唇": {
+      "en": "More rounded",
+      "ja": "より円唇性が強い"
+    },
+    "次重音": {
+      "en": "Secondary stress",
+      "ja": "第二強勢"
+    },
+    "气声": {
+      "en": "Breathy voice",
+      "ja": "息もれ声"
+    },
+    "汉语音标：浊龈腭塞音": {
+      "en": "Chinese notation: voiced alveolo-palatal stop",
+      "ja": "中国語音声記号：有声歯茎硬口蓋破裂音"
+    },
+    "汉语音标：清龈腭塞音": {
+      "en": "Chinese notation: voiceless alveolo-palatal stop",
+      "ja": "中国語音声記号：無声歯茎硬口蓋破裂音"
+    },
+    "汉语音标：龈腭边音": {
+      "en": "Chinese notation: alveolo-palatal lateral",
+      "ja": "中国語音声記号：歯茎硬口蓋側面音"
+    },
+    "汉语音标：龈腭鼻音": {
+      "en": "Chinese notation: alveolo-palatal nasal",
+      "ja": "中国語音声記号：歯茎硬口蓋鼻音"
+    },
+    "浊化": {
+      "en": "Voiced",
+      "ja": "有声化"
+    },
+    "清化（上置，用于有下伸部的字母）": {
+      "en": "Voiceless (above letters with descenders)",
+      "ja": "無声化（ディセンダーのある文字の上側）"
+    },
+    "清化（下置）": {
+      "en": "Voiceless (below)",
+      "ja": "無声化（下側）"
+    },
+    "腭化": {
+      "en": "Palatalized",
+      "ja": "硬口蓋化"
+    },
+    "舌叶音": {
+      "en": "Laminal",
+      "ja": "舌端音"
+    },
+    "舌唇音": {
+      "en": "Linguolabial",
+      "ja": "舌唇音"
+    },
+    "舌尖前不圆唇元音": {
+      "en": "Unrounded anterior apical vowel",
+      "ja": "非円唇前部舌尖母音"
+    },
+    "舌尖前圆唇元音": {
+      "en": "Rounded anterior apical vowel",
+      "ja": "円唇前部舌尖母音"
+    },
+    "舌尖后不圆唇元音": {
+      "en": "Unrounded posterior apical vowel",
+      "ja": "非円唇後部舌尖母音"
+    },
+    "舌尖后圆唇元音": {
+      "en": "Rounded posterior apical vowel",
+      "ja": "円唇後部舌尖母音"
+    },
+    "舌尖音": {
+      "en": "Apical",
+      "ja": "舌尖音"
+    },
+    "舌根前移": {
+      "en": "Advanced tongue root",
+      "ja": "舌根前進"
+    },
+    "舌根后移": {
+      "en": "Retracted tongue root",
+      "ja": "舌根後退"
+    },
+    "超低调": {
+      "en": "Extra-low tone",
+      "ja": "超低平調"
+    },
+    "超短音": {
+      "en": "Extra-short",
+      "ja": "超短"
+    },
+    "超高调": {
+      "en": "Extra-high tone",
+      "ja": "超高平調"
+    },
+    "软腭化": {
+      "en": "Velarized",
+      "ja": "軟口蓋化"
+    },
+    "软腭化或咽化": {
+      "en": "Velarized or pharyngealized",
+      "ja": "軟口蓋化または咽頭化"
+    },
+    "较少圆唇": {
+      "en": "Less rounded",
+      "ja": "円唇性が弱い"
+    },
+    "边音除阻": {
+      "en": "Lateral release",
+      "ja": "側面開放"
+    },
+    "连读": {
+      "en": "Linking; absence of a break",
+      "ja": "連結・切れ目なし"
+    },
+    "送气": {
+      "en": "Aspirated",
+      "ja": "有気音"
+    },
+    "长音": {
+      "en": "Long",
+      "ja": "長音"
+    },
+    "降低": {
+      "en": "Lowered",
+      "ja": "低め"
+    },
+    "降调": {
+      "en": "Falling tone",
+      "ja": "下降調"
+    },
+    "降阶": {
+      "en": "Downstep",
+      "ja": "ダウンステップ"
+    },
+    "非音节": {
+      "en": "Non-syllabic",
+      "ja": "非音節主音的"
+    },
+    "音节界": {
+      "en": "Syllable break",
+      "ja": "音節境界"
+    },
+    "高升调": {
+      "en": "High rising tone",
+      "ja": "高上昇調"
+    },
+    "高调": {
+      "en": "High tone",
+      "ja": "高平調"
+    },
+    "鼻化": {
+      "en": "Nasalized",
+      "ja": "鼻音化"
+    },
+    "鼻音除阻": {
+      "en": "Nasal release",
+      "ja": "鼻腔開放"
+    },
+    "齿音": {
+      "en": "Dental",
+      "ja": "歯音"
+    },
+    "中调（组合标记）": {
+      "en": "Mid tone (combining mark)",
+      "ja": "中平調（結合記号）"
+    },
+    "低升调（组合标记）": {
+      "en": "Low rising tone (combining mark)",
+      "ja": "低上昇調（結合記号）"
+    },
+    "低调（组合标记）": {
+      "en": "Low tone (combining mark)",
+      "ja": "低平調（結合記号）"
+    },
+    "升调（组合标记）": {
+      "en": "Rising tone (combining mark)",
+      "ja": "上昇調（結合記号）"
+    },
+    "升降调（组合标记）": {
+      "en": "Rising-falling tone (combining mark)",
+      "ja": "上昇下降調（結合記号）"
+    },
+    "超低调（组合标记）": {
+      "en": "Extra-low tone (combining mark)",
+      "ja": "超低平調（結合記号）"
+    },
+    "超高调（组合标记）": {
+      "en": "Extra-high tone (combining mark)",
+      "ja": "超高平調（結合記号）"
+    },
+    "降调（组合标记）": {
+      "en": "Falling tone (combining mark)",
+      "ja": "下降調（結合記号）"
+    },
+    "高升调（组合标记）": {
+      "en": "High rising tone (combining mark)",
+      "ja": "高上昇調（結合記号）"
+    },
+    "高调（组合标记）": {
+      "en": "High tone (combining mark)",
+      "ja": "高平調（結合記号）"
+    }
+  },
+  "words": {
+    "LATIN": {
+      "zh-Hans": "拉丁",
+      "ja": "ラテン"
+    },
+    "GREEK": {
+      "zh-Hans": "希腊",
+      "ja": "ギリシャ"
+    },
+    "CYRILLIC": {
+      "zh-Hans": "西里尔",
+      "ja": "キリル"
+    },
+    "LETTER": {
+      "zh-Hans": "字母",
+      "ja": "文字"
+    },
+    "SMALL": {
+      "zh-Hans": "小写",
+      "ja": "小文字"
+    },
+    "CAPITAL": {
+      "zh-Hans": "大写",
+      "ja": "大文字"
+    },
+    "MODIFIER": {
+      "zh-Hans": "修饰",
+      "ja": "修飾"
+    },
+    "COMBINING": {
+      "zh-Hans": "组合",
+      "ja": "結合"
+    },
+    "WITH": {
+      "zh-Hans": "带",
+      "ja": "付き"
+    },
+    "AND": {
+      "zh-Hans": "及",
+      "ja": "と"
+    },
+    "ABOVE": {
+      "zh-Hans": "上置",
+      "ja": "上付き"
+    },
+    "BELOW": {
+      "zh-Hans": "下置",
+      "ja": "下付き"
+    },
+    "SUPERSCRIPT": {
+      "zh-Hans": "上标",
+      "ja": "上付き"
+    },
+    "SUBSCRIPT": {
+      "zh-Hans": "下标",
+      "ja": "下付き"
+    },
+    "TURNED": {
+      "zh-Hans": "旋转",
+      "ja": "回転"
+    },
+    "REVERSED": {
+      "zh-Hans": "反向",
+      "ja": "反転"
+    },
+    "REVERSE": {
+      "zh-Hans": "反向",
+      "ja": "反転"
+    },
+    "INVERTED": {
+      "zh-Hans": "倒置",
+      "ja": "倒立"
+    },
+    "BAR": {
+      "zh-Hans": "横线",
+      "ja": "横棒"
+    },
+    "BARRED": {
+      "zh-Hans": "加横线",
+      "ja": "横棒付き"
+    },
+    "STROKE": {
+      "zh-Hans": "笔画",
+      "ja": "ストローク"
+    },
+    "DIAGONAL": {
+      "zh-Hans": "斜线",
+      "ja": "斜線"
+    },
+    "OVERLAY": {
+      "zh-Hans": "叠加",
+      "ja": "重ね"
+    },
+    "SOLIDUS": {
+      "zh-Hans": "斜线",
+      "ja": "斜線"
+    },
+    "SLASH": {
+      "zh-Hans": "斜线",
+      "ja": "スラッシュ"
+    },
+    "HOOK": {
+      "zh-Hans": "钩",
+      "ja": "フック"
+    },
+    "TAIL": {
+      "zh-Hans": "尾",
+      "ja": "尾"
+    },
+    "RETROFLEX": {
+      "zh-Hans": "卷舌",
+      "ja": "反り舌"
+    },
+    "PALATAL": {
+      "zh-Hans": "腭",
+      "ja": "硬口蓋"
+    },
+    "PALATALIZED": {
+      "zh-Hans": "腭化",
+      "ja": "硬口蓋化"
+    },
+    "DOT": {
+      "zh-Hans": "点",
+      "ja": "点"
+    },
+    "DOTLESS": {
+      "zh-Hans": "无点",
+      "ja": "点なし"
+    },
+    "DOTTED": {
+      "zh-Hans": "加点",
+      "ja": "点付き"
+    },
+    "DIAERESIS": {
+      "zh-Hans": "分音符",
+      "ja": "分音記号"
+    },
+    "DIAERESIZED": {
+      "zh-Hans": "带分音符",
+      "ja": "分音記号付き"
+    },
+    "RING": {
+      "zh-Hans": "圈",
+      "ja": "リング"
+    },
+    "CIRCLE": {
+      "zh-Hans": "圆圈",
+      "ja": "丸"
+    },
+    "CIRCUMFLEX": {
+      "zh-Hans": "扬抑符",
+      "ja": "曲アクセント"
+    },
+    "CARON": {
+      "zh-Hans": "抑扬符",
+      "ja": "キャロン"
+    },
+    "ACUTE": {
+      "zh-Hans": "尖音符",
+      "ja": "アキュート"
+    },
+    "GRAVE": {
+      "zh-Hans": "重音符",
+      "ja": "グレイヴ"
+    },
+    "MACRON": {
+      "zh-Hans": "长音符",
+      "ja": "マクロン"
+    },
+    "BREVE": {
+      "zh-Hans": "短音符",
+      "ja": "ブリーヴ"
+    },
+    "TILDE": {
+      "zh-Hans": "波浪符",
+      "ja": "チルダ"
+    },
+    "CEDILLA": {
+      "zh-Hans": "软音符",
+      "ja": "セディーユ"
+    },
+    "OGONEK": {
+      "zh-Hans": "反尾形符",
+      "ja": "オゴネク"
+    },
+    "ACCENT": {
+      "zh-Hans": "重音符",
+      "ja": "アクセント"
+    },
+    "TONE": {
+      "zh-Hans": "声调",
+      "ja": "声調"
+    },
+    "HIGH": {
+      "zh-Hans": "高",
+      "ja": "高"
+    },
+    "LOW": {
+      "zh-Hans": "低",
+      "ja": "低"
+    },
+    "MID": {
+      "zh-Hans": "中",
+      "ja": "中"
+    },
+    "EXTRA-HIGH": {
+      "zh-Hans": "超高",
+      "ja": "超高"
+    },
+    "EXTRA-LOW": {
+      "zh-Hans": "超低",
+      "ja": "超低"
+    },
+    "CHINESE": {
+      "zh-Hans": "汉语",
+      "ja": "中国語"
+    },
+    "SINOLOGICAL": {
+      "zh-Hans": "汉学音标",
+      "ja": "中国語音声記号"
+    },
+    "YIN": {
+      "zh-Hans": "阴",
+      "ja": "陰"
+    },
+    "YANG": {
+      "zh-Hans": "阳",
+      "ja": "陽"
+    },
+    "PING": {
+      "zh-Hans": "平",
+      "ja": "平"
+    },
+    "SHANG": {
+      "zh-Hans": "上",
+      "ja": "上"
+    },
+    "QU": {
+      "zh-Hans": "去",
+      "ja": "去"
+    },
+    "RU": {
+      "zh-Hans": "入",
+      "ja": "入"
+    },
+    "DEPARTING": {
+      "zh-Hans": "去声",
+      "ja": "去声"
+    },
+    "LIGATURE": {
+      "zh-Hans": "合字",
+      "ja": "合字"
+    },
+    "DIGRAPH": {
+      "zh-Hans": "二合字",
+      "ja": "二重字"
+    },
+    "CLICK": {
+      "zh-Hans": "吸气音",
+      "ja": "吸着音"
+    },
+    "STOP": {
+      "zh-Hans": "塞音",
+      "ja": "破裂音"
+    },
+    "FRICATIVE": {
+      "zh-Hans": "擦音",
+      "ja": "摩擦音"
+    },
+    "TRILL": {
+      "zh-Hans": "颤音",
+      "ja": "ふるえ音"
+    },
+    "LATERAL": {
+      "zh-Hans": "边音",
+      "ja": "側面音"
+    },
+    "BILABIAL": {
+      "zh-Hans": "双唇",
+      "ja": "両唇"
+    },
+    "BIDENTAL": {
+      "zh-Hans": "双齿",
+      "ja": "両歯"
+    },
+    "ALVEOLAR": {
+      "zh-Hans": "齿龈",
+      "ja": "歯茎"
+    },
+    "DENTAL": {
+      "zh-Hans": "齿",
+      "ja": "歯"
+    },
+    "GLOTTAL": {
+      "zh-Hans": "声门",
+      "ja": "声門"
+    },
+    "LARYNGEAL": {
+      "zh-Hans": "喉",
+      "ja": "喉頭"
+    },
+    "PHARYNGEAL": {
+      "zh-Hans": "咽",
+      "ja": "咽頭"
+    },
+    "VOICED": {
+      "zh-Hans": "浊",
+      "ja": "有声"
+    },
+    "VOICING": {
+      "zh-Hans": "浊化",
+      "ja": "有声化"
+    },
+    "UNASPIRATED": {
+      "zh-Hans": "不送气",
+      "ja": "無気"
+    },
+    "PERCUSSIVE": {
+      "zh-Hans": "叩击",
+      "ja": "打撃"
+    },
+    "SPIRANT": {
+      "zh-Hans": "擦音",
+      "ja": "摩擦音"
+    },
+    "STRONG": {
+      "zh-Hans": "强",
+      "ja": "強"
+    },
+    "LENIS": {
+      "zh-Hans": "弱",
+      "ja": "弱"
+    },
+    "CENTRALIZATION": {
+      "zh-Hans": "央化",
+      "ja": "中舌化"
+    },
+    "OPEN": {
+      "zh-Hans": "开口",
+      "ja": "開いた"
+    },
+    "CLOSED": {
+      "zh-Hans": "闭合",
+      "ja": "閉じた"
+    },
+    "SCRIPT": {
+      "zh-Hans": "手写体",
+      "ja": "筆記体"
+    },
+    "BLACKLETTER": {
+      "zh-Hans": "哥特体",
+      "ja": "ブラックレター"
+    },
+    "BLACK-LETTER": {
+      "zh-Hans": "哥特体",
+      "ja": "ブラックレター"
+    },
+    "INSULAR": {
+      "zh-Hans": "岛体",
+      "ja": "インシュラー体"
+    },
+    "ROMAN": {
+      "zh-Hans": "罗马",
+      "ja": "ローマ"
+    },
+    "PHONOTYPIC": {
+      "zh-Hans": "音型字母",
+      "ja": "フォノタイプ"
+    },
+    "LONG": {
+      "zh-Hans": "长",
+      "ja": "長い"
+    },
+    "SHORT": {
+      "zh-Hans": "短",
+      "ja": "短い"
+    },
+    "STRAIGHT": {
+      "zh-Hans": "直",
+      "ja": "直線"
+    },
+    "CURLED": {
+      "zh-Hans": "卷曲",
+      "ja": "巻いた"
+    },
+    "CURL": {
+      "zh-Hans": "卷曲",
+      "ja": "カール"
+    },
+    "CURLY": {
+      "zh-Hans": "卷曲",
+      "ja": "カール"
+    },
+    "STRETCHED": {
+      "zh-Hans": "拉长",
+      "ja": "伸長"
+    },
+    "SQUAT": {
+      "zh-Hans": "扁形",
+      "ja": "扁平"
+    },
+    "FLATTENED": {
+      "zh-Hans": "压平",
+      "ja": "平たい"
+    },
+    "SIDEWAYS": {
+      "zh-Hans": "侧转",
+      "ja": "横向き"
+    },
+    "LEFT": {
+      "zh-Hans": "左",
+      "ja": "左"
+    },
+    "RIGHT": {
+      "zh-Hans": "右",
+      "ja": "右"
+    },
+    "UP": {
+      "zh-Hans": "上",
+      "ja": "上"
+    },
+    "DOWN": {
+      "zh-Hans": "下",
+      "ja": "下"
+    },
+    "TOP": {
+      "zh-Hans": "顶部",
+      "ja": "上部"
+    },
+    "BOTTOM": {
+      "zh-Hans": "底部",
+      "ja": "下部"
+    },
+    "MIDDLE": {
+      "zh-Hans": "中部",
+      "ja": "中央"
+    },
+    "CENTRED": {
+      "zh-Hans": "居中",
+      "ja": "中央"
+    },
+    "MID-HEIGHT": {
+      "zh-Hans": "中部高度",
+      "ja": "中央の高さ"
+    },
+    "LOWER": {
+      "zh-Hans": "下部",
+      "ja": "下部"
+    },
+    "VERTICAL": {
+      "zh-Hans": "竖直",
+      "ja": "縦"
+    },
+    "HORIZONTAL": {
+      "zh-Hans": "水平",
+      "ja": "横"
+    },
+    "ARROW": {
+      "zh-Hans": "箭头",
+      "ja": "矢印"
+    },
+    "ARROWHEAD": {
+      "zh-Hans": "箭头尖",
+      "ja": "矢じり"
+    },
+    "UPWARDS": {
+      "zh-Hans": "向上",
+      "ja": "上向き"
+    },
+    "DOWNWARDS": {
+      "zh-Hans": "向下",
+      "ja": "下向き"
+    },
+    "RIGHTWARDS": {
+      "zh-Hans": "向右",
+      "ja": "右向き"
+    },
+    "POINTING": {
+      "zh-Hans": "指向",
+      "ja": "指す"
+    },
+    "TACK": {
+      "zh-Hans": "丁形符",
+      "ja": "T字記号"
+    },
+    "BRIDGE": {
+      "zh-Hans": "桥形符",
+      "ja": "ブリッジ"
+    },
+    "ARCH": {
+      "zh-Hans": "拱形符",
+      "ja": "アーチ"
+    },
+    "BREVE-MACRON": {
+      "zh-Hans": "短音符与长音符",
+      "ja": "ブリーヴ・マクロン"
+    },
+    "DOUBLE": {
+      "zh-Hans": "双",
+      "ja": "二重"
+    },
+    "DOUBLED": {
+      "zh-Hans": "双重",
+      "ja": "二重化"
+    },
+    "TRIPLE": {
+      "zh-Hans": "三重",
+      "ja": "三重"
+    },
+    "SINGLE": {
+      "zh-Hans": "单",
+      "ja": "単一"
+    },
+    "MARK": {
+      "zh-Hans": "标记",
+      "ja": "記号"
+    },
+    "SIGN": {
+      "zh-Hans": "符号",
+      "ja": "記号"
+    },
+    "SYMBOL": {
+      "zh-Hans": "符号",
+      "ja": "記号"
+    },
+    "LINE": {
+      "zh-Hans": "线",
+      "ja": "線"
+    },
+    "OVERLINE": {
+      "zh-Hans": "上划线",
+      "ja": "上線"
+    },
+    "STRIKETHROUGH": {
+      "zh-Hans": "删除线",
+      "ja": "取り消し線"
+    },
+    "TOPBAR": {
+      "zh-Hans": "顶部横线",
+      "ja": "上横棒"
+    },
+    "BASELINE": {
+      "zh-Hans": "基线",
+      "ja": "ベースライン"
+    },
+    "LEG": {
+      "zh-Hans": "支脚",
+      "ja": "脚"
+    },
+    "STEM": {
+      "zh-Hans": "竖干",
+      "ja": "縦棒"
+    },
+    "LEFT-STEM": {
+      "zh-Hans": "左竖干",
+      "ja": "左の縦棒"
+    },
+    "BELT": {
+      "zh-Hans": "腰带",
+      "ja": "ベルト"
+    },
+    "CROSS": {
+      "zh-Hans": "十字",
+      "ja": "十字"
+    },
+    "CROSSED-TAIL": {
+      "zh-Hans": "交叉尾",
+      "ja": "交差した尾"
+    },
+    "FISHHOOK": {
+      "zh-Hans": "鱼钩",
+      "ja": "釣り針"
+    },
+    "PIGTAIL": {
+      "zh-Hans": "卷尾",
+      "ja": "巻き尾"
+    },
+    "SWASH": {
+      "zh-Hans": "花尾",
+      "ja": "スワッシュ"
+    },
+    "FLOURISH": {
+      "zh-Hans": "花饰",
+      "ja": "飾り"
+    },
+    "LOOP": {
+      "zh-Hans": "环",
+      "ja": "ループ"
+    },
+    "HANDLE": {
+      "zh-Hans": "柄",
+      "ja": "柄"
+    },
+    "HORN": {
+      "zh-Hans": "角形符",
+      "ja": "ホーン"
+    },
+    "BENT": {
+      "zh-Hans": "弯曲",
+      "ja": "曲がった"
+    },
+    "CURVING": {
+      "zh-Hans": "弯曲",
+      "ja": "湾曲"
+    },
+    "SPLIT": {
+      "zh-Hans": "分裂",
+      "ja": "分割"
+    },
+    "SHELF": {
+      "zh-Hans": "搁板",
+      "ja": "棚"
+    },
+    "SERIF": {
+      "zh-Hans": "衬线",
+      "ja": "セリフ"
+    },
+    "ROUNDTOP": {
+      "zh-Hans": "圆顶",
+      "ja": "丸い上部"
+    },
+    "LUNATE": {
+      "zh-Hans": "月牙形",
+      "ja": "三日月形"
+    },
+    "ROTUNDA": {
+      "zh-Hans": "圆体",
+      "ja": "ロトゥンダ"
+    },
+    "LAZY": {
+      "zh-Hans": "斜卧",
+      "ja": "横倒し"
+    },
+    "SNAKE": {
+      "zh-Hans": "蛇形",
+      "ja": "蛇形"
+    },
+    "RAMS": {
+      "zh-Hans": "羊角",
+      "ja": "羊角"
+    },
+    "BINOCULAR": {
+      "zh-Hans": "双眼形",
+      "ja": "双眼形"
+    },
+    "SEAGULL": {
+      "zh-Hans": "海鸥形",
+      "ja": "かもめ形"
+    },
+    "STIRRUP": {
+      "zh-Hans": "马镫形",
+      "ja": "あぶみ形"
+    },
+    "NOTCH": {
+      "zh-Hans": "缺口",
+      "ja": "切り欠き"
+    },
+    "ZIGZAG": {
+      "zh-Hans": "锯齿形",
+      "ja": "ジグザグ"
+    },
+    "WIGGLY": {
+      "zh-Hans": "波曲",
+      "ja": "波状"
+    },
+    "WIDE": {
+      "zh-Hans": "宽",
+      "ja": "幅広"
+    },
+    "LARGE": {
+      "zh-Hans": "大",
+      "ja": "大きい"
+    },
+    "FLAT": {
+      "zh-Hans": "平",
+      "ja": "平ら"
+    },
+    "LIGHT": {
+      "zh-Hans": "轻",
+      "ja": "軽い"
+    },
+    "HARD": {
+      "zh-Hans": "硬",
+      "ja": "硬"
+    },
+    "SOFT": {
+      "zh-Hans": "软",
+      "ja": "軟"
+    },
+    "HALF": {
+      "zh-Hans": "半",
+      "ja": "半分"
+    },
+    "FULL": {
+      "zh-Hans": "全",
+      "ja": "全体"
+    },
+    "EMPTY": {
+      "zh-Hans": "空",
+      "ja": "空"
+    },
+    "ENCLOSING": {
+      "zh-Hans": "围绕",
+      "ja": "囲み"
+    },
+    "INSIDE": {
+      "zh-Hans": "内部",
+      "ja": "内側"
+    },
+    "BRACKET": {
+      "zh-Hans": "括号",
+      "ja": "括弧"
+    },
+    "BRACKETS": {
+      "zh-Hans": "括号",
+      "ja": "括弧"
+    },
+    "PARENTHESIS": {
+      "zh-Hans": "圆括号",
+      "ja": "丸括弧"
+    },
+    "PARENTHESES": {
+      "zh-Hans": "圆括号",
+      "ja": "丸括弧"
+    },
+    "SQUARE": {
+      "zh-Hans": "方形",
+      "ja": "角"
+    },
+    "ANGLE": {
+      "zh-Hans": "角形",
+      "ja": "山形"
+    },
+    "CORNER": {
+      "zh-Hans": "角",
+      "ja": "角"
+    },
+    "TRIANGULAR": {
+      "zh-Hans": "三角形",
+      "ja": "三角形"
+    },
+    "TIE": {
+      "zh-Hans": "连音符",
+      "ja": "タイ"
+    },
+    "SUSPENSION": {
+      "zh-Hans": "悬止",
+      "ja": "中断"
+    },
+    "DELETION": {
+      "zh-Hans": "删除",
+      "ja": "削除"
+    },
+    "BEGIN": {
+      "zh-Hans": "起始",
+      "ja": "開始"
+    },
+    "END": {
+      "zh-Hans": "结束",
+      "ja": "終了"
+    },
+    "COMMA": {
+      "zh-Hans": "逗号",
+      "ja": "コンマ"
+    },
+    "COLON": {
+      "zh-Hans": "冒号",
+      "ja": "コロン"
+    },
+    "APOSTROPHE": {
+      "zh-Hans": "撇号",
+      "ja": "アポストロフィ"
+    },
+    "PRIME": {
+      "zh-Hans": "撇",
+      "ja": "プライム"
+    },
+    "EXCLAMATION": {
+      "zh-Hans": "感叹号",
+      "ja": "感嘆符"
+    },
+    "ELLIPSIS": {
+      "zh-Hans": "省略号",
+      "ja": "省略記号"
+    },
+    "ASTERISK": {
+      "zh-Hans": "星号",
+      "ja": "アスタリスク"
+    },
+    "PLUS": {
+      "zh-Hans": "加号",
+      "ja": "プラス"
+    },
+    "MINUS": {
+      "zh-Hans": "减号",
+      "ja": "マイナス"
+    },
+    "HYPHEN-MINUS": {
+      "zh-Hans": "连字符减号",
+      "ja": "ハイフンマイナス"
+    },
+    "EQUAL": {
+      "zh-Hans": "等号",
+      "ja": "等号"
+    },
+    "EQUALS": {
+      "zh-Hans": "等号",
+      "ja": "等号"
+    },
+    "NOT": {
+      "zh-Hans": "非",
+      "ja": "否定"
+    },
+    "ALMOST": {
+      "zh-Hans": "约",
+      "ja": "ほぼ"
+    },
+    "INFINITY": {
+      "zh-Hans": "无穷",
+      "ja": "無限大"
+    },
+    "SET": {
+      "zh-Hans": "集合",
+      "ja": "集合"
+    },
+    "PRECEDES": {
+      "zh-Hans": "先于",
+      "ja": "先行"
+    },
+    "TO": {
+      "zh-Hans": "至",
+      "ja": "へ"
+    },
+    "IS": {
+      "zh-Hans": "是",
+      "ja": "は"
+    },
+    "THEN": {
+      "zh-Hans": "随后",
+      "ja": "次に"
+    },
+    "ON": {
+      "zh-Hans": "上",
+      "ja": "上"
+    },
+    "AT": {
+      "zh-Hans": "于",
+      "ja": "位置"
+    },
+    "WITHOUT": {
+      "zh-Hans": "不带",
+      "ja": "なし"
+    },
+    "ORDINAL": {
+      "zh-Hans": "序数",
+      "ja": "序数"
+    },
+    "INDICATOR": {
+      "zh-Hans": "指示符",
+      "ja": "標識"
+    },
+    "FEMININE": {
+      "zh-Hans": "阴性",
+      "ja": "女性"
+    },
+    "MASCULINE": {
+      "zh-Hans": "阳性",
+      "ja": "男性"
+    },
+    "NUMBER": {
+      "zh-Hans": "数",
+      "ja": "数"
+    },
+    "NUMERAL": {
+      "zh-Hans": "数字",
+      "ja": "数字"
+    },
+    "ZERO": {
+      "zh-Hans": "零",
+      "ja": "ゼロ"
+    },
+    "ONE": {
+      "zh-Hans": "一",
+      "ja": "一"
+    },
+    "TWO": {
+      "zh-Hans": "二",
+      "ja": "二"
+    },
+    "THREE": {
+      "zh-Hans": "三",
+      "ja": "三"
+    },
+    "FOUR": {
+      "zh-Hans": "四",
+      "ja": "四"
+    },
+    "FIVE": {
+      "zh-Hans": "五",
+      "ja": "五"
+    },
+    "SIX": {
+      "zh-Hans": "六",
+      "ja": "六"
+    },
+    "SEVEN": {
+      "zh-Hans": "七",
+      "ja": "七"
+    },
+    "EIGHT": {
+      "zh-Hans": "八",
+      "ja": "八"
+    },
+    "NINE": {
+      "zh-Hans": "九",
+      "ja": "九"
+    },
+    "THOUSAND": {
+      "zh-Hans": "千",
+      "ja": "千"
+    },
+    "ALPHA": {
+      "zh-Hans": "阿尔法",
+      "ja": "アルファ"
+    },
+    "BETA": {
+      "zh-Hans": "贝塔",
+      "ja": "ベータ"
+    },
+    "GAMMA": {
+      "zh-Hans": "伽马",
+      "ja": "ガンマ"
+    },
+    "DELTA": {
+      "zh-Hans": "德尔塔",
+      "ja": "デルタ"
+    },
+    "EPSILON": {
+      "zh-Hans": "艾普西隆",
+      "ja": "エプシロン"
+    },
+    "ETA": {
+      "zh-Hans": "伊塔",
+      "ja": "イータ"
+    },
+    "THETA": {
+      "zh-Hans": "西塔",
+      "ja": "シータ"
+    },
+    "IOTA": {
+      "zh-Hans": "约塔",
+      "ja": "イオタ"
+    },
+    "LAMBDA": {
+      "zh-Hans": "拉姆达",
+      "ja": "ラムダ"
+    },
+    "LAMDA": {
+      "zh-Hans": "拉姆达",
+      "ja": "ラムダ"
+    },
+    "MU": {
+      "zh-Hans": "缪",
+      "ja": "ミュー"
+    },
+    "PI": {
+      "zh-Hans": "派",
+      "ja": "パイ"
+    },
+    "RHO": {
+      "zh-Hans": "柔",
+      "ja": "ロー"
+    },
+    "SIGMA": {
+      "zh-Hans": "西格马",
+      "ja": "シグマ"
+    },
+    "UPSILON": {
+      "zh-Hans": "宇普西隆",
+      "ja": "ウプシロン"
+    },
+    "PHI": {
+      "zh-Hans": "斐",
+      "ja": "ファイ"
+    },
+    "CHI": {
+      "zh-Hans": "希",
+      "ja": "カイ"
+    },
+    "PSI": {
+      "zh-Hans": "普西",
+      "ja": "プサイ"
+    },
+    "OMEGA": {
+      "zh-Hans": "欧米伽",
+      "ja": "オメガ"
+    },
+    "SCHWA": {
+      "zh-Hans": "施瓦",
+      "ja": "シュワー"
+    },
+    "ENG": {
+      "zh-Hans": "恩格",
+      "ja": "エング"
+    },
+    "ESH": {
+      "zh-Hans": "埃什",
+      "ja": "エシュ"
+    },
+    "EZH": {
+      "zh-Hans": "埃日",
+      "ja": "エジュ"
+    },
+    "ETH": {
+      "zh-Hans": "埃兹",
+      "ja": "エズ"
+    },
+    "THORN": {
+      "zh-Hans": "索恩",
+      "ja": "ソーン"
+    },
+    "YOGH": {
+      "zh-Hans": "约格",
+      "ja": "ヨグ"
+    },
+    "WYNN": {
+      "zh-Hans": "温",
+      "ja": "ウィン"
+    },
+    "HENG": {
+      "zh-Hans": "亨格",
+      "ja": "ヘング"
+    },
+    "FENG": {
+      "zh-Hans": "芬格",
+      "ja": "フェング"
+    },
+    "LEZH": {
+      "zh-Hans": "勒日",
+      "ja": "レジュ"
+    },
+    "DEZH": {
+      "zh-Hans": "德日",
+      "ja": "デジュ"
+    },
+    "TESH": {
+      "zh-Hans": "特什",
+      "ja": "テシュ"
+    },
+    "CUATRILLO": {
+      "zh-Hans": "夸特里略",
+      "ja": "クアトリリョ"
+    },
+    "TRESILLO": {
+      "zh-Hans": "特雷西略",
+      "ja": "トレシリョ"
+    },
+    "CANDRABINDU": {
+      "zh-Hans": "月点符",
+      "ja": "チャンドラビンドゥ"
+    },
+    "TONOS": {
+      "zh-Hans": "希腊重音符",
+      "ja": "トノス"
+    },
+    "DIALYTIKA": {
+      "zh-Hans": "希腊分音符",
+      "ja": "ディアリティカ"
+    },
+    "KORONIS": {
+      "zh-Hans": "缩合符",
+      "ja": "コロニス"
+    },
+    "PERISPOMENI": {
+      "zh-Hans": "希腊扬抑符",
+      "ja": "ペリスポメニ"
+    },
+    "YPOGEGRAMMENI": {
+      "zh-Hans": "下标约塔",
+      "ja": "イポゲグラメニ"
+    },
+    "FERMATA": {
+      "zh-Hans": "延长记号",
+      "ja": "フェルマータ"
+    },
+    "SHARP": {
+      "zh-Hans": "升号",
+      "ja": "シャープ"
+    },
+    "DIPHTHONG": {
+      "zh-Hans": "双元音",
+      "ja": "二重母音"
+    },
+    "IOTIFIED": {
+      "zh-Hans": "约塔化",
+      "ja": "イオタ化"
+    },
+    "GEORGIAN": {
+      "zh-Hans": "格鲁吉亚",
+      "ja": "ジョージア"
+    },
+    "SAKHA": {
+      "zh-Hans": "萨哈",
+      "ja": "サハ"
+    },
+    "SCRUPLE": {
+      "zh-Hans": "斯克鲁普尔",
+      "ja": "スクループル"
+    },
+    "HOMOTHETIC": {
+      "zh-Hans": "位似",
+      "ja": "相似"
+    },
+    "KAVYKA": {
+      "zh-Hans": "卡维卡",
+      "ja": "カヴィカ"
+    },
+    "BE": {
+      "zh-Hans": "贝",
+      "ja": "ベー"
+    },
+    "DE": {
+      "zh-Hans": "德",
+      "ja": "デー"
+    },
+    "EL": {
+      "zh-Hans": "埃尔",
+      "ja": "エル"
+    },
+    "EN": {
+      "zh-Hans": "恩",
+      "ja": "エヌ"
+    },
+    "ER": {
+      "zh-Hans": "埃尔",
+      "ja": "エル"
+    },
+    "TE": {
+      "zh-Hans": "特",
+      "ja": "テー"
+    },
+    "ZE": {
+      "zh-Hans": "泽",
+      "ja": "ゼー"
+    },
+    "YAT": {
+      "zh-Hans": "亚特",
+      "ja": "ヤチ"
+    },
+    "DJE": {
+      "zh-Hans": "杰",
+      "ja": "ジェ"
+    },
+    "AIN": {
+      "zh-Hans": "阿因",
+      "ja": "アイン"
+    },
+    "RAISED": {
+      "zh-Hans": "升高",
+      "ja": "高め"
+    }
+  }
+}

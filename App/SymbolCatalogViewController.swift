@@ -21,7 +21,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "全部符号与注释"
+        title = "全部符号与注释".localized
         tableView.accessibilityIdentifier = "symbolCatalog"
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 90
@@ -29,7 +29,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let visibility = SymbolSettingsStore.shared.load()
         groups = catalog.categories.compactMap { category in
             let entries = catalog.symbols.filter { $0.atomic && $0.category == category.id }.map { symbol in
-                let state = visibility.contains(symbol) ? "" : "\n已隐藏"
+                let state = visibility.contains(symbol) ? "" : "\n" + "已隐藏".localized
                 return Entry(text: symbol.text, display: symbol.display, note: symbol.name + state)
             }
             return entries.isEmpty ? nil : Group(title: category.title, entries: entries)
@@ -39,29 +39,29 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let rest = catalog.symbols.filter { $0.atomic && !included.contains($0.text) }.map {
             Entry(text: $0.text, display: $0.display, note: $0.name)
         }
-        if !rest.isEmpty { groups.append(Group(title: "其他音标", entries: rest)) }
+        if !rest.isEmpty { groups.append(Group(title: "其他音标".localized, entries: rest)) }
         var seen = Set(catalog.symbols.filter { $0.atomic }.map { $0.text })
         var general: [Entry] = []
         let keys = KeyboardPage.letters.rows.flatMap { $0 } + KeyboardPage.numbers.rows.flatMap { $0 } + KeyboardPage.symbols.rows.flatMap { $0 } + [" ", "\n"]
         for key in keys {
             for text in [key] + AuxiliaryKeyMapping.mapping(for: key).variants where seen.insert(text).inserted {
                 let display = text == " " ? "␠" : text == "\n" ? "↵" : text
-                let name = text.unicodeScalars.map { $0.properties.name ?? "Unicode 字符" }.joined(separator: " + ")
-                general.append(Entry(text: text, display: display, note: name))
+                let name = text.unicodeScalars.map { $0.properties.name ?? "Unicode 字符".localized }.joined(separator: " + ")
+                general.append(Entry(text: text, display: display, note: L10n.unicodeName(name)))
             }
         }
-        groups.append(Group(title: "字母、数字、标点及变体", entries: general))
+        groups.append(Group(title: "字母、数字、标点及变体".localized, entries: general))
         filtered = groups
         configureCategoryMenu()
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "搜索符号、名称或 Unicode 编码"
+        search.searchBar.placeholder = "搜索符号、名称或 Unicode 编码".localized
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
     private func configureCategoryMenu() {
-        let choices: [(String, String?)] = [("全部分类", nil)] + groups.map { ($0.title, Optional($0.title)) }
+        let choices: [(String, String?)] = [("全部分类".localized, nil)] + groups.map { ($0.title, Optional($0.title)) }
         let actions = choices.map { title, group in
             UIAction(title: title, state: selectedGroup == group ? .on : .off) { [weak self] _ in
                 guard let self = self else { return }
@@ -71,7 +71,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
                 self.tableView.setContentOffset(CGPoint(x: 0, y: -self.tableView.adjustedContentInset.top), animated: false)
             }
         }
-        let item = UIBarButtonItem(title: selectedGroup ?? "分类", menu: UIMenu(title: "选择符号分区", children: actions))
+        let item = UIBarButtonItem(title: selectedGroup ?? "分类".localized, menu: UIMenu(title: "选择符号分区".localized, children: actions))
         item.accessibilityIdentifier = "chooseCatalogCategory"
         navigationItem.rightBarButtonItem = item
     }
@@ -82,14 +82,14 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let query = (searchController.searchBar.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let scope = groups.filter { selectedGroup == nil || $0.title == selectedGroup }
         filtered = query.isEmpty ? scope : scope.compactMap { group in
-            let entries = group.entries.filter { ($0.text + " " + $0.display + " " + $0.note + " " + codes($0.text)).localizedCaseInsensitiveContains(query) }
+            let entries = group.entries.filter { ($0.text + " " + $0.display + " " + $0.note + " " + (IPACatalog.shared.symbol($0.text)?.rawName ?? "") + " " + codes($0.text)).localizedCaseInsensitiveContains(query) }
             return entries.isEmpty ? nil : Group(title: group.title, entries: entries)
         }
         tableView.reloadData()
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         guard !filtered.isEmpty else { return nil }
-        let abbreviations = ["肺部气流辅音": "肺辅", "非肺部气流辅音": "非肺", "旧版与非标准 IPA": "旧IPA", "Unicode 语音补充": "UNI", "字母、数字、标点及变体": "ABC", "extIPA": "ext"]
+        let abbreviations = ["肺部气流辅音".localized: "肺辅".localized, "非肺部气流辅音".localized: "非肺".localized, "旧版与非标准 IPA".localized: "旧IPA".localized, "Unicode 语音补充".localized: "UNI", "字母、数字、标点及变体".localized: "ABC", "extIPA": "ext"]
         return filtered.map { abbreviations[$0.title] ?? String($0.title.prefix(2)) }
     }
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { index }

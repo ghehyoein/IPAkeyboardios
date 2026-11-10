@@ -21,3 +21,11 @@ iOS国际音标输入法，包含键盘扩展与符号设置。
 ## 数据来源与许可
 
 音标清单、Unicode 数据及其适用许可见 [Reference/SOURCES.md](Reference/SOURCES.md) 和 [Unicode 许可](Reference/Unicode/LICENSE.txt)。来源清单和 Unicode 快照用于离线生成与覆盖校验。键位分配和候选顺序属于本项目设计，不代表标准机构的官方映射。
+
+## 语言与面板布局
+
+界面和符号注释支持简体中文、繁体中文、英文及日文，默认跟随系统，也可在设置中选择。语言偏好通过 App Group 同步至键盘。Unicode 字形描述使用统一术语翻译，符号搜索保留对原始 Unicode 名称的支持。
+
+键盘使用中性灰阶配色。附加符号面板单独增高以显示每列五个按键，返回 ABC 时恢复紧凑字母布局。
+
+发布版本由 `VERSION` 文件指定，主 App、扩展、GitHub Release 和 TestFlight 使用相同版本号。

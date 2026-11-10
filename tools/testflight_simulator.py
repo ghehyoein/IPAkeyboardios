@@ -19,7 +19,7 @@ def main():
     if subprocess.run(["git", "merge-base", "--is-ancestor", sha, "HEAD"]).returncode:
         return
     # Compare app/extension sources, resources, entitlements, tests and build graph.
-    relevant = ["App", "Shared", "KeyboardExtension", "IPAKeyboard.xcodeproj", "Tests", "Reference", "tools/build_catalog.py", "tools/create_simulator.py", ".github/workflows/ios.yml"]
+    relevant = ["App", "Shared", "KeyboardExtension", "IPAKeyboard.xcodeproj", "Tests", "Reference", "tools/build_catalog.py", "VERSION", "tools/create_simulator.py", ".github/workflows/ios.yml"]
     with tempfile.TemporaryDirectory() as folder:
         old = Path(folder) / "previous"
         subprocess.run(["git","worktree","add","--quiet","--detach",str(old),sha],check=True)

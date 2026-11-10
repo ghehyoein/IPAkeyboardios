@@ -102,8 +102,8 @@ final class VariantStrip: UIView {
     }
     private func refreshSelection() {
         for (index, label) in labels.enumerated() {
-            label.backgroundColor = showsSelection && index == selectedIndex ? .systemBlue : .clear
-            label.textColor = showsSelection && index == selectedIndex ? .white : .label
+            label.backgroundColor = showsSelection && index == selectedIndex ? .label : .clear
+            label.textColor = showsSelection && index == selectedIndex ? .systemBackground : .label
         }
         edgeLeft.isHidden = scroll.contentOffset.x <= 0
         edgeRight.isHidden = scroll.contentOffset.x >= max(0, scroll.contentSize.width - scroll.bounds.width) - 1

@@ -4,7 +4,7 @@ final class KeyboardUITests: XCTestCase {
     private func launch() -> (XCUIApplication, XCUIElement) {
         continueAfterFailure = false
         let app = XCUIApplication()
-        app.launchArguments = ["--ui-testing", "--screenshot"]
+        app.launchArguments = ["--ui-testing", "--screenshot", "-AppleLanguages", "(zh-Hans)"]
         app.launch()
         let editor = app.textViews["transcriptionEditor"]
         XCTAssertTrue(editor.waitForExistence(timeout: 10))
@@ -14,6 +14,37 @@ final class KeyboardUITests: XCTestCase {
     private func key(_ letter: String, in app: XCUIApplication) -> XCUIElement {
         let result = app.descendants(matching: .any).matching(identifier: "key_" + letter).firstMatch
         XCTAssertTrue(result.waitForExistence(timeout: 5)); return result
+    }
+    func testFourInterfaceLanguagesAndLocalizedSymbolSearch() {
+        let cases = [("zh-Hans", "符号显示", "送气"), ("zh-Hant", "符號顯示", "送氣"), ("en", "Symbol settings", "Aspirated"), ("ja", "記号の設定", "有気音")]
+        for (language, title, note) in cases {
+            let app = XCUIApplication()
+            app.launchArguments = ["--reset-settings", "-AppleLanguages", "(\(language))"]
+            app.launch()
+            XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 10))
+            attach(app, name: "settings-" + language)
+            let catalog = app.cells["openSymbolCatalog"]
+            for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
+            catalog.tap()
+            let search = app.searchFields.firstMatch
+            search.tap(); search.typeText("U+02B0")
+            XCTAssertTrue(app.staticTexts[note].waitForExistence(timeout: 5))
+            attach(app, name: "symbol-search-" + language)
+            app.terminate()
+        }
+    }
+    func testLanguageChoicePersists() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(zh-Hans)"]
+        app.launch()
+        let setting = app.cells["languageSetting"]
+        for _ in 0..<10 { if setting.isHittable { break }; app.tables.firstMatch.swipeUp() }
+        setting.tap(); app.buttons["English"].tap()
+        XCTAssertTrue(app.navigationBars["Symbol settings"].waitForExistence(timeout: 5))
+        app.terminate()
+        app.launchArguments = ["-AppleLanguages", "(zh-Hans)"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["Symbol settings"].waitForExistence(timeout: 10))
     }
     func testTapAndLongPressReleaseProduceExactlyOneCharacter() {
         let (app, editor) = launch()
@@ -130,7 +161,7 @@ final class KeyboardUITests: XCTestCase {
         for name in ["chinese", "historical", "extipa"] { XCTAssertFalse(app.buttons["category_" + name].exists) }
         XCTAssertTrue(app.buttons["category_diacritics"].exists)
         app.terminate()
-        app.launchArguments = ["--ui-testing", "--preserve-settings"]
+        app.launchArguments = ["--ui-testing", "--preserve-settings", "-AppleLanguages", "(zh-Hans)"]
         app.launch()
         app.buttons["openSymbolSettings"].tap()
         for name in ["chinese", "historical", "extipa"] { XCTAssertEqual(app.switches["visibility_" + name].value as? String, "0") }
@@ -175,18 +206,24 @@ final class KeyboardUITests: XCTestCase {
         let letter = key("a", in: app).frame
         app.buttons["diacriticsKey"].tap()
         let close = app.buttons["closeSymbolPanel"]
-        XCTAssertEqual(close.frame, mode)
+        XCTAssertEqual(close.frame.minX, mode.minX, accuracy: 0.5)
+        XCTAssertEqual(close.frame.maxY, mode.maxY, accuracy: 0.5)
         let mark = app.collectionViews.cells["symbol_0308"]
         XCTAssertLessThanOrEqual(mark.frame.width, letter.width + 0.5)
         XCTAssertLessThanOrEqual(mark.frame.height, letter.height)
         XCTAssertGreaterThanOrEqual(mark.frame.height, 32)
+        let grid = app.collectionViews["symbolGrid"]
+        let visible = grid.cells.allElementsBoundByIndex.filter { $0.isHittable }
+        let rowPositions = Set(visible.map { Int($0.frame.minY.rounded()) })
+        XCTAssertEqual(rowPositions.count, 5)
         mark.press(forDuration: 0.65)
         XCTAssertEqual(editor.value as? String, "")
         attach(app, name: "compact-diacritics-panel")
         app.collectionViews["symbolGrid"].swipeLeft()
-        XCTAssertEqual(close.frame, mode)
+        XCTAssertEqual(close.frame.minX, mode.minX, accuracy: 0.5)
+        XCTAssertEqual(close.frame.maxY, mode.maxY, accuracy: 0.5)
         close.tap()
-        XCTAssertTrue(key("a", in: app).exists)
+        XCTAssertEqual(key("a", in: app).frame, letter)
     }
     func testRecentPanelAndContinuousCategories() {
         let (app, _) = launch()

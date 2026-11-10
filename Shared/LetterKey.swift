@@ -39,7 +39,7 @@ final class LetterKey: UIControl {
         isAccessibilityElement = true
         accessibilityIdentifier = "key_" + letter
         accessibilityLabel = letter
-        accessibilityHint = "轻点输入字母；上下左右滑动输入变体；长按显示所有变体"
+        accessibilityHint = "轻点输入字母；上下左右滑动输入变体；长按显示所有变体".localized
         accessibilityTraits = .keyboardKey
         accessibilityCustomActions = (mapping?.variants ?? []).map { symbol in
             UIAccessibilityCustomAction(name: symbol) { [weak self] _ in
