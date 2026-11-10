@@ -418,7 +418,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         grid.onSectionChange = { [weak self, weak title] id, heading in
             self?.panelCategory = id; title?.text = heading
             for (key, button) in buttons {
-                button.backgroundColor = key == id ? UIColor.tertiarySystemFill : .clear
+                button.backgroundColor = key == id ? UIColor.label.withAlphaComponent(0.12) : .clear
                 button.tintColor = key == id ? .label : .secondaryLabel
                 button.setTitleColor(key == id ? .label : .secondaryLabel, for: .normal)
                 button.accessibilityTraits = key == id ? [.button, .selected] : [.button]

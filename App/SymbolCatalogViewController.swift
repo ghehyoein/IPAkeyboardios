@@ -78,18 +78,22 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     private func codes(_ text: String) -> String {
         text.unicodeScalars.map { String(format: "U+%04X", $0.value) }.joined(separator: " ")
     }
+    private func searchableText(_ entry: Entry) -> String {
+        let unicodeNames = entry.text.unicodeScalars.compactMap { $0.properties.name }.joined(separator: " ")
+        return [entry.text, entry.display, entry.note, IPACatalog.shared.symbol(entry.text)?.rawName ?? "", unicodeNames, codes(entry.text)].joined(separator: " ")
+    }
     func updateSearchResults(for searchController: UISearchController) {
         let query = (searchController.searchBar.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         let scope = groups.filter { selectedGroup == nil || $0.title == selectedGroup }
         filtered = query.isEmpty ? scope : scope.compactMap { group in
-            let entries = group.entries.filter { ($0.text + " " + $0.display + " " + $0.note + " " + (IPACatalog.shared.symbol($0.text)?.rawName ?? "") + " " + codes($0.text)).localizedCaseInsensitiveContains(query) }
+            let entries = group.entries.filter { searchableText($0).localizedCaseInsensitiveContains(query) }
             return entries.isEmpty ? nil : Group(title: group.title, entries: entries)
         }
         tableView.reloadData()
     }
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         guard !filtered.isEmpty else { return nil }
-        let abbreviations = ["肺部气流辅音".localized: "肺辅".localized, "非肺部气流辅音".localized: "非肺".localized, "旧版与非标准 IPA".localized: "旧IPA".localized, "Unicode 语音补充".localized: "UNI", "字母、数字、标点及变体".localized: "ABC", "extIPA": "ext"]
+        let abbreviations = ["肺部气流辅音".localized: "肺辅".localized, "非肺部气流辅音".localized: "非肺".localized, "旧版与非标准 IPA".localized: "旧IPA".localized, "Unicode 语音补充".localized: "UNI", "字母、数字、标点及变体".localized: "ABC", "extIPA": "ext", "上标字符".localized: "↑", "下标字符".localized: "↓", "超音段符号".localized: "ˈː", "组合附加符号".localized: "◌", "声调与词重音".localized: "˥˩"]
         return filtered.map { abbreviations[$0.title] ?? String($0.title.prefix(2)) }
     }
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int { index }
