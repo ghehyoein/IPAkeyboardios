@@ -439,6 +439,78 @@
     "打开设置可调整符号、滑动和语言。": {
       "en": "Open settings to customize symbols, swipes and language.",
       "ja": "設定から記号・スワイプ・言語を変更できます。"
+    },
+    "偏好与参考": {
+      "en": "Preferences & reference",
+      "ja": "設定とリファレンス"
+    },
+    "设置同步": {
+      "en": "Settings sync",
+      "ja": "設定の同期"
+    },
+    "仅控制附加符号页面。": {
+      "en": "Applies only to the symbol panel.",
+      "ja": "記号パネルにのみ適用されます。"
+    },
+    "按键声音需在系统设置中允许完全访问。": {
+      "en": "Key sounds require Allow Full Access in Settings.",
+      "ja": "操作音にはシステム設定でフルアクセスの許可が必要です。"
+    },
+    "面板专用符号": {
+      "en": "Panel-only symbols",
+      "ja": "パネル専用の記号"
+    },
+    "主键盘附加符号": {
+      "en": "Keyboard modifiers",
+      "ja": "キーボードの補助記号"
+    },
+    "主键盘普通符号": {
+      "en": "Keyboard letters & punctuation",
+      "ja": "キーボードの文字・句読点"
+    },
+    "主键盘长按菜单中没有的符号": {
+      "en": "Not available in key hold menus",
+      "ja": "キーの長押し候補にない記号"
+    },
+    "上标、下标与组合符号": {
+      "en": "Superscripts, subscripts & combining marks",
+      "ja": "上付き・下付き・結合記号"
+    },
+    "字母、音标与标点": {
+      "en": "Letters, phonetic symbols & punctuation",
+      "ja": "文字・音声記号・句読点"
+    },
+    "键盘暂时无法读取 App 设置": {
+      "en": "Settings cannot currently sync to the keyboard",
+      "ja": "現在、キーボードに設定を同期できません"
+    },
+    "从此键的长按候选中选择。": {
+      "en": "Choose from this key’s hold menu.",
+      "ja": "このキーの長押し候補から選びます。"
+    },
+    "复制符号": {
+      "en": "Copy symbol",
+      "ja": "記号をコピー"
+    },
+    "复制注释": {
+      "en": "Copy description",
+      "ja": "説明をコピー"
+    },
+    "复制全部": {
+      "en": "Copy all",
+      "ja": "すべてコピー"
+    },
+    "选择文本": {
+      "en": "Select text",
+      "ja": "テキストを選択"
+    },
+    "符号详情": {
+      "en": "Symbol details",
+      "ja": "記号の詳細"
+    },
+    "已复制": {
+      "en": "Copied",
+      "ja": "コピーしました"
     }
   },
   "names": {

@@ -20,7 +20,7 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6.0</string>
+	<string>0.6.1</string>
 	<key>CFBundleVersion</key>
 	<string>4</string>
 	<key>IPASettingsAppGroup</key>
