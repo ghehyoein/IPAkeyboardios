@@ -1,8 +1,20 @@
 import UIKit
 
+private final class SandboxInputView: UIInputView {
+    var requestedHeight: CGFloat = 301 {
+        didSet { invalidateIntrinsicContentSize() }
+    }
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: UIView.noIntrinsicMetric, height: requestedHeight)
+    }
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        CGSize(width: size.width, height: requestedHeight)
+    }
+}
+
 final class SandboxViewController: UIViewController {
     private let editor = UITextView()
-    private let keyboardContainer = UIInputView(frame: .zero, inputViewStyle: .default)
+    private let keyboardContainer = SandboxInputView(frame: CGRect(x: 0, y: 0, width: 428, height: 301), inputViewStyle: .default)
     private var keyboardHeight: NSLayoutConstraint?
     private let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
     override func viewDidLoad() {
@@ -53,7 +65,10 @@ final class SandboxViewController: UIViewController {
         keyboard.needsGlobe = false
         keyboard.onHeightChange = { [weak self] in
             guard let self = self else { return }
-            self.keyboardHeight?.constant = self.keyboard.intrinsicContentSize.height
+            let height = self.keyboard.intrinsicContentSize.height
+            self.keyboardContainer.requestedHeight = height
+            self.keyboardContainer.frame.size.height = height
+            self.keyboardHeight?.constant = height
             self.keyboardContainer.invalidateIntrinsicContentSize()
             self.keyboardContainer.setNeedsLayout()
             if self.editor.isFirstResponder { self.editor.reloadInputViews() }
