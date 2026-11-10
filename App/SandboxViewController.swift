@@ -14,8 +14,6 @@ private final class SandboxInputView: UIInputView {
 
 final class SandboxViewController: UIViewController {
     private let editor = UITextView()
-    private let keyboardContainer = SandboxInputView(frame: CGRect(x: 0, y: 0, width: 428, height: 301), inputViewStyle: .default)
-    private var keyboardHeight: NSLayoutConstraint?
     private let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,30 +47,9 @@ final class SandboxViewController: UIViewController {
         editor.accessibilityLabel = "IPA 试打区域".localized
         editor.accessibilityIdentifier = "transcriptionEditor"
         if ProcessInfo.processInfo.arguments.contains("--ui-testing") { editor.text = "" }
-        // Match the extension's self-sizing UIInputView instead of caching a UIView's initial frame.
-        keyboardContainer.allowsSelfSizing = true
-        keyboard.translatesAutoresizingMaskIntoConstraints = false
-        keyboardContainer.addSubview(keyboard)
-        NSLayoutConstraint.activate([
-            keyboard.leadingAnchor.constraint(equalTo: keyboardContainer.leadingAnchor),
-            keyboard.trailingAnchor.constraint(equalTo: keyboardContainer.trailingAnchor),
-            keyboard.topAnchor.constraint(equalTo: keyboardContainer.topAnchor),
-            keyboard.bottomAnchor.constraint(equalTo: keyboardContainer.bottomAnchor)
-        ])
-        let height = keyboardContainer.heightAnchor.constraint(equalToConstant: keyboard.intrinsicContentSize.height)
-        height.priority = .init(999); height.isActive = true; keyboardHeight = height
-        if !ProcessInfo.processInfo.arguments.contains("--reference-keyboard") { editor.inputView = keyboardContainer }
+        if !ProcessInfo.processInfo.arguments.contains("--reference-keyboard") { installKeyboardInputView() }
         keyboard.needsGlobe = false
-        keyboard.onHeightChange = { [weak self] in
-            guard let self = self else { return }
-            let height = self.keyboard.intrinsicContentSize.height
-            self.keyboardContainer.requestedHeight = height
-            self.keyboardContainer.frame.size.height = height
-            self.keyboardHeight?.constant = height
-            self.keyboardContainer.invalidateIntrinsicContentSize()
-            self.keyboardContainer.setNeedsLayout()
-            if self.editor.isFirstResponder { self.editor.reloadInputViews() }
-        }
+        keyboard.onHeightChange = { [weak self] in self?.installKeyboardInputView() }
         keyboard.onInsert = { [weak self] text in self?.editor.insertText(text) }
         keyboard.onMoveCursor = { [weak self] offset in
             guard let editor = self?.editor, let range = editor.selectedTextRange else { return }
@@ -108,6 +85,22 @@ final class SandboxViewController: UIViewController {
             stack.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -12),
             editorHeight
         ])
+    }
+    private func installKeyboardInputView() {
+        // UITextView caches an input view's hosted height. A new host ensures that
+        // both expanding and collapsing use the requested size immediately.
+        let height = keyboard.intrinsicContentSize.height
+        let width = view.window?.bounds.width ?? view.bounds.width
+        let container = SandboxInputView(frame: CGRect(x: 0, y: 0, width: width, height: height), inputViewStyle: .default)
+        container.requestedHeight = height
+        container.allowsSelfSizing = true
+        keyboard.removeFromSuperview()
+        keyboard.translatesAutoresizingMaskIntoConstraints = true
+        keyboard.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        keyboard.frame = container.bounds
+        container.addSubview(keyboard)
+        editor.inputView = container
+        if editor.isFirstResponder { editor.reloadInputViews() }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
