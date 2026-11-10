@@ -1,0 +1,115 @@
+name: Upload to TestFlight
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_version:
+        description: 'App version (three numbers, e.g. 0.5.0)'
+        required: true
+        default: '0.5.0'
+      upload:
+        description: 'Upload the verified signed build to App Store Connect'
+        type: boolean
+        default: true
+      release_sha:
+        description: 'Published main commit (set by release automation; leave blank for current main)'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: testflight-distribution-${{ inputs.app_version }}
+  cancel-in-progress: false
+
+jobs:
+  distribute:
+    environment: testflight
+    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    runs-on: macos-15
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+      IPA_BUNDLE_IDENTIFIER: ${{ vars.IPA_BUNDLE_IDENTIFIER || 'com.ghehyoein.IPAKeyboard' }}
+      IPA_APP_GROUP_IDENTIFIER: ${{ vars.IPA_APP_GROUP_IDENTIFIER || 'group.com.ghehyoein.IPAKeyboard' }}
+      IPA_MARKETING_VERSION: ${{ inputs.app_version }}
+      IPA_BUILD_NUMBER: ${{ github.run_number }}.${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Pin automatic builds to their published source
+        if: inputs.release_sha != ''
+        env:
+          RELEASE_SHA: ${{ inputs.release_sha }}
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$IPA_MARKETING_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          test "$(git rev-parse "refs/tags/v$IPA_MARKETING_VERSION^{commit}")" = "$RELEASE_SHA"
+          git merge-base --is-ancestor "$RELEASE_SHA" HEAD
+          git checkout --detach "$RELEASE_SHA"
+      - name: Generate and check project
+        run: |
+          python3 tools/generate_project.py
+          python3 -m unittest discover -s Tests -p 'test_*.py' -v
+      - name: Check for identical simulator inputs in passing unsigned CI
+        id: simulator
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/testflight_simulator.py
+      - name: Run iOS tests
+        if: steps.simulator.outputs.reuse != 'true'
+        run: |
+          python3 - <<'PY'
+          import subprocess, sys
+          sys.path.insert(0, 'tools')
+          from create_simulator import create
+          device, _ = create()
+          subprocess.run(['xcodebuild','-project','IPAKeyboard.xcodeproj','-scheme','IPAKeyboard','-destination','platform=iOS Simulator,id='+device,'-parallel-testing-enabled','NO','-derivedDataPath','build/TestFlightTests','test','CODE_SIGNING_ALLOWED=NO'],check=True)
+          PY
+      - name: Install Apple Distribution identity and both provisioning profiles
+        env:
+          SIGNING_P12_BASE64: ${{ secrets.SIGNING_P12_BASE64 }}
+          SIGNING_P12_PASSWORD: ${{ secrets.SIGNING_P12_PASSWORD }}
+          APP_PROFILE_BASE64: ${{ secrets.APP_PROFILE_BASE64 }}
+          EXT_PROFILE_BASE64: ${{ secrets.EXT_PROFILE_BASE64 }}
+        run: bash tools/install_testflight_signing.sh
+      - name: Archive signed app and keyboard
+        run: |
+          python3 tools/generate_project.py
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath build/TestFlight.xcarchive archive
+      - name: Export and verify internal distribution package
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+        run: |
+          python3 tools/testflight_config.py
+          xcodebuild -exportArchive -archivePath build/TestFlight.xcarchive \
+            -exportPath build/TestFlightExport \
+            -exportOptionsPlist "$RUNNER_TEMP/ipa-testflight/ExportOptions.plist"
+          python3 tools/testflight_signing.py verify build/TestFlightExport/IPAKeyboard.ipa
+      - name: Upload verified build to TestFlight
+        if: inputs.upload
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          key_dir="$RUNNER_TEMP/ipa-testflight/private_keys"
+          mkdir -m 700 "$key_dir"
+          cp "$RUNNER_TEMP/ipa-testflight/AuthKey.p8" "$key_dir/AuthKey_${ASC_KEY_ID}.p8"
+          API_PRIVATE_KEYS_DIR="$key_dir" xcrun altool --upload-app --type ios \
+            --file build/TestFlightExport/IPAKeyboard.ipa \
+            --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
+          echo 'Upload accepted. Check App Store Connect processing and the internal TestFlight group.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove temporary signing credentials
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/ipa-testflight"
+

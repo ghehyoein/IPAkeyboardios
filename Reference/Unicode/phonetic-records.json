@@ -1,0 +1,8596 @@
+{
+ "version": "18.0.0",
+ "source": "https://www.unicode.org/Public/18.0.0/ucd/UnicodeData.txt",
+ "records": {
+  " ": {
+   "name": "SPACE",
+   "category": "Zs",
+   "decomposition": ""
+  },
+  "!": {
+   "name": "EXCLAMATION MARK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "\"": {
+   "name": "QUOTATION MARK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "#": {
+   "name": "NUMBER SIGN",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "$": {
+   "name": "DOLLAR SIGN",
+   "category": "Sc",
+   "decomposition": ""
+  },
+  "%": {
+   "name": "PERCENT SIGN",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "&": {
+   "name": "AMPERSAND",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "'": {
+   "name": "APOSTROPHE",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "(": {
+   "name": "LEFT PARENTHESIS",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  ")": {
+   "name": "RIGHT PARENTHESIS",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "*": {
+   "name": "ASTERISK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "+": {
+   "name": "PLUS SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  ",": {
+   "name": "COMMA",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "-": {
+   "name": "HYPHEN-MINUS",
+   "category": "Pd",
+   "decomposition": ""
+  },
+  ".": {
+   "name": "FULL STOP",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "/": {
+   "name": "SOLIDUS",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "0": {
+   "name": "DIGIT ZERO",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "1": {
+   "name": "DIGIT ONE",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "2": {
+   "name": "DIGIT TWO",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "3": {
+   "name": "DIGIT THREE",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "4": {
+   "name": "DIGIT FOUR",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "5": {
+   "name": "DIGIT FIVE",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "6": {
+   "name": "DIGIT SIX",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "7": {
+   "name": "DIGIT SEVEN",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "8": {
+   "name": "DIGIT EIGHT",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  "9": {
+   "name": "DIGIT NINE",
+   "category": "Nd",
+   "decomposition": ""
+  },
+  ":": {
+   "name": "COLON",
+   "category": "Po",
+   "decomposition": ""
+  },
+  ";": {
+   "name": "SEMICOLON",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "<": {
+   "name": "LESS-THAN SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "=": {
+   "name": "EQUALS SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  ">": {
+   "name": "GREATER-THAN SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "?": {
+   "name": "QUESTION MARK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "@": {
+   "name": "COMMERCIAL AT",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "A": {
+   "name": "LATIN CAPITAL LETTER A",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "B": {
+   "name": "LATIN CAPITAL LETTER B",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "C": {
+   "name": "LATIN CAPITAL LETTER C",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "D": {
+   "name": "LATIN CAPITAL LETTER D",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "E": {
+   "name": "LATIN CAPITAL LETTER E",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "F": {
+   "name": "LATIN CAPITAL LETTER F",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "G": {
+   "name": "LATIN CAPITAL LETTER G",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "H": {
+   "name": "LATIN CAPITAL LETTER H",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "I": {
+   "name": "LATIN CAPITAL LETTER I",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "J": {
+   "name": "LATIN CAPITAL LETTER J",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "K": {
+   "name": "LATIN CAPITAL LETTER K",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "L": {
+   "name": "LATIN CAPITAL LETTER L",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "M": {
+   "name": "LATIN CAPITAL LETTER M",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "N": {
+   "name": "LATIN CAPITAL LETTER N",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "O": {
+   "name": "LATIN CAPITAL LETTER O",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "P": {
+   "name": "LATIN CAPITAL LETTER P",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Q": {
+   "name": "LATIN CAPITAL LETTER Q",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "R": {
+   "name": "LATIN CAPITAL LETTER R",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "S": {
+   "name": "LATIN CAPITAL LETTER S",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "T": {
+   "name": "LATIN CAPITAL LETTER T",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "U": {
+   "name": "LATIN CAPITAL LETTER U",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "V": {
+   "name": "LATIN CAPITAL LETTER V",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "W": {
+   "name": "LATIN CAPITAL LETTER W",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "X": {
+   "name": "LATIN CAPITAL LETTER X",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Y": {
+   "name": "LATIN CAPITAL LETTER Y",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Z": {
+   "name": "LATIN CAPITAL LETTER Z",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "[": {
+   "name": "LEFT SQUARE BRACKET",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  "\\": {
+   "name": "REVERSE SOLIDUS",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "]": {
+   "name": "RIGHT SQUARE BRACKET",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "^": {
+   "name": "CIRCUMFLEX ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "_": {
+   "name": "LOW LINE",
+   "category": "Pc",
+   "decomposition": ""
+  },
+  "`": {
+   "name": "GRAVE ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "a": {
+   "name": "LATIN SMALL LETTER A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "b": {
+   "name": "LATIN SMALL LETTER B",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "c": {
+   "name": "LATIN SMALL LETTER C",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "d": {
+   "name": "LATIN SMALL LETTER D",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "e": {
+   "name": "LATIN SMALL LETTER E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "f": {
+   "name": "LATIN SMALL LETTER F",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "g": {
+   "name": "LATIN SMALL LETTER G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "h": {
+   "name": "LATIN SMALL LETTER H",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "i": {
+   "name": "LATIN SMALL LETTER I",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "j": {
+   "name": "LATIN SMALL LETTER J",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "k": {
+   "name": "LATIN SMALL LETTER K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "l": {
+   "name": "LATIN SMALL LETTER L",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "m": {
+   "name": "LATIN SMALL LETTER M",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "n": {
+   "name": "LATIN SMALL LETTER N",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "o": {
+   "name": "LATIN SMALL LETTER O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "p": {
+   "name": "LATIN SMALL LETTER P",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "q": {
+   "name": "LATIN SMALL LETTER Q",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "r": {
+   "name": "LATIN SMALL LETTER R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "s": {
+   "name": "LATIN SMALL LETTER S",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "t": {
+   "name": "LATIN SMALL LETTER T",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "u": {
+   "name": "LATIN SMALL LETTER U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "v": {
+   "name": "LATIN SMALL LETTER V",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "w": {
+   "name": "LATIN SMALL LETTER W",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "x": {
+   "name": "LATIN SMALL LETTER X",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "y": {
+   "name": "LATIN SMALL LETTER Y",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "z": {
+   "name": "LATIN SMALL LETTER Z",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "{": {
+   "name": "LEFT CURLY BRACKET",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  "|": {
+   "name": "VERTICAL LINE",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "}": {
+   "name": "RIGHT CURLY BRACKET",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "~": {
+   "name": "TILDE",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  " ": {
+   "name": "NO-BREAK SPACE",
+   "category": "Zs",
+   "decomposition": "<noBreak> 0020"
+  },
+  "¡": {
+   "name": "INVERTED EXCLAMATION MARK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "¢": {
+   "name": "CENT SIGN",
+   "category": "Sc",
+   "decomposition": ""
+  },
+  "£": {
+   "name": "POUND SIGN",
+   "category": "Sc",
+   "decomposition": ""
+  },
+  "¤": {
+   "name": "CURRENCY SIGN",
+   "category": "Sc",
+   "decomposition": ""
+  },
+  "¥": {
+   "name": "YEN SIGN",
+   "category": "Sc",
+   "decomposition": ""
+  },
+  "¦": {
+   "name": "BROKEN BAR",
+   "category": "So",
+   "decomposition": ""
+  },
+  "§": {
+   "name": "SECTION SIGN",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "¨": {
+   "name": "DIAERESIS",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0308"
+  },
+  "©": {
+   "name": "COPYRIGHT SIGN",
+   "category": "So",
+   "decomposition": ""
+  },
+  "ª": {
+   "name": "FEMININE ORDINAL INDICATOR",
+   "category": "Lo",
+   "decomposition": "<super> 0061"
+  },
+  "«": {
+   "name": "LEFT-POINTING DOUBLE ANGLE QUOTATION MARK",
+   "category": "Pi",
+   "decomposition": ""
+  },
+  "¬": {
+   "name": "NOT SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "­": {
+   "name": "SOFT HYPHEN",
+   "category": "Cf",
+   "decomposition": ""
+  },
+  "®": {
+   "name": "REGISTERED SIGN",
+   "category": "So",
+   "decomposition": ""
+  },
+  "¯": {
+   "name": "MACRON",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0304"
+  },
+  "°": {
+   "name": "DEGREE SIGN",
+   "category": "So",
+   "decomposition": ""
+  },
+  "±": {
+   "name": "PLUS-MINUS SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "²": {
+   "name": "SUPERSCRIPT TWO",
+   "category": "No",
+   "decomposition": "<super> 0032"
+  },
+  "³": {
+   "name": "SUPERSCRIPT THREE",
+   "category": "No",
+   "decomposition": "<super> 0033"
+  },
+  "´": {
+   "name": "ACUTE ACCENT",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0301"
+  },
+  "µ": {
+   "name": "MICRO SIGN",
+   "category": "Ll",
+   "decomposition": "<compat> 03BC"
+  },
+  "¶": {
+   "name": "PILCROW SIGN",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "·": {
+   "name": "MIDDLE DOT",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "¸": {
+   "name": "CEDILLA",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0327"
+  },
+  "¹": {
+   "name": "SUPERSCRIPT ONE",
+   "category": "No",
+   "decomposition": "<super> 0031"
+  },
+  "º": {
+   "name": "MASCULINE ORDINAL INDICATOR",
+   "category": "Lo",
+   "decomposition": "<super> 006F"
+  },
+  "»": {
+   "name": "RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK",
+   "category": "Pf",
+   "decomposition": ""
+  },
+  "¼": {
+   "name": "VULGAR FRACTION ONE QUARTER",
+   "category": "No",
+   "decomposition": "<fraction> 0031 2044 0034"
+  },
+  "½": {
+   "name": "VULGAR FRACTION ONE HALF",
+   "category": "No",
+   "decomposition": "<fraction> 0031 2044 0032"
+  },
+  "¾": {
+   "name": "VULGAR FRACTION THREE QUARTERS",
+   "category": "No",
+   "decomposition": "<fraction> 0033 2044 0034"
+  },
+  "¿": {
+   "name": "INVERTED QUESTION MARK",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "À": {
+   "name": "LATIN CAPITAL LETTER A WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "0041 0300"
+  },
+  "Á": {
+   "name": "LATIN CAPITAL LETTER A WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0041 0301"
+  },
+  "Â": {
+   "name": "LATIN CAPITAL LETTER A WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0041 0302"
+  },
+  "Ã": {
+   "name": "LATIN CAPITAL LETTER A WITH TILDE",
+   "category": "Lu",
+   "decomposition": "0041 0303"
+  },
+  "Ä": {
+   "name": "LATIN CAPITAL LETTER A WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "0041 0308"
+  },
+  "Å": {
+   "name": "LATIN CAPITAL LETTER A WITH RING ABOVE",
+   "category": "Lu",
+   "decomposition": "0041 030A"
+  },
+  "Æ": {
+   "name": "LATIN CAPITAL LETTER AE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ç": {
+   "name": "LATIN CAPITAL LETTER C WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0043 0327"
+  },
+  "È": {
+   "name": "LATIN CAPITAL LETTER E WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "0045 0300"
+  },
+  "É": {
+   "name": "LATIN CAPITAL LETTER E WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0045 0301"
+  },
+  "Ê": {
+   "name": "LATIN CAPITAL LETTER E WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0045 0302"
+  },
+  "Ë": {
+   "name": "LATIN CAPITAL LETTER E WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "0045 0308"
+  },
+  "Ì": {
+   "name": "LATIN CAPITAL LETTER I WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "0049 0300"
+  },
+  "Í": {
+   "name": "LATIN CAPITAL LETTER I WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0049 0301"
+  },
+  "Î": {
+   "name": "LATIN CAPITAL LETTER I WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0049 0302"
+  },
+  "Ï": {
+   "name": "LATIN CAPITAL LETTER I WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "0049 0308"
+  },
+  "Ð": {
+   "name": "LATIN CAPITAL LETTER ETH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ñ": {
+   "name": "LATIN CAPITAL LETTER N WITH TILDE",
+   "category": "Lu",
+   "decomposition": "004E 0303"
+  },
+  "Ò": {
+   "name": "LATIN CAPITAL LETTER O WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "004F 0300"
+  },
+  "Ó": {
+   "name": "LATIN CAPITAL LETTER O WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "004F 0301"
+  },
+  "Ô": {
+   "name": "LATIN CAPITAL LETTER O WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "004F 0302"
+  },
+  "Õ": {
+   "name": "LATIN CAPITAL LETTER O WITH TILDE",
+   "category": "Lu",
+   "decomposition": "004F 0303"
+  },
+  "Ö": {
+   "name": "LATIN CAPITAL LETTER O WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "004F 0308"
+  },
+  "×": {
+   "name": "MULTIPLICATION SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "Ø": {
+   "name": "LATIN CAPITAL LETTER O WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ù": {
+   "name": "LATIN CAPITAL LETTER U WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "0055 0300"
+  },
+  "Ú": {
+   "name": "LATIN CAPITAL LETTER U WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0055 0301"
+  },
+  "Û": {
+   "name": "LATIN CAPITAL LETTER U WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0055 0302"
+  },
+  "Ü": {
+   "name": "LATIN CAPITAL LETTER U WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "0055 0308"
+  },
+  "Ý": {
+   "name": "LATIN CAPITAL LETTER Y WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0059 0301"
+  },
+  "Þ": {
+   "name": "LATIN CAPITAL LETTER THORN",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ß": {
+   "name": "LATIN SMALL LETTER SHARP S",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "à": {
+   "name": "LATIN SMALL LETTER A WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "0061 0300"
+  },
+  "á": {
+   "name": "LATIN SMALL LETTER A WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0061 0301"
+  },
+  "â": {
+   "name": "LATIN SMALL LETTER A WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0061 0302"
+  },
+  "ã": {
+   "name": "LATIN SMALL LETTER A WITH TILDE",
+   "category": "Ll",
+   "decomposition": "0061 0303"
+  },
+  "ä": {
+   "name": "LATIN SMALL LETTER A WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "0061 0308"
+  },
+  "å": {
+   "name": "LATIN SMALL LETTER A WITH RING ABOVE",
+   "category": "Ll",
+   "decomposition": "0061 030A"
+  },
+  "æ": {
+   "name": "LATIN SMALL LETTER AE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ç": {
+   "name": "LATIN SMALL LETTER C WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0063 0327"
+  },
+  "è": {
+   "name": "LATIN SMALL LETTER E WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "0065 0300"
+  },
+  "é": {
+   "name": "LATIN SMALL LETTER E WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0065 0301"
+  },
+  "ê": {
+   "name": "LATIN SMALL LETTER E WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0065 0302"
+  },
+  "ë": {
+   "name": "LATIN SMALL LETTER E WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "0065 0308"
+  },
+  "ì": {
+   "name": "LATIN SMALL LETTER I WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "0069 0300"
+  },
+  "í": {
+   "name": "LATIN SMALL LETTER I WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0069 0301"
+  },
+  "î": {
+   "name": "LATIN SMALL LETTER I WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0069 0302"
+  },
+  "ï": {
+   "name": "LATIN SMALL LETTER I WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "0069 0308"
+  },
+  "ð": {
+   "name": "LATIN SMALL LETTER ETH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ñ": {
+   "name": "LATIN SMALL LETTER N WITH TILDE",
+   "category": "Ll",
+   "decomposition": "006E 0303"
+  },
+  "ò": {
+   "name": "LATIN SMALL LETTER O WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "006F 0300"
+  },
+  "ó": {
+   "name": "LATIN SMALL LETTER O WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "006F 0301"
+  },
+  "ô": {
+   "name": "LATIN SMALL LETTER O WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "006F 0302"
+  },
+  "õ": {
+   "name": "LATIN SMALL LETTER O WITH TILDE",
+   "category": "Ll",
+   "decomposition": "006F 0303"
+  },
+  "ö": {
+   "name": "LATIN SMALL LETTER O WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "006F 0308"
+  },
+  "÷": {
+   "name": "DIVISION SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "ø": {
+   "name": "LATIN SMALL LETTER O WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ù": {
+   "name": "LATIN SMALL LETTER U WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "0075 0300"
+  },
+  "ú": {
+   "name": "LATIN SMALL LETTER U WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0075 0301"
+  },
+  "û": {
+   "name": "LATIN SMALL LETTER U WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0075 0302"
+  },
+  "ü": {
+   "name": "LATIN SMALL LETTER U WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "0075 0308"
+  },
+  "ý": {
+   "name": "LATIN SMALL LETTER Y WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0079 0301"
+  },
+  "þ": {
+   "name": "LATIN SMALL LETTER THORN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ÿ": {
+   "name": "LATIN SMALL LETTER Y WITH DIAERESIS",
+   "category": "Ll",
+   "decomposition": "0079 0308"
+  },
+  "Ā": {
+   "name": "LATIN CAPITAL LETTER A WITH MACRON",
+   "category": "Lu",
+   "decomposition": "0041 0304"
+  },
+  "ā": {
+   "name": "LATIN SMALL LETTER A WITH MACRON",
+   "category": "Ll",
+   "decomposition": "0061 0304"
+  },
+  "Ă": {
+   "name": "LATIN CAPITAL LETTER A WITH BREVE",
+   "category": "Lu",
+   "decomposition": "0041 0306"
+  },
+  "ă": {
+   "name": "LATIN SMALL LETTER A WITH BREVE",
+   "category": "Ll",
+   "decomposition": "0061 0306"
+  },
+  "Ą": {
+   "name": "LATIN CAPITAL LETTER A WITH OGONEK",
+   "category": "Lu",
+   "decomposition": "0041 0328"
+  },
+  "ą": {
+   "name": "LATIN SMALL LETTER A WITH OGONEK",
+   "category": "Ll",
+   "decomposition": "0061 0328"
+  },
+  "Ć": {
+   "name": "LATIN CAPITAL LETTER C WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0043 0301"
+  },
+  "ć": {
+   "name": "LATIN SMALL LETTER C WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0063 0301"
+  },
+  "Ĉ": {
+   "name": "LATIN CAPITAL LETTER C WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0043 0302"
+  },
+  "ĉ": {
+   "name": "LATIN SMALL LETTER C WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0063 0302"
+  },
+  "Ċ": {
+   "name": "LATIN CAPITAL LETTER C WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "0043 0307"
+  },
+  "ċ": {
+   "name": "LATIN SMALL LETTER C WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "0063 0307"
+  },
+  "Č": {
+   "name": "LATIN CAPITAL LETTER C WITH CARON",
+   "category": "Lu",
+   "decomposition": "0043 030C"
+  },
+  "č": {
+   "name": "LATIN SMALL LETTER C WITH CARON",
+   "category": "Ll",
+   "decomposition": "0063 030C"
+  },
+  "Ď": {
+   "name": "LATIN CAPITAL LETTER D WITH CARON",
+   "category": "Lu",
+   "decomposition": "0044 030C"
+  },
+  "ď": {
+   "name": "LATIN SMALL LETTER D WITH CARON",
+   "category": "Ll",
+   "decomposition": "0064 030C"
+  },
+  "Đ": {
+   "name": "LATIN CAPITAL LETTER D WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "đ": {
+   "name": "LATIN SMALL LETTER D WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ē": {
+   "name": "LATIN CAPITAL LETTER E WITH MACRON",
+   "category": "Lu",
+   "decomposition": "0045 0304"
+  },
+  "ē": {
+   "name": "LATIN SMALL LETTER E WITH MACRON",
+   "category": "Ll",
+   "decomposition": "0065 0304"
+  },
+  "Ĕ": {
+   "name": "LATIN CAPITAL LETTER E WITH BREVE",
+   "category": "Lu",
+   "decomposition": "0045 0306"
+  },
+  "ĕ": {
+   "name": "LATIN SMALL LETTER E WITH BREVE",
+   "category": "Ll",
+   "decomposition": "0065 0306"
+  },
+  "Ė": {
+   "name": "LATIN CAPITAL LETTER E WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "0045 0307"
+  },
+  "ė": {
+   "name": "LATIN SMALL LETTER E WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "0065 0307"
+  },
+  "Ę": {
+   "name": "LATIN CAPITAL LETTER E WITH OGONEK",
+   "category": "Lu",
+   "decomposition": "0045 0328"
+  },
+  "ę": {
+   "name": "LATIN SMALL LETTER E WITH OGONEK",
+   "category": "Ll",
+   "decomposition": "0065 0328"
+  },
+  "Ě": {
+   "name": "LATIN CAPITAL LETTER E WITH CARON",
+   "category": "Lu",
+   "decomposition": "0045 030C"
+  },
+  "ě": {
+   "name": "LATIN SMALL LETTER E WITH CARON",
+   "category": "Ll",
+   "decomposition": "0065 030C"
+  },
+  "Ĝ": {
+   "name": "LATIN CAPITAL LETTER G WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0047 0302"
+  },
+  "ĝ": {
+   "name": "LATIN SMALL LETTER G WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0067 0302"
+  },
+  "Ğ": {
+   "name": "LATIN CAPITAL LETTER G WITH BREVE",
+   "category": "Lu",
+   "decomposition": "0047 0306"
+  },
+  "ğ": {
+   "name": "LATIN SMALL LETTER G WITH BREVE",
+   "category": "Ll",
+   "decomposition": "0067 0306"
+  },
+  "Ġ": {
+   "name": "LATIN CAPITAL LETTER G WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "0047 0307"
+  },
+  "ġ": {
+   "name": "LATIN SMALL LETTER G WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "0067 0307"
+  },
+  "Ģ": {
+   "name": "LATIN CAPITAL LETTER G WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0047 0327"
+  },
+  "ģ": {
+   "name": "LATIN SMALL LETTER G WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0067 0327"
+  },
+  "Ĥ": {
+   "name": "LATIN CAPITAL LETTER H WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0048 0302"
+  },
+  "ĥ": {
+   "name": "LATIN SMALL LETTER H WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0068 0302"
+  },
+  "Ħ": {
+   "name": "LATIN CAPITAL LETTER H WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ħ": {
+   "name": "LATIN SMALL LETTER H WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ĩ": {
+   "name": "LATIN CAPITAL LETTER I WITH TILDE",
+   "category": "Lu",
+   "decomposition": "0049 0303"
+  },
+  "ĩ": {
+   "name": "LATIN SMALL LETTER I WITH TILDE",
+   "category": "Ll",
+   "decomposition": "0069 0303"
+  },
+  "Ī": {
+   "name": "LATIN CAPITAL LETTER I WITH MACRON",
+   "category": "Lu",
+   "decomposition": "0049 0304"
+  },
+  "ī": {
+   "name": "LATIN SMALL LETTER I WITH MACRON",
+   "category": "Ll",
+   "decomposition": "0069 0304"
+  },
+  "Ĭ": {
+   "name": "LATIN CAPITAL LETTER I WITH BREVE",
+   "category": "Lu",
+   "decomposition": "0049 0306"
+  },
+  "ĭ": {
+   "name": "LATIN SMALL LETTER I WITH BREVE",
+   "category": "Ll",
+   "decomposition": "0069 0306"
+  },
+  "Į": {
+   "name": "LATIN CAPITAL LETTER I WITH OGONEK",
+   "category": "Lu",
+   "decomposition": "0049 0328"
+  },
+  "į": {
+   "name": "LATIN SMALL LETTER I WITH OGONEK",
+   "category": "Ll",
+   "decomposition": "0069 0328"
+  },
+  "İ": {
+   "name": "LATIN CAPITAL LETTER I WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "0049 0307"
+  },
+  "ı": {
+   "name": "LATIN SMALL LETTER DOTLESS I",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ĳ": {
+   "name": "LATIN CAPITAL LIGATURE IJ",
+   "category": "Lu",
+   "decomposition": "<compat> 0049 004A"
+  },
+  "ĳ": {
+   "name": "LATIN SMALL LIGATURE IJ",
+   "category": "Ll",
+   "decomposition": "<compat> 0069 006A"
+  },
+  "Ĵ": {
+   "name": "LATIN CAPITAL LETTER J WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "004A 0302"
+  },
+  "ĵ": {
+   "name": "LATIN SMALL LETTER J WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "006A 0302"
+  },
+  "Ķ": {
+   "name": "LATIN CAPITAL LETTER K WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "004B 0327"
+  },
+  "ķ": {
+   "name": "LATIN SMALL LETTER K WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "006B 0327"
+  },
+  "ĸ": {
+   "name": "LATIN SMALL LETTER KRA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ĺ": {
+   "name": "LATIN CAPITAL LETTER L WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "004C 0301"
+  },
+  "ĺ": {
+   "name": "LATIN SMALL LETTER L WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "006C 0301"
+  },
+  "Ļ": {
+   "name": "LATIN CAPITAL LETTER L WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "004C 0327"
+  },
+  "ļ": {
+   "name": "LATIN SMALL LETTER L WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "006C 0327"
+  },
+  "Ľ": {
+   "name": "LATIN CAPITAL LETTER L WITH CARON",
+   "category": "Lu",
+   "decomposition": "004C 030C"
+  },
+  "ľ": {
+   "name": "LATIN SMALL LETTER L WITH CARON",
+   "category": "Ll",
+   "decomposition": "006C 030C"
+  },
+  "Ŀ": {
+   "name": "LATIN CAPITAL LETTER L WITH MIDDLE DOT",
+   "category": "Lu",
+   "decomposition": "<compat> 004C 00B7"
+  },
+  "ŀ": {
+   "name": "LATIN SMALL LETTER L WITH MIDDLE DOT",
+   "category": "Ll",
+   "decomposition": "<compat> 006C 00B7"
+  },
+  "Ł": {
+   "name": "LATIN CAPITAL LETTER L WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ł": {
+   "name": "LATIN SMALL LETTER L WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ń": {
+   "name": "LATIN CAPITAL LETTER N WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "004E 0301"
+  },
+  "ń": {
+   "name": "LATIN SMALL LETTER N WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "006E 0301"
+  },
+  "Ņ": {
+   "name": "LATIN CAPITAL LETTER N WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "004E 0327"
+  },
+  "ņ": {
+   "name": "LATIN SMALL LETTER N WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "006E 0327"
+  },
+  "Ň": {
+   "name": "LATIN CAPITAL LETTER N WITH CARON",
+   "category": "Lu",
+   "decomposition": "004E 030C"
+  },
+  "ň": {
+   "name": "LATIN SMALL LETTER N WITH CARON",
+   "category": "Ll",
+   "decomposition": "006E 030C"
+  },
+  "ŉ": {
+   "name": "LATIN SMALL LETTER N PRECEDED BY APOSTROPHE",
+   "category": "Ll",
+   "decomposition": "<compat> 02BC 006E"
+  },
+  "Ŋ": {
+   "name": "LATIN CAPITAL LETTER ENG",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ŋ": {
+   "name": "LATIN SMALL LETTER ENG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ō": {
+   "name": "LATIN CAPITAL LETTER O WITH MACRON",
+   "category": "Lu",
+   "decomposition": "004F 0304"
+  },
+  "ō": {
+   "name": "LATIN SMALL LETTER O WITH MACRON",
+   "category": "Ll",
+   "decomposition": "006F 0304"
+  },
+  "Ŏ": {
+   "name": "LATIN CAPITAL LETTER O WITH BREVE",
+   "category": "Lu",
+   "decomposition": "004F 0306"
+  },
+  "ŏ": {
+   "name": "LATIN SMALL LETTER O WITH BREVE",
+   "category": "Ll",
+   "decomposition": "006F 0306"
+  },
+  "Ő": {
+   "name": "LATIN CAPITAL LETTER O WITH DOUBLE ACUTE",
+   "category": "Lu",
+   "decomposition": "004F 030B"
+  },
+  "ő": {
+   "name": "LATIN SMALL LETTER O WITH DOUBLE ACUTE",
+   "category": "Ll",
+   "decomposition": "006F 030B"
+  },
+  "Œ": {
+   "name": "LATIN CAPITAL LIGATURE OE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "œ": {
+   "name": "LATIN SMALL LIGATURE OE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ŕ": {
+   "name": "LATIN CAPITAL LETTER R WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0052 0301"
+  },
+  "ŕ": {
+   "name": "LATIN SMALL LETTER R WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0072 0301"
+  },
+  "Ŗ": {
+   "name": "LATIN CAPITAL LETTER R WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0052 0327"
+  },
+  "ŗ": {
+   "name": "LATIN SMALL LETTER R WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0072 0327"
+  },
+  "Ř": {
+   "name": "LATIN CAPITAL LETTER R WITH CARON",
+   "category": "Lu",
+   "decomposition": "0052 030C"
+  },
+  "ř": {
+   "name": "LATIN SMALL LETTER R WITH CARON",
+   "category": "Ll",
+   "decomposition": "0072 030C"
+  },
+  "Ś": {
+   "name": "LATIN CAPITAL LETTER S WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0053 0301"
+  },
+  "ś": {
+   "name": "LATIN SMALL LETTER S WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0073 0301"
+  },
+  "Ŝ": {
+   "name": "LATIN CAPITAL LETTER S WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0053 0302"
+  },
+  "ŝ": {
+   "name": "LATIN SMALL LETTER S WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0073 0302"
+  },
+  "Ş": {
+   "name": "LATIN CAPITAL LETTER S WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0053 0327"
+  },
+  "ş": {
+   "name": "LATIN SMALL LETTER S WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0073 0327"
+  },
+  "Š": {
+   "name": "LATIN CAPITAL LETTER S WITH CARON",
+   "category": "Lu",
+   "decomposition": "0053 030C"
+  },
+  "š": {
+   "name": "LATIN SMALL LETTER S WITH CARON",
+   "category": "Ll",
+   "decomposition": "0073 030C"
+  },
+  "Ţ": {
+   "name": "LATIN CAPITAL LETTER T WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0054 0327"
+  },
+  "ţ": {
+   "name": "LATIN SMALL LETTER T WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0074 0327"
+  },
+  "Ť": {
+   "name": "LATIN CAPITAL LETTER T WITH CARON",
+   "category": "Lu",
+   "decomposition": "0054 030C"
+  },
+  "ť": {
+   "name": "LATIN SMALL LETTER T WITH CARON",
+   "category": "Ll",
+   "decomposition": "0074 030C"
+  },
+  "Ŧ": {
+   "name": "LATIN CAPITAL LETTER T WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ŧ": {
+   "name": "LATIN SMALL LETTER T WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ũ": {
+   "name": "LATIN CAPITAL LETTER U WITH TILDE",
+   "category": "Lu",
+   "decomposition": "0055 0303"
+  },
+  "ũ": {
+   "name": "LATIN SMALL LETTER U WITH TILDE",
+   "category": "Ll",
+   "decomposition": "0075 0303"
+  },
+  "Ū": {
+   "name": "LATIN CAPITAL LETTER U WITH MACRON",
+   "category": "Lu",
+   "decomposition": "0055 0304"
+  },
+  "ū": {
+   "name": "LATIN SMALL LETTER U WITH MACRON",
+   "category": "Ll",
+   "decomposition": "0075 0304"
+  },
+  "Ŭ": {
+   "name": "LATIN CAPITAL LETTER U WITH BREVE",
+   "category": "Lu",
+   "decomposition": "0055 0306"
+  },
+  "ŭ": {
+   "name": "LATIN SMALL LETTER U WITH BREVE",
+   "category": "Ll",
+   "decomposition": "0075 0306"
+  },
+  "Ů": {
+   "name": "LATIN CAPITAL LETTER U WITH RING ABOVE",
+   "category": "Lu",
+   "decomposition": "0055 030A"
+  },
+  "ů": {
+   "name": "LATIN SMALL LETTER U WITH RING ABOVE",
+   "category": "Ll",
+   "decomposition": "0075 030A"
+  },
+  "Ű": {
+   "name": "LATIN CAPITAL LETTER U WITH DOUBLE ACUTE",
+   "category": "Lu",
+   "decomposition": "0055 030B"
+  },
+  "ű": {
+   "name": "LATIN SMALL LETTER U WITH DOUBLE ACUTE",
+   "category": "Ll",
+   "decomposition": "0075 030B"
+  },
+  "Ų": {
+   "name": "LATIN CAPITAL LETTER U WITH OGONEK",
+   "category": "Lu",
+   "decomposition": "0055 0328"
+  },
+  "ų": {
+   "name": "LATIN SMALL LETTER U WITH OGONEK",
+   "category": "Ll",
+   "decomposition": "0075 0328"
+  },
+  "Ŵ": {
+   "name": "LATIN CAPITAL LETTER W WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0057 0302"
+  },
+  "ŵ": {
+   "name": "LATIN SMALL LETTER W WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0077 0302"
+  },
+  "Ŷ": {
+   "name": "LATIN CAPITAL LETTER Y WITH CIRCUMFLEX",
+   "category": "Lu",
+   "decomposition": "0059 0302"
+  },
+  "ŷ": {
+   "name": "LATIN SMALL LETTER Y WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "0079 0302"
+  },
+  "Ÿ": {
+   "name": "LATIN CAPITAL LETTER Y WITH DIAERESIS",
+   "category": "Lu",
+   "decomposition": "0059 0308"
+  },
+  "Ź": {
+   "name": "LATIN CAPITAL LETTER Z WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "005A 0301"
+  },
+  "ź": {
+   "name": "LATIN SMALL LETTER Z WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "007A 0301"
+  },
+  "Ż": {
+   "name": "LATIN CAPITAL LETTER Z WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "005A 0307"
+  },
+  "ż": {
+   "name": "LATIN SMALL LETTER Z WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "007A 0307"
+  },
+  "Ž": {
+   "name": "LATIN CAPITAL LETTER Z WITH CARON",
+   "category": "Lu",
+   "decomposition": "005A 030C"
+  },
+  "ž": {
+   "name": "LATIN SMALL LETTER Z WITH CARON",
+   "category": "Ll",
+   "decomposition": "007A 030C"
+  },
+  "ſ": {
+   "name": "LATIN SMALL LETTER LONG S",
+   "category": "Ll",
+   "decomposition": "<compat> 0073"
+  },
+  "ƀ": {
+   "name": "LATIN SMALL LETTER B WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɓ": {
+   "name": "LATIN CAPITAL LETTER B WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƃ": {
+   "name": "LATIN CAPITAL LETTER B WITH TOPBAR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƃ": {
+   "name": "LATIN SMALL LETTER B WITH TOPBAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƅ": {
+   "name": "LATIN CAPITAL LETTER TONE SIX",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƅ": {
+   "name": "LATIN SMALL LETTER TONE SIX",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɔ": {
+   "name": "LATIN CAPITAL LETTER OPEN O",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƈ": {
+   "name": "LATIN CAPITAL LETTER C WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƈ": {
+   "name": "LATIN SMALL LETTER C WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɖ": {
+   "name": "LATIN CAPITAL LETTER AFRICAN D",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɗ": {
+   "name": "LATIN CAPITAL LETTER D WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƌ": {
+   "name": "LATIN CAPITAL LETTER D WITH TOPBAR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƌ": {
+   "name": "LATIN SMALL LETTER D WITH TOPBAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƍ": {
+   "name": "LATIN SMALL LETTER TURNED DELTA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ǝ": {
+   "name": "LATIN CAPITAL LETTER REVERSED E",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ə": {
+   "name": "LATIN CAPITAL LETTER SCHWA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɛ": {
+   "name": "LATIN CAPITAL LETTER OPEN E",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƒ": {
+   "name": "LATIN CAPITAL LETTER F WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƒ": {
+   "name": "LATIN SMALL LETTER F WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɠ": {
+   "name": "LATIN CAPITAL LETTER G WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɣ": {
+   "name": "LATIN CAPITAL LETTER GAMMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƕ": {
+   "name": "LATIN SMALL LETTER HV",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɩ": {
+   "name": "LATIN CAPITAL LETTER IOTA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɨ": {
+   "name": "LATIN CAPITAL LETTER I WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƙ": {
+   "name": "LATIN CAPITAL LETTER K WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƙ": {
+   "name": "LATIN SMALL LETTER K WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƚ": {
+   "name": "LATIN SMALL LETTER L WITH BAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƛ": {
+   "name": "LATIN SMALL LETTER LAMBDA WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɯ": {
+   "name": "LATIN CAPITAL LETTER TURNED M",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɲ": {
+   "name": "LATIN CAPITAL LETTER N WITH LEFT HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƞ": {
+   "name": "LATIN SMALL LETTER N WITH LONG RIGHT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɵ": {
+   "name": "LATIN CAPITAL LETTER O WITH MIDDLE TILDE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ơ": {
+   "name": "LATIN CAPITAL LETTER O WITH HORN",
+   "category": "Lu",
+   "decomposition": "004F 031B"
+  },
+  "ơ": {
+   "name": "LATIN SMALL LETTER O WITH HORN",
+   "category": "Ll",
+   "decomposition": "006F 031B"
+  },
+  "Ƣ": {
+   "name": "LATIN CAPITAL LETTER OI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƣ": {
+   "name": "LATIN SMALL LETTER OI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƥ": {
+   "name": "LATIN CAPITAL LETTER P WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƥ": {
+   "name": "LATIN SMALL LETTER P WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ʀ": {
+   "name": "LATIN LETTER YR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƨ": {
+   "name": "LATIN CAPITAL LETTER TONE TWO",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƨ": {
+   "name": "LATIN SMALL LETTER TONE TWO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ʃ": {
+   "name": "LATIN CAPITAL LETTER ESH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƪ": {
+   "name": "LATIN LETTER REVERSED ESH LOOP",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƫ": {
+   "name": "LATIN SMALL LETTER T WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƭ": {
+   "name": "LATIN CAPITAL LETTER T WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƭ": {
+   "name": "LATIN SMALL LETTER T WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ʈ": {
+   "name": "LATIN CAPITAL LETTER T WITH RETROFLEX HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ư": {
+   "name": "LATIN CAPITAL LETTER U WITH HORN",
+   "category": "Lu",
+   "decomposition": "0055 031B"
+  },
+  "ư": {
+   "name": "LATIN SMALL LETTER U WITH HORN",
+   "category": "Ll",
+   "decomposition": "0075 031B"
+  },
+  "Ʊ": {
+   "name": "LATIN CAPITAL LETTER UPSILON",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ʋ": {
+   "name": "LATIN CAPITAL LETTER V WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƴ": {
+   "name": "LATIN CAPITAL LETTER Y WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƴ": {
+   "name": "LATIN SMALL LETTER Y WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƶ": {
+   "name": "LATIN CAPITAL LETTER Z WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƶ": {
+   "name": "LATIN SMALL LETTER Z WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ʒ": {
+   "name": "LATIN CAPITAL LETTER EZH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƹ": {
+   "name": "LATIN CAPITAL LETTER EZH REVERSED",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƹ": {
+   "name": "LATIN SMALL LETTER EZH REVERSED",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƺ": {
+   "name": "LATIN SMALL LETTER EZH WITH TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƻ": {
+   "name": "LATIN LETTER TWO WITH STROKE",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "Ƽ": {
+   "name": "LATIN CAPITAL LETTER TONE FIVE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ƽ": {
+   "name": "LATIN SMALL LETTER TONE FIVE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƾ": {
+   "name": "LATIN LETTER INVERTED GLOTTAL STOP WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ƿ": {
+   "name": "LATIN LETTER WYNN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ǀ": {
+   "name": "LATIN LETTER DENTAL CLICK",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ǁ": {
+   "name": "LATIN LETTER LATERAL CLICK",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ǂ": {
+   "name": "LATIN LETTER ALVEOLAR CLICK",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ǃ": {
+   "name": "LATIN LETTER RETROFLEX CLICK",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "Ǆ": {
+   "name": "LATIN CAPITAL LETTER DZ WITH CARON",
+   "category": "Lu",
+   "decomposition": "<compat> 0044 017D"
+  },
+  "ǅ": {
+   "name": "LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON",
+   "category": "Lt",
+   "decomposition": "<compat> 0044 017E"
+  },
+  "ǆ": {
+   "name": "LATIN SMALL LETTER DZ WITH CARON",
+   "category": "Ll",
+   "decomposition": "<compat> 0064 017E"
+  },
+  "Ǉ": {
+   "name": "LATIN CAPITAL LETTER LJ",
+   "category": "Lu",
+   "decomposition": "<compat> 004C 004A"
+  },
+  "ǈ": {
+   "name": "LATIN CAPITAL LETTER L WITH SMALL LETTER J",
+   "category": "Lt",
+   "decomposition": "<compat> 004C 006A"
+  },
+  "ǉ": {
+   "name": "LATIN SMALL LETTER LJ",
+   "category": "Ll",
+   "decomposition": "<compat> 006C 006A"
+  },
+  "Ǌ": {
+   "name": "LATIN CAPITAL LETTER NJ",
+   "category": "Lu",
+   "decomposition": "<compat> 004E 004A"
+  },
+  "ǋ": {
+   "name": "LATIN CAPITAL LETTER N WITH SMALL LETTER J",
+   "category": "Lt",
+   "decomposition": "<compat> 004E 006A"
+  },
+  "ǌ": {
+   "name": "LATIN SMALL LETTER NJ",
+   "category": "Ll",
+   "decomposition": "<compat> 006E 006A"
+  },
+  "Ǎ": {
+   "name": "LATIN CAPITAL LETTER A WITH CARON",
+   "category": "Lu",
+   "decomposition": "0041 030C"
+  },
+  "ǎ": {
+   "name": "LATIN SMALL LETTER A WITH CARON",
+   "category": "Ll",
+   "decomposition": "0061 030C"
+  },
+  "Ǐ": {
+   "name": "LATIN CAPITAL LETTER I WITH CARON",
+   "category": "Lu",
+   "decomposition": "0049 030C"
+  },
+  "ǐ": {
+   "name": "LATIN SMALL LETTER I WITH CARON",
+   "category": "Ll",
+   "decomposition": "0069 030C"
+  },
+  "Ǒ": {
+   "name": "LATIN CAPITAL LETTER O WITH CARON",
+   "category": "Lu",
+   "decomposition": "004F 030C"
+  },
+  "ǒ": {
+   "name": "LATIN SMALL LETTER O WITH CARON",
+   "category": "Ll",
+   "decomposition": "006F 030C"
+  },
+  "Ǔ": {
+   "name": "LATIN CAPITAL LETTER U WITH CARON",
+   "category": "Lu",
+   "decomposition": "0055 030C"
+  },
+  "ǔ": {
+   "name": "LATIN SMALL LETTER U WITH CARON",
+   "category": "Ll",
+   "decomposition": "0075 030C"
+  },
+  "Ǖ": {
+   "name": "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON",
+   "category": "Lu",
+   "decomposition": "00DC 0304"
+  },
+  "ǖ": {
+   "name": "LATIN SMALL LETTER U WITH DIAERESIS AND MACRON",
+   "category": "Ll",
+   "decomposition": "00FC 0304"
+  },
+  "Ǘ": {
+   "name": "LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE",
+   "category": "Lu",
+   "decomposition": "00DC 0301"
+  },
+  "ǘ": {
+   "name": "LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE",
+   "category": "Ll",
+   "decomposition": "00FC 0301"
+  },
+  "Ǚ": {
+   "name": "LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON",
+   "category": "Lu",
+   "decomposition": "00DC 030C"
+  },
+  "ǚ": {
+   "name": "LATIN SMALL LETTER U WITH DIAERESIS AND CARON",
+   "category": "Ll",
+   "decomposition": "00FC 030C"
+  },
+  "Ǜ": {
+   "name": "LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE",
+   "category": "Lu",
+   "decomposition": "00DC 0300"
+  },
+  "ǜ": {
+   "name": "LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE",
+   "category": "Ll",
+   "decomposition": "00FC 0300"
+  },
+  "ǝ": {
+   "name": "LATIN SMALL LETTER TURNED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ǟ": {
+   "name": "LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON",
+   "category": "Lu",
+   "decomposition": "00C4 0304"
+  },
+  "ǟ": {
+   "name": "LATIN SMALL LETTER A WITH DIAERESIS AND MACRON",
+   "category": "Ll",
+   "decomposition": "00E4 0304"
+  },
+  "Ǡ": {
+   "name": "LATIN CAPITAL LETTER A WITH DOT ABOVE AND MACRON",
+   "category": "Lu",
+   "decomposition": "0226 0304"
+  },
+  "ǡ": {
+   "name": "LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON",
+   "category": "Ll",
+   "decomposition": "0227 0304"
+  },
+  "Ǣ": {
+   "name": "LATIN CAPITAL LETTER AE WITH MACRON",
+   "category": "Lu",
+   "decomposition": "00C6 0304"
+  },
+  "ǣ": {
+   "name": "LATIN SMALL LETTER AE WITH MACRON",
+   "category": "Ll",
+   "decomposition": "00E6 0304"
+  },
+  "Ǥ": {
+   "name": "LATIN CAPITAL LETTER G WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ǥ": {
+   "name": "LATIN SMALL LETTER G WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ǧ": {
+   "name": "LATIN CAPITAL LETTER G WITH CARON",
+   "category": "Lu",
+   "decomposition": "0047 030C"
+  },
+  "ǧ": {
+   "name": "LATIN SMALL LETTER G WITH CARON",
+   "category": "Ll",
+   "decomposition": "0067 030C"
+  },
+  "Ǩ": {
+   "name": "LATIN CAPITAL LETTER K WITH CARON",
+   "category": "Lu",
+   "decomposition": "004B 030C"
+  },
+  "ǩ": {
+   "name": "LATIN SMALL LETTER K WITH CARON",
+   "category": "Ll",
+   "decomposition": "006B 030C"
+  },
+  "Ǫ": {
+   "name": "LATIN CAPITAL LETTER O WITH OGONEK",
+   "category": "Lu",
+   "decomposition": "004F 0328"
+  },
+  "ǫ": {
+   "name": "LATIN SMALL LETTER O WITH OGONEK",
+   "category": "Ll",
+   "decomposition": "006F 0328"
+  },
+  "Ǭ": {
+   "name": "LATIN CAPITAL LETTER O WITH OGONEK AND MACRON",
+   "category": "Lu",
+   "decomposition": "01EA 0304"
+  },
+  "ǭ": {
+   "name": "LATIN SMALL LETTER O WITH OGONEK AND MACRON",
+   "category": "Ll",
+   "decomposition": "01EB 0304"
+  },
+  "Ǯ": {
+   "name": "LATIN CAPITAL LETTER EZH WITH CARON",
+   "category": "Lu",
+   "decomposition": "01B7 030C"
+  },
+  "ǯ": {
+   "name": "LATIN SMALL LETTER EZH WITH CARON",
+   "category": "Ll",
+   "decomposition": "0292 030C"
+  },
+  "ǰ": {
+   "name": "LATIN SMALL LETTER J WITH CARON",
+   "category": "Ll",
+   "decomposition": "006A 030C"
+  },
+  "Ǳ": {
+   "name": "LATIN CAPITAL LETTER DZ",
+   "category": "Lu",
+   "decomposition": "<compat> 0044 005A"
+  },
+  "ǲ": {
+   "name": "LATIN CAPITAL LETTER D WITH SMALL LETTER Z",
+   "category": "Lt",
+   "decomposition": "<compat> 0044 007A"
+  },
+  "ǳ": {
+   "name": "LATIN SMALL LETTER DZ",
+   "category": "Ll",
+   "decomposition": "<compat> 0064 007A"
+  },
+  "Ǵ": {
+   "name": "LATIN CAPITAL LETTER G WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "0047 0301"
+  },
+  "ǵ": {
+   "name": "LATIN SMALL LETTER G WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "0067 0301"
+  },
+  "Ƕ": {
+   "name": "LATIN CAPITAL LETTER HWAIR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ƿ": {
+   "name": "LATIN CAPITAL LETTER WYNN",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ǹ": {
+   "name": "LATIN CAPITAL LETTER N WITH GRAVE",
+   "category": "Lu",
+   "decomposition": "004E 0300"
+  },
+  "ǹ": {
+   "name": "LATIN SMALL LETTER N WITH GRAVE",
+   "category": "Ll",
+   "decomposition": "006E 0300"
+  },
+  "Ǻ": {
+   "name": "LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE",
+   "category": "Lu",
+   "decomposition": "00C5 0301"
+  },
+  "ǻ": {
+   "name": "LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE",
+   "category": "Ll",
+   "decomposition": "00E5 0301"
+  },
+  "Ǽ": {
+   "name": "LATIN CAPITAL LETTER AE WITH ACUTE",
+   "category": "Lu",
+   "decomposition": "00C6 0301"
+  },
+  "ǽ": {
+   "name": "LATIN SMALL LETTER AE WITH ACUTE",
+   "category": "Ll",
+   "decomposition": "00E6 0301"
+  },
+  "Ǿ": {
+   "name": "LATIN CAPITAL LETTER O WITH STROKE AND ACUTE",
+   "category": "Lu",
+   "decomposition": "00D8 0301"
+  },
+  "ǿ": {
+   "name": "LATIN SMALL LETTER O WITH STROKE AND ACUTE",
+   "category": "Ll",
+   "decomposition": "00F8 0301"
+  },
+  "Ȁ": {
+   "name": "LATIN CAPITAL LETTER A WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "0041 030F"
+  },
+  "ȁ": {
+   "name": "LATIN SMALL LETTER A WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "0061 030F"
+  },
+  "Ȃ": {
+   "name": "LATIN CAPITAL LETTER A WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "0041 0311"
+  },
+  "ȃ": {
+   "name": "LATIN SMALL LETTER A WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "0061 0311"
+  },
+  "Ȅ": {
+   "name": "LATIN CAPITAL LETTER E WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "0045 030F"
+  },
+  "ȅ": {
+   "name": "LATIN SMALL LETTER E WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "0065 030F"
+  },
+  "Ȇ": {
+   "name": "LATIN CAPITAL LETTER E WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "0045 0311"
+  },
+  "ȇ": {
+   "name": "LATIN SMALL LETTER E WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "0065 0311"
+  },
+  "Ȉ": {
+   "name": "LATIN CAPITAL LETTER I WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "0049 030F"
+  },
+  "ȉ": {
+   "name": "LATIN SMALL LETTER I WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "0069 030F"
+  },
+  "Ȋ": {
+   "name": "LATIN CAPITAL LETTER I WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "0049 0311"
+  },
+  "ȋ": {
+   "name": "LATIN SMALL LETTER I WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "0069 0311"
+  },
+  "Ȍ": {
+   "name": "LATIN CAPITAL LETTER O WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "004F 030F"
+  },
+  "ȍ": {
+   "name": "LATIN SMALL LETTER O WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "006F 030F"
+  },
+  "Ȏ": {
+   "name": "LATIN CAPITAL LETTER O WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "004F 0311"
+  },
+  "ȏ": {
+   "name": "LATIN SMALL LETTER O WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "006F 0311"
+  },
+  "Ȑ": {
+   "name": "LATIN CAPITAL LETTER R WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "0052 030F"
+  },
+  "ȑ": {
+   "name": "LATIN SMALL LETTER R WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "0072 030F"
+  },
+  "Ȓ": {
+   "name": "LATIN CAPITAL LETTER R WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "0052 0311"
+  },
+  "ȓ": {
+   "name": "LATIN SMALL LETTER R WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "0072 0311"
+  },
+  "Ȕ": {
+   "name": "LATIN CAPITAL LETTER U WITH DOUBLE GRAVE",
+   "category": "Lu",
+   "decomposition": "0055 030F"
+  },
+  "ȕ": {
+   "name": "LATIN SMALL LETTER U WITH DOUBLE GRAVE",
+   "category": "Ll",
+   "decomposition": "0075 030F"
+  },
+  "Ȗ": {
+   "name": "LATIN CAPITAL LETTER U WITH INVERTED BREVE",
+   "category": "Lu",
+   "decomposition": "0055 0311"
+  },
+  "ȗ": {
+   "name": "LATIN SMALL LETTER U WITH INVERTED BREVE",
+   "category": "Ll",
+   "decomposition": "0075 0311"
+  },
+  "Ș": {
+   "name": "LATIN CAPITAL LETTER S WITH COMMA BELOW",
+   "category": "Lu",
+   "decomposition": "0053 0326"
+  },
+  "ș": {
+   "name": "LATIN SMALL LETTER S WITH COMMA BELOW",
+   "category": "Ll",
+   "decomposition": "0073 0326"
+  },
+  "Ț": {
+   "name": "LATIN CAPITAL LETTER T WITH COMMA BELOW",
+   "category": "Lu",
+   "decomposition": "0054 0326"
+  },
+  "ț": {
+   "name": "LATIN SMALL LETTER T WITH COMMA BELOW",
+   "category": "Ll",
+   "decomposition": "0074 0326"
+  },
+  "Ȝ": {
+   "name": "LATIN CAPITAL LETTER YOGH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȝ": {
+   "name": "LATIN SMALL LETTER YOGH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ȟ": {
+   "name": "LATIN CAPITAL LETTER H WITH CARON",
+   "category": "Lu",
+   "decomposition": "0048 030C"
+  },
+  "ȟ": {
+   "name": "LATIN SMALL LETTER H WITH CARON",
+   "category": "Ll",
+   "decomposition": "0068 030C"
+  },
+  "Ƞ": {
+   "name": "LATIN CAPITAL LETTER N WITH LONG RIGHT LEG",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȡ": {
+   "name": "LATIN SMALL LETTER D WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ȣ": {
+   "name": "LATIN CAPITAL LETTER OU",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȣ": {
+   "name": "LATIN SMALL LETTER OU",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ȥ": {
+   "name": "LATIN CAPITAL LETTER Z WITH HOOK",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȥ": {
+   "name": "LATIN SMALL LETTER Z WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ȧ": {
+   "name": "LATIN CAPITAL LETTER A WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "0041 0307"
+  },
+  "ȧ": {
+   "name": "LATIN SMALL LETTER A WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "0061 0307"
+  },
+  "Ȩ": {
+   "name": "LATIN CAPITAL LETTER E WITH CEDILLA",
+   "category": "Lu",
+   "decomposition": "0045 0327"
+  },
+  "ȩ": {
+   "name": "LATIN SMALL LETTER E WITH CEDILLA",
+   "category": "Ll",
+   "decomposition": "0065 0327"
+  },
+  "Ȫ": {
+   "name": "LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON",
+   "category": "Lu",
+   "decomposition": "00D6 0304"
+  },
+  "ȫ": {
+   "name": "LATIN SMALL LETTER O WITH DIAERESIS AND MACRON",
+   "category": "Ll",
+   "decomposition": "00F6 0304"
+  },
+  "Ȭ": {
+   "name": "LATIN CAPITAL LETTER O WITH TILDE AND MACRON",
+   "category": "Lu",
+   "decomposition": "00D5 0304"
+  },
+  "ȭ": {
+   "name": "LATIN SMALL LETTER O WITH TILDE AND MACRON",
+   "category": "Ll",
+   "decomposition": "00F5 0304"
+  },
+  "Ȯ": {
+   "name": "LATIN CAPITAL LETTER O WITH DOT ABOVE",
+   "category": "Lu",
+   "decomposition": "004F 0307"
+  },
+  "ȯ": {
+   "name": "LATIN SMALL LETTER O WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "006F 0307"
+  },
+  "Ȱ": {
+   "name": "LATIN CAPITAL LETTER O WITH DOT ABOVE AND MACRON",
+   "category": "Lu",
+   "decomposition": "022E 0304"
+  },
+  "ȱ": {
+   "name": "LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON",
+   "category": "Ll",
+   "decomposition": "022F 0304"
+  },
+  "Ȳ": {
+   "name": "LATIN CAPITAL LETTER Y WITH MACRON",
+   "category": "Lu",
+   "decomposition": "0059 0304"
+  },
+  "ȳ": {
+   "name": "LATIN SMALL LETTER Y WITH MACRON",
+   "category": "Ll",
+   "decomposition": "0079 0304"
+  },
+  "ȴ": {
+   "name": "LATIN SMALL LETTER L WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ȵ": {
+   "name": "LATIN SMALL LETTER N WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ȶ": {
+   "name": "LATIN SMALL LETTER T WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ȷ": {
+   "name": "LATIN SMALL LETTER DOTLESS J",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ȸ": {
+   "name": "LATIN SMALL LETTER DB DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ȹ": {
+   "name": "LATIN SMALL LETTER QP DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ⱥ": {
+   "name": "LATIN CAPITAL LETTER A WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ȼ": {
+   "name": "LATIN CAPITAL LETTER C WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȼ": {
+   "name": "LATIN SMALL LETTER C WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƚ": {
+   "name": "LATIN CAPITAL LETTER L WITH BAR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ⱦ": {
+   "name": "LATIN CAPITAL LETTER T WITH DIAGONAL STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ȿ": {
+   "name": "LATIN SMALL LETTER S WITH SWASH TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɀ": {
+   "name": "LATIN SMALL LETTER Z WITH SWASH TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɂ": {
+   "name": "LATIN CAPITAL LETTER GLOTTAL STOP",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɂ": {
+   "name": "LATIN SMALL LETTER GLOTTAL STOP",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ƀ": {
+   "name": "LATIN CAPITAL LETTER B WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ʉ": {
+   "name": "LATIN CAPITAL LETTER U BAR",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ʌ": {
+   "name": "LATIN CAPITAL LETTER TURNED V",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ɇ": {
+   "name": "LATIN CAPITAL LETTER E WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɇ": {
+   "name": "LATIN SMALL LETTER E WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɉ": {
+   "name": "LATIN CAPITAL LETTER J WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɉ": {
+   "name": "LATIN SMALL LETTER J WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɋ": {
+   "name": "LATIN CAPITAL LETTER SMALL Q WITH HOOK TAIL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɋ": {
+   "name": "LATIN SMALL LETTER Q WITH HOOK TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɍ": {
+   "name": "LATIN CAPITAL LETTER R WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɍ": {
+   "name": "LATIN SMALL LETTER R WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ɏ": {
+   "name": "LATIN CAPITAL LETTER Y WITH STROKE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ɏ": {
+   "name": "LATIN SMALL LETTER Y WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɐ": {
+   "name": "LATIN SMALL LETTER TURNED A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɑ": {
+   "name": "LATIN SMALL LETTER ALPHA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɒ": {
+   "name": "LATIN SMALL LETTER TURNED ALPHA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɓ": {
+   "name": "LATIN SMALL LETTER B WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɔ": {
+   "name": "LATIN SMALL LETTER OPEN O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɕ": {
+   "name": "LATIN SMALL LETTER C WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɖ": {
+   "name": "LATIN SMALL LETTER D WITH TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɗ": {
+   "name": "LATIN SMALL LETTER D WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɘ": {
+   "name": "LATIN SMALL LETTER REVERSED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ə": {
+   "name": "LATIN SMALL LETTER SCHWA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɚ": {
+   "name": "LATIN SMALL LETTER SCHWA WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɛ": {
+   "name": "LATIN SMALL LETTER OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɜ": {
+   "name": "LATIN SMALL LETTER REVERSED OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɝ": {
+   "name": "LATIN SMALL LETTER REVERSED OPEN E WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɞ": {
+   "name": "LATIN SMALL LETTER CLOSED REVERSED OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɟ": {
+   "name": "LATIN SMALL LETTER DOTLESS J WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɠ": {
+   "name": "LATIN SMALL LETTER G WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɡ": {
+   "name": "LATIN SMALL LETTER SCRIPT G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɢ": {
+   "name": "LATIN LETTER SMALL CAPITAL G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɣ": {
+   "name": "LATIN SMALL LETTER GAMMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɤ": {
+   "name": "LATIN SMALL LETTER RAMS HORN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɥ": {
+   "name": "LATIN SMALL LETTER TURNED H",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɦ": {
+   "name": "LATIN SMALL LETTER H WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɧ": {
+   "name": "LATIN SMALL LETTER HENG WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɨ": {
+   "name": "LATIN SMALL LETTER I WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɩ": {
+   "name": "LATIN SMALL LETTER IOTA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɪ": {
+   "name": "LATIN LETTER SMALL CAPITAL I",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɫ": {
+   "name": "LATIN SMALL LETTER L WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɬ": {
+   "name": "LATIN SMALL LETTER L WITH BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɭ": {
+   "name": "LATIN SMALL LETTER L WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɮ": {
+   "name": "LATIN SMALL LETTER LEZH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɯ": {
+   "name": "LATIN SMALL LETTER TURNED M",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɰ": {
+   "name": "LATIN SMALL LETTER TURNED M WITH LONG LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɱ": {
+   "name": "LATIN SMALL LETTER M WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɲ": {
+   "name": "LATIN SMALL LETTER N WITH LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɳ": {
+   "name": "LATIN SMALL LETTER N WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɴ": {
+   "name": "LATIN LETTER SMALL CAPITAL N",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɵ": {
+   "name": "LATIN SMALL LETTER BARRED O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɶ": {
+   "name": "LATIN LETTER SMALL CAPITAL OE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɷ": {
+   "name": "LATIN SMALL LETTER CLOSED OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɸ": {
+   "name": "LATIN SMALL LETTER PHI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɹ": {
+   "name": "LATIN SMALL LETTER TURNED R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɺ": {
+   "name": "LATIN SMALL LETTER TURNED R WITH LONG LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɻ": {
+   "name": "LATIN SMALL LETTER TURNED R WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɼ": {
+   "name": "LATIN SMALL LETTER R WITH LONG LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɽ": {
+   "name": "LATIN SMALL LETTER R WITH TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɾ": {
+   "name": "LATIN SMALL LETTER R WITH FISHHOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ɿ": {
+   "name": "LATIN SMALL LETTER REVERSED R WITH FISHHOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʀ": {
+   "name": "LATIN LETTER SMALL CAPITAL R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʁ": {
+   "name": "LATIN LETTER SMALL CAPITAL INVERTED R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʂ": {
+   "name": "LATIN SMALL LETTER S WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʃ": {
+   "name": "LATIN SMALL LETTER ESH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʄ": {
+   "name": "LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʅ": {
+   "name": "LATIN SMALL LETTER SQUAT REVERSED ESH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʆ": {
+   "name": "LATIN SMALL LETTER ESH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʇ": {
+   "name": "LATIN SMALL LETTER TURNED T",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʈ": {
+   "name": "LATIN SMALL LETTER T WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʉ": {
+   "name": "LATIN SMALL LETTER U BAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʊ": {
+   "name": "LATIN SMALL LETTER UPSILON",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʋ": {
+   "name": "LATIN SMALL LETTER V WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʌ": {
+   "name": "LATIN SMALL LETTER TURNED V",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʍ": {
+   "name": "LATIN SMALL LETTER TURNED W",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʎ": {
+   "name": "LATIN SMALL LETTER TURNED Y",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʏ": {
+   "name": "LATIN LETTER SMALL CAPITAL Y",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʐ": {
+   "name": "LATIN SMALL LETTER Z WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʑ": {
+   "name": "LATIN SMALL LETTER Z WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʒ": {
+   "name": "LATIN SMALL LETTER EZH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʓ": {
+   "name": "LATIN SMALL LETTER EZH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʔ": {
+   "name": "LATIN LETTER GLOTTAL STOP",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ʕ": {
+   "name": "LATIN LETTER PHARYNGEAL VOICED FRICATIVE",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ʖ": {
+   "name": "LATIN LETTER INVERTED GLOTTAL STOP",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʗ": {
+   "name": "LATIN LETTER STRETCHED C",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʘ": {
+   "name": "LATIN LETTER BILABIAL CLICK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʙ": {
+   "name": "LATIN LETTER SMALL CAPITAL B",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʚ": {
+   "name": "LATIN SMALL LETTER CLOSED OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʛ": {
+   "name": "LATIN LETTER SMALL CAPITAL G WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʜ": {
+   "name": "LATIN LETTER SMALL CAPITAL H",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʝ": {
+   "name": "LATIN SMALL LETTER J WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʞ": {
+   "name": "LATIN SMALL LETTER TURNED K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʟ": {
+   "name": "LATIN LETTER SMALL CAPITAL L",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʠ": {
+   "name": "LATIN SMALL LETTER Q WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʡ": {
+   "name": "LATIN LETTER GLOTTAL STOP WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʢ": {
+   "name": "LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʣ": {
+   "name": "LATIN SMALL LETTER DZ DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʤ": {
+   "name": "LATIN SMALL LETTER DEZH DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʥ": {
+   "name": "LATIN SMALL LETTER DZ DIGRAPH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʦ": {
+   "name": "LATIN SMALL LETTER TS DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʧ": {
+   "name": "LATIN SMALL LETTER TESH DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʨ": {
+   "name": "LATIN SMALL LETTER TC DIGRAPH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʩ": {
+   "name": "LATIN SMALL LETTER FENG DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʪ": {
+   "name": "LATIN SMALL LETTER LS DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʫ": {
+   "name": "LATIN SMALL LETTER LZ DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʬ": {
+   "name": "LATIN LETTER BILABIAL PERCUSSIVE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʭ": {
+   "name": "LATIN LETTER BIDENTAL PERCUSSIVE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʮ": {
+   "name": "LATIN SMALL LETTER TURNED H WITH FISHHOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʯ": {
+   "name": "LATIN SMALL LETTER TURNED H WITH FISHHOOK AND TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʰ": {
+   "name": "MODIFIER LETTER SMALL H",
+   "category": "Lm",
+   "decomposition": "<super> 0068"
+  },
+  "ʱ": {
+   "name": "MODIFIER LETTER SMALL H WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0266"
+  },
+  "ʲ": {
+   "name": "MODIFIER LETTER SMALL J",
+   "category": "Lm",
+   "decomposition": "<super> 006A"
+  },
+  "ʳ": {
+   "name": "MODIFIER LETTER SMALL R",
+   "category": "Lm",
+   "decomposition": "<super> 0072"
+  },
+  "ʴ": {
+   "name": "MODIFIER LETTER SMALL TURNED R",
+   "category": "Lm",
+   "decomposition": "<super> 0279"
+  },
+  "ʵ": {
+   "name": "MODIFIER LETTER SMALL TURNED R WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 027B"
+  },
+  "ʶ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL INVERTED R",
+   "category": "Lm",
+   "decomposition": "<super> 0281"
+  },
+  "ʷ": {
+   "name": "MODIFIER LETTER SMALL W",
+   "category": "Lm",
+   "decomposition": "<super> 0077"
+  },
+  "ʸ": {
+   "name": "MODIFIER LETTER SMALL Y",
+   "category": "Lm",
+   "decomposition": "<super> 0079"
+  },
+  "ʹ": {
+   "name": "MODIFIER LETTER PRIME",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʺ": {
+   "name": "MODIFIER LETTER DOUBLE PRIME",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʻ": {
+   "name": "MODIFIER LETTER TURNED COMMA",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʼ": {
+   "name": "MODIFIER LETTER APOSTROPHE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʽ": {
+   "name": "MODIFIER LETTER REVERSED COMMA",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʾ": {
+   "name": "MODIFIER LETTER RIGHT HALF RING",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ʿ": {
+   "name": "MODIFIER LETTER LEFT HALF RING",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˀ": {
+   "name": "MODIFIER LETTER GLOTTAL STOP",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˁ": {
+   "name": "MODIFIER LETTER REVERSED GLOTTAL STOP",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "˂": {
+   "name": "MODIFIER LETTER LEFT ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˃": {
+   "name": "MODIFIER LETTER RIGHT ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˄": {
+   "name": "MODIFIER LETTER UP ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˅": {
+   "name": "MODIFIER LETTER DOWN ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ˆ": {
+   "name": "MODIFIER LETTER CIRCUMFLEX ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˇ": {
+   "name": "CARON",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˈ": {
+   "name": "MODIFIER LETTER VERTICAL LINE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˉ": {
+   "name": "MODIFIER LETTER MACRON",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˊ": {
+   "name": "MODIFIER LETTER ACUTE ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˋ": {
+   "name": "MODIFIER LETTER GRAVE ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˌ": {
+   "name": "MODIFIER LETTER LOW VERTICAL LINE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˍ": {
+   "name": "MODIFIER LETTER LOW MACRON",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˎ": {
+   "name": "MODIFIER LETTER LOW GRAVE ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˏ": {
+   "name": "MODIFIER LETTER LOW ACUTE ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ː": {
+   "name": "MODIFIER LETTER TRIANGULAR COLON",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ˑ": {
+   "name": "MODIFIER LETTER HALF TRIANGULAR COLON",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "˒": {
+   "name": "MODIFIER LETTER CENTRED RIGHT HALF RING",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˓": {
+   "name": "MODIFIER LETTER CENTRED LEFT HALF RING",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˔": {
+   "name": "MODIFIER LETTER UP TACK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˕": {
+   "name": "MODIFIER LETTER DOWN TACK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˖": {
+   "name": "MODIFIER LETTER PLUS SIGN",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˗": {
+   "name": "MODIFIER LETTER MINUS SIGN",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˘": {
+   "name": "BREVE",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0306"
+  },
+  "˙": {
+   "name": "DOT ABOVE",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0307"
+  },
+  "˚": {
+   "name": "RING ABOVE",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 030A"
+  },
+  "˛": {
+   "name": "OGONEK",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0328"
+  },
+  "˜": {
+   "name": "SMALL TILDE",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0303"
+  },
+  "˝": {
+   "name": "DOUBLE ACUTE ACCENT",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 030B"
+  },
+  "˞": {
+   "name": "MODIFIER LETTER RHOTIC HOOK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˟": {
+   "name": "MODIFIER LETTER CROSS ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ˠ": {
+   "name": "MODIFIER LETTER SMALL GAMMA",
+   "category": "Lm",
+   "decomposition": "<super> 0263"
+  },
+  "ˡ": {
+   "name": "MODIFIER LETTER SMALL L",
+   "category": "Lm",
+   "decomposition": "<super> 006C"
+  },
+  "ˢ": {
+   "name": "MODIFIER LETTER SMALL S",
+   "category": "Lm",
+   "decomposition": "<super> 0073"
+  },
+  "ˣ": {
+   "name": "MODIFIER LETTER SMALL X",
+   "category": "Lm",
+   "decomposition": "<super> 0078"
+  },
+  "ˤ": {
+   "name": "MODIFIER LETTER SMALL REVERSED GLOTTAL STOP",
+   "category": "Lm",
+   "decomposition": "<super> 0295"
+  },
+  "˥": {
+   "name": "MODIFIER LETTER EXTRA-HIGH TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˦": {
+   "name": "MODIFIER LETTER HIGH TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˧": {
+   "name": "MODIFIER LETTER MID TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˨": {
+   "name": "MODIFIER LETTER LOW TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˩": {
+   "name": "MODIFIER LETTER EXTRA-LOW TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˪": {
+   "name": "MODIFIER LETTER YIN DEPARTING TONE MARK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˫": {
+   "name": "MODIFIER LETTER YANG DEPARTING TONE MARK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ˬ": {
+   "name": "MODIFIER LETTER VOICING",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "˭": {
+   "name": "MODIFIER LETTER UNASPIRATED",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ˮ": {
+   "name": "MODIFIER LETTER DOUBLE APOSTROPHE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "˯": {
+   "name": "MODIFIER LETTER LOW DOWN ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˰": {
+   "name": "MODIFIER LETTER LOW UP ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˱": {
+   "name": "MODIFIER LETTER LOW LEFT ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˲": {
+   "name": "MODIFIER LETTER LOW RIGHT ARROWHEAD",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˳": {
+   "name": "MODIFIER LETTER LOW RING",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˴": {
+   "name": "MODIFIER LETTER MIDDLE GRAVE ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˵": {
+   "name": "MODIFIER LETTER MIDDLE DOUBLE GRAVE ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˶": {
+   "name": "MODIFIER LETTER MIDDLE DOUBLE ACUTE ACCENT",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˷": {
+   "name": "MODIFIER LETTER LOW TILDE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˸": {
+   "name": "MODIFIER LETTER RAISED COLON",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˹": {
+   "name": "MODIFIER LETTER BEGIN HIGH TONE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˺": {
+   "name": "MODIFIER LETTER END HIGH TONE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˻": {
+   "name": "MODIFIER LETTER BEGIN LOW TONE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˼": {
+   "name": "MODIFIER LETTER END LOW TONE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˽": {
+   "name": "MODIFIER LETTER SHELF",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˾": {
+   "name": "MODIFIER LETTER OPEN SHELF",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "˿": {
+   "name": "MODIFIER LETTER LOW LEFT ARROW",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "̀": {
+   "name": "COMBINING GRAVE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "́": {
+   "name": "COMBINING ACUTE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̂": {
+   "name": "COMBINING CIRCUMFLEX ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̃": {
+   "name": "COMBINING TILDE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̄": {
+   "name": "COMBINING MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̅": {
+   "name": "COMBINING OVERLINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̆": {
+   "name": "COMBINING BREVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̇": {
+   "name": "COMBINING DOT ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̈": {
+   "name": "COMBINING DIAERESIS",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̉": {
+   "name": "COMBINING HOOK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̊": {
+   "name": "COMBINING RING ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̋": {
+   "name": "COMBINING DOUBLE ACUTE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̌": {
+   "name": "COMBINING CARON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̍": {
+   "name": "COMBINING VERTICAL LINE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̎": {
+   "name": "COMBINING DOUBLE VERTICAL LINE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̏": {
+   "name": "COMBINING DOUBLE GRAVE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̐": {
+   "name": "COMBINING CANDRABINDU",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̑": {
+   "name": "COMBINING INVERTED BREVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̒": {
+   "name": "COMBINING TURNED COMMA ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̓": {
+   "name": "COMBINING COMMA ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̔": {
+   "name": "COMBINING REVERSED COMMA ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̕": {
+   "name": "COMBINING COMMA ABOVE RIGHT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̖": {
+   "name": "COMBINING GRAVE ACCENT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̗": {
+   "name": "COMBINING ACUTE ACCENT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̘": {
+   "name": "COMBINING LEFT TACK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̙": {
+   "name": "COMBINING RIGHT TACK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̚": {
+   "name": "COMBINING LEFT ANGLE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̛": {
+   "name": "COMBINING HORN",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̜": {
+   "name": "COMBINING LEFT HALF RING BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̝": {
+   "name": "COMBINING UP TACK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̞": {
+   "name": "COMBINING DOWN TACK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̟": {
+   "name": "COMBINING PLUS SIGN BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̠": {
+   "name": "COMBINING MINUS SIGN BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̡": {
+   "name": "COMBINING PALATALIZED HOOK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̢": {
+   "name": "COMBINING RETROFLEX HOOK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̣": {
+   "name": "COMBINING DOT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̤": {
+   "name": "COMBINING DIAERESIS BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̥": {
+   "name": "COMBINING RING BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̦": {
+   "name": "COMBINING COMMA BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̧": {
+   "name": "COMBINING CEDILLA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̨": {
+   "name": "COMBINING OGONEK",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̩": {
+   "name": "COMBINING VERTICAL LINE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̪": {
+   "name": "COMBINING BRIDGE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̫": {
+   "name": "COMBINING INVERTED DOUBLE ARCH BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̬": {
+   "name": "COMBINING CARON BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̭": {
+   "name": "COMBINING CIRCUMFLEX ACCENT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̮": {
+   "name": "COMBINING BREVE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̯": {
+   "name": "COMBINING INVERTED BREVE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̰": {
+   "name": "COMBINING TILDE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̱": {
+   "name": "COMBINING MACRON BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̲": {
+   "name": "COMBINING LOW LINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̳": {
+   "name": "COMBINING DOUBLE LOW LINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̴": {
+   "name": "COMBINING TILDE OVERLAY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̵": {
+   "name": "COMBINING SHORT STROKE OVERLAY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̶": {
+   "name": "COMBINING LONG STROKE OVERLAY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̷": {
+   "name": "COMBINING SHORT SOLIDUS OVERLAY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̸": {
+   "name": "COMBINING LONG SOLIDUS OVERLAY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̹": {
+   "name": "COMBINING RIGHT HALF RING BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̺": {
+   "name": "COMBINING INVERTED BRIDGE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̻": {
+   "name": "COMBINING SQUARE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̼": {
+   "name": "COMBINING SEAGULL BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̽": {
+   "name": "COMBINING X ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̾": {
+   "name": "COMBINING VERTICAL TILDE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̿": {
+   "name": "COMBINING DOUBLE OVERLINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̀": {
+   "name": "COMBINING GRAVE TONE MARK",
+   "category": "Mn",
+   "decomposition": "0300"
+  },
+  "́": {
+   "name": "COMBINING ACUTE TONE MARK",
+   "category": "Mn",
+   "decomposition": "0301"
+  },
+  "͂": {
+   "name": "COMBINING GREEK PERISPOMENI",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "̓": {
+   "name": "COMBINING GREEK KORONIS",
+   "category": "Mn",
+   "decomposition": "0313"
+  },
+  "̈́": {
+   "name": "COMBINING GREEK DIALYTIKA TONOS",
+   "category": "Mn",
+   "decomposition": "0308 0301"
+  },
+  "ͅ": {
+   "name": "COMBINING GREEK YPOGEGRAMMENI",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͆": {
+   "name": "COMBINING BRIDGE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͇": {
+   "name": "COMBINING EQUALS SIGN BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͈": {
+   "name": "COMBINING DOUBLE VERTICAL LINE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͉": {
+   "name": "COMBINING LEFT ANGLE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͊": {
+   "name": "COMBINING NOT TILDE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͋": {
+   "name": "COMBINING HOMOTHETIC ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͌": {
+   "name": "COMBINING ALMOST EQUAL TO ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͍": {
+   "name": "COMBINING LEFT RIGHT ARROW BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͎": {
+   "name": "COMBINING UPWARDS ARROW BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͏": {
+   "name": "COMBINING GRAPHEME JOINER",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͐": {
+   "name": "COMBINING RIGHT ARROWHEAD ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͑": {
+   "name": "COMBINING LEFT HALF RING ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͒": {
+   "name": "COMBINING FERMATA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͓": {
+   "name": "COMBINING X BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͔": {
+   "name": "COMBINING LEFT ARROWHEAD BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͕": {
+   "name": "COMBINING RIGHT ARROWHEAD BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͖": {
+   "name": "COMBINING RIGHT ARROWHEAD AND UP ARROWHEAD BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͗": {
+   "name": "COMBINING RIGHT HALF RING ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͘": {
+   "name": "COMBINING DOT ABOVE RIGHT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͙": {
+   "name": "COMBINING ASTERISK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͚": {
+   "name": "COMBINING DOUBLE RING BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͛": {
+   "name": "COMBINING ZIGZAG ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͜": {
+   "name": "COMBINING DOUBLE BREVE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͝": {
+   "name": "COMBINING DOUBLE BREVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͞": {
+   "name": "COMBINING DOUBLE MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͟": {
+   "name": "COMBINING DOUBLE MACRON BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͠": {
+   "name": "COMBINING DOUBLE TILDE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͡": {
+   "name": "COMBINING DOUBLE INVERTED BREVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "͢": {
+   "name": "COMBINING DOUBLE RIGHTWARDS ARROW BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͣ": {
+   "name": "COMBINING LATIN SMALL LETTER A",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͤ": {
+   "name": "COMBINING LATIN SMALL LETTER E",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͥ": {
+   "name": "COMBINING LATIN SMALL LETTER I",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͦ": {
+   "name": "COMBINING LATIN SMALL LETTER O",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͧ": {
+   "name": "COMBINING LATIN SMALL LETTER U",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͨ": {
+   "name": "COMBINING LATIN SMALL LETTER C",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͩ": {
+   "name": "COMBINING LATIN SMALL LETTER D",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͪ": {
+   "name": "COMBINING LATIN SMALL LETTER H",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͫ": {
+   "name": "COMBINING LATIN SMALL LETTER M",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͬ": {
+   "name": "COMBINING LATIN SMALL LETTER R",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͭ": {
+   "name": "COMBINING LATIN SMALL LETTER T",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͮ": {
+   "name": "COMBINING LATIN SMALL LETTER V",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ͯ": {
+   "name": "COMBINING LATIN SMALL LETTER X",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "Ͱ": {
+   "name": "GREEK CAPITAL LETTER HETA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ͱ": {
+   "name": "GREEK SMALL LETTER HETA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ͳ": {
+   "name": "GREEK CAPITAL LETTER ARCHAIC SAMPI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ͳ": {
+   "name": "GREEK SMALL LETTER ARCHAIC SAMPI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ʹ": {
+   "name": "GREEK NUMERAL SIGN",
+   "category": "Lm",
+   "decomposition": "02B9"
+  },
+  "͵": {
+   "name": "GREEK LOWER NUMERAL SIGN",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "Ͷ": {
+   "name": "GREEK CAPITAL LETTER PAMPHYLIAN DIGAMMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ͷ": {
+   "name": "GREEK SMALL LETTER PAMPHYLIAN DIGAMMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ͺ": {
+   "name": "GREEK YPOGEGRAMMENI",
+   "category": "Lm",
+   "decomposition": "<compat> 0020 0345"
+  },
+  "ͻ": {
+   "name": "GREEK SMALL REVERSED LUNATE SIGMA SYMBOL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ͼ": {
+   "name": "GREEK SMALL DOTTED LUNATE SIGMA SYMBOL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ͽ": {
+   "name": "GREEK SMALL REVERSED DOTTED LUNATE SIGMA SYMBOL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  ";": {
+   "name": "GREEK QUESTION MARK",
+   "category": "Po",
+   "decomposition": "003B"
+  },
+  "Ϳ": {
+   "name": "GREEK CAPITAL LETTER YOT",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "΄": {
+   "name": "GREEK TONOS",
+   "category": "Sk",
+   "decomposition": "<compat> 0020 0301"
+  },
+  "΅": {
+   "name": "GREEK DIALYTIKA TONOS",
+   "category": "Sk",
+   "decomposition": "00A8 0301"
+  },
+  "Ά": {
+   "name": "GREEK CAPITAL LETTER ALPHA WITH TONOS",
+   "category": "Lu",
+   "decomposition": "0391 0301"
+  },
+  "·": {
+   "name": "GREEK ANO TELEIA",
+   "category": "Po",
+   "decomposition": "00B7"
+  },
+  "Έ": {
+   "name": "GREEK CAPITAL LETTER EPSILON WITH TONOS",
+   "category": "Lu",
+   "decomposition": "0395 0301"
+  },
+  "Ή": {
+   "name": "GREEK CAPITAL LETTER ETA WITH TONOS",
+   "category": "Lu",
+   "decomposition": "0397 0301"
+  },
+  "Ί": {
+   "name": "GREEK CAPITAL LETTER IOTA WITH TONOS",
+   "category": "Lu",
+   "decomposition": "0399 0301"
+  },
+  "Ό": {
+   "name": "GREEK CAPITAL LETTER OMICRON WITH TONOS",
+   "category": "Lu",
+   "decomposition": "039F 0301"
+  },
+  "Ύ": {
+   "name": "GREEK CAPITAL LETTER UPSILON WITH TONOS",
+   "category": "Lu",
+   "decomposition": "03A5 0301"
+  },
+  "Ώ": {
+   "name": "GREEK CAPITAL LETTER OMEGA WITH TONOS",
+   "category": "Lu",
+   "decomposition": "03A9 0301"
+  },
+  "ΐ": {
+   "name": "GREEK SMALL LETTER IOTA WITH DIALYTIKA AND TONOS",
+   "category": "Ll",
+   "decomposition": "03CA 0301"
+  },
+  "Α": {
+   "name": "GREEK CAPITAL LETTER ALPHA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Β": {
+   "name": "GREEK CAPITAL LETTER BETA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Γ": {
+   "name": "GREEK CAPITAL LETTER GAMMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Δ": {
+   "name": "GREEK CAPITAL LETTER DELTA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ε": {
+   "name": "GREEK CAPITAL LETTER EPSILON",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ζ": {
+   "name": "GREEK CAPITAL LETTER ZETA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Η": {
+   "name": "GREEK CAPITAL LETTER ETA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Θ": {
+   "name": "GREEK CAPITAL LETTER THETA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ι": {
+   "name": "GREEK CAPITAL LETTER IOTA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Κ": {
+   "name": "GREEK CAPITAL LETTER KAPPA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Λ": {
+   "name": "GREEK CAPITAL LETTER LAMDA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Μ": {
+   "name": "GREEK CAPITAL LETTER MU",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ν": {
+   "name": "GREEK CAPITAL LETTER NU",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ξ": {
+   "name": "GREEK CAPITAL LETTER XI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ο": {
+   "name": "GREEK CAPITAL LETTER OMICRON",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Π": {
+   "name": "GREEK CAPITAL LETTER PI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ρ": {
+   "name": "GREEK CAPITAL LETTER RHO",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Σ": {
+   "name": "GREEK CAPITAL LETTER SIGMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Τ": {
+   "name": "GREEK CAPITAL LETTER TAU",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Υ": {
+   "name": "GREEK CAPITAL LETTER UPSILON",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Φ": {
+   "name": "GREEK CAPITAL LETTER PHI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Χ": {
+   "name": "GREEK CAPITAL LETTER CHI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ψ": {
+   "name": "GREEK CAPITAL LETTER PSI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ω": {
+   "name": "GREEK CAPITAL LETTER OMEGA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ϊ": {
+   "name": "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA",
+   "category": "Lu",
+   "decomposition": "0399 0308"
+  },
+  "Ϋ": {
+   "name": "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA",
+   "category": "Lu",
+   "decomposition": "03A5 0308"
+  },
+  "ά": {
+   "name": "GREEK SMALL LETTER ALPHA WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03B1 0301"
+  },
+  "έ": {
+   "name": "GREEK SMALL LETTER EPSILON WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03B5 0301"
+  },
+  "ή": {
+   "name": "GREEK SMALL LETTER ETA WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03B7 0301"
+  },
+  "ί": {
+   "name": "GREEK SMALL LETTER IOTA WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03B9 0301"
+  },
+  "ΰ": {
+   "name": "GREEK SMALL LETTER UPSILON WITH DIALYTIKA AND TONOS",
+   "category": "Ll",
+   "decomposition": "03CB 0301"
+  },
+  "α": {
+   "name": "GREEK SMALL LETTER ALPHA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "β": {
+   "name": "GREEK SMALL LETTER BETA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "γ": {
+   "name": "GREEK SMALL LETTER GAMMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "δ": {
+   "name": "GREEK SMALL LETTER DELTA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ε": {
+   "name": "GREEK SMALL LETTER EPSILON",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ζ": {
+   "name": "GREEK SMALL LETTER ZETA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "η": {
+   "name": "GREEK SMALL LETTER ETA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "θ": {
+   "name": "GREEK SMALL LETTER THETA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ι": {
+   "name": "GREEK SMALL LETTER IOTA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "κ": {
+   "name": "GREEK SMALL LETTER KAPPA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "λ": {
+   "name": "GREEK SMALL LETTER LAMDA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "μ": {
+   "name": "GREEK SMALL LETTER MU",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ν": {
+   "name": "GREEK SMALL LETTER NU",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ξ": {
+   "name": "GREEK SMALL LETTER XI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ο": {
+   "name": "GREEK SMALL LETTER OMICRON",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "π": {
+   "name": "GREEK SMALL LETTER PI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ρ": {
+   "name": "GREEK SMALL LETTER RHO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ς": {
+   "name": "GREEK SMALL LETTER FINAL SIGMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "σ": {
+   "name": "GREEK SMALL LETTER SIGMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "τ": {
+   "name": "GREEK SMALL LETTER TAU",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "υ": {
+   "name": "GREEK SMALL LETTER UPSILON",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "φ": {
+   "name": "GREEK SMALL LETTER PHI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "χ": {
+   "name": "GREEK SMALL LETTER CHI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ψ": {
+   "name": "GREEK SMALL LETTER PSI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ω": {
+   "name": "GREEK SMALL LETTER OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ϊ": {
+   "name": "GREEK SMALL LETTER IOTA WITH DIALYTIKA",
+   "category": "Ll",
+   "decomposition": "03B9 0308"
+  },
+  "ϋ": {
+   "name": "GREEK SMALL LETTER UPSILON WITH DIALYTIKA",
+   "category": "Ll",
+   "decomposition": "03C5 0308"
+  },
+  "ό": {
+   "name": "GREEK SMALL LETTER OMICRON WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03BF 0301"
+  },
+  "ύ": {
+   "name": "GREEK SMALL LETTER UPSILON WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03C5 0301"
+  },
+  "ώ": {
+   "name": "GREEK SMALL LETTER OMEGA WITH TONOS",
+   "category": "Ll",
+   "decomposition": "03C9 0301"
+  },
+  "Ϗ": {
+   "name": "GREEK CAPITAL KAI SYMBOL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϐ": {
+   "name": "GREEK BETA SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03B2"
+  },
+  "ϑ": {
+   "name": "GREEK THETA SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03B8"
+  },
+  "ϒ": {
+   "name": "GREEK UPSILON WITH HOOK SYMBOL",
+   "category": "Lu",
+   "decomposition": "<compat> 03A5"
+  },
+  "ϓ": {
+   "name": "GREEK UPSILON WITH ACUTE AND HOOK SYMBOL",
+   "category": "Lu",
+   "decomposition": "03D2 0301"
+  },
+  "ϔ": {
+   "name": "GREEK UPSILON WITH DIAERESIS AND HOOK SYMBOL",
+   "category": "Lu",
+   "decomposition": "03D2 0308"
+  },
+  "ϕ": {
+   "name": "GREEK PHI SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03C6"
+  },
+  "ϖ": {
+   "name": "GREEK PI SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03C0"
+  },
+  "ϗ": {
+   "name": "GREEK KAI SYMBOL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϙ": {
+   "name": "GREEK LETTER ARCHAIC KOPPA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϙ": {
+   "name": "GREEK SMALL LETTER ARCHAIC KOPPA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϛ": {
+   "name": "GREEK LETTER STIGMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϛ": {
+   "name": "GREEK SMALL LETTER STIGMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϝ": {
+   "name": "GREEK LETTER DIGAMMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϝ": {
+   "name": "GREEK SMALL LETTER DIGAMMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϟ": {
+   "name": "GREEK LETTER KOPPA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϟ": {
+   "name": "GREEK SMALL LETTER KOPPA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϡ": {
+   "name": "GREEK LETTER SAMPI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϡ": {
+   "name": "GREEK SMALL LETTER SAMPI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϣ": {
+   "name": "COPTIC CAPITAL LETTER SHEI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϣ": {
+   "name": "COPTIC SMALL LETTER SHEI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϥ": {
+   "name": "COPTIC CAPITAL LETTER FEI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϥ": {
+   "name": "COPTIC SMALL LETTER FEI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϧ": {
+   "name": "COPTIC CAPITAL LETTER KHEI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϧ": {
+   "name": "COPTIC SMALL LETTER KHEI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϩ": {
+   "name": "COPTIC CAPITAL LETTER HORI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϩ": {
+   "name": "COPTIC SMALL LETTER HORI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϫ": {
+   "name": "COPTIC CAPITAL LETTER GANGIA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϫ": {
+   "name": "COPTIC SMALL LETTER GANGIA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϭ": {
+   "name": "COPTIC CAPITAL LETTER SHIMA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϭ": {
+   "name": "COPTIC SMALL LETTER SHIMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϯ": {
+   "name": "COPTIC CAPITAL LETTER DEI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϯ": {
+   "name": "COPTIC SMALL LETTER DEI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ϰ": {
+   "name": "GREEK KAPPA SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03BA"
+  },
+  "ϱ": {
+   "name": "GREEK RHO SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03C1"
+  },
+  "ϲ": {
+   "name": "GREEK LUNATE SIGMA SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03C2"
+  },
+  "ϳ": {
+   "name": "GREEK LETTER YOT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ϴ": {
+   "name": "GREEK CAPITAL THETA SYMBOL",
+   "category": "Lu",
+   "decomposition": "<compat> 0398"
+  },
+  "ϵ": {
+   "name": "GREEK LUNATE EPSILON SYMBOL",
+   "category": "Ll",
+   "decomposition": "<compat> 03B5"
+  },
+  "϶": {
+   "name": "GREEK REVERSED LUNATE EPSILON SYMBOL",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "Ϸ": {
+   "name": "GREEK CAPITAL LETTER SHO",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϸ": {
+   "name": "GREEK SMALL LETTER SHO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ϲ": {
+   "name": "GREEK CAPITAL LUNATE SIGMA SYMBOL",
+   "category": "Lu",
+   "decomposition": "<compat> 03A3"
+  },
+  "Ϻ": {
+   "name": "GREEK CAPITAL LETTER SAN",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ϻ": {
+   "name": "GREEK SMALL LETTER SAN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ϼ": {
+   "name": "GREEK RHO WITH STROKE SYMBOL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ͻ": {
+   "name": "GREEK CAPITAL REVERSED LUNATE SIGMA SYMBOL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ͼ": {
+   "name": "GREEK CAPITAL DOTTED LUNATE SIGMA SYMBOL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "Ͽ": {
+   "name": "GREEK CAPITAL REVERSED DOTTED LUNATE SIGMA SYMBOL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "б": {
+   "name": "CYRILLIC SMALL LETTER BE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "д": {
+   "name": "CYRILLIC SMALL LETTER DE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "з": {
+   "name": "CYRILLIC SMALL LETTER ZE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "л": {
+   "name": "CYRILLIC SMALL LETTER EL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "н": {
+   "name": "CYRILLIC SMALL LETTER EN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "р": {
+   "name": "CYRILLIC SMALL LETTER ER",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "т": {
+   "name": "CYRILLIC SMALL LETTER TE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ъ": {
+   "name": "CYRILLIC SMALL LETTER HARD SIGN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ь": {
+   "name": "CYRILLIC SMALL LETTER SOFT SIGN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ђ": {
+   "name": "CYRILLIC SMALL LETTER DJE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ұ": {
+   "name": "CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ო": {
+   "name": "GEORGIAN LETTER ON",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "᪰": {
+   "name": "COMBINING DOUBLED CIRCUMFLEX ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪱": {
+   "name": "COMBINING DIAERESIS-RING",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪲": {
+   "name": "COMBINING INFINITY",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪳": {
+   "name": "COMBINING DOWNWARDS ARROW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪴": {
+   "name": "COMBINING TRIPLE DOT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪵": {
+   "name": "COMBINING X-X BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪶": {
+   "name": "COMBINING WIGGLY LINE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪷": {
+   "name": "COMBINING OPEN MARK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪸": {
+   "name": "COMBINING DOUBLE OPEN MARK BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪹": {
+   "name": "COMBINING LIGHT CENTRALIZATION STROKE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪺": {
+   "name": "COMBINING STRONG CENTRALIZATION STROKE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪻": {
+   "name": "COMBINING PARENTHESES ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪼": {
+   "name": "COMBINING DOUBLE PARENTHESES ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪽": {
+   "name": "COMBINING PARENTHESES BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᪾": {
+   "name": "COMBINING PARENTHESES OVERLAY",
+   "category": "Me",
+   "decomposition": ""
+  },
+  "ᪿ": {
+   "name": "COMBINING LATIN SMALL LETTER W BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᫀ": {
+   "name": "COMBINING LATIN SMALL LETTER TURNED W BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫁": {
+   "name": "COMBINING LEFT PARENTHESIS ABOVE LEFT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫂": {
+   "name": "COMBINING RIGHT PARENTHESIS ABOVE RIGHT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫃": {
+   "name": "COMBINING LEFT PARENTHESIS BELOW LEFT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫄": {
+   "name": "COMBINING RIGHT PARENTHESIS BELOW RIGHT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫅": {
+   "name": "COMBINING SQUARE BRACKETS ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫆": {
+   "name": "COMBINING NUMBER SIGN ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫇": {
+   "name": "COMBINING INVERTED DOUBLE ARCH ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫈": {
+   "name": "COMBINING PLUS SIGN ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫉": {
+   "name": "COMBINING DOUBLE PLUS SIGN ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫊": {
+   "name": "COMBINING DOUBLE PLUS SIGN BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫋": {
+   "name": "COMBINING TRIPLE ACUTE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᫌ": {
+   "name": "COMBINING LATIN SMALL LETTER INSULAR G",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᫍ": {
+   "name": "COMBINING LATIN SMALL LETTER INSULAR R",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᫎ": {
+   "name": "COMBINING LATIN SMALL LETTER INSULAR T",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫏": {
+   "name": "COMBINING DOUBLE CARON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫐": {
+   "name": "COMBINING VERTICAL-LINE-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫑": {
+   "name": "COMBINING GRAVE-VERTICAL-LINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫒": {
+   "name": "COMBINING VERTICAL-LINE-GRAVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫓": {
+   "name": "COMBINING ACUTE-VERTICAL-LINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫔": {
+   "name": "COMBINING VERTICAL-LINE-MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫕": {
+   "name": "COMBINING MACRON-VERTICAL-LINE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫖": {
+   "name": "COMBINING VERTICAL-LINE-ACUTE-GRAVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫗": {
+   "name": "COMBINING VERTICAL-LINE-GRAVE-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫘": {
+   "name": "COMBINING MACRON-ACUTE-GRAVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫙": {
+   "name": "COMBINING SHARP SIGN",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫚": {
+   "name": "COMBINING FLAT SIGN",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫛": {
+   "name": "COMBINING DOWN TACK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫜": {
+   "name": "COMBINING DIAERESIS WITH RAISED LEFT DOT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫝": {
+   "name": "COMBINING DOT-AND-RING BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫞": {
+   "name": "COMBINING GRAVE-DOT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫟": {
+   "name": "COMBINING DOT-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫠": {
+   "name": "COMBINING LEFT TACK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫡": {
+   "name": "COMBINING RIGHT TACK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫢": {
+   "name": "COMBINING MINUS SIGN ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫣": {
+   "name": "COMBINING INVERTED BRIDGE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫤": {
+   "name": "COMBINING SQUARE ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫥": {
+   "name": "COMBINING SEAGULL ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫦": {
+   "name": "COMBINING DOUBLE ARCH BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫧": {
+   "name": "COMBINING DOUBLE ARCH ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫨": {
+   "name": "COMBINING EQUALS SIGN ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫩": {
+   "name": "COMBINING LEFT ANGLE CENTRED ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫪": {
+   "name": "COMBINING UPWARDS ARROW ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫫": {
+   "name": "COMBINING DOUBLE RIGHTWARDS ARROW ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫬": {
+   "name": "COMBINING CARON-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫭": {
+   "name": "COMBINING VERTICAL-LINE-DOUBLE-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫮": {
+   "name": "COMBINING DOUBLE GRAVE ACCENT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫯": {
+   "name": "COMBINING DOUBLE ACUTE ACCENT BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᫰": {
+   "name": "COMBINING DOUBLE COMMA ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᴀ": {
+   "name": "LATIN LETTER SMALL CAPITAL A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴁ": {
+   "name": "LATIN LETTER SMALL CAPITAL AE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴂ": {
+   "name": "LATIN SMALL LETTER TURNED AE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴃ": {
+   "name": "LATIN LETTER SMALL CAPITAL BARRED B",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴄ": {
+   "name": "LATIN LETTER SMALL CAPITAL C",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴅ": {
+   "name": "LATIN LETTER SMALL CAPITAL D",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴆ": {
+   "name": "LATIN LETTER SMALL CAPITAL ETH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴇ": {
+   "name": "LATIN LETTER SMALL CAPITAL E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴈ": {
+   "name": "LATIN SMALL LETTER TURNED OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴉ": {
+   "name": "LATIN SMALL LETTER TURNED I",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴊ": {
+   "name": "LATIN LETTER SMALL CAPITAL J",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴋ": {
+   "name": "LATIN LETTER SMALL CAPITAL K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴌ": {
+   "name": "LATIN LETTER SMALL CAPITAL L WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴍ": {
+   "name": "LATIN LETTER SMALL CAPITAL M",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴎ": {
+   "name": "LATIN LETTER SMALL CAPITAL REVERSED N",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴏ": {
+   "name": "LATIN LETTER SMALL CAPITAL O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴐ": {
+   "name": "LATIN LETTER SMALL CAPITAL OPEN O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴑ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴒ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS OPEN O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴓ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS O WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴔ": {
+   "name": "LATIN SMALL LETTER TURNED OE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴕ": {
+   "name": "LATIN LETTER SMALL CAPITAL OU",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴖ": {
+   "name": "LATIN SMALL LETTER TOP HALF O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴗ": {
+   "name": "LATIN SMALL LETTER BOTTOM HALF O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴘ": {
+   "name": "LATIN LETTER SMALL CAPITAL P",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴙ": {
+   "name": "LATIN LETTER SMALL CAPITAL REVERSED R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴚ": {
+   "name": "LATIN LETTER SMALL CAPITAL TURNED R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴛ": {
+   "name": "LATIN LETTER SMALL CAPITAL T",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴜ": {
+   "name": "LATIN LETTER SMALL CAPITAL U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴝ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴞ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS DIAERESIZED U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴟ": {
+   "name": "LATIN SMALL LETTER SIDEWAYS TURNED M",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴠ": {
+   "name": "LATIN LETTER SMALL CAPITAL V",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴡ": {
+   "name": "LATIN LETTER SMALL CAPITAL W",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴢ": {
+   "name": "LATIN LETTER SMALL CAPITAL Z",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴣ": {
+   "name": "LATIN LETTER SMALL CAPITAL EZH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴤ": {
+   "name": "LATIN LETTER VOICED LARYNGEAL SPIRANT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴥ": {
+   "name": "LATIN LETTER AIN",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴦ": {
+   "name": "GREEK LETTER SMALL CAPITAL GAMMA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴧ": {
+   "name": "GREEK LETTER SMALL CAPITAL LAMDA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴨ": {
+   "name": "GREEK LETTER SMALL CAPITAL PI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴩ": {
+   "name": "GREEK LETTER SMALL CAPITAL RHO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴪ": {
+   "name": "GREEK LETTER SMALL CAPITAL PSI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴫ": {
+   "name": "CYRILLIC LETTER SMALL CAPITAL EL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᴬ": {
+   "name": "MODIFIER LETTER CAPITAL A",
+   "category": "Lm",
+   "decomposition": "<super> 0041"
+  },
+  "ᴭ": {
+   "name": "MODIFIER LETTER CAPITAL AE",
+   "category": "Lm",
+   "decomposition": "<super> 00C6"
+  },
+  "ᴮ": {
+   "name": "MODIFIER LETTER CAPITAL B",
+   "category": "Lm",
+   "decomposition": "<super> 0042"
+  },
+  "ᴯ": {
+   "name": "MODIFIER LETTER CAPITAL BARRED B",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ᴰ": {
+   "name": "MODIFIER LETTER CAPITAL D",
+   "category": "Lm",
+   "decomposition": "<super> 0044"
+  },
+  "ᴱ": {
+   "name": "MODIFIER LETTER CAPITAL E",
+   "category": "Lm",
+   "decomposition": "<super> 0045"
+  },
+  "ᴲ": {
+   "name": "MODIFIER LETTER CAPITAL REVERSED E",
+   "category": "Lm",
+   "decomposition": "<super> 018E"
+  },
+  "ᴳ": {
+   "name": "MODIFIER LETTER CAPITAL G",
+   "category": "Lm",
+   "decomposition": "<super> 0047"
+  },
+  "ᴴ": {
+   "name": "MODIFIER LETTER CAPITAL H",
+   "category": "Lm",
+   "decomposition": "<super> 0048"
+  },
+  "ᴵ": {
+   "name": "MODIFIER LETTER CAPITAL I",
+   "category": "Lm",
+   "decomposition": "<super> 0049"
+  },
+  "ᴶ": {
+   "name": "MODIFIER LETTER CAPITAL J",
+   "category": "Lm",
+   "decomposition": "<super> 004A"
+  },
+  "ᴷ": {
+   "name": "MODIFIER LETTER CAPITAL K",
+   "category": "Lm",
+   "decomposition": "<super> 004B"
+  },
+  "ᴸ": {
+   "name": "MODIFIER LETTER CAPITAL L",
+   "category": "Lm",
+   "decomposition": "<super> 004C"
+  },
+  "ᴹ": {
+   "name": "MODIFIER LETTER CAPITAL M",
+   "category": "Lm",
+   "decomposition": "<super> 004D"
+  },
+  "ᴺ": {
+   "name": "MODIFIER LETTER CAPITAL N",
+   "category": "Lm",
+   "decomposition": "<super> 004E"
+  },
+  "ᴻ": {
+   "name": "MODIFIER LETTER CAPITAL REVERSED N",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ᴼ": {
+   "name": "MODIFIER LETTER CAPITAL O",
+   "category": "Lm",
+   "decomposition": "<super> 004F"
+  },
+  "ᴽ": {
+   "name": "MODIFIER LETTER CAPITAL OU",
+   "category": "Lm",
+   "decomposition": "<super> 0222"
+  },
+  "ᴾ": {
+   "name": "MODIFIER LETTER CAPITAL P",
+   "category": "Lm",
+   "decomposition": "<super> 0050"
+  },
+  "ᴿ": {
+   "name": "MODIFIER LETTER CAPITAL R",
+   "category": "Lm",
+   "decomposition": "<super> 0052"
+  },
+  "ᵀ": {
+   "name": "MODIFIER LETTER CAPITAL T",
+   "category": "Lm",
+   "decomposition": "<super> 0054"
+  },
+  "ᵁ": {
+   "name": "MODIFIER LETTER CAPITAL U",
+   "category": "Lm",
+   "decomposition": "<super> 0055"
+  },
+  "ᵂ": {
+   "name": "MODIFIER LETTER CAPITAL W",
+   "category": "Lm",
+   "decomposition": "<super> 0057"
+  },
+  "ᵃ": {
+   "name": "MODIFIER LETTER SMALL A",
+   "category": "Lm",
+   "decomposition": "<super> 0061"
+  },
+  "ᵄ": {
+   "name": "MODIFIER LETTER SMALL TURNED A",
+   "category": "Lm",
+   "decomposition": "<super> 0250"
+  },
+  "ᵅ": {
+   "name": "MODIFIER LETTER SMALL ALPHA",
+   "category": "Lm",
+   "decomposition": "<super> 0251"
+  },
+  "ᵆ": {
+   "name": "MODIFIER LETTER SMALL TURNED AE",
+   "category": "Lm",
+   "decomposition": "<super> 1D02"
+  },
+  "ᵇ": {
+   "name": "MODIFIER LETTER SMALL B",
+   "category": "Lm",
+   "decomposition": "<super> 0062"
+  },
+  "ᵈ": {
+   "name": "MODIFIER LETTER SMALL D",
+   "category": "Lm",
+   "decomposition": "<super> 0064"
+  },
+  "ᵉ": {
+   "name": "MODIFIER LETTER SMALL E",
+   "category": "Lm",
+   "decomposition": "<super> 0065"
+  },
+  "ᵊ": {
+   "name": "MODIFIER LETTER SMALL SCHWA",
+   "category": "Lm",
+   "decomposition": "<super> 0259"
+  },
+  "ᵋ": {
+   "name": "MODIFIER LETTER SMALL OPEN E",
+   "category": "Lm",
+   "decomposition": "<super> 025B"
+  },
+  "ᵌ": {
+   "name": "MODIFIER LETTER SMALL TURNED OPEN E",
+   "category": "Lm",
+   "decomposition": "<super> 025C"
+  },
+  "ᵍ": {
+   "name": "MODIFIER LETTER SMALL G",
+   "category": "Lm",
+   "decomposition": "<super> 0067"
+  },
+  "ᵎ": {
+   "name": "MODIFIER LETTER SMALL TURNED I",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ᵏ": {
+   "name": "MODIFIER LETTER SMALL K",
+   "category": "Lm",
+   "decomposition": "<super> 006B"
+  },
+  "ᵐ": {
+   "name": "MODIFIER LETTER SMALL M",
+   "category": "Lm",
+   "decomposition": "<super> 006D"
+  },
+  "ᵑ": {
+   "name": "MODIFIER LETTER SMALL ENG",
+   "category": "Lm",
+   "decomposition": "<super> 014B"
+  },
+  "ᵒ": {
+   "name": "MODIFIER LETTER SMALL O",
+   "category": "Lm",
+   "decomposition": "<super> 006F"
+  },
+  "ᵓ": {
+   "name": "MODIFIER LETTER SMALL OPEN O",
+   "category": "Lm",
+   "decomposition": "<super> 0254"
+  },
+  "ᵔ": {
+   "name": "MODIFIER LETTER SMALL TOP HALF O",
+   "category": "Lm",
+   "decomposition": "<super> 1D16"
+  },
+  "ᵕ": {
+   "name": "MODIFIER LETTER SMALL BOTTOM HALF O",
+   "category": "Lm",
+   "decomposition": "<super> 1D17"
+  },
+  "ᵖ": {
+   "name": "MODIFIER LETTER SMALL P",
+   "category": "Lm",
+   "decomposition": "<super> 0070"
+  },
+  "ᵗ": {
+   "name": "MODIFIER LETTER SMALL T",
+   "category": "Lm",
+   "decomposition": "<super> 0074"
+  },
+  "ᵘ": {
+   "name": "MODIFIER LETTER SMALL U",
+   "category": "Lm",
+   "decomposition": "<super> 0075"
+  },
+  "ᵙ": {
+   "name": "MODIFIER LETTER SMALL SIDEWAYS U",
+   "category": "Lm",
+   "decomposition": "<super> 1D1D"
+  },
+  "ᵚ": {
+   "name": "MODIFIER LETTER SMALL TURNED M",
+   "category": "Lm",
+   "decomposition": "<super> 026F"
+  },
+  "ᵛ": {
+   "name": "MODIFIER LETTER SMALL V",
+   "category": "Lm",
+   "decomposition": "<super> 0076"
+  },
+  "ᵜ": {
+   "name": "MODIFIER LETTER SMALL AIN",
+   "category": "Lm",
+   "decomposition": "<super> 1D25"
+  },
+  "ᵝ": {
+   "name": "MODIFIER LETTER SMALL BETA",
+   "category": "Lm",
+   "decomposition": "<super> 03B2"
+  },
+  "ᵞ": {
+   "name": "MODIFIER LETTER SMALL GREEK GAMMA",
+   "category": "Lm",
+   "decomposition": "<super> 03B3"
+  },
+  "ᵟ": {
+   "name": "MODIFIER LETTER SMALL DELTA",
+   "category": "Lm",
+   "decomposition": "<super> 03B4"
+  },
+  "ᵠ": {
+   "name": "MODIFIER LETTER SMALL GREEK PHI",
+   "category": "Lm",
+   "decomposition": "<super> 03C6"
+  },
+  "ᵡ": {
+   "name": "MODIFIER LETTER SMALL CHI",
+   "category": "Lm",
+   "decomposition": "<super> 03C7"
+  },
+  "ᵢ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER I",
+   "category": "Lm",
+   "decomposition": "<sub> 0069"
+  },
+  "ᵣ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER R",
+   "category": "Lm",
+   "decomposition": "<sub> 0072"
+  },
+  "ᵤ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER U",
+   "category": "Lm",
+   "decomposition": "<sub> 0075"
+  },
+  "ᵥ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER V",
+   "category": "Lm",
+   "decomposition": "<sub> 0076"
+  },
+  "ᵦ": {
+   "name": "GREEK SUBSCRIPT SMALL LETTER BETA",
+   "category": "Lm",
+   "decomposition": "<sub> 03B2"
+  },
+  "ᵧ": {
+   "name": "GREEK SUBSCRIPT SMALL LETTER GAMMA",
+   "category": "Lm",
+   "decomposition": "<sub> 03B3"
+  },
+  "ᵨ": {
+   "name": "GREEK SUBSCRIPT SMALL LETTER RHO",
+   "category": "Lm",
+   "decomposition": "<sub> 03C1"
+  },
+  "ᵩ": {
+   "name": "GREEK SUBSCRIPT SMALL LETTER PHI",
+   "category": "Lm",
+   "decomposition": "<sub> 03C6"
+  },
+  "ᵪ": {
+   "name": "GREEK SUBSCRIPT SMALL LETTER CHI",
+   "category": "Lm",
+   "decomposition": "<sub> 03C7"
+  },
+  "ᵫ": {
+   "name": "LATIN SMALL LETTER UE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵬ": {
+   "name": "LATIN SMALL LETTER B WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵭ": {
+   "name": "LATIN SMALL LETTER D WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵮ": {
+   "name": "LATIN SMALL LETTER F WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵯ": {
+   "name": "LATIN SMALL LETTER M WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵰ": {
+   "name": "LATIN SMALL LETTER N WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵱ": {
+   "name": "LATIN SMALL LETTER P WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵲ": {
+   "name": "LATIN SMALL LETTER R WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵳ": {
+   "name": "LATIN SMALL LETTER R WITH FISHHOOK AND MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵴ": {
+   "name": "LATIN SMALL LETTER S WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵵ": {
+   "name": "LATIN SMALL LETTER T WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵶ": {
+   "name": "LATIN SMALL LETTER Z WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵷ": {
+   "name": "LATIN SMALL LETTER TURNED G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵸ": {
+   "name": "MODIFIER LETTER CYRILLIC EN",
+   "category": "Lm",
+   "decomposition": "<super> 043D"
+  },
+  "ᵹ": {
+   "name": "LATIN SMALL LETTER INSULAR G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵺ": {
+   "name": "LATIN SMALL LETTER TH WITH STRIKETHROUGH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵻ": {
+   "name": "LATIN SMALL CAPITAL LETTER I WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵼ": {
+   "name": "LATIN SMALL LETTER IOTA WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵽ": {
+   "name": "LATIN SMALL LETTER P WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵾ": {
+   "name": "LATIN SMALL CAPITAL LETTER U WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᵿ": {
+   "name": "LATIN SMALL LETTER UPSILON WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶀ": {
+   "name": "LATIN SMALL LETTER B WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶁ": {
+   "name": "LATIN SMALL LETTER D WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶂ": {
+   "name": "LATIN SMALL LETTER F WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶃ": {
+   "name": "LATIN SMALL LETTER G WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶄ": {
+   "name": "LATIN SMALL LETTER K WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶅ": {
+   "name": "LATIN SMALL LETTER L WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶆ": {
+   "name": "LATIN SMALL LETTER M WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶇ": {
+   "name": "LATIN SMALL LETTER N WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶈ": {
+   "name": "LATIN SMALL LETTER P WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶉ": {
+   "name": "LATIN SMALL LETTER R WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶊ": {
+   "name": "LATIN SMALL LETTER S WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶋ": {
+   "name": "LATIN SMALL LETTER ESH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶌ": {
+   "name": "LATIN SMALL LETTER V WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶍ": {
+   "name": "LATIN SMALL LETTER X WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶎ": {
+   "name": "LATIN SMALL LETTER Z WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶏ": {
+   "name": "LATIN SMALL LETTER A WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶐ": {
+   "name": "LATIN SMALL LETTER ALPHA WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶑ": {
+   "name": "LATIN SMALL LETTER D WITH HOOK AND TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶒ": {
+   "name": "LATIN SMALL LETTER E WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶓ": {
+   "name": "LATIN SMALL LETTER OPEN E WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶔ": {
+   "name": "LATIN SMALL LETTER REVERSED OPEN E WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶕ": {
+   "name": "LATIN SMALL LETTER SCHWA WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶖ": {
+   "name": "LATIN SMALL LETTER I WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶗ": {
+   "name": "LATIN SMALL LETTER OPEN O WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶘ": {
+   "name": "LATIN SMALL LETTER ESH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶙ": {
+   "name": "LATIN SMALL LETTER U WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶚ": {
+   "name": "LATIN SMALL LETTER EZH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ᶛ": {
+   "name": "MODIFIER LETTER SMALL TURNED ALPHA",
+   "category": "Lm",
+   "decomposition": "<super> 0252"
+  },
+  "ᶜ": {
+   "name": "MODIFIER LETTER SMALL C",
+   "category": "Lm",
+   "decomposition": "<super> 0063"
+  },
+  "ᶝ": {
+   "name": "MODIFIER LETTER SMALL C WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0255"
+  },
+  "ᶞ": {
+   "name": "MODIFIER LETTER SMALL ETH",
+   "category": "Lm",
+   "decomposition": "<super> 00F0"
+  },
+  "ᶟ": {
+   "name": "MODIFIER LETTER SMALL REVERSED OPEN E",
+   "category": "Lm",
+   "decomposition": "<super> 025C"
+  },
+  "ᶠ": {
+   "name": "MODIFIER LETTER SMALL F",
+   "category": "Lm",
+   "decomposition": "<super> 0066"
+  },
+  "ᶡ": {
+   "name": "MODIFIER LETTER SMALL DOTLESS J WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 025F"
+  },
+  "ᶢ": {
+   "name": "MODIFIER LETTER SMALL SCRIPT G",
+   "category": "Lm",
+   "decomposition": "<super> 0261"
+  },
+  "ᶣ": {
+   "name": "MODIFIER LETTER SMALL TURNED H",
+   "category": "Lm",
+   "decomposition": "<super> 0265"
+  },
+  "ᶤ": {
+   "name": "MODIFIER LETTER SMALL I WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0268"
+  },
+  "ᶥ": {
+   "name": "MODIFIER LETTER SMALL IOTA",
+   "category": "Lm",
+   "decomposition": "<super> 0269"
+  },
+  "ᶦ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL I",
+   "category": "Lm",
+   "decomposition": "<super> 026A"
+  },
+  "ᶧ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL I WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 1D7B"
+  },
+  "ᶨ": {
+   "name": "MODIFIER LETTER SMALL J WITH CROSSED-TAIL",
+   "category": "Lm",
+   "decomposition": "<super> 029D"
+  },
+  "ᶩ": {
+   "name": "MODIFIER LETTER SMALL L WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 026D"
+  },
+  "ᶪ": {
+   "name": "MODIFIER LETTER SMALL L WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D85"
+  },
+  "ᶫ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL L",
+   "category": "Lm",
+   "decomposition": "<super> 029F"
+  },
+  "ᶬ": {
+   "name": "MODIFIER LETTER SMALL M WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0271"
+  },
+  "ᶭ": {
+   "name": "MODIFIER LETTER SMALL TURNED M WITH LONG LEG",
+   "category": "Lm",
+   "decomposition": "<super> 0270"
+  },
+  "ᶮ": {
+   "name": "MODIFIER LETTER SMALL N WITH LEFT HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0272"
+  },
+  "ᶯ": {
+   "name": "MODIFIER LETTER SMALL N WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0273"
+  },
+  "ᶰ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL N",
+   "category": "Lm",
+   "decomposition": "<super> 0274"
+  },
+  "ᶱ": {
+   "name": "MODIFIER LETTER SMALL BARRED O",
+   "category": "Lm",
+   "decomposition": "<super> 0275"
+  },
+  "ᶲ": {
+   "name": "MODIFIER LETTER SMALL PHI",
+   "category": "Lm",
+   "decomposition": "<super> 0278"
+  },
+  "ᶳ": {
+   "name": "MODIFIER LETTER SMALL S WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0282"
+  },
+  "ᶴ": {
+   "name": "MODIFIER LETTER SMALL ESH",
+   "category": "Lm",
+   "decomposition": "<super> 0283"
+  },
+  "ᶵ": {
+   "name": "MODIFIER LETTER SMALL T WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 01AB"
+  },
+  "ᶶ": {
+   "name": "MODIFIER LETTER SMALL U BAR",
+   "category": "Lm",
+   "decomposition": "<super> 0289"
+  },
+  "ᶷ": {
+   "name": "MODIFIER LETTER SMALL UPSILON",
+   "category": "Lm",
+   "decomposition": "<super> 028A"
+  },
+  "ᶸ": {
+   "name": "MODIFIER LETTER SMALL CAPITAL U",
+   "category": "Lm",
+   "decomposition": "<super> 1D1C"
+  },
+  "ᶹ": {
+   "name": "MODIFIER LETTER SMALL V WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 028B"
+  },
+  "ᶺ": {
+   "name": "MODIFIER LETTER SMALL TURNED V",
+   "category": "Lm",
+   "decomposition": "<super> 028C"
+  },
+  "ᶻ": {
+   "name": "MODIFIER LETTER SMALL Z",
+   "category": "Lm",
+   "decomposition": "<super> 007A"
+  },
+  "ᶼ": {
+   "name": "MODIFIER LETTER SMALL Z WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0290"
+  },
+  "ᶽ": {
+   "name": "MODIFIER LETTER SMALL Z WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0291"
+  },
+  "ᶾ": {
+   "name": "MODIFIER LETTER SMALL EZH",
+   "category": "Lm",
+   "decomposition": "<super> 0292"
+  },
+  "ᶿ": {
+   "name": "MODIFIER LETTER SMALL THETA",
+   "category": "Lm",
+   "decomposition": "<super> 03B8"
+  },
+  "᷀": {
+   "name": "COMBINING DOTTED GRAVE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷁": {
+   "name": "COMBINING DOTTED ACUTE ACCENT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷂": {
+   "name": "COMBINING SNAKE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷃": {
+   "name": "COMBINING SUSPENSION MARK",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷄": {
+   "name": "COMBINING MACRON-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷅": {
+   "name": "COMBINING GRAVE-MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷆": {
+   "name": "COMBINING MACRON-GRAVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷇": {
+   "name": "COMBINING ACUTE-MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷈": {
+   "name": "COMBINING GRAVE-ACUTE-GRAVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷉": {
+   "name": "COMBINING ACUTE-GRAVE-ACUTE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷊": {
+   "name": "COMBINING LATIN SMALL LETTER R BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷋": {
+   "name": "COMBINING BREVE-MACRON",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷌": {
+   "name": "COMBINING MACRON-BREVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷍": {
+   "name": "COMBINING DOUBLE CIRCUMFLEX ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷎": {
+   "name": "COMBINING OGONEK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷏": {
+   "name": "COMBINING ZIGZAG BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷐": {
+   "name": "COMBINING IS BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷑": {
+   "name": "COMBINING UR ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷒": {
+   "name": "COMBINING US ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷓ": {
+   "name": "COMBINING LATIN SMALL LETTER FLATTENED OPEN A ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷔ": {
+   "name": "COMBINING LATIN SMALL LETTER AE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷕ": {
+   "name": "COMBINING LATIN SMALL LETTER AO",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷖ": {
+   "name": "COMBINING LATIN SMALL LETTER AV",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷗ": {
+   "name": "COMBINING LATIN SMALL LETTER C CEDILLA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷘ": {
+   "name": "COMBINING LATIN SMALL LETTER INSULAR D",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷙ": {
+   "name": "COMBINING LATIN SMALL LETTER ETH",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷚ": {
+   "name": "COMBINING LATIN SMALL LETTER G",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷛ": {
+   "name": "COMBINING LATIN LETTER SMALL CAPITAL G",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷜ": {
+   "name": "COMBINING LATIN SMALL LETTER K",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷝ": {
+   "name": "COMBINING LATIN SMALL LETTER L",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷞ": {
+   "name": "COMBINING LATIN LETTER SMALL CAPITAL L",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷟ": {
+   "name": "COMBINING LATIN LETTER SMALL CAPITAL M",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷠ": {
+   "name": "COMBINING LATIN SMALL LETTER N",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷡ": {
+   "name": "COMBINING LATIN LETTER SMALL CAPITAL N",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷢ": {
+   "name": "COMBINING LATIN LETTER SMALL CAPITAL R",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷣ": {
+   "name": "COMBINING LATIN SMALL LETTER R ROTUNDA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷤ": {
+   "name": "COMBINING LATIN SMALL LETTER S",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷥ": {
+   "name": "COMBINING LATIN SMALL LETTER LONG S",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷦ": {
+   "name": "COMBINING LATIN SMALL LETTER Z",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷧ": {
+   "name": "COMBINING LATIN SMALL LETTER ALPHA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷨ": {
+   "name": "COMBINING LATIN SMALL LETTER B",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷩ": {
+   "name": "COMBINING LATIN SMALL LETTER BETA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷪ": {
+   "name": "COMBINING LATIN SMALL LETTER SCHWA",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷫ": {
+   "name": "COMBINING LATIN SMALL LETTER F",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷬ": {
+   "name": "COMBINING LATIN SMALL LETTER L WITH DOUBLE MIDDLE TILDE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷭ": {
+   "name": "COMBINING LATIN SMALL LETTER O WITH LIGHT CENTRALIZATION STROKE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷮ": {
+   "name": "COMBINING LATIN SMALL LETTER P",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷯ": {
+   "name": "COMBINING LATIN SMALL LETTER ESH",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷰ": {
+   "name": "COMBINING LATIN SMALL LETTER U WITH LIGHT CENTRALIZATION STROKE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷱ": {
+   "name": "COMBINING LATIN SMALL LETTER W",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷲ": {
+   "name": "COMBINING LATIN SMALL LETTER A WITH DIAERESIS",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷳ": {
+   "name": "COMBINING LATIN SMALL LETTER O WITH DIAERESIS",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ᷴ": {
+   "name": "COMBINING LATIN SMALL LETTER U WITH DIAERESIS",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷵": {
+   "name": "COMBINING UP TACK ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷶": {
+   "name": "COMBINING KAVYKA ABOVE RIGHT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷷": {
+   "name": "COMBINING KAVYKA ABOVE LEFT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷸": {
+   "name": "COMBINING DOT ABOVE LEFT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷹": {
+   "name": "COMBINING WIDE INVERTED BRIDGE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷺": {
+   "name": "COMBINING DOT BELOW LEFT",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷻": {
+   "name": "COMBINING DELETION MARK",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷼": {
+   "name": "COMBINING DOUBLE INVERTED BREVE BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷽": {
+   "name": "COMBINING ALMOST EQUAL TO BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷾": {
+   "name": "COMBINING LEFT ARROWHEAD ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "᷿": {
+   "name": "COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "Ṽ": {
+   "name": "LATIN CAPITAL LETTER V WITH TILDE",
+   "category": "Lu",
+   "decomposition": "0056 0303"
+  },
+  "ẋ": {
+   "name": "LATIN SMALL LETTER X WITH DOT ABOVE",
+   "category": "Ll",
+   "decomposition": "0078 0307"
+  },
+  "ẑ": {
+   "name": "LATIN SMALL LETTER Z WITH CIRCUMFLEX",
+   "category": "Ll",
+   "decomposition": "007A 0302"
+  },
+  "ẟ": {
+   "name": "LATIN SMALL LETTER DELTA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "…": {
+   "name": "HORIZONTAL ELLIPSIS",
+   "category": "Po",
+   "decomposition": "<compat> 002E 002E 002E"
+  },
+  "⁄": {
+   "name": "FRACTION SLASH",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "⁰": {
+   "name": "SUPERSCRIPT ZERO",
+   "category": "No",
+   "decomposition": "<super> 0030"
+  },
+  "ⁱ": {
+   "name": "SUPERSCRIPT LATIN SMALL LETTER I",
+   "category": "Lm",
+   "decomposition": "<super> 0069"
+  },
+  "⁴": {
+   "name": "SUPERSCRIPT FOUR",
+   "category": "No",
+   "decomposition": "<super> 0034"
+  },
+  "⁵": {
+   "name": "SUPERSCRIPT FIVE",
+   "category": "No",
+   "decomposition": "<super> 0035"
+  },
+  "⁶": {
+   "name": "SUPERSCRIPT SIX",
+   "category": "No",
+   "decomposition": "<super> 0036"
+  },
+  "⁷": {
+   "name": "SUPERSCRIPT SEVEN",
+   "category": "No",
+   "decomposition": "<super> 0037"
+  },
+  "⁸": {
+   "name": "SUPERSCRIPT EIGHT",
+   "category": "No",
+   "decomposition": "<super> 0038"
+  },
+  "⁹": {
+   "name": "SUPERSCRIPT NINE",
+   "category": "No",
+   "decomposition": "<super> 0039"
+  },
+  "⁺": {
+   "name": "SUPERSCRIPT PLUS SIGN",
+   "category": "Sm",
+   "decomposition": "<super> 002B"
+  },
+  "⁻": {
+   "name": "SUPERSCRIPT MINUS",
+   "category": "Sm",
+   "decomposition": "<super> 2212"
+  },
+  "⁼": {
+   "name": "SUPERSCRIPT EQUALS SIGN",
+   "category": "Sm",
+   "decomposition": "<super> 003D"
+  },
+  "⁽": {
+   "name": "SUPERSCRIPT LEFT PARENTHESIS",
+   "category": "Ps",
+   "decomposition": "<super> 0028"
+  },
+  "⁾": {
+   "name": "SUPERSCRIPT RIGHT PARENTHESIS",
+   "category": "Pe",
+   "decomposition": "<super> 0029"
+  },
+  "ⁿ": {
+   "name": "SUPERSCRIPT LATIN SMALL LETTER N",
+   "category": "Lm",
+   "decomposition": "<super> 006E"
+  },
+  "₀": {
+   "name": "SUBSCRIPT ZERO",
+   "category": "No",
+   "decomposition": "<sub> 0030"
+  },
+  "₁": {
+   "name": "SUBSCRIPT ONE",
+   "category": "No",
+   "decomposition": "<sub> 0031"
+  },
+  "₂": {
+   "name": "SUBSCRIPT TWO",
+   "category": "No",
+   "decomposition": "<sub> 0032"
+  },
+  "₃": {
+   "name": "SUBSCRIPT THREE",
+   "category": "No",
+   "decomposition": "<sub> 0033"
+  },
+  "₄": {
+   "name": "SUBSCRIPT FOUR",
+   "category": "No",
+   "decomposition": "<sub> 0034"
+  },
+  "₅": {
+   "name": "SUBSCRIPT FIVE",
+   "category": "No",
+   "decomposition": "<sub> 0035"
+  },
+  "₆": {
+   "name": "SUBSCRIPT SIX",
+   "category": "No",
+   "decomposition": "<sub> 0036"
+  },
+  "₇": {
+   "name": "SUBSCRIPT SEVEN",
+   "category": "No",
+   "decomposition": "<sub> 0037"
+  },
+  "₈": {
+   "name": "SUBSCRIPT EIGHT",
+   "category": "No",
+   "decomposition": "<sub> 0038"
+  },
+  "₉": {
+   "name": "SUBSCRIPT NINE",
+   "category": "No",
+   "decomposition": "<sub> 0039"
+  },
+  "₊": {
+   "name": "SUBSCRIPT PLUS SIGN",
+   "category": "Sm",
+   "decomposition": "<sub> 002B"
+  },
+  "₋": {
+   "name": "SUBSCRIPT MINUS",
+   "category": "Sm",
+   "decomposition": "<sub> 2212"
+  },
+  "₌": {
+   "name": "SUBSCRIPT EQUALS SIGN",
+   "category": "Sm",
+   "decomposition": "<sub> 003D"
+  },
+  "₍": {
+   "name": "SUBSCRIPT LEFT PARENTHESIS",
+   "category": "Ps",
+   "decomposition": "<sub> 0028"
+  },
+  "₎": {
+   "name": "SUBSCRIPT RIGHT PARENTHESIS",
+   "category": "Pe",
+   "decomposition": "<sub> 0029"
+  },
+  "₏": {
+   "name": "MODIFIER LETTER HIGH AND LOW VERTICAL LINE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ₐ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER A",
+   "category": "Lm",
+   "decomposition": "<sub> 0061"
+  },
+  "ₑ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER E",
+   "category": "Lm",
+   "decomposition": "<sub> 0065"
+  },
+  "ₒ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER O",
+   "category": "Lm",
+   "decomposition": "<sub> 006F"
+  },
+  "ₓ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER X",
+   "category": "Lm",
+   "decomposition": "<sub> 0078"
+  },
+  "ₔ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER SCHWA",
+   "category": "Lm",
+   "decomposition": "<sub> 0259"
+  },
+  "ₕ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER H",
+   "category": "Lm",
+   "decomposition": "<sub> 0068"
+  },
+  "ₖ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER K",
+   "category": "Lm",
+   "decomposition": "<sub> 006B"
+  },
+  "ₗ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER L",
+   "category": "Lm",
+   "decomposition": "<sub> 006C"
+  },
+  "ₘ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER M",
+   "category": "Lm",
+   "decomposition": "<sub> 006D"
+  },
+  "ₙ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER N",
+   "category": "Lm",
+   "decomposition": "<sub> 006E"
+  },
+  "ₚ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER P",
+   "category": "Lm",
+   "decomposition": "<sub> 0070"
+  },
+  "ₛ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER S",
+   "category": "Lm",
+   "decomposition": "<sub> 0073"
+  },
+  "ₜ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER T",
+   "category": "Lm",
+   "decomposition": "<sub> 0074"
+  },
+  "₝": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER W",
+   "category": "Lm",
+   "decomposition": "<sub> 0077"
+  },
+  "₞": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER Y",
+   "category": "Lm",
+   "decomposition": "<sub> 0079"
+  },
+  "₟": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER Z",
+   "category": "Lm",
+   "decomposition": "<sub> 007A"
+  },
+  "⃖": {
+   "name": "COMBINING LEFT ARROW ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "⃝": {
+   "name": "COMBINING ENCLOSING CIRCLE",
+   "category": "Me",
+   "decomposition": ""
+  },
+  "⃡": {
+   "name": "COMBINING LEFT RIGHT ARROW ABOVE",
+   "category": "Mn",
+   "decomposition": ""
+  },
+  "ℜ": {
+   "name": "BLACK-LETTER CAPITAL R",
+   "category": "Lu",
+   "decomposition": "<font> 0052"
+  },
+  "ↀ": {
+   "name": "ROMAN NUMERAL ONE THOUSAND C D",
+   "category": "Nl",
+   "decomposition": ""
+  },
+  "↑": {
+   "name": "UPWARDS ARROW",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "↓": {
+   "name": "DOWNWARDS ARROW",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "↕": {
+   "name": "UP DOWN ARROW",
+   "category": "So",
+   "decomposition": ""
+  },
+  "↗": {
+   "name": "NORTH EAST ARROW",
+   "category": "So",
+   "decomposition": ""
+  },
+  "↘": {
+   "name": "SOUTH EAST ARROW",
+   "category": "So",
+   "decomposition": ""
+  },
+  "∅": {
+   "name": "EMPTY SET",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "−": {
+   "name": "MINUS SIGN",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "≺": {
+   "name": "PRECEDES",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "◯": {
+   "name": "LARGE CIRCLE",
+   "category": "So",
+   "decomposition": ""
+  },
+  "⤴": {
+   "name": "ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "⤵": {
+   "name": "ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS",
+   "category": "Sm",
+   "decomposition": ""
+  },
+  "ⱱ": {
+   "name": "LATIN SMALL LETTER V WITH RIGHT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ⱳ": {
+   "name": "LATIN SMALL LETTER W WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ⱴ": {
+   "name": "LATIN SMALL LETTER V WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ⱺ": {
+   "name": "LATIN SMALL LETTER O WITH LOW RING INSIDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ⱻ": {
+   "name": "LATIN LETTER SMALL CAPITAL TURNED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "⸨": {
+   "name": "LEFT DOUBLE PARENTHESIS",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  "⸩": {
+   "name": "RIGHT DOUBLE PARENTHESIS",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "Ꙫ": {
+   "name": "CYRILLIC CAPITAL LETTER BINOCULAR O",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "꜀": {
+   "name": "MODIFIER LETTER CHINESE TONE YIN PING",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜁": {
+   "name": "MODIFIER LETTER CHINESE TONE YANG PING",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜂": {
+   "name": "MODIFIER LETTER CHINESE TONE YIN SHANG",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜃": {
+   "name": "MODIFIER LETTER CHINESE TONE YANG SHANG",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜄": {
+   "name": "MODIFIER LETTER CHINESE TONE YIN QU",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜅": {
+   "name": "MODIFIER LETTER CHINESE TONE YANG QU",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜆": {
+   "name": "MODIFIER LETTER CHINESE TONE YIN RU",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜇": {
+   "name": "MODIFIER LETTER CHINESE TONE YANG RU",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜈": {
+   "name": "MODIFIER LETTER EXTRA-HIGH DOTTED TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜉": {
+   "name": "MODIFIER LETTER HIGH DOTTED TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜊": {
+   "name": "MODIFIER LETTER MID DOTTED TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜋": {
+   "name": "MODIFIER LETTER LOW DOTTED TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜌": {
+   "name": "MODIFIER LETTER EXTRA-LOW DOTTED TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜍": {
+   "name": "MODIFIER LETTER EXTRA-HIGH DOTTED LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜎": {
+   "name": "MODIFIER LETTER HIGH DOTTED LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜏": {
+   "name": "MODIFIER LETTER MID DOTTED LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜐": {
+   "name": "MODIFIER LETTER LOW DOTTED LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜑": {
+   "name": "MODIFIER LETTER EXTRA-LOW DOTTED LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜒": {
+   "name": "MODIFIER LETTER EXTRA-HIGH LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜓": {
+   "name": "MODIFIER LETTER HIGH LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜔": {
+   "name": "MODIFIER LETTER MID LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜕": {
+   "name": "MODIFIER LETTER LOW LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꜖": {
+   "name": "MODIFIER LETTER EXTRA-LOW LEFT-STEM TONE BAR",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ꜗ": {
+   "name": "MODIFIER LETTER DOT VERTICAL BAR",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜘ": {
+   "name": "MODIFIER LETTER DOT SLASH",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜙ": {
+   "name": "MODIFIER LETTER DOT HORIZONTAL BAR",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜚ": {
+   "name": "MODIFIER LETTER LOWER RIGHT CORNER ANGLE",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜛ": {
+   "name": "MODIFIER LETTER RAISED UP ARROW",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜜ": {
+   "name": "MODIFIER LETTER RAISED DOWN ARROW",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜝ": {
+   "name": "MODIFIER LETTER RAISED EXCLAMATION MARK",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜞ": {
+   "name": "MODIFIER LETTER RAISED INVERTED EXCLAMATION MARK",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜟ": {
+   "name": "MODIFIER LETTER LOW INVERTED EXCLAMATION MARK",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꜧ": {
+   "name": "LATIN SMALL LETTER HENG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꜫ": {
+   "name": "LATIN SMALL LETTER TRESILLO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꜭ": {
+   "name": "LATIN SMALL LETTER CUATRILLO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꜰ": {
+   "name": "LATIN LETTER SMALL CAPITAL F",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ꜵ": {
+   "name": "LATIN CAPITAL LETTER AO",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ꜵ": {
+   "name": "LATIN SMALL LETTER AO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꝁ": {
+   "name": "LATIN SMALL LETTER K WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꝋ": {
+   "name": "LATIN SMALL LETTER O WITH LONG STROKE OVERLAY",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꝏ": {
+   "name": "LATIN SMALL LETTER OO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꝥ": {
+   "name": "LATIN SMALL LETTER THORN WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꝺ": {
+   "name": "LATIN SMALL LETTER INSULAR D",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꞈ": {
+   "name": "MODIFIER LETTER LOW CIRCUMFLEX ACCENT",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "ꞎ": {
+   "name": "LATIN SMALL LETTER L WITH RETROFLEX HOOK AND BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꞏ": {
+   "name": "LATIN LETTER SINOLOGICAL DOT",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "ꞓ": {
+   "name": "LATIN SMALL LETTER C WITH BAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꞕ": {
+   "name": "LATIN SMALL LETTER H WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꞯ": {
+   "name": "LATIN LETTER SMALL CAPITAL Q",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "Ʞ": {
+   "name": "LATIN CAPITAL LETTER TURNED K",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "ꞷ": {
+   "name": "LATIN SMALL LETTER OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꞹ": {
+   "name": "LATIN SMALL LETTER U WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬰ": {
+   "name": "LATIN SMALL LETTER BARRED ALPHA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬱ": {
+   "name": "LATIN SMALL LETTER A REVERSED-SCHWA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬲ": {
+   "name": "LATIN SMALL LETTER BLACKLETTER E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬳ": {
+   "name": "LATIN SMALL LETTER BARRED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬴ": {
+   "name": "LATIN SMALL LETTER E WITH FLOURISH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬵ": {
+   "name": "LATIN SMALL LETTER LENIS F",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬶ": {
+   "name": "LATIN SMALL LETTER SCRIPT G WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬷ": {
+   "name": "LATIN SMALL LETTER L WITH INVERTED LAZY S",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬸ": {
+   "name": "LATIN SMALL LETTER L WITH DOUBLE MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬹ": {
+   "name": "LATIN SMALL LETTER L WITH MIDDLE RING",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬺ": {
+   "name": "LATIN SMALL LETTER M WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬻ": {
+   "name": "LATIN SMALL LETTER N WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬼ": {
+   "name": "LATIN SMALL LETTER ENG WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬽ": {
+   "name": "LATIN SMALL LETTER BLACKLETTER O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬾ": {
+   "name": "LATIN SMALL LETTER BLACKLETTER O WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꬿ": {
+   "name": "LATIN SMALL LETTER OPEN O WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭀ": {
+   "name": "LATIN SMALL LETTER INVERTED OE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭁ": {
+   "name": "LATIN SMALL LETTER TURNED OE WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭂ": {
+   "name": "LATIN SMALL LETTER TURNED OE WITH HORIZONTAL STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭃ": {
+   "name": "LATIN SMALL LETTER TURNED O OPEN-O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭄ": {
+   "name": "LATIN SMALL LETTER TURNED O OPEN-O WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭅ": {
+   "name": "LATIN SMALL LETTER STIRRUP R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭆ": {
+   "name": "LATIN LETTER SMALL CAPITAL R WITH RIGHT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭇ": {
+   "name": "LATIN SMALL LETTER R WITHOUT HANDLE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭈ": {
+   "name": "LATIN SMALL LETTER DOUBLE R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭉ": {
+   "name": "LATIN SMALL LETTER R WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭊ": {
+   "name": "LATIN SMALL LETTER DOUBLE R WITH CROSSED-TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭋ": {
+   "name": "LATIN SMALL LETTER SCRIPT R",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭌ": {
+   "name": "LATIN SMALL LETTER SCRIPT R WITH RING",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭍ": {
+   "name": "LATIN SMALL LETTER BASELINE ESH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭎ": {
+   "name": "LATIN SMALL LETTER U WITH SHORT RIGHT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭏ": {
+   "name": "LATIN SMALL LETTER U BAR WITH SHORT RIGHT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭐ": {
+   "name": "LATIN SMALL LETTER UI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭑ": {
+   "name": "LATIN SMALL LETTER TURNED UI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭒ": {
+   "name": "LATIN SMALL LETTER U WITH LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭓ": {
+   "name": "LATIN SMALL LETTER CHI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭔ": {
+   "name": "LATIN SMALL LETTER CHI WITH LOW RIGHT RING",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭕ": {
+   "name": "LATIN SMALL LETTER CHI WITH LOW LEFT SERIF",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭖ": {
+   "name": "LATIN SMALL LETTER X WITH LOW RIGHT RING",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭗ": {
+   "name": "LATIN SMALL LETTER X WITH LONG LEFT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭘ": {
+   "name": "LATIN SMALL LETTER X WITH LONG LEFT LEG AND LOW RIGHT RING",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭙ": {
+   "name": "LATIN SMALL LETTER X WITH LONG LEFT LEG WITH SERIF",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭚ": {
+   "name": "LATIN SMALL LETTER Y WITH SHORT RIGHT LEG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "꭛": {
+   "name": "MODIFIER BREVE WITH INVERTED BREVE",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "ꭜ": {
+   "name": "MODIFIER LETTER SMALL HENG",
+   "category": "Lm",
+   "decomposition": "<super> A727"
+  },
+  "ꭝ": {
+   "name": "MODIFIER LETTER SMALL L WITH INVERTED LAZY S",
+   "category": "Lm",
+   "decomposition": "<super> AB37"
+  },
+  "ꭞ": {
+   "name": "MODIFIER LETTER SMALL L WITH MIDDLE TILDE",
+   "category": "Lm",
+   "decomposition": "<super> 026B"
+  },
+  "ꭟ": {
+   "name": "MODIFIER LETTER SMALL U WITH LEFT HOOK",
+   "category": "Lm",
+   "decomposition": "<super> AB52"
+  },
+  "ꭠ": {
+   "name": "LATIN SMALL LETTER SAKHA YAT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭡ": {
+   "name": "LATIN SMALL LETTER IOTIFIED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭢ": {
+   "name": "LATIN SMALL LETTER OPEN OE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭣ": {
+   "name": "LATIN SMALL LETTER UO",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭤ": {
+   "name": "LATIN SMALL LETTER INVERTED ALPHA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭥ": {
+   "name": "GREEK LETTER SMALL CAPITAL OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭦ": {
+   "name": "LATIN SMALL LETTER DZ DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭧ": {
+   "name": "LATIN SMALL LETTER TS DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭨ": {
+   "name": "LATIN SMALL LETTER TURNED R WITH MIDDLE TILDE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "ꭩ": {
+   "name": "MODIFIER LETTER SMALL TURNED W",
+   "category": "Lm",
+   "decomposition": "<super> 028D"
+  },
+  "꭪": {
+   "name": "MODIFIER LETTER LEFT TACK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꭫": {
+   "name": "MODIFIER LETTER RIGHT TACK",
+   "category": "Sk",
+   "decomposition": ""
+  },
+  "꭬": {
+   "name": "LATIN CAPITAL LETTER SCRIPT R",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "꭭": {
+   "name": "LATIN CAPITAL LETTER SCRIPT R WITH RING",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𐞀": {
+   "name": "MODIFIER LETTER SMALL CAPITAL AA",
+   "category": "Lm",
+   "decomposition": ""
+  },
+  "𐞁": {
+   "name": "MODIFIER LETTER SUPERSCRIPT TRIANGULAR COLON",
+   "category": "Lm",
+   "decomposition": "<super> 02D0"
+  },
+  "𐞂": {
+   "name": "MODIFIER LETTER SUPERSCRIPT HALF TRIANGULAR COLON",
+   "category": "Lm",
+   "decomposition": "<super> 02D1"
+  },
+  "𐞃": {
+   "name": "MODIFIER LETTER SMALL AE",
+   "category": "Lm",
+   "decomposition": "<super> 00E6"
+  },
+  "𐞄": {
+   "name": "MODIFIER LETTER SMALL CAPITAL B",
+   "category": "Lm",
+   "decomposition": "<super> 0299"
+  },
+  "𐞅": {
+   "name": "MODIFIER LETTER SMALL B WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0253"
+  },
+  "𐞇": {
+   "name": "MODIFIER LETTER SMALL DZ DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02A3"
+  },
+  "𐞈": {
+   "name": "MODIFIER LETTER SMALL DZ DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> AB66"
+  },
+  "𐞉": {
+   "name": "MODIFIER LETTER SMALL DZ DIGRAPH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 02A5"
+  },
+  "𐞊": {
+   "name": "MODIFIER LETTER SMALL DEZH DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02A4"
+  },
+  "𐞋": {
+   "name": "MODIFIER LETTER SMALL D WITH TAIL",
+   "category": "Lm",
+   "decomposition": "<super> 0256"
+  },
+  "𐞌": {
+   "name": "MODIFIER LETTER SMALL D WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0257"
+  },
+  "𐞍": {
+   "name": "MODIFIER LETTER SMALL D WITH HOOK AND TAIL",
+   "category": "Lm",
+   "decomposition": "<super> 1D91"
+  },
+  "𐞎": {
+   "name": "MODIFIER LETTER SMALL REVERSED E",
+   "category": "Lm",
+   "decomposition": "<super> 0258"
+  },
+  "𐞏": {
+   "name": "MODIFIER LETTER SMALL CLOSED REVERSED OPEN E",
+   "category": "Lm",
+   "decomposition": "<super> 025E"
+  },
+  "𐞐": {
+   "name": "MODIFIER LETTER SMALL FENG DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02A9"
+  },
+  "𐞑": {
+   "name": "MODIFIER LETTER SMALL RAMS HORN",
+   "category": "Lm",
+   "decomposition": "<super> 0264"
+  },
+  "𐞒": {
+   "name": "MODIFIER LETTER SMALL CAPITAL G",
+   "category": "Lm",
+   "decomposition": "<super> 0262"
+  },
+  "𐞓": {
+   "name": "MODIFIER LETTER SMALL G WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0260"
+  },
+  "𐞔": {
+   "name": "MODIFIER LETTER SMALL CAPITAL G WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 029B"
+  },
+  "𐞕": {
+   "name": "MODIFIER LETTER SMALL H WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0127"
+  },
+  "𐞖": {
+   "name": "MODIFIER LETTER SMALL CAPITAL H",
+   "category": "Lm",
+   "decomposition": "<super> 029C"
+  },
+  "𐞗": {
+   "name": "MODIFIER LETTER SMALL HENG WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0267"
+  },
+  "𐞘": {
+   "name": "MODIFIER LETTER SMALL DOTLESS J WITH STROKE AND HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0284"
+  },
+  "𐞙": {
+   "name": "MODIFIER LETTER SMALL LS DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02AA"
+  },
+  "𐞚": {
+   "name": "MODIFIER LETTER SMALL LZ DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02AB"
+  },
+  "𐞛": {
+   "name": "MODIFIER LETTER SMALL L WITH BELT",
+   "category": "Lm",
+   "decomposition": "<super> 026C"
+  },
+  "𐞜": {
+   "name": "MODIFIER LETTER SMALL CAPITAL L WITH BELT",
+   "category": "Lm",
+   "decomposition": "<super> 1DF04"
+  },
+  "𐞝": {
+   "name": "MODIFIER LETTER SMALL L WITH RETROFLEX HOOK AND BELT",
+   "category": "Lm",
+   "decomposition": "<super> A78E"
+  },
+  "𐞞": {
+   "name": "MODIFIER LETTER SMALL LEZH",
+   "category": "Lm",
+   "decomposition": "<super> 026E"
+  },
+  "𐞟": {
+   "name": "MODIFIER LETTER SMALL LEZH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF05"
+  },
+  "𐞠": {
+   "name": "MODIFIER LETTER SMALL TURNED Y",
+   "category": "Lm",
+   "decomposition": "<super> 028E"
+  },
+  "𐞡": {
+   "name": "MODIFIER LETTER SMALL TURNED Y WITH BELT",
+   "category": "Lm",
+   "decomposition": "<super> 1DF06"
+  },
+  "𐞢": {
+   "name": "MODIFIER LETTER SMALL O WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 00F8"
+  },
+  "𐞣": {
+   "name": "MODIFIER LETTER SMALL CAPITAL OE",
+   "category": "Lm",
+   "decomposition": "<super> 0276"
+  },
+  "𐞤": {
+   "name": "MODIFIER LETTER SMALL CLOSED OMEGA",
+   "category": "Lm",
+   "decomposition": "<super> 0277"
+  },
+  "𐞥": {
+   "name": "MODIFIER LETTER SMALL Q",
+   "category": "Lm",
+   "decomposition": "<super> 0071"
+  },
+  "𐞦": {
+   "name": "MODIFIER LETTER SMALL TURNED R WITH LONG LEG",
+   "category": "Lm",
+   "decomposition": "<super> 027A"
+  },
+  "𐞧": {
+   "name": "MODIFIER LETTER SMALL TURNED R WITH LONG LEG AND RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF08"
+  },
+  "𐞨": {
+   "name": "MODIFIER LETTER SMALL R WITH TAIL",
+   "category": "Lm",
+   "decomposition": "<super> 027D"
+  },
+  "𐞩": {
+   "name": "MODIFIER LETTER SMALL R WITH FISHHOOK",
+   "category": "Lm",
+   "decomposition": "<super> 027E"
+  },
+  "𐞪": {
+   "name": "MODIFIER LETTER SMALL CAPITAL R",
+   "category": "Lm",
+   "decomposition": "<super> 0280"
+  },
+  "𐞫": {
+   "name": "MODIFIER LETTER SMALL TC DIGRAPH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 02A8"
+  },
+  "𐞬": {
+   "name": "MODIFIER LETTER SMALL TS DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02A6"
+  },
+  "𐞭": {
+   "name": "MODIFIER LETTER SMALL TS DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> AB67"
+  },
+  "𐞮": {
+   "name": "MODIFIER LETTER SMALL TESH DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 02A7"
+  },
+  "𐞯": {
+   "name": "MODIFIER LETTER SMALL T WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0288"
+  },
+  "𐞰": {
+   "name": "MODIFIER LETTER SMALL V WITH RIGHT HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 2C71"
+  },
+  "𐞲": {
+   "name": "MODIFIER LETTER SMALL CAPITAL Y",
+   "category": "Lm",
+   "decomposition": "<super> 028F"
+  },
+  "𐞳": {
+   "name": "MODIFIER LETTER GLOTTAL STOP WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 02A1"
+  },
+  "𐞴": {
+   "name": "MODIFIER LETTER REVERSED GLOTTAL STOP WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 02A2"
+  },
+  "𐞵": {
+   "name": "MODIFIER LETTER BILABIAL CLICK",
+   "category": "Lm",
+   "decomposition": "<super> 0298"
+  },
+  "𐞶": {
+   "name": "MODIFIER LETTER DENTAL CLICK",
+   "category": "Lm",
+   "decomposition": "<super> 01C0"
+  },
+  "𐞷": {
+   "name": "MODIFIER LETTER LATERAL CLICK",
+   "category": "Lm",
+   "decomposition": "<super> 01C1"
+  },
+  "𐞸": {
+   "name": "MODIFIER LETTER ALVEOLAR CLICK",
+   "category": "Lm",
+   "decomposition": "<super> 01C2"
+  },
+  "𐞹": {
+   "name": "MODIFIER LETTER RETROFLEX CLICK WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF0A"
+  },
+  "𐞺": {
+   "name": "MODIFIER LETTER SMALL S WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 1DF1E"
+  },
+  "𐞻": {
+   "name": "MODIFIER LETTER SMALL TURNED T",
+   "category": "Lm",
+   "decomposition": "<super> 0287"
+  },
+  "𐞼": {
+   "name": "MODIFIER LETTER INVERTED GLOTTAL STOP",
+   "category": "Lm",
+   "decomposition": "<super> 0296"
+  },
+  "𐞽": {
+   "name": "MODIFIER LETTER STRETCHED C",
+   "category": "Lm",
+   "decomposition": "<super> 0297"
+  },
+  "𐞾": {
+   "name": "MODIFIER LETTER SMALL TURNED K",
+   "category": "Lm",
+   "decomposition": "<super> 029E"
+  },
+  "𐞿": {
+   "name": "MODIFIER LETTER SMALL ESH WITH DOUBLE BAR",
+   "category": "Lm",
+   "decomposition": "<super> 1DF0B"
+  },
+  "𝼀": {
+   "name": "LATIN SMALL LETTER FENG DIGRAPH WITH TRILL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼁": {
+   "name": "LATIN SMALL LETTER REVERSED SCRIPT G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼂": {
+   "name": "LATIN LETTER SMALL CAPITAL TURNED G",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼃": {
+   "name": "LATIN SMALL LETTER REVERSED K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼄": {
+   "name": "LATIN LETTER SMALL CAPITAL L WITH BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼅": {
+   "name": "LATIN SMALL LETTER LEZH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼆": {
+   "name": "LATIN SMALL LETTER TURNED Y WITH BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼇": {
+   "name": "LATIN SMALL LETTER REVERSED ENG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼈": {
+   "name": "LATIN SMALL LETTER TURNED R WITH LONG LEG AND RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼉": {
+   "name": "LATIN SMALL LETTER T WITH HOOK AND RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼊": {
+   "name": "LATIN LETTER RETROFLEX CLICK WITH RETROFLEX HOOK",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "𝼋": {
+   "name": "LATIN SMALL LETTER ESH WITH DOUBLE BAR",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼌": {
+   "name": "LATIN SMALL LETTER ESH WITH DOUBLE BAR AND CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼍": {
+   "name": "LATIN SMALL LETTER TURNED T WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼎": {
+   "name": "LATIN LETTER INVERTED GLOTTAL STOP WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼏": {
+   "name": "LATIN LETTER STRETCHED C WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼐": {
+   "name": "LATIN LETTER SMALL CAPITAL TURNED K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼑": {
+   "name": "LATIN SMALL LETTER L WITH FISHHOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼒": {
+   "name": "LATIN SMALL LETTER DEZH DIGRAPH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼓": {
+   "name": "LATIN SMALL LETTER L WITH BELT AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼔": {
+   "name": "LATIN SMALL LETTER ENG WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼕": {
+   "name": "LATIN SMALL LETTER TURNED R WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼖": {
+   "name": "LATIN SMALL LETTER R WITH FISHHOOK AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼗": {
+   "name": "LATIN SMALL LETTER TESH DIGRAPH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼘": {
+   "name": "LATIN SMALL LETTER EZH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼙": {
+   "name": "LATIN SMALL LETTER DEZH DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼚": {
+   "name": "LATIN SMALL LETTER I WITH STROKE AND RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼛": {
+   "name": "LATIN SMALL LETTER O WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼜": {
+   "name": "LATIN SMALL LETTER TESH DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼝": {
+   "name": "LATIN SMALL LETTER C WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼞": {
+   "name": "LATIN SMALL LETTER S WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼟": {
+   "name": "LATIN SMALL LETTER D-ETH DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼠": {
+   "name": "LATIN SMALL LETTER D-LEZH DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼡": {
+   "name": "LATIN SMALL LETTER D-LEZH DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼢": {
+   "name": "LATIN SMALL LETTER TL DIGRAPH WITH BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼣": {
+   "name": "LATIN SMALL LETTER TL DIGRAPH WITH RETROFLEX HOOK AND BELT",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼤": {
+   "name": "LATIN SMALL LETTER T-THETA DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼥": {
+   "name": "LATIN SMALL LETTER D WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼦": {
+   "name": "LATIN SMALL LETTER L WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼧": {
+   "name": "LATIN SMALL LETTER N WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼨": {
+   "name": "LATIN SMALL LETTER R WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼩": {
+   "name": "LATIN SMALL LETTER S WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼪": {
+   "name": "LATIN SMALL LETTER T WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼫": {
+   "name": "LATIN SMALL LETTER DEZH DIGRAPH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼬": {
+   "name": "LATIN SMALL LETTER TESH DIGRAPH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼭": {
+   "name": "LATIN SMALL LETTER D WITH HOOK AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼮": {
+   "name": "LATIN SMALL LETTER DZ DIGRAPH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼯": {
+   "name": "LATIN SMALL LETTER ETH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼰": {
+   "name": "LATIN LETTER SMALL CAPITAL G WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼱": {
+   "name": "LATIN SMALL LETTER GAMMA WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼲": {
+   "name": "LATIN SMALL LETTER H WITH STROKE AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼳": {
+   "name": "LATIN SMALL LETTER PHI WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼴": {
+   "name": "LATIN SMALL LETTER Q WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼵": {
+   "name": "LATIN LETTER SMALL CAPITAL R WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼶": {
+   "name": "LATIN LETTER SMALL CAPITAL INVERTED R WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼷": {
+   "name": "LATIN SMALL LETTER R WITH TAIL AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼸": {
+   "name": "LATIN SMALL LETTER TS DIGRAPH WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼹": {
+   "name": "LATIN SMALL LETTER V WITH HOOK AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼺": {
+   "name": "LATIN LETTER PHARYNGEAL VOICED FRICATIVE WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼻": {
+   "name": "LATIN SMALL LETTER BETA WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼼": {
+   "name": "LATIN SMALL LETTER THETA WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼽": {
+   "name": "LATIN SMALL LETTER CHI WITH PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼾": {
+   "name": "LATIN SMALL LETTER BARRED TURNED H",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝼿": {
+   "name": "LATIN SMALL LETTER BARRED W",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽀": {
+   "name": "LATIN CAPITAL LETTER BARRED A",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽁": {
+   "name": "LATIN SMALL LETTER BARRED A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽂": {
+   "name": "LATIN SMALL LETTER BARRED OPEN O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽃": {
+   "name": "LATIN LETTER SMALL CAPITAL BARRED E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽄": {
+   "name": "LATIN SMALL LETTER BARRED OPEN E",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽅": {
+   "name": "LATIN SMALL LETTER G WITH STROKE AND PALATAL HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽆": {
+   "name": "LATIN SMALL LETTER BARRED H",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽇": {
+   "name": "LATIN SMALL LETTER BARRED H WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽈": {
+   "name": "LATIN CAPITAL LETTER BARRED K",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽉": {
+   "name": "LATIN SMALL LETTER BARRED K",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽊": {
+   "name": "LATIN CAPITAL LETTER BARRED M",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽋": {
+   "name": "LATIN SMALL LETTER BARRED M",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽌": {
+   "name": "LATIN SMALL LETTER BARRED M WITH HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽍": {
+   "name": "LATIN CAPITAL LETTER BARRED N",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽎": {
+   "name": "LATIN SMALL LETTER BARRED N",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽏": {
+   "name": "LATIN SMALL LETTER BARRED ENG",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽐": {
+   "name": "LATIN SMALL LETTER TURNED R WITH STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽑": {
+   "name": "LATIN CAPITAL LETTER BARRED V",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽒": {
+   "name": "LATIN SMALL LETTER BARRED V",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽓": {
+   "name": "LATIN SMALL LETTER BARRED CLOSED OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽔": {
+   "name": "LATIN SMALL LETTER BARRED CHI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽕": {
+   "name": "LATIN SMALL LETTER Y WITH LOW STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽖": {
+   "name": "LATIN LETTER GLOTTAL STOP WITH DOUBLE STROKE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽗": {
+   "name": "LATIN SMALL LETTER TURNED R WITH MID-HEIGHT LEFT HOOK",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽘": {
+   "name": "LATIN SMALL LETTER SPLIT O",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽙": {
+   "name": "LATIN SMALL LETTER SPLIT U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽚": {
+   "name": "LATIN SMALL LETTER HALF A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽛": {
+   "name": "LATIN SMALL LETTER STRETCHED C-H DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽜": {
+   "name": "LATIN SMALL LETTER LUNATE EE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽝": {
+   "name": "LATIN SMALL LETTER IE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽞": {
+   "name": "LATIN SMALL LETTER OI DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽟": {
+   "name": "LATIN SMALL LETTER OU DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽠": {
+   "name": "LATIN SMALL LETTER OMEGA WITH LOOP",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽡": {
+   "name": "LATIN SMALL LETTER R WITH LEFT TIE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽢": {
+   "name": "LATIN SMALL LETTER ESH-H DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽣": {
+   "name": "LATIN SMALL LETTER STRETCHED T-H DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽤": {
+   "name": "LATIN SMALL LETTER REVERSED T-H DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽥": {
+   "name": "LATIN SMALL LETTER WH DIGRAPH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽦": {
+   "name": "LATIN SMALL LETTER REVERSED Z",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽧": {
+   "name": "LATIN SMALL LETTER LEZH WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽨": {
+   "name": "LATIN CAPITAL LETTER PHONOTYPIC A WITH SWASH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽩": {
+   "name": "LATIN SMALL LETTER PHONOTYPIC A WITH SWASH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽪": {
+   "name": "LATIN CAPITAL LETTER PHONOTYPIC ROUNDTOP A",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽫": {
+   "name": "LATIN SMALL LETTER PHONOTYPIC ROUNDTOP A",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽬": {
+   "name": "LATIN CAPITAL LETTER REVERSED SCRUPLE",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽭": {
+   "name": "LATIN SMALL LETTER REVERSED SCRUPLE",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽮": {
+   "name": "LATIN CAPITAL LETTER PHONOTYPIC DIPHTHONG AI",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽯": {
+   "name": "LATIN SMALL LETTER PHONOTYPIC DIPHTHONG AI",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽰": {
+   "name": "LATIN SMALL LETTER I WITH PIGTAIL AT BOTTOM",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽱": {
+   "name": "LATIN SMALL LETTER STRETCHED I",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽲": {
+   "name": "LATIN CAPITAL LETTER O WITH CURL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽳": {
+   "name": "LATIN SMALL LETTER O WITH CURL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽴": {
+   "name": "LATIN CAPITAL LETTER CLOSED OMEGA WITH LONG STEM",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽵": {
+   "name": "LATIN SMALL LETTER CLOSED OMEGA WITH LONG STEM",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽶": {
+   "name": "LATIN CAPITAL LETTER TURNED CLOSED OMEGA",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽷": {
+   "name": "LATIN SMALL LETTER TURNED CLOSED OMEGA",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽸": {
+   "name": "LATIN CAPITAL LETTER PHONOTYPIC TH",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽹": {
+   "name": "LATIN SMALL LETTER PHONOTYPIC TH",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽺": {
+   "name": "LATIN CAPITAL LETTER U WITH HOOK TAIL",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽻": {
+   "name": "LATIN SMALL LETTER U WITH HOOK TAIL",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽼": {
+   "name": "LATIN CAPITAL LETTER U WITH NOTCH AT BOTTOM",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽽": {
+   "name": "LATIN SMALL LETTER U WITH NOTCH AT BOTTOM",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝽾": {
+   "name": "LATIN CAPITAL LETTER REVERSED U",
+   "category": "Lu",
+   "decomposition": ""
+  },
+  "𝽿": {
+   "name": "LATIN SMALL LETTER REVERSED U",
+   "category": "Ll",
+   "decomposition": ""
+  },
+  "𝾀": {
+   "name": "LATIN CAPITAL LETTER A WITH TOPBAR",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "𝾁": {
+   "name": "LATIN CAPITAL LETTER E WITH BENT TOPBAR",
+   "category": "Lo",
+   "decomposition": ""
+  },
+  "𝿍": {
+   "name": "MODIFIER LETTER SMALL TURNED R WITH MID-HEIGHT LEFT HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF57"
+  },
+  "𝿎": {
+   "name": "MODIFIER LETTER SMALL SPLIT O",
+   "category": "Lm",
+   "decomposition": "<super> 1DF58"
+  },
+  "𝿏": {
+   "name": "MODIFIER LETTER SMALL SPLIT U",
+   "category": "Lm",
+   "decomposition": "<super> 1DF59"
+  },
+  "𝿐": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER GAMMA",
+   "category": "Lm",
+   "decomposition": "<sub> 0263"
+  },
+  "𝿑": {
+   "name": "MODIFIER LETTER SMALL CAPITAL P",
+   "category": "Lm",
+   "decomposition": "<super> 1D18"
+  },
+  "𝿒": {
+   "name": "MODIFIER LETTER SMALL B WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0180"
+  },
+  "𝿓": {
+   "name": "MODIFIER LETTER SMALL D WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0111"
+  },
+  "𝿔": {
+   "name": "MODIFIER LETTER SMALL G WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 01E5"
+  },
+  "𝿕": {
+   "name": "MODIFIER LETTER SMALL L WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0142"
+  },
+  "𝿖": {
+   "name": "MODIFIER LETTER SMALL L WITH BAR",
+   "category": "Lm",
+   "decomposition": "<super> 019A"
+  },
+  "𝿗": {
+   "name": "MODIFIER LETTER SMALL TURNED R WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 1DF50"
+  },
+  "𝿘": {
+   "name": "MODIFIER LETTER SMALL BARRED TURNED H",
+   "category": "Lm",
+   "decomposition": "<super> 1DF3E"
+  },
+  "𝿙": {
+   "name": "MODIFIER LETTER SMALL J WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0249"
+  },
+  "𝿚": {
+   "name": "MODIFIER LETTER SMALL UPSILON WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 1D7F"
+  },
+  "𝿛": {
+   "name": "MODIFIER LETTER SMALL BARRED W",
+   "category": "Lm",
+   "decomposition": "<super> 1DF3F"
+  },
+  "𝿜": {
+   "name": "MODIFIER LETTER SMALL N WITH LONG RIGHT LEG",
+   "category": "Lm",
+   "decomposition": "<super> 019E"
+  },
+  "𝿝": {
+   "name": "MODIFIER LETTER SMALL R WITH LONG LEG",
+   "category": "Lm",
+   "decomposition": "<super> 027C"
+  },
+  "𝿞": {
+   "name": "MODIFIER LETTER SMALL DB DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 0238"
+  },
+  "𝿟": {
+   "name": "MODIFIER LETTER SMALL QP DIGRAPH",
+   "category": "Lm",
+   "decomposition": "<super> 0239"
+  },
+  "𝿠": {
+   "name": "MODIFIER LETTER SMALL DEZH DIGRAPH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 1DF2B"
+  },
+  "𝿡": {
+   "name": "MODIFIER LETTER SMALL DEZH DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF19"
+  },
+  "𝿢": {
+   "name": "MODIFIER LETTER SMALL ESH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0286"
+  },
+  "𝿣": {
+   "name": "MODIFIER LETTER SMALL ESH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D98"
+  },
+  "𝿤": {
+   "name": "MODIFIER LETTER SMALL TESH DIGRAPH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 1DF2C"
+  },
+  "𝿥": {
+   "name": "MODIFIER LETTER SMALL TESH DIGRAPH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF1C"
+  },
+  "𝿦": {
+   "name": "MODIFIER LETTER SMALL EZH WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0293"
+  },
+  "𝿧": {
+   "name": "MODIFIER LETTER SMALL EZH WITH RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D9A"
+  },
+  "𝿨": {
+   "name": "MODIFIER LETTER SMALL CAPITAL D",
+   "category": "Lm",
+   "decomposition": "<super> 1D05"
+  },
+  "𝿩": {
+   "name": "MODIFIER LETTER SMALL CAPITAL A",
+   "category": "Lm",
+   "decomposition": "<super> 1D00"
+  },
+  "𝿪": {
+   "name": "MODIFIER LETTER SMALL CAPITAL E",
+   "category": "Lm",
+   "decomposition": "<super> 1D07"
+  },
+  "𝿫": {
+   "name": "MODIFIER LETTER SMALL REVERSED R WITH FISHHOOK",
+   "category": "Lm",
+   "decomposition": "<super> 027F"
+  },
+  "𝿬": {
+   "name": "MODIFIER LETTER SMALL SQUAT REVERSED ESH",
+   "category": "Lm",
+   "decomposition": "<super> 0285"
+  },
+  "𝿭": {
+   "name": "MODIFIER LETTER SMALL TURNED H WITH FISHHOOK",
+   "category": "Lm",
+   "decomposition": "<super> 02AE"
+  },
+  "𝿮": {
+   "name": "MODIFIER LETTER SMALL TURNED H WITH FISHHOOK AND TAIL",
+   "category": "Lm",
+   "decomposition": "<super> 02AF"
+  },
+  "𝿯": {
+   "name": "MODIFIER LETTER SMALL D WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0221"
+  },
+  "𝿰": {
+   "name": "MODIFIER LETTER SMALL L WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0234"
+  },
+  "𝿱": {
+   "name": "MODIFIER LETTER SMALL N WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0235"
+  },
+  "𝿲": {
+   "name": "MODIFIER LETTER SMALL T WITH CURL",
+   "category": "Lm",
+   "decomposition": "<super> 0236"
+  },
+  "𝿳": {
+   "name": "MODIFIER LETTER SMALL GREEK PSI",
+   "category": "Lm",
+   "decomposition": "<super> 03C8"
+  },
+  "𝿴": {
+   "name": "MODIFIER LETTER SMALL GREEK OMEGA",
+   "category": "Lm",
+   "decomposition": "<super> 03C9"
+  },
+  "𝿵": {
+   "name": "MODIFIER LETTER SMALL D WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D81"
+  },
+  "𝿶": {
+   "name": "MODIFIER LETTER SMALL H WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> A795"
+  },
+  "𝿷": {
+   "name": "MODIFIER LETTER SMALL N WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D87"
+  },
+  "𝿸": {
+   "name": "MODIFIER LETTER SMALL S WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D8A"
+  },
+  "𝿹": {
+   "name": "MODIFIER LETTER SMALL Z WITH PALATAL HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1D8E"
+  },
+  "𝿺": {
+   "name": "MODIFIER LETTER SMALL C WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0188"
+  },
+  "𝿻": {
+   "name": "MODIFIER LETTER SMALL K WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 0199"
+  },
+  "𝿼": {
+   "name": "MODIFIER LETTER SMALL P WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 01A5"
+  },
+  "𝿽": {
+   "name": "MODIFIER LETTER SMALL Q WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 02A0"
+  },
+  "𝿾": {
+   "name": "MODIFIER LETTER SMALL T WITH HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 01AD"
+  },
+  "𝿿": {
+   "name": "MODIFIER LETTER SMALL T WITH HOOK AND RETROFLEX HOOK",
+   "category": "Lm",
+   "decomposition": "<super> 1DF09"
+  },
+  "‖": {
+   "name": "DOUBLE VERTICAL LINE",
+   "category": "Po",
+   "decomposition": ""
+  },
+  "‿": {
+   "name": "UNDERTIE",
+   "category": "Pc",
+   "decomposition": ""
+  }
+ }
+}

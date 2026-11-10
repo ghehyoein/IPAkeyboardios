@@ -1,0 +1,15 @@
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+__pycache__/
+*.pyc
+*.ipa
+*.xcarchive
+
+# Distribution credentials stay in Actions Secrets / temporary runner storage.
+*.p8
+*.p12
+*.mobileprovision
+private_keys/

@@ -1,0 +1,44 @@
+# Publish the versioned source through the protected signing workflow.
+name: Send published keyboard release to TestFlight
+on:
+  workflow_run:
+    workflows: ['iOS build and unsigned IPA']
+    types: [completed]
+    branches: [main]
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  dispatch:
+    if: >-
+      github.repository == 'ghehyoein/IPAkeyboardios' &&
+      (github.event_name == 'release' ||
+       (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository &&
+        (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch')))
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PUBLISHED_TAG: ${{ github.event.release.tag_name }}
+      RUN_NUMBER: ${{ github.event.workflow_run.run_number }}
+      RUN_SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Dispatch the published commit on the protected signing branch
+        run: |
+          set -euo pipefail
+          tag=${PUBLISHED_TAG:-v0.4.$RUN_NUMBER}
+          [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Not a keyboard version tag: $tag"; exit 0; }
+          release=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag")
+          jq -e --arg tag "$tag" '.draft == false and .tag_name == $tag' <<<"$release" >/dev/null
+          sha=$(gh api "repos/$GITHUB_REPOSITORY/commits/$tag" --jq .sha)
+          if [[ -n "$RUN_SHA" ]]; then
+            test "$sha" = "$RUN_SHA"
+            jq -e 'any(.assets[]; .name == "IPAKeyboard-unsigned.ipa" and .state == "uploaded")' <<<"$release" >/dev/null
+          fi
+          gh workflow run testflight.yml -R "$GITHUB_REPOSITORY" --ref main \
+            -f "app_version=${tag#v}" -f "release_sha=$sha" -f upload=true
+          echo "Dispatched internal TestFlight for $tag ($sha)." >> "$GITHUB_STEP_SUMMARY"
