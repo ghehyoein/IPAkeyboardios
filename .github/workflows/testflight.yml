@@ -27,7 +27,7 @@ concurrency:
 jobs:
   distribute:
     environment: testflight
-    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    if: ${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/appstore-0.6.1') && github.repository == 'ghehyoein/IPAkeyboardios' }}
     runs-on: macos-15
     timeout-minutes: 60
     env:
