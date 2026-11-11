@@ -28,4 +28,4 @@ class TestFlightConfiguration(unittest.TestCase):
    key=Path(folder)/'ipa-testflight/AuthKey.p8'; self.assertEqual(key.stat().st_mode & 0o777,0o600)
    options=plistlib.loads((key.parent/'ExportOptions.plist').read_bytes()); self.assertEqual(options['method'],'app-store-connect'); self.assertEqual(options['signingStyle'],'manual')
    self.assertEqual(options['provisioningProfiles'],{'com.ghehyoein.IPAKeyboard':'test-app','com.ghehyoein.IPAKeyboard.Keyboard':'test-extension'})
-   self.assertassertFalse(...)
+   self.assertFalse(options['testFlightInternalTestingOnly'])
