@@ -32,7 +32,7 @@ if __name__ == '__main__':
     folder.chmod(0o700)
     (folder/'AuthKey.p8').write_text(key+'\n'); (folder/'AuthKey.p8').chmod(0o600)
     options = dict(method='app-store-connect', destination='export', signingStyle='manual', teamID=team,
-                   signingCertificate='Apple Distribution',testFlightInternalTestingOnly=True,
+                   signingCertificate='Apple Distribution',testFlightInternalTestingOnly=False,
                    provisioningProfiles={bundle:os.environ['APP_PROFILE_UUID'],bundle+'.Keyboard':os.environ['EXT_PROFILE_UUID']},
                    manageAppVersionAndBuildNumber=False, uploadSymbols=True)
     (folder/'ExportOptions.plist').write_bytes(plistlib.dumps(options))
