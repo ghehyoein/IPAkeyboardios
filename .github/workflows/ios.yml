@@ -109,8 +109,8 @@ jobs:
           Download **IPAKeyboard-unsigned.ipa** below directly. No outer ZIP is needed.
           This is an UNSIGNED device IPA. Sign the app and its keyboard extension before installing.
 
-          Text-only search key with a softer dark appearance. Streamlined settings and symbol reference pages.
-          Symbol details support text selection, with direct actions to copy symbols or descriptions.
+          QWERTY is included in the keyboard display name. System name typography remains controlled by iOS.
+          Smoother continuous symbol browsing: cached layout and glyph descriptions, prefetched cells, fewer category redraws, and immediate drag takeover from category buttons.
 
           Source: $GITHUB_SHA
           Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
@@ -118,7 +118,7 @@ jobs:
           gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt \
             --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
             --title "IPA Keyboard $tag" \
-            --notes-file build/RELEASE.md --prerelease
+            --notes-file build/RELEASE.md
       - name: Export screenshot attachments even if a test fails
         if: always()
         run: |

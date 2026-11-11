@@ -82,17 +82,27 @@ enum SymbolPanelInventory {
 
 /// Continuous columns, with no page padding or viewport-sized snapping.
 private final class SymbolColumnsLayout: UICollectionViewLayout {
-    var counts: [Int] = []
+    var counts: [Int] = [] { didSet { cachedSize = CGSize(width: -1, height: -1); invalidateLayout() } }
+    private var cachedSize = CGSize.zero
+    private var cachedHeight: CGFloat = 0
+    private var cachedStarts: [CGFloat] = []
     var keyHeight: CGFloat = 36
     var rows: Int { max(1, min(5, Int(((collectionView?.bounds.height ?? 150) + 6) / (keyHeight + 6)))) }
     var keyWidth: CGFloat { ((collectionView?.bounds.width ?? 428) - 17 - 9 * 6) / 10 }
     var stride: CGFloat { keyWidth + 6 }
     var starts: [CGFloat] {
-        var x: CGFloat = 0
-        return counts.map { count in
-            defer { x += CGFloat(max(2, (count + rows - 1) / rows)) * stride + 12 }
-            return x
+        let size = collectionView?.bounds.size ?? .zero
+        if cachedSize != size || cachedHeight != keyHeight || cachedStarts.count != counts.count {
+            let rowCount = rows
+            let pitch = stride
+            var x: CGFloat = 0
+            cachedStarts = counts.map { count in
+                defer { x += CGFloat(max(2, (count + rowCount - 1) / rowCount)) * pitch + 12 }
+                return x
+            }
+            cachedSize = size; cachedHeight = keyHeight
         }
+        return cachedStarts
     }
     override var collectionViewContentSize: CGSize {
         let width = collectionView?.bounds.width ?? 0
@@ -140,14 +150,54 @@ private final class SymbolCell: UICollectionViewCell {
     override func layoutSubviews() { super.layoutSubviews(); glyph.frame = bounds.insetBy(dx: 2, dy: 2) }
 }
 
-final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+/// Cancel a category button's highlight as soon as the user starts a horizontal drag.
+final class SymbolCategoryScrollView: UIScrollView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        delaysContentTouches = false
+        canCancelContentTouches = true
+        isDirectionalLockEnabled = true
+        alwaysBounceHorizontal = true
+        decelerationRate = .normal
+        contentInsetAdjustmentBehavior = .never
+    }
+    required init?(coder: NSCoder) { fatalError() }
+    override func touchesShouldCancel(in view: UIView) -> Bool {
+        view is UIControl || super.touchesShouldCancel(in: view)
+    }
+}
+
+final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSourcePrefetching {
     let sections: [SymbolSection]
     private let columns: SymbolColumnsLayout
     var keyHeight: CGFloat = 36 { didSet { columns.keyHeight = keyHeight; columns.invalidateLayout() } }
     private let edgeFade = CAGradientLayer()
     private var explanation: UILabel?
     var onInsert: ((String) -> Void)?
-    var onSectionChange: ((String, String) -> Void)?
+    var onSectionChange: ((String, String) -> Void)? { didSet { reportedSection = nil } }
+    private var reportedSection: Int?
+    private static let symbolsByText = Dictionary(IPACatalog.shared.symbols.map { ($0.text, $0) }, uniquingKeysWith: { first, _ in first })
+    private struct Presentation {
+        let title: String
+        let fontSize: CGFloat
+        let label: String
+        let identifier: String
+        let explanation: String
+    }
+    // Local to the panel: rebuilding it after a language change also clears translations.
+    private var presentations: [String: Presentation] = [:]
+    private func presentation(for text: String) -> Presentation {
+        if let value = presentations[text] { return value }
+        let symbol = Self.symbolsByText[text]
+        let display = symbol?.display ?? text
+        let name = symbol?.name ?? text
+        let value = Presentation(title: PhoneticDisplay.title(for: display),
+            fontSize: PhoneticDisplay.isSupported(display) ? 22 : 10,
+            label: "\(display)，\(name)", identifier: "symbol_" + (symbol?.id ?? text),
+            explanation: display + " · " + name)
+        presentations[text] = value
+        return value
+    }
     init(frame: CGRect, sections: [SymbolSection]) {
         self.sections = sections
         let layout = SymbolColumnsLayout()
@@ -156,6 +206,11 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         super.init(frame: frame, collectionViewLayout: layout)
         backgroundColor = .clear; isPagingEnabled = false
         decelerationRate = .normal
+        delaysContentTouches = false
+        canCancelContentTouches = true
+        isDirectionalLockEnabled = true
+        contentInsetAdjustmentBehavior = .never
+        prefetchDataSource = self
         edgeFade.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor, UIColor.clear.cgColor]
         edgeFade.locations = [0, 0.025, 0.975, 1]
         edgeFade.startPoint = CGPoint(x: 0, y: 0.5); edgeFade.endPoint = CGPoint(x: 1, y: 0.5)
@@ -182,6 +237,8 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         guard bounds.width > 0, !sections.isEmpty else { return }
         let offset = max(0, contentOffset.x + 0.5)
         let section = columns.starts.lastIndex(where: { $0 <= offset }) ?? 0
+        guard reportedSection != section else { return }
+        reportedSection = section
         let value = sections[section]
         onSectionChange?(value.id, value.title + (value.values.isEmpty ? " · 暂无最近使用".localized : ""))
     }
@@ -190,14 +247,19 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: "symbol", for: indexPath) as! SymbolCell
         let text = sections[indexPath.section].values[indexPath.item]
-        let symbol = IPACatalog.shared.symbol(text)
-        let display = symbol?.display ?? text
-        cell.glyph.text = PhoneticDisplay.title(for: display)
-        cell.glyph.font = .systemFont(ofSize: PhoneticDisplay.isSupported(display) ? 22 : 10)
-        cell.accessibilityLabel = "\(display)，\(symbol?.name ?? text)"
+        let value = presentation(for: text)
+        cell.glyph.text = value.title
+        cell.glyph.font = .systemFont(ofSize: value.fontSize)
+        cell.accessibilityLabel = value.label
         cell.accessibilityHint = "轻点输入，长按查看注释".localized
-        cell.accessibilityIdentifier = "symbol_" + (symbol?.id ?? text)
+        cell.accessibilityIdentifier = value.identifier
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for index in indexPaths { _ = presentation(for: sections[index.section].values[index.item]) }
+    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        explanation?.removeFromSuperview(); explanation = nil
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let value = sections[indexPath.section].values[indexPath.item]
@@ -207,9 +269,8 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         guard gesture.state == .began || gesture.state == .changed else { explanation?.removeFromSuperview(); explanation = nil; return }
         guard let index = indexPathForItem(at: gesture.location(in: self)) else { return }
         let text = sections[index.section].values[index.item]
-        let symbol = IPACatalog.shared.symbol(text)
         let label = explanation ?? UILabel()
-        label.text = (symbol?.display ?? text) + " · " + (symbol?.name ?? text)
+        label.text = presentation(for: text).explanation
         label.font = .systemFont(ofSize: 13); label.numberOfLines = 3; label.textAlignment = .center
         label.backgroundColor = .secondarySystemBackground; label.textColor = .label
         label.layer.cornerRadius = 9; label.clipsToBounds = true

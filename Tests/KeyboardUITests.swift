@@ -250,6 +250,23 @@ final class KeyboardUITests: XCTestCase {
         close.tap()
         XCTAssertEqual(key("a", in: app).frame, letter)
     }
+    func testDraggingCategoryButtonsScrollsWithoutInserting() {
+        let (app, editor) = launch()
+        app.buttons["diacriticsKey"].tap()
+        let recent = app.buttons["category_recent"]
+        let tabs = app.scrollViews["symbolCategories"]
+        let firstX = recent.frame.minX
+        let start = tabs.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.5))
+        start.press(forDuration: 0.05, thenDragTo: tabs.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.5)))
+        XCTAssertLessThan(recent.frame.minX, firstX)
+        XCTAssertEqual(editor.value as? String, "")
+        let close = app.buttons["closeSymbolPanel"]
+        XCTAssertTrue(close.isHittable)
+        let grid = app.collectionViews["symbolGrid"]
+        grid.swipeLeft(); grid.swipeRight()
+        XCTAssertEqual(editor.value as? String, "")
+        attach(app, name: "continuous-scroll-and-category-strip")
+    }
     func testRecentPanelAndContinuousCategories() {
         let (app, _) = launch()
         app.buttons["diacriticsKey"].tap()

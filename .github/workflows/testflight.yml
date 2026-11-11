@@ -6,7 +6,7 @@ on:
       app_version:
         description: 'App version (three numbers, e.g. 0.5.0)'
         required: true
-        default: '0.6.1'
+        default: '1.0.0'
       upload:
         description: 'Upload the verified signed build to App Store Connect'
         type: boolean

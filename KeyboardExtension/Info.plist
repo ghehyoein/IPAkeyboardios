@@ -20,7 +20,7 @@
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.6.1</string>
+	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
 	<string>4</string>
 	<key>IPASettingsAppGroup</key>
@@ -28,7 +28,7 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleDisplayName</key>
-	<string>IPA Keyboard</string>
+	<string>IPA Keyboard · QWERTY</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>

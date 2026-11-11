@@ -393,7 +393,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         let allowed = Set(inventory.flatMap { $0.values })
         let recent = RecentSymbols.shared.values.filter { allowed.contains($0) }
         let sections = [SymbolSection(id: "recent", title: "最近使用".localized, values: recent)] + inventory
-        let tabs = UIScrollView(frame: CGRect(x: numberButton.frame.maxX + 6, y: numberButton.frame.minY, width: bounds.width - numberButton.frame.maxX - 14.5, height: numberButton.frame.height))
+        let tabs = SymbolCategoryScrollView(frame: CGRect(x: numberButton.frame.maxX + 6, y: numberButton.frame.minY, width: bounds.width - numberButton.frame.maxX - 14.5, height: numberButton.frame.height))
         tabs.showsHorizontalScrollIndicator = false
         tabs.accessibilityIdentifier = "symbolCategories"
         panel.addSubview(tabs)

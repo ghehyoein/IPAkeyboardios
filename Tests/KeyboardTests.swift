@@ -3,6 +3,32 @@ import UIKit
 @testable import IPAKeyboard
 
 final class KeyboardTests: XCTestCase {
+    @MainActor func testSymbolScrollUpdatesOnlyAtBoundariesAndResizesGeometry() {
+        let grid = SymbolGrid(frame: CGRect(x: 0, y: 0, width: 428, height: 204), sections: [
+            SymbolSection(id: "a", title: "A", values: Array(repeating: "a", count: 100)),
+            SymbolSection(id: "b", title: "B", values: Array(repeating: "b", count: 100))])
+        grid.layoutIfNeeded()
+        var events: [String] = []
+        grid.onSectionChange = { id, _ in events.append(id) }
+        grid.selectSection("a")
+        for x in 1...20 {
+            grid.contentOffset.x = CGFloat(x)
+            grid.scrollViewDidScroll(grid)
+        }
+        XCTAssertEqual(events, ["a"])
+        grid.selectSection("b")
+        XCTAssertEqual(events, ["a", "b"])
+        let item = IndexPath(item: 4, section: 0)
+        XCTAssertEqual(grid.collectionViewLayout.layoutAttributesForItem(at: item)?.frame.minY, 168)
+        grid.frame.size.height = 120
+        grid.collectionViewLayout.invalidateLayout()
+        grid.layoutIfNeeded()
+        XCTAssertEqual(grid.collectionViewLayout.layoutAttributesForItem(at: item)?.frame.minY, 42)
+        let tabs = SymbolCategoryScrollView(frame: .zero)
+        XCTAssertTrue(tabs.touchesShouldCancel(in: UIButton(type: .system)))
+        XCTAssertFalse(tabs.delaysContentTouches)
+        XCTAssertTrue(tabs.canCancelContentTouches)
+    }
     func testLocalizedSectionIndexesAndSpacing() {
         let original = L10n.selection
         defer { L10n.selection = original }
