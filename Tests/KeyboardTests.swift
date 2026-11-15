@@ -44,6 +44,7 @@ final class KeyboardTests: XCTestCase {
     }
 
     @MainActor func testCompactCategoryIconsRestoreLabelsAndScrollPosition() throws {
+        continueAfterFailure = false
         let originalSettings = SymbolSettingsStore.shared.load()
         defer { SymbolSettingsStore.shared.save(originalSettings); L10n.selection = originalSettings.language }
         for language in L10n.languages {
@@ -79,6 +80,9 @@ final class KeyboardTests: XCTestCase {
                             let title = try XCTUnwrap(button.title(for: .normal))
                             XCTAssertEqual(title.count, 1)
                             XCTAssertTrue(PhoneticDisplay.isSupported(title))
+                            if button.titleLabel?.text != title {
+                                print("Category title diagnostics: current=\(button.currentTitle ?? "nil"), label=\(button.titleLabel?.text ?? "nil"), attributed=\(button.attributedTitle(for: .normal)?.string ?? "nil"), configuration=\(button.configuration?.title ?? "nil"), state=\(button.state.rawValue)")
+                            }
                             XCTAssertEqual(button.titleLabel?.text, title)
                             XCTAssertGreaterThan(button.titleLabel?.bounds.width ?? 0, 0)
                         }

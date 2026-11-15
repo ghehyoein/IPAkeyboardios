@@ -135,7 +135,8 @@ final class SymbolCategoryScrollView: UIScrollView {
         originalButtons = selectionButtons.map { ($0.frame, $0.title(for: .normal), $0.image(for: .normal)) }
         compactWidth = bounds.width
         let width = compactWidth / CGFloat(selectionButtons.count)
-        for (index, button) in selectionButtons.enumerated() {
+        UIView.performWithoutAnimation {
+          for (index, button) in selectionButtons.enumerated() {
             button.accessibilityLabel = originalButtons[index].title
             button.frame = CGRect(x: bounds.minX + CGFloat(index) * width, y: 0, width: width, height: bounds.height)
             button.setTitle(nil, for: .normal)
@@ -151,16 +152,23 @@ final class SymbolCategoryScrollView: UIScrollView {
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.titleLabel?.minimumScaleFactor = 0.65
             button.layer.cornerRadius = min(8, width / 2)
+            button.setNeedsLayout()
+            button.layoutIfNeeded()
+          }
         }
     }
     func stopScrubbing() {
-        for (button, original) in zip(selectionButtons, originalButtons) {
+        UIView.performWithoutAnimation {
+          for (button, original) in zip(selectionButtons, originalButtons) {
             button.frame = original.frame
             button.setTitle(original.title, for: .normal)
             button.setImage(original.image, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 12)
             button.titleLabel?.adjustsFontSizeToFitWidth = false
             button.layer.cornerRadius = 12
+            button.setNeedsLayout()
+            button.layoutIfNeeded()
+          }
         }
         originalButtons.removeAll(); selectedIndex = nil
     }
