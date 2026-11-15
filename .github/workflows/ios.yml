@@ -118,16 +118,14 @@ jobs:
         GH_TOKEN: ${{ github.token }}
       run: |
         tag="v$(cat VERSION)"
-        cat > build/RELEASE.md <<EOF
-        Long-press the symbol category strip to see one representative phonetic symbol per category instead of crowded text. Representatives belong to their own categories and are checked against the installed system fonts; Recent uses the system clock icon.
-        Category icons and full labels switch immediately without the button title fade. Full-range sliding selection, haptic feedback, accessible category names and the original scroll position are preserved. Supports iPhone and iPad from iOS 17.
+        python3 tools/package_font.py build
+        cp RELEASE_NOTES.md build/RELEASE.md
+        cat >> build/RELEASE.md <<EOF
 
-        Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
-        Download **IPAKeyboard-unsigned.ipa** directly; sign the app and keyboard extension before installing.
-
-
+        Validated on iOS 17 and iOS 26 iPhone/iPad simulators.
         Source: $GITHUB_SHA
         Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+
         EOF
-        gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt \
+        gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt \
           --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md

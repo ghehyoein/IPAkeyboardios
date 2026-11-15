@@ -15,7 +15,7 @@ def add(token, **attrs):
 
 def plist(path, data):
  with (R/path).open('wb') as f: plistlib.dump(data, f, sort_keys=False)
-base={'CFBundleDevelopmentRegion':'en','CFBundleLocalizations':['en','zh-Hans','zh-Hant','ja'],'CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'ipa+ keyboard','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)','UIAppFonts':['IPAPlusUnified-Regular.ttf']}
+base={'CFBundleDevelopmentRegion':'en','CFBundleLocalizations':['en','zh-Hans','zh-Hant','ja'],'CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'ipa+ keyboard','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)','UIAppFonts':['ipa-plus.ttf']}
 plist('App/Info.plist', dict(base,CFBundlePackageType='APPL',CFBundleDisplayName='ipa+ keyboard',ITSAppUsesNonExemptEncryption=False,LSRequiresIPhoneOS=True,UILaunchScreen={},UISupportedInterfaceOrientations=['UIInterfaceOrientationPortrait','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight'],**{'UISupportedInterfaceOrientations~ipad':['UIInterfaceOrientationPortrait','UIInterfaceOrientationPortraitUpsideDown','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight']}))
 plist('KeyboardExtension/Info.plist',dict(base,CFBundlePackageType='XPC!',CFBundleDisplayName='ipa+ keyboard',NSExtension={'NSExtensionPointIdentifier':'com.apple.keyboard-service','NSExtensionPrincipalClass':'$(PRODUCT_MODULE_NAME).KeyboardViewController','NSExtensionAttributes':{'IsASCIICapable':True,'PrefersRightToLeft':False,'PrimaryLanguage':'mul','RequestsOpenAccess':True}}))
 for file in ['App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']:
@@ -30,7 +30,7 @@ for language, name in [('en','ipa+ keyboard'),('zh-Hans','ipa+键盘'),('zh-Hant
  folder.mkdir(exist_ok=True)
  (folder/'InfoPlist.strings').write_text(f'"CFBundleDisplayName" = "{name}";\n"CFBundleName" = "{name}";\n')
  localization_folders.append(f'Shared/{language}.lproj')
-font_resources=['Shared/Fonts/IPAPlusUnified-Regular.ttf','Shared/Fonts/Font-Licenses.txt']
+font_resources=['Shared/Fonts/ipa-plus.ttf','Shared/Fonts/Font-Licenses.txt']
 files += localization_folders + font_resources
 refs={}
 for file in files:

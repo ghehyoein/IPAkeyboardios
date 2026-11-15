@@ -5,7 +5,7 @@ Fetch reviewed source files: python3 tools/fonts/fetch.py /tmp/ipa-font-sources
 Build: python3 tools/fonts/build.py --source-dir /tmp/ipa-font-sources
 Verify: python3 tools/fonts/validate.py
 
-Only Shared/Fonts/IPAPlusUnified-Regular.ttf and Font-Licenses.txt are shipped.
+Only Shared/Fonts/ipa-plus.ttf and Font-Licenses.txt are shipped.
 Both app and keyboard extension independently bundle/register that same resource,
 as each runs in its own hosting process. Original donor fonts are build inputs,
 not additional runtime fonts. Reference/Fonts contains the reviewed 51-character
@@ -28,7 +28,7 @@ no finite test can guarantee every arbitrary sequence of typed diacritics.
 
 All donor compiled fonts are used under SIL OFL 1.1, including Unifont's OFL
 option. Original notices and font licenses are shipped verbatim. The derivative
-has a new family name, IPA Plus Unified. No Unicode chart font data or reference
+has a new family name, ipa+. No Unicode chart font data or reference
 images are used. Font changes do not force other apps to use the font.
 
 sources.json pins hashes and public source URLs. Builds fail on missing coverage

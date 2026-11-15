@@ -6,9 +6,14 @@ import uharfbuzz as hb
 from inventory import ROOT,codepoints,strings
 
 def main():
- path=ROOT/'Shared/Fonts/IPAPlusUnified-Regular.ttf';font=TTFont(path);required=codepoints();cm=font.getBestCmap()
+ path=ROOT/'Shared/Fonts/ipa-plus.ttf';font=TTFont(path);required=codepoints();cm=font.getBestCmap()
  assert set(cm)==required,('missing',required-set(cm),'extra',set(cm)-required)
- assert font['name'].getDebugName(6)=='IPAPlusUnified-Regular'
+ assert font['name'].getDebugName(6)=='IPAPlus-Regular'
+ assert font['name'].getDebugName(1)=='ipa+'
+ assert 'PERMISSION & CONDITIONS' in font['name'].getDebugName(13)
+ assert 'TERMINATION' in font['name'].getDebugName(13)
+ for owner in ['SIL Global', 'SIL International', 'Andrew West', 'Roman Czyborra', 'Paul Hardy']:
+  assert owner in font['name'].getDebugName(0),owner
  assert font['OS/2'].fsType==0
  assert all(font.getGlyphID(cm[cp])>0 for cp in required)
  assert not any(tag in font for tag in ['fpgm','prep','cvt ','DSIG','Silt','meta'])

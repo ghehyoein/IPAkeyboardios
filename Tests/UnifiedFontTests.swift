@@ -23,6 +23,7 @@ final class UnifiedFontTests: XCTestCase {
     func testEveryInputUsesTheBundledFontWithoutFallback() {
         XCTAssertGreaterThan(IPACatalog.shared.symbols.count, 1200)
         XCTAssertEqual(PhoneticDisplay.font(ofSize: 26).fontName, PhoneticDisplay.fontName)
+        XCTAssertEqual(PhoneticDisplay.font(ofSize: 26).familyName, "ipa+")
         for text in inputs() {
             for run in CTLineGetGlyphRuns(line(text)) as! [CTRun] {
                 let attributes = CTRunGetAttributes(run) as NSDictionary
@@ -38,7 +39,7 @@ final class UnifiedFontTests: XCTestCase {
     func testExtensionContainsTheSameSingleFontAndLicense() throws {
         let app = Bundle.main.bundleURL
         let ext = app.appendingPathComponent("PlugIns/IPAKeyboardExtension.appex")
-        let fontName = "IPAPlusUnified-Regular.ttf"
+        let fontName = "ipa-plus.ttf"
         XCTAssertEqual(try Data(contentsOf: app.appendingPathComponent(fontName)), try Data(contentsOf: ext.appendingPathComponent(fontName)))
         for folder in [app, ext] {
             let data = try Data(contentsOf: folder.appendingPathComponent("Info.plist"))

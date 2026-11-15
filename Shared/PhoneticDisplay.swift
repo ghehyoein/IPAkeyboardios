@@ -4,12 +4,12 @@ import CoreText
 /// One bundled, subsetted OFL font for phonetic text in both hosting processes.
 /// UIKit still supplies the interface font and fallback for ordinary UI languages.
 enum PhoneticDisplay {
-    static let fontName = "IPAPlusUnified-Regular"
+    static let fontName = "IPAPlus-Regular"
     private final class BundleToken: NSObject {}
     private static let bundledFont: UIFont? = {
         if let font = UIFont(name: fontName, size: 26) { return font }
         let bundle = Bundle(for: BundleToken.self)
-        if let url = bundle.url(forResource: "IPAPlusUnified-Regular", withExtension: "ttf") {
+        if let url = bundle.url(forResource: "ipa-plus", withExtension: "ttf") {
             CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
         }
         return UIFont(name: fontName, size: 26)

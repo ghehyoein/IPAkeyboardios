@@ -53,7 +53,8 @@ jobs:
     - name: Verify and publish
       run: |
         (cd build && sha256sum --check SHA256SUMS.txt)
-        assets=(build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt)
+        python3 tools/package_font.py build
+        assets=(build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt)
         python3 - <<'PY'
         import plistlib, zipfile
         from pathlib import Path
@@ -66,16 +67,12 @@ jobs:
                 assert p['MinimumOSVersion'] == '17.0' and set(p['UIDeviceFamily']) == {1,2}
                 assert p['CFBundleDisplayName'] == 'ipa+ keyboard'
         PY
-        cat > build/RELEASE.md <<NOTES
-        Long-press the symbol category strip to see one representative phonetic symbol per category instead of crowded text. Representatives belong to their own categories and are checked against the installed system fonts; Recent uses the system clock icon.
-        Category icons and full labels switch immediately without the button title fade. Full-range sliding selection, haptic feedback, accessible category names and the original scroll position are preserved. Supports iPhone and iPad from iOS 17.
+        cp RELEASE_NOTES.md build/RELEASE.md
+        cat >> build/RELEASE.md <<NOTES
 
-        Download **IPAKeyboard-unsigned.ipa** directly; sign both app and extension before installing.
-
-        All four application validation jobs passed on iOS 17 and iOS 26 iPhone/iPad simulators. Physical-device performance may differ.
+        All four application validation jobs passed on iOS 17 and iOS 26 iPhone/iPad simulators.
         Validation and IPA: https://github.com/$GITHUB_REPOSITORY/actions/runs/$VALIDATION_RUN
         Publication: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-        This GitHub release does not automatically replace the App Store version.
         NOTES
         tag="v$(cat VERSION)"
         if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then

@@ -58,14 +58,17 @@ def main():
   subset(merged,required)
   from fontTools.ttLib.tables._n_a_m_e import table__n_a_m_e
   merged['name']=table__n_a_m_e('name')
-  copyright='Derived from Charis and Gentium (SIL Global), BabelStone Roman (Andrew West), and Unifont (Roman Czyborra, Paul Hardy and contributors). See bundled Font-Licenses.txt for original notices.'
-  for nid,value in {0:copyright,1:'IPA Plus Unified',2:'Regular',3:'IPAPlusUnified-0.1.0',4:'IPA Plus Unified Regular',5:'Version 0.100',6:'IPAPlusUnified-Regular',13:'SIL Open Font License 1.1. Derived font; original copyright and license notices are bundled in Font-Licenses.txt.',14:'https://openfontlicense.org/open-font-license-official-text/'}.items():merged['name'].setName(value,nid,3,1,0x409)
+  notices=(ROOT/'Shared/Fonts/Font-Licenses.txt').read_text()
+  copyright,license=notices.split('SIL OPEN FONT LICENSE Version',1)
+  license='SIL OPEN FONT LICENSE Version'+license
+  names={0:copyright.strip(),1:'ipa+',2:'Regular',3:'ipa+-0.2.0',4:'ipa+ Regular',5:'Version 0.200',6:'IPAPlus-Regular',13:license.strip(),14:'https://openfontlicense.org/open-font-license-official-text/'}
+  for nid,value in names.items():merged['name'].setName(value,nid,3,1,0x409)
   merged['OS/2'].fsType=0
   # Stable UI metrics; overflow is allowed for uncommon multiple stacked marks.
   merged['hhea'].ascent=2300;merged['hhea'].descent=-800;merged['hhea'].lineGap=0
   os2=merged['OS/2'];os2.sTypoAscender=2300;os2.sTypoDescender=-800;os2.sTypoLineGap=0;os2.fsSelection|=128
   merged['head'].created=merged['head'].modified=3750000000;merged.recalcTimestamp=False
-  dst=ROOT/'Shared/Fonts/IPAPlusUnified-Regular.ttf';merged.save(dst)
+  dst=ROOT/'Shared/Fonts/ipa-plus.ttf';merged.save(dst)
   check=TTFont(dst);assert set(check.getBestCmap())==required
   report={'codepoints':len(required),'glyphs_including_layout_dependencies':len(check.getGlyphOrder()),'bytes':dst.stat().st_size,'sha256':hashlib.sha256(dst.read_bytes()).hexdigest(),'sources':proof,'assignments':{f'U+{cp:04X}':assignments[cp] for cp in sorted(assignments)}}
   (ROOT/'Reference/Fonts/unified-coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')

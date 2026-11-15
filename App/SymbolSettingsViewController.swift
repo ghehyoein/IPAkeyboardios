@@ -24,14 +24,14 @@ final class SymbolSettingsViewController: UITableViewController {
     private func settingsPath(_ path: IndexPath) -> IndexPath {
         switch path.section {
         case 0: return IndexPath(row: max(0, path.row - 1), section: path.row == 0 ? 0 : 1)
-        case 1: return IndexPath(row: 0, section: [4, 5, 7][path.row])
+        case 1: return IndexPath(row: 0, section: [4, 5, 7, 8][path.row])
         case 2: return IndexPath(row: path.row, section: 6)
         case 3: return IndexPath(row: path.row, section: 2)
         default: return IndexPath(row: 0, section: 3)
         }
     }
     override func numberOfSections(in tableView: UITableView) -> Int { shareAvailable ? 4 : 5 }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { [4, 3, 3, 2, 1][section] }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { [4, 4, 3, 2, 1][section] }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         ["符号".localized, "偏好与参考".localized, "符号面板内容".localized, "输入反馈".localized, "设置同步".localized][section]
     }
@@ -55,7 +55,14 @@ final class SymbolSettingsViewController: UITableViewController {
         cell.imageView?.tintColor = .secondaryLabel
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.numberOfLines = 0
-        if indexPath.section == 7 {
+        if indexPath.section == 8 {
+            cell.textLabel?.text = "下载 ipa+ 字体".localized
+            cell.detailTextLabel?.text = "TTF · SIL OFL 1.1"
+            cell.accessibilityIdentifier = "downloadIPAFont"
+            cell.imageView?.image = UIImage(systemName: "arrow.down.document")
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
+        } else if indexPath.section == 7 {
             cell.textLabel?.text = "语言".localized
             cell.detailTextLabel?.text = L10n.languageName(visibility.language)
             cell.accessoryType = .disclosureIndicator
@@ -121,6 +128,11 @@ final class SymbolSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let indexPath = settingsPath(indexPath)
+        if indexPath.section == 8 {
+            let url = URL(string: "https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus.ttf")!
+            UIApplication.shared.open(url)
+            return
+        }
         if indexPath.section == 7 {
             let languages = LanguageSettingsViewController(selected: visibility.language) { [weak self] code in
                 guard let self = self else { return }
