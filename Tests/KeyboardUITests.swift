@@ -5,12 +5,19 @@ final class KeyboardUITests: XCTestCase {
         let (app, _) = launch()
         app.buttons["diacriticsKey"].tap()
         let recent = app.buttons["category_recent"]
-        let modifiers = app.buttons["category_diacritics"]
+        let strip = app.scrollViews["symbolCategories"]
         XCTAssertTrue(recent.waitForExistence(timeout: 5))
-        modifiers.press(forDuration: 0.5, thenDragTo: recent)
+        let last = strip.buttons.element(boundBy: strip.buttons.count - 1)
+        let original = recent.frame
+        let right = strip.coordinate(withNormalizedOffset: CGVector(dx: 0.99, dy: 0.5))
+        let left = strip.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.5))
+        // The final category starts offscreen, but is reachable within the visible strip.
+        recent.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).press(forDuration: 0.5, thenDragTo: right)
+        XCTAssertTrue(last.isSelected)
+        XCTAssertEqual(recent.frame, original)
+        right.press(forDuration: 0.5, thenDragTo: left)
         XCTAssertTrue(recent.isSelected)
-        recent.press(forDuration: 0.5, thenDragTo: modifiers)
-        XCTAssertTrue(modifiers.isSelected)
+        XCTAssertEqual(recent.frame, original)
         app.buttons["closeSymbolPanel"].tap()
         XCTAssertTrue(key("q", in: app).isHittable)
     }
