@@ -33,6 +33,9 @@ def to_ttf(font):
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--source-dir',type=Path,required=True);args=ap.parse_args();cache=args.source_dir
+ for entry in json.loads(Path(__file__).with_name('sources.json').read_text()):
+  if hashlib.sha256((cache/entry['path']).read_bytes()).hexdigest()!=entry['sha256']:
+   raise ValueError('Unreviewed source bytes: '+entry['path'])
  sources=[('Charis',cache/'Charis-7.000/Charis-Regular.ttf'),('Supplement',ROOT/'Reference/Fonts/IPAPlusSupplement-Regular.ttf'),('BabelStone',cache/'BabelStoneRoman.ttf'),('Unifont',cache/'unifont-18.0.01.otf'),('UnifontUpper',cache/'unifont_upper-18.0.01.otf')]
  required=codepoints();remaining=set(required);assignments={};proof=[]
  with tempfile.TemporaryDirectory() as folder:
