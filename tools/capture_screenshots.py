@@ -38,9 +38,9 @@ def main():
                 folder = output / family / language
                 folder.mkdir(parents=True, exist_ok=True)
                 for scene, flags in scenes:
-                    subprocess.run(['xcrun', 'simctl', 'terminate', device, 'org.example.IPAKeyboard'],
-                                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
-                    run('xcrun', 'simctl', 'launch', device, 'org.example.IPAKeyboard',
+                    # Let launch handle an existing process atomically. A separate
+                    # terminate can stall on a freshly booted simulator with no app process.
+                    run('xcrun', 'simctl', 'launch', '--terminate-running-process', device, 'org.example.IPAKeyboard',
                         '--reset-settings', '-AppleLanguages', '('+language+')', *flags)
                     time.sleep(3)
                     # Native JPEG capture avoids the alpha channel App Store Connect rejects.
@@ -54,8 +54,11 @@ def main():
                     manifest.append(dict(path=str(destination.relative_to(output)), language=language,
                                          device=device_type, runtime=runtime, scene=scene, width=size[0], height=size[1]))
         finally:
-            subprocess.run(['xcrun', 'simctl', 'shutdown', device], timeout=30)
-            subprocess.run(['xcrun', 'simctl', 'delete', device], timeout=30)
+            for action in ('shutdown', 'delete'):
+                try:
+                    subprocess.run(['xcrun', 'simctl', action, device], timeout=90)
+                except subprocess.TimeoutExpired:
+                    print(f'Simulator cleanup timed out: {action} {device}', flush=True)
     (output / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     assert len(manifest) == 48
 

@@ -8,13 +8,31 @@ import tempfile
 def run(*args, **kwargs):
     return subprocess.check_output(args, text=True, **kwargs)
 
+def validations_passed(jobs):
+    """Screenshot export is independent of the four required app validation jobs."""
+    configurations = ('iOS26-iPhone', 'iOS17-iPhone-SE', 'iOS17-iPad', 'iOS26-iPad')
+    return all(any(job['name'].startswith('validate (' + name + ',')
+                   and job.get('conclusion') == 'success' for job in jobs)
+               for name in configurations)
+
 def main():
     repo = os.environ["GITHUB_REPOSITORY"]
-    url = f"repos/{repo}/actions/workflows/ios.yml/runs?branch=main&status=success&per_page=1"
+    url = f"repos/{repo}/actions/workflows/ios.yml/runs?branch=main&status=completed&per_page=1"
     runs = json.loads(run("gh", "api", url))["workflow_runs"]
     if not runs:
         return
     previous = runs[0]
+    jobs = []
+    page = 1
+    while True:
+        batch = json.loads(run('gh', 'api',
+            f"repos/{repo}/actions/runs/{previous['id']}/jobs?filter=latest&per_page=100&page={page}"))['jobs']
+        jobs.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    if not validations_passed(jobs):
+        return
     sha = previous["head_sha"]
     if subprocess.run(["git", "merge-base", "--is-ancestor", sha, "HEAD"]).returncode:
         return
@@ -26,7 +44,7 @@ def main():
         try:
             subprocess.run(["python3","tools/generate_project.py"],cwd=old,check=True)
             for part in relevant:
-                args=["diff","-qr","-x","__pycache__","-x","test_testflight.py",str(old/part),part]
+                args=["diff","-qr","-x","__pycache__","-x","test_testflight.py","-x","test_simulator_reuse.py",str(old/part),part]
                 if subprocess.run(args,stdout=subprocess.DEVNULL).returncode:
                     return
         finally:
