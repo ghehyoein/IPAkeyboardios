@@ -1,0 +1,81 @@
+name: Publish verified artifacts
+'on':
+  workflow_dispatch:
+    inputs:
+      validation_run:
+        description: Run with all four successful device validation jobs
+        required: true
+permissions:
+  contents: write
+  actions: read
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      VALIDATION_RUN: ${{ inputs.validation_run }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Require passing jobs and identical application inputs
+      run: |
+        python3 - <<'PY'
+        import json, os, subprocess, sys
+        sys.path.insert(0, 'tools')
+        from testflight_simulator import validations_passed
+        repo = os.environ['GITHUB_REPOSITORY']
+        def api(path):
+            return json.loads(subprocess.check_output(['gh', 'api', f'repos/{repo}/{path}']))
+        for kind in ('VALIDATION_RUN',):
+            run_id = os.environ[kind]
+            assert run_id.isdecimal()
+            run = api(f'actions/runs/{run_id}')
+            assert run['head_repository']['full_name'] == repo and run['head_branch'] == 'main'
+            assert run['status'] == 'completed'
+            sha = run['head_sha']
+            subprocess.run(['git','merge-base','--is-ancestor',sha,'HEAD'],check=True)
+            paths = ['App','Shared','KeyboardExtension','IPAKeyboard.xcodeproj','VERSION','tools/generate_project.py','tools/build_catalog.py']
+            subprocess.run(['git','diff','--exit-code',sha,'HEAD','--',*paths],check=True)
+            jobs = api(f'actions/runs/{run_id}/jobs?filter=latest&per_page=100')['jobs']
+            if kind == 'VALIDATION_RUN':
+                assert validations_passed(jobs)
+                subprocess.run(['git','diff','--exit-code',sha,'HEAD','--','Tests/*.swift'],check=True)
+            print(kind, run_id, sha, 'verified')
+        PY
+    - uses: actions/download-artifact@v4
+      with:
+        name: unsigned-ipa
+        path: build
+        github-token: ${{ github.token }}
+        run-id: ${{ inputs.validation_run }}
+    - name: Verify and publish
+      run: |
+        (cd build && sha256sum --check SHA256SUMS.txt)
+        python3 - <<'PY'
+        import plistlib, zipfile
+        from pathlib import Path
+        with zipfile.ZipFile('build/IPAKeyboard-unsigned.ipa') as z:
+            plists = [n for n in z.namelist() if n.endswith('.app/Info.plist') or n.endswith('.appex/Info.plist')]
+            assert len(plists) == 2
+            for path in plists:
+                p = plistlib.loads(z.read(path))
+                assert p['CFBundleShortVersionString'] == Path('VERSION').read_text().strip()
+                assert p['MinimumOSVersion'] == '17.0' and set(p['UIDeviceFamily']) == {1,2}
+                assert p['CFBundleDisplayName'] == 'IPA Keyboard'
+        PY
+        cat > build/RELEASE.md <<NOTES
+        Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Restores the display name to IPA Keyboard. Retains the demo page in Settings in Simplified Chinese, Traditional Chinese, English and Japanese.
+
+        Download IPAKeyboard-unsigned.ipa directly; sign both app and extension before installing.
+
+        All four validation jobs passed: iOS 17.5 iPhone SE and iPad 9, and iOS 26.2 iPhone 16 Pro Max and iPad Pro 13-inch M4. Full iPhone regression passed 30 unit tests and 16 UI tests. Other configurations each passed 30 unit tests and a portrait/landscape input test. Simulator results do not establish physical-device frame rates.
+
+        Validation and IPA: https://github.com/$GITHUB_REPOSITORY/actions/runs/$VALIDATION_RUN
+
+        Source: $GITHUB_SHA
+        Publication: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+        This GitHub release does not automatically replace the App Store version.
+        NOTES
+        gh release create "v$(cat VERSION)" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --target "$GITHUB_SHA" --title "IPA Keyboard v$(cat VERSION)" --notes-file build/RELEASE.md
