@@ -34,7 +34,7 @@ jobs:
           runner: macos-15
           xcode: '26.3'
           runtime: '17'
-          device: iPad-10th-generation
+          device: iPad-9th-generation
           family: iPad
           tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
         - name: iOS26-iPad

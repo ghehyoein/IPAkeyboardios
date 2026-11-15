@@ -32,7 +32,13 @@ final class CompatibilityUITests: XCTestCase {
         XCTAssertTrue(q.isHittable)
         q.tap()
         XCTAssertEqual(editor.value as? String, "qq")
-        let attachment = XCTAttachment(screenshot: app.screenshot())
+        let p = app.descendants(matching: .any)["key_p"]
+        XCTAssertTrue(p.isHittable)
+        XCTAssertTrue(app.buttons["returnKey"].isHittable)
+        p.tap()
+        XCTAssertEqual(editor.value as? String, "qqp")
+        // Full-screen capture avoids XCTest's cropped app image after rotation.
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = "adaptive-landscape"; attachment.lifetime = .keepAlways
         add(attachment)
     }
