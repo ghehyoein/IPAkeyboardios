@@ -33,11 +33,27 @@ final class KeyboardUITests: XCTestCase {
         settings.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         settings.launch()
         defer { settings.terminate() }
+        // Settings can restore the previous subpage on its next launch.
+        let backNames = ["Settings", "General", "Keyboard", "Keyboards", "设置", "設定", "通用", "一般", "键盘", "鍵盤", "キーボード", "Back", "返回", "戻る"]
+        for _ in 0..<5 {
+            let back = settings.navigationBars.buttons.matching(NSPredicate(format: "identifier == %@ OR label IN %@", "BackButton", backNames)).firstMatch
+            guard back.exists else { break }
+            let frame = back.frame
+            guard frame.origin.x.isFinite, frame.origin.y.isFinite, !frame.isEmpty else { break }
+            back.tap()
+        }
         func tapCell(_ names: [String]) {
             for _ in 0..<8 {
                 for name in names {
                     let cell = settings.cells.containing(.staticText, identifier: name).firstMatch
-                    if cell.exists && cell.isHittable { cell.tap(); return }
+                    if cell.exists {
+                        // Settings represents virtualized offscreen rows with infinite origins.
+                        // Asking isHittable on those rows raises an XCTest failure instead of false.
+                        let frame = cell.frame
+                        if frame.origin.x.isFinite && frame.origin.y.isFinite && !frame.isEmpty && frame.intersects(settings.frame) && cell.isHittable {
+                            cell.tap(); return
+                        }
+                    }
                 }
                 settings.swipeUp()
             }

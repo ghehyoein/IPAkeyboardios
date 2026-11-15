@@ -69,6 +69,14 @@ jobs:
         set -o pipefail
         mkdir -p build
         python3 tools/boot_simulator.py "$SIMULATOR_ID"
+        if [[ "${{ matrix.name }}" == 'iOS26-iPhone' ]]; then
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -parallel-testing-enabled NO -derivedDataPath build/Simulator \
+            -resultBundlePath build/SystemKeyboardNames.xcresult \
+            -only-testing:IPAKeyboardUITests/KeyboardUITests/testSystemKeyboardListDoesNotRepeatName \
+            test CODE_SIGNING_ALLOWED=NO | tee build/system-names.log
+        fi
         xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
           -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
           -parallel-testing-enabled NO -derivedDataPath build/Simulator \
@@ -99,7 +107,7 @@ jobs:
         name: diagnostics-${{ matrix.name }}
         path: |
           build/*.log
-          build/Tests.xcresult
+          build/*.xcresult
         if-no-files-found: ignore
         retention-days: 7
   release:
