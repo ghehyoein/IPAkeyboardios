@@ -1,0 +1,69 @@
+name: Verify system keyboard names
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  names:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: en
+            region: US
+          - language: zh-Hans
+            region: CN
+          - language: zh-Hant
+            region: TW
+          - language: ja
+            region: JP
+    runs-on: macos-15
+    timeout-minutes: 25
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      IPA_SIMULATOR_RUNTIME: '26'
+      IPA_SIMULATOR_DEVICE_TYPE: com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max
+      IPA_SIMULATOR_FAMILY: iPhone
+      TEST_LANGUAGE: ${{ matrix.language }}
+      TEST_REGION: ${{ matrix.region }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate project and configure system language before first boot
+        run: |
+          python3 tools/generate_project.py
+          python3 tools/create_simulator.py
+          python3 - <<'PY'
+          import os, plistlib
+          from pathlib import Path
+          path = Path.home() / 'Library/Developer/CoreSimulator/Devices' / os.environ['SIMULATOR_ID'] / 'data/Library/Preferences/.GlobalPreferences.plist'
+          path.parent.mkdir(parents=True, exist_ok=True)
+          prefs = plistlib.loads(path.read_bytes()) if path.exists() else {}
+          prefs['AppleLanguages'] = [os.environ['TEST_LANGUAGE']]
+          prefs['AppleLocale'] = os.environ['TEST_LANGUAGE'].replace('-', '_') + '_' + os.environ['TEST_REGION']
+          path.write_bytes(plistlib.dumps(prefs))
+          PY
+      - name: Check the actual Settings keyboard list
+        run: |
+          set -o pipefail
+          mkdir -p build
+          python3 tools/boot_simulator.py "$SIMULATOR_ID"
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -testLanguage "$TEST_LANGUAGE" -testRegion "$TEST_REGION" \
+            -parallel-testing-enabled NO -derivedDataPath build/Simulator \
+            -resultBundlePath build/SystemKeyboardNames.xcresult \
+            -only-testing:IPAKeyboardUITests/KeyboardUITests/testSystemKeyboardListDoesNotRepeatName \
+            test CODE_SIGNING_ALLOWED=NO | tee build/system-names.log
+      - name: Export Settings screenshots
+        if: always()
+        run: |
+          xcrun xcresulttool export attachments --path build/SystemKeyboardNames.xcresult --output-path build/attachments || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: system-names-${{ matrix.language }}
+          path: |
+            build/system-names.log
+            build/attachments
+          if-no-files-found: ignore
+          retention-days: 7

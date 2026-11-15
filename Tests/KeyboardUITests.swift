@@ -24,16 +24,17 @@ final class KeyboardUITests: XCTestCase {
 
     func testSystemKeyboardListDoesNotRepeatName() {
         continueAfterFailure = false
-        // The app uses Japanese while Settings uses English: two independent contexts.
+        let preferred = Locale.preferredLanguages.first ?? "en"
+        let systemLanguage = preferred.hasPrefix("ja") ? "ja" : (preferred.hasPrefix("zh") ? ((preferred.contains("Hant") || preferred.contains("TW") || preferred.contains("HK")) ? "zh-Hant" : "zh-Hans") : "en")
+        let appLanguage = systemLanguage == "ja" ? "en" : "ja"
         let app = XCUIApplication()
-        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(ja)"]
+        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(\(appLanguage))"]
         app.launch()
-        XCTAssertTrue(app.navigationBars["ipa+キーボード"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.navigationBars[appLanguage == "ja" ? "ipa+キーボード" : "ipa+ keyboard"].waitForExistence(timeout: 10))
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
-        settings.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        settings.launchArguments = ["-AppleLanguages", "(\(systemLanguage))"]
         settings.launch()
         defer { settings.terminate() }
-        // Settings can restore the previous subpage on its next launch.
         let backNames = ["Settings", "General", "Keyboard", "Keyboards", "设置", "設定", "通用", "一般", "键盘", "鍵盤", "キーボード", "Back", "返回", "戻る"]
         for _ in 0..<5 {
             let back = settings.navigationBars.buttons.matching(NSPredicate(format: "identifier == %@ OR label IN %@", "BackButton", backNames)).firstMatch
@@ -42,41 +43,48 @@ final class KeyboardUITests: XCTestCase {
             guard frame.origin.x.isFinite, frame.origin.y.isFinite, !frame.isEmpty else { break }
             back.tap()
         }
+        func visible(_ element: XCUIElement) -> Bool {
+            guard element.exists else { return false }
+            let frame = element.frame
+            return frame.origin.x.isFinite && frame.origin.y.isFinite && !frame.isEmpty && frame.midY > settings.navigationBars.firstMatch.frame.maxY && frame.intersects(settings.frame)
+        }
+        func rows(matching predicate: NSPredicate) -> [XCUIElement] {
+            // UIKit uses cells; the newer Settings pages expose SwiftUI buttons.
+            // Exclude the navigation/status bars, including the return-to-app link.
+            [settings.cells.matching(predicate), settings.buttons.matching(predicate), settings.staticTexts.matching(predicate)]
+                .flatMap { $0.allElementsBoundByIndex }.filter { visible($0) }
+        }
         func tapCell(_ names: [String]) {
             for _ in 0..<8 {
                 for name in names {
-                    let cell = settings.cells.containing(.staticText, identifier: name).firstMatch
-                    if cell.exists {
-                        // Settings represents virtualized offscreen rows with infinite origins.
-                        // Asking isHittable on those rows raises an XCTest failure instead of false.
-                        let frame = cell.frame
-                        if frame.origin.x.isFinite && frame.origin.y.isFinite && !frame.isEmpty && frame.intersects(settings.frame) && cell.isHittable {
-                            cell.tap(); return
-                        }
-                    }
+                    if let row = rows(matching: NSPredicate(format: "label BEGINSWITH %@", name)).first(where: { $0.isHittable }) { row.tap(); return }
                 }
                 settings.swipeUp()
             }
+            print(settings.debugDescription)
             XCTFail("Missing Settings row: \(names)")
         }
         tapCell(["General", "通用", "一般"])
         tapCell(["Keyboard", "键盘", "鍵盤", "キーボード"])
         tapCell(["Keyboards", "键盘", "鍵盤", "キーボード"])
         let brand = NSPredicate(format: "label CONTAINS[c] %@", "ipa+")
-        if !settings.staticTexts.matching(brand).firstMatch.exists {
-            tapCell(["Add New Keyboard…", "Add New Keyboard...", "添加新键盘…", "添加新键盘...", "新增鍵盤…", "加入新鍵盤…", "新しいキーボードを追加…", "新しいキーボードを追加..."])
-            let entry = settings.staticTexts.matching(brand).firstMatch
-            XCTAssertTrue(entry.waitForExistence(timeout: 10))
-            entry.tap()
+        if rows(matching: brand).isEmpty {
+            tapCell(["Add New Keyboard", "添加新键盘", "新增鍵盤", "加入新鍵盤", "新しいキーボードを追加"])
+            for _ in 0..<8 {
+                if let entry = rows(matching: brand).first { entry.tap(); break }
+                settings.swipeUp()
+            }
         }
-        let entry = settings.staticTexts.matching(brand).firstMatch
-        XCTAssertTrue(entry.waitForExistence(timeout: 10))
         let addRow = NSPredicate(format: "label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@", "Add New Keyboard", "添加新键盘", "新增鍵盤", "加入新鍵盤", "新しいキーボードを追加")
-        if !settings.staticTexts.matching(addRow).firstMatch.exists { entry.tap() }
-        XCTAssertTrue(settings.staticTexts.matching(addRow).firstMatch.waitForExistence(timeout: 5))
-        attach(settings, name: "system-keyboard-list-mixed-language")
-        for label in settings.staticTexts.matching(brand).allElementsBoundByIndex.map({ $0.label }) {
-            XCTAssertEqual(label.components(separatedBy: "ipa+").count - 1, 1, "Repeated system keyboard name: \(label)")
+        if rows(matching: addRow).isEmpty, let entry = rows(matching: brand).first { entry.tap() }
+        XCTAssertFalse(rows(matching: addRow).isEmpty, "Expected installed-keyboard list")
+        let expectedHeading = ["en": "Keyboards", "zh-Hans": "键盘", "zh-Hant": "鍵盤", "ja": "キーボード"][systemLanguage]!
+        XCTAssertTrue(settings.navigationBars[expectedHeading].exists, "Settings must use the requested system language")
+        let entries = rows(matching: brand)
+        XCTAssertFalse(entries.isEmpty, "The keyboard must actually be installed in Settings")
+        attach(settings, name: "system-keyboard-list-" + systemLanguage)
+        for label in entries.map({ $0.label }) {
+            XCTAssertEqual(label.lowercased().components(separatedBy: "ipa+").count - 1, 1, "Repeated system keyboard name: \(label)")
         }
     }
     private func launch() -> (XCUIApplication, XCUIElement) {
