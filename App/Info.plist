@@ -20,7 +20,7 @@
 	<key>CFBundleName</key>
 	<string>ipa+ keyboard</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7.2</string>
+	<string>0.7.3</string>
 	<key>CFBundleVersion</key>
 	<string>4</string>
 	<key>IPASettingsAppGroup</key>

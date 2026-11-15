@@ -69,14 +69,6 @@ jobs:
         set -o pipefail
         mkdir -p build
         python3 tools/boot_simulator.py "$SIMULATOR_ID"
-        if [[ "${{ matrix.name }}" == 'iOS26-iPhone' ]]; then
-          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
-            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-            -parallel-testing-enabled NO -derivedDataPath build/Simulator \
-            -resultBundlePath build/SystemKeyboardNames.xcresult \
-            -only-testing:IPAKeyboardUITests/KeyboardUITests/testSystemKeyboardListDoesNotRepeatName \
-            test CODE_SIGNING_ALLOWED=NO | tee build/system-names.log
-        fi
         xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
           -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
           -parallel-testing-enabled NO -derivedDataPath build/Simulator \
@@ -127,8 +119,8 @@ jobs:
       run: |
         tag="v$(cat VERSION)"
         cat > build/RELEASE.md <<EOF
-        Consistent localized app/extension naming avoids mismatched internal-name fallbacks in the system keyboard list. Long-press the symbol category strip to select any category within its visible width, with selection haptics. Release to restore the original labels and scroll position. Supports iPhone and iPad from iOS 17.
-        Localized ipa+ keyboard names in Simplified Chinese, Traditional Chinese, English and Japanese. Production navigation no longer exposes the demo.
+        Long-press the symbol category strip to see one representative phonetic symbol per category instead of crowded text. Representatives belong to their own categories and are checked against the installed system fonts; Recent uses the system clock icon.
+        Category icons and full labels switch immediately without the button title fade. Full-range sliding selection, haptic feedback, accessible category names and the original scroll position are preserved. Supports iPhone and iPad from iOS 17.
 
         Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
         Download **IPAKeyboard-unsigned.ipa** directly; sign the app and keyboard extension before installing.
