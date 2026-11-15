@@ -145,14 +145,14 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="v$(cat VERSION)"
-          zip -qr build/AppStore-Screenshots.zip AppStore-Screenshots
+          python3 tools/package_screenshots.py AppStore-Screenshots build/AppStore-Screenshots.zip
           cat > build/RELEASE.md <<EOF
           iPhone and iPad support from iOS 17, adaptive keyboard geometry, and smoother continuous symbol browsing.
           The demo page remains available in Settings, localized in Simplified Chinese, Traditional Chinese, English and Japanese.
 
           Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
           Download **IPAKeyboard-unsigned.ipa** directly; sign the app and keyboard extension before installing.
-          AppStore-Screenshots.zip contains 48 real simulator captures in four languages, at two iPhone sizes and one iPad size.
+          AppStore-Screenshots.zip contains 36 reviewed keyboard simulator captures in four languages, at two iPhone sizes and one iPad size.
 
           Source: $GITHUB_SHA
           Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
