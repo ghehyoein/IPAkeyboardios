@@ -53,6 +53,7 @@ jobs:
     - name: Verify and publish
       run: |
         (cd build && sha256sum --check SHA256SUMS.txt)
+        assets=(build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt)
         python3 - <<'PY'
         import plistlib, zipfile
         from pathlib import Path
@@ -82,8 +83,8 @@ jobs:
           # describe exactly the same application as that published commit.
           sha=$(gh api "repos/$GITHUB_REPOSITORY/commits/$tag" --jq .sha)
           git diff --exit-code "$sha" HEAD -- App Shared KeyboardExtension IPAKeyboard.xcodeproj VERSION tools/generate_project.py tools/build_catalog.py 'Tests/*.swift'
-          gh release upload "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --clobber
+          gh release upload "$tag" "${assets[@]}" --repo "$GITHUB_REPOSITORY" --clobber
           gh release edit "$tag" --repo "$GITHUB_REPOSITORY" --notes-file build/RELEASE.md
         else
-          gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md
+          gh release create "$tag" "${assets[@]}" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md
         fi
