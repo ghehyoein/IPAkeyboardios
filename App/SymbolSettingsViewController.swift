@@ -89,7 +89,7 @@ final class SymbolSettingsViewController: UITableViewController {
         } else if indexPath.section == 1 {
             let i = indexPath.row
             cell.textLabel?.text = titles[i]; cell.detailTextLabel?.text = examples[i]
-            cell.detailTextLabel?.font = PhoneticDisplay.scaledFont(for: .footnote)
+            if i == 0 { cell.detailTextLabel?.font = PhoneticDisplay.scaledFont(for: .footnote) }
             let toggle = UISwitch()
             toggle.isOn = visibility.enabled(families[i]); toggle.tag = i
             toggle.accessibilityIdentifier = "visibility_" + families[i]

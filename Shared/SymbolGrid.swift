@@ -280,8 +280,13 @@ final class SymbolGrid: UICollectionView, UICollectionViewDataSource, UICollecti
         guard let index = indexPathForItem(at: gesture.location(in: self)) else { return }
         let text = sections[index.section].values[index.item]
         let label = explanation ?? UILabel()
-        label.text = presentation(for: text).explanation
         label.font = .systemFont(ofSize: 13); label.numberOfLines = 3; label.textAlignment = .center
+        let display = IPACatalog.shared.symbol(text)?.display ?? text
+        let explanationText = NSMutableAttributedString(string: presentation(for: text).explanation,
+            attributes: [.font: UIFont.systemFont(ofSize: 13)])
+        explanationText.addAttribute(.font, value: PhoneticDisplay.font(ofSize: 13),
+            range: NSRange(location: 0, length: (display as NSString).length))
+        label.attributedText = explanationText
         label.backgroundColor = .secondarySystemBackground; label.textColor = .label
         label.layer.cornerRadius = 9; label.clipsToBounds = true
         label.accessibilityIdentifier = "symbolExplanation"; label.isUserInteractionEnabled = false
