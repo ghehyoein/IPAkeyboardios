@@ -415,6 +415,10 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
             tabs.addSubview(button); buttons[section.id] = button; x += width + 5
         }
         tabs.contentSize = CGSize(width: x, height: numberButton.frame.height)
+        tabs.selectionButtons = sections.compactMap { buttons[$0.id] }
+        tabs.onScrubSelection = { [weak grid] index in
+            grid?.selectSection(sections[index].id)
+        }
         grid.onSectionChange = { [weak self, weak title] id, heading in
             self?.panelCategory = id; title?.text = heading
             for (key, button) in buttons {

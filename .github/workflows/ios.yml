@@ -120,7 +120,7 @@ jobs:
         tag="v$(cat VERSION)"
         cat > build/RELEASE.md <<EOF
         iPhone and iPad support from iOS 17, adaptive keyboard geometry, and smoother continuous symbol browsing.
-        The demo page remains available in Settings, localized in Simplified Chinese, Traditional Chinese, English and Japanese.
+        Localized ipa+ keyboard names in Simplified Chinese, Traditional Chinese, English and Japanese. Production navigation no longer exposes the demo.
 
         Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
         Download **IPAKeyboard-unsigned.ipa** directly; sign the app and keyboard extension before installing.
@@ -130,4 +130,4 @@ jobs:
         Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
         EOF
         gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt \
-          --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "IPA Keyboard $tag" --notes-file build/RELEASE.md
+          --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md

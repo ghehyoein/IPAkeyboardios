@@ -80,6 +80,12 @@ private final class SymbolCell: UICollectionViewCell {
 
 /// Cancel a category button's highlight as soon as the user starts a horizontal drag.
 final class SymbolCategoryScrollView: UIScrollView {
+    var selectionButtons: [UIButton] = []
+    var onScrubSelection: ((Int) -> Void)?
+    private var selectedIndex: Int?
+    private var finger = CGPoint.zero
+    private var edgeTimer: Timer?
+    private lazy var hold = UILongPressGestureRecognizer(target: self, action: #selector(scrub(_:)))
     override init(frame: CGRect) {
         super.init(frame: frame)
         delaysContentTouches = false
@@ -88,10 +94,52 @@ final class SymbolCategoryScrollView: UIScrollView {
         alwaysBounceHorizontal = true
         decelerationRate = .normal
         contentInsetAdjustmentBehavior = .never
+        hold.minimumPressDuration = 0.3
+        hold.cancelsTouchesInView = true
+        addGestureRecognizer(hold)
+        panGestureRecognizer.require(toFail: hold)
     }
     required init?(coder: NSCoder) { fatalError() }
     override func touchesShouldCancel(in view: UIView) -> Bool {
         view is UIControl || super.touchesShouldCancel(in: view)
+    }
+    @objc private func scrub(_ gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began, .changed:
+            finger = gesture.location(in: self)
+            chooseUnderFinger()
+            if edgeTimer == nil {
+                let timer = Timer(timeInterval: 1.0 / 30, repeats: true) { [weak self] _ in self?.scrollAtEdge() }
+                edgeTimer = timer
+                RunLoop.main.add(timer, forMode: .common)
+            }
+        default: stopScrubbing()
+        }
+    }
+    private func chooseUnderFinger() {
+        guard finger.y >= -20, finger.y <= bounds.height + 20,
+              let index = selectionButtons.firstIndex(where: { $0.frame.insetBy(dx: -2.5, dy: -20).contains(finger) }),
+              index != selectedIndex else { return }
+        selectedIndex = index
+        KeyFeedback.shared.candidateChanged()
+        onScrubSelection?(index)
+    }
+    private func scrollAtEdge() {
+        let x = finger.x - contentOffset.x
+        guard finger.y >= -20, finger.y <= bounds.height + 20 else { return }
+        let delta: CGFloat = x < 28 ? -5 : (x > bounds.width - 28 ? 5 : 0)
+        let next = max(0, min(max(0, contentSize.width - bounds.width), contentOffset.x + delta))
+        let moved = next - contentOffset.x
+        contentOffset.x = next
+        finger.x += moved
+        chooseUnderFinger()
+    }
+    private func stopScrubbing() {
+        edgeTimer?.invalidate(); edgeTimer = nil; selectedIndex = nil
+    }
+    override func willMove(toWindow newWindow: UIWindow?) {
+        if newWindow == nil { stopScrubbing() }
+        super.willMove(toWindow: newWindow)
     }
 }
 

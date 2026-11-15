@@ -12,19 +12,13 @@ final class SymbolSettingsViewController: UITableViewController {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "符号显示".localized
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "keyboard"), style: .plain, target: self, action: #selector(showDemo))
-        navigationItem.rightBarButtonItem?.accessibilityLabel = "试用键盘".localized
-        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "openKeyboardDemo"
+        title = "ipa+键盘".localized
         navigationItem.largeTitleDisplayMode = .never
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 64
         tableView.sectionHeaderTopPadding = 12
         tableView.cellLayoutMarginsFollowReadableWidth = true
         tableView.accessibilityIdentifier = "symbolSettings"
-    }
-    @objc private func showDemo() {
-        navigationController?.pushViewController(DemoViewController(), animated: true)
     }
     // Keep related choices together; technical signing details do not belong on the home screen.
     private func settingsPath(_ path: IndexPath) -> IndexPath {
@@ -132,7 +126,7 @@ final class SymbolSettingsViewController: UITableViewController {
                 self.visibility.language = code
                 self.shareAvailable = SymbolSettingsStore.shared.save(self.visibility)
                 L10n.selection = code
-                self.title = "符号显示".localized
+                self.title = "ipa+键盘".localized
                 self.tableView.reloadData()
             }
             navigationController?.pushViewController(languages, animated: true)
