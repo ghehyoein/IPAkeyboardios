@@ -451,4 +451,19 @@ final class KeyboardTests: XCTestCase {
         let affricate = "t" + "\u{0361}" + "s"
         XCTAssertEqual(affricate.unicodeScalars.map { $0.value }, [0x74, 0x361, 0x73])
     }
+    func testCompactCategoryMappingCoversEveryCategory() {
+        for width: CGFloat in [210, 320, 768] {
+            for count in [1, 12, 24] {
+                for index in 0..<count {
+                    let x = (CGFloat(index) + 0.5) * width / CGFloat(count)
+                    XCTAssertEqual(SymbolCategoryScrollView.categoryIndex(at: x, width: width, count: count), index)
+                }
+                XCTAssertEqual(SymbolCategoryScrollView.categoryIndex(at: -10, width: width, count: count), 0)
+                XCTAssertEqual(SymbolCategoryScrollView.categoryIndex(at: width + 10, width: width, count: count), count - 1)
+            }
+        }
+        XCTAssertNil(SymbolCategoryScrollView.categoryIndex(at: 0, width: 0, count: 12))
+        XCTAssertNil(SymbolCategoryScrollView.categoryIndex(at: 0, width: 320, count: 0))
+    }
+
 }

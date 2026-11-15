@@ -416,6 +416,11 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         }
         tabs.contentSize = CGSize(width: x, height: numberButton.frame.height)
         tabs.selectionButtons = sections.compactMap { buttons[$0.id] }
+        tabs.compactTitles = sections.map { section in
+            if section.id == "recent" { return "◷" }
+            let id = section.id.replacingOccurrences(of: "-letters", with: "")
+            return L10n.indexTitle(for: id)
+        }
         tabs.onScrubSelection = { [weak grid] index in
             grid?.selectSection(sections[index].id)
         }

@@ -83,8 +83,13 @@ final class SymbolCategoryScrollView: UIScrollView {
     var selectionButtons: [UIButton] = []
     var onScrubSelection: ((Int) -> Void)?
     private var selectedIndex: Int?
-    private var finger = CGPoint.zero
-    private var edgeTimer: Timer?
+    var compactTitles: [String] = []
+    private var originalButtons: [(frame: CGRect, title: String?)] = []
+    private var compactWidth: CGFloat = 0
+    static func categoryIndex(at x: CGFloat, width: CGFloat, count: Int) -> Int? {
+        guard width > 0, count > 0, x.isFinite else { return nil }
+        return min(count - 1, Int(max(0, min(1, x / width)) * CGFloat(count)))
+    }
     private lazy var hold = UILongPressGestureRecognizer(target: self, action: #selector(scrub(_:)))
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,37 +110,52 @@ final class SymbolCategoryScrollView: UIScrollView {
     }
     @objc private func scrub(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
-        case .began, .changed:
-            finger = gesture.location(in: self)
-            chooseUnderFinger()
-            if edgeTimer == nil {
-                let timer = Timer(timeInterval: 1.0 / 30, repeats: true) { [weak self] _ in self?.scrollAtEdge() }
-                edgeTimer = timer
-                RunLoop.main.add(timer, forMode: .common)
+        case .began:
+            guard !selectionButtons.isEmpty, bounds.width > 0 else { return }
+            setContentOffset(contentOffset, animated: false)
+            originalButtons = selectionButtons.map { ($0.frame, $0.title(for: .normal)) }
+            compactWidth = bounds.width
+            let width = compactWidth / CGFloat(selectionButtons.count)
+            for (index, button) in selectionButtons.enumerated() {
+                button.accessibilityLabel = originalButtons[index].title
+                button.frame = CGRect(x: bounds.minX + CGFloat(index) * width, y: 0,
+                                      width: width, height: bounds.height)
+                button.setTitle(compactTitles.indices.contains(index) ? compactTitles[index] : originalButtons[index].title, for: .normal)
+                button.titleLabel?.font = .systemFont(ofSize: 10, weight: .medium)
+                button.titleLabel?.adjustsFontSizeToFitWidth = true
+                button.titleLabel?.minimumScaleFactor = 0.5
+                button.layer.cornerRadius = min(8, width / 2)
             }
+            chooseUnderFinger(gesture.location(in: self))
+        case .changed:
+            chooseUnderFinger(gesture.location(in: self))
+        case .ended:
+            chooseUnderFinger(gesture.location(in: self))
+            stopScrubbing()
         default: stopScrubbing()
         }
     }
-    private func chooseUnderFinger() {
-        guard finger.y >= -20, finger.y <= bounds.height + 20,
-              let index = selectionButtons.firstIndex(where: { $0.frame.insetBy(dx: -2.5, dy: -20).contains(finger) }),
+    private func chooseUnderFinger(_ finger: CGPoint) {
+        guard !originalButtons.isEmpty, finger.y >= -20, finger.y <= bounds.height + 20,
+              let index = Self.categoryIndex(at: finger.x - bounds.minX, width: compactWidth, count: selectionButtons.count),
               index != selectedIndex else { return }
         selectedIndex = index
         KeyFeedback.shared.candidateChanged()
         onScrubSelection?(index)
     }
-    private func scrollAtEdge() {
-        let x = finger.x - contentOffset.x
-        guard finger.y >= -20, finger.y <= bounds.height + 20 else { return }
-        let delta: CGFloat = x < 28 ? -5 : (x > bounds.width - 28 ? 5 : 0)
-        let next = max(0, min(max(0, contentSize.width - bounds.width), contentOffset.x + delta))
-        let moved = next - contentOffset.x
-        contentOffset.x = next
-        finger.x += moved
-        chooseUnderFinger()
-    }
     private func stopScrubbing() {
-        edgeTimer?.invalidate(); edgeTimer = nil; selectedIndex = nil
+        for (button, original) in zip(selectionButtons, originalButtons) {
+            button.frame = original.frame
+            button.setTitle(original.title, for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 12)
+            button.titleLabel?.adjustsFontSizeToFitWidth = false
+            button.layer.cornerRadius = 12
+        }
+        originalButtons.removeAll(); selectedIndex = nil
+    }
+    override func layoutSubviews() {
+        if !originalButtons.isEmpty && bounds.width != compactWidth { stopScrubbing() }
+        super.layoutSubviews()
     }
     override func willMove(toWindow newWindow: UIWindow?) {
         if newWindow == nil { stopScrubbing() }
