@@ -95,6 +95,18 @@ jobs:
           xcodebuild -exportArchive -archivePath build/TestFlight.xcarchive \
             -exportPath build/TestFlightExport \
             -exportOptionsPlist "$RUNNER_TEMP/ipa-testflight/ExportOptions.plist"
+          python3 - <<'PY'
+          from pathlib import Path
+          folder = Path('build/TestFlightExport')
+          packages = list(folder.glob('*.ipa'))
+          if len(packages) != 1:
+              raise SystemExit(f'Expected exactly one exported IPA, found: {[p.name for p in packages]}')
+          # Xcode may name the export after CFBundleName rather than PRODUCT_NAME.
+          target = folder / 'IPAKeyboard.ipa'
+          if packages[0] != target:
+              print(f'Using exported package: {packages[0].name}')
+              packages[0].rename(target)
+          PY
           python3 tools/testflight_signing.py verify build/TestFlightExport/IPAKeyboard.ipa
       - name: Upload verified build to TestFlight
         if: inputs.upload
