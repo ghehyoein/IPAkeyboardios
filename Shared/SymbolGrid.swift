@@ -67,14 +67,15 @@ private final class SymbolCell: UICollectionViewCell {
         contentView.backgroundColor = KeyboardMaterial.key
         contentView.layer.cornerRadius = 10; contentView.layer.cornerCurve = .continuous
         glyph.textAlignment = .center; glyph.adjustsFontSizeToFitWidth = true
-        glyph.minimumScaleFactor = 0.4; glyph.numberOfLines = 2
+        glyph.minimumScaleFactor = 0.4; glyph.numberOfLines = 1
         contentView.addSubview(glyph)
         isAccessibilityElement = true; accessibilityTraits = .button
     }
     required init?(coder: NSCoder) { fatalError() }
     override func layoutSubviews() {
         super.layoutSubviews(); glyph.frame = bounds.insetBy(dx: 2, dy: 2)
-        glyph.font = .systemFont(ofSize: max(8, min(preferredFontSize, bounds.height - 6)))
+        let candidate = PhoneticDisplay.font(ofSize: preferredFontSize)
+        glyph.font = candidate.withSize(min(preferredFontSize, preferredFontSize * max(8, bounds.height - 4) / candidate.lineHeight))
     }
 }
 
@@ -148,7 +149,7 @@ final class SymbolCategoryScrollView: UIScrollView {
                     button.setImage(UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: max(8, min(16, width - 2)))), for: .normal)
                 }
             }
-            button.titleLabel?.font = .systemFont(ofSize: 18)
+            button.titleLabel?.font = PhoneticDisplay.font(ofSize: 18)
             button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.titleLabel?.minimumScaleFactor = 0.65
             button.layer.cornerRadius = min(8, width / 2)

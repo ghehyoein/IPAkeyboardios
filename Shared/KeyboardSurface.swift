@@ -91,7 +91,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
             UIAccessibilityCustomAction(name: "光标右移".localized) { [weak self] _ in self?.onMoveCursor?(1); return true }
         ]
         configure(symbolsButton, title: "◌̃", action: #selector(showSymbols))
-        symbolsButton.titleLabel?.font = .systemFont(ofSize: 28)
+        symbolsButton.titleLabel?.font = PhoneticDisplay.font(ofSize: 28)
         symbolsButton.accessibilityLabel = "IPA 附加符号与全部符号".localized
         configure(returnButton, title: "", action: #selector(newline))
         updateReturnKey()

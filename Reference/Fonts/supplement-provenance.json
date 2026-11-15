@@ -1,0 +1,1279 @@
+[
+  {
+    "codepoint": "U+1DFCD",
+    "name": "MODIFIER LETTER SMALL TURNED R WITH MID-HEIGHT LEFT HOOK",
+    "placement": "<super>",
+    "base": "U+1DF57",
+    "base_character": "𝽗",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0279"
+    ],
+    "construction": "turned-r + independently drawn rounded return hook",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFCE",
+    "name": "MODIFIER LETTER SMALL SPLIT O",
+    "placement": "<super>",
+    "base": "U+1DF58",
+    "base_character": "𝽘",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+006F"
+    ],
+    "construction": "split aperture cut from licensed o/u; 170-unit horizontal opening",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFCF",
+    "name": "MODIFIER LETTER SMALL SPLIT U",
+    "placement": "<super>",
+    "base": "U+1DF59",
+    "base_character": "𝽙",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0075"
+    ],
+    "construction": "split aperture cut from licensed o/u; 170-unit horizontal opening",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFD0",
+    "name": "LATIN SUBSCRIPT SMALL LETTER GAMMA",
+    "placement": "<sub>",
+    "base": "U+0263",
+    "base_character": "ɣ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0263"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      -445
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD1",
+    "name": "MODIFIER LETTER SMALL CAPITAL P",
+    "placement": "<super>",
+    "base": "U+1D18",
+    "base_character": "ᴘ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D18"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD2",
+    "name": "MODIFIER LETTER SMALL B WITH STROKE",
+    "placement": "<super>",
+    "base": "U+0180",
+    "base_character": "ƀ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0180"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD3",
+    "name": "MODIFIER LETTER SMALL D WITH STROKE",
+    "placement": "<super>",
+    "base": "U+0111",
+    "base_character": "đ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0111"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD4",
+    "name": "MODIFIER LETTER SMALL G WITH STROKE",
+    "placement": "<super>",
+    "base": "U+01E5",
+    "base_character": "ǥ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+01E5"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD5",
+    "name": "MODIFIER LETTER SMALL L WITH STROKE",
+    "placement": "<super>",
+    "base": "U+0142",
+    "base_character": "ł",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0142"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD6",
+    "name": "MODIFIER LETTER SMALL L WITH BAR",
+    "placement": "<super>",
+    "base": "U+019A",
+    "base_character": "ƚ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+019A"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFD7",
+    "name": "MODIFIER LETTER SMALL TURNED R WITH STROKE",
+    "placement": "<super>",
+    "base": "U+1DF50",
+    "base_character": "𝽐",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0279"
+    ],
+    "construction": "licensed base + 96-unit horizontal bar at custom height",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFD8",
+    "name": "MODIFIER LETTER SMALL BARRED TURNED H",
+    "placement": "<super>",
+    "base": "U+1DF3E",
+    "base_character": "𝼾",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0265"
+    ],
+    "construction": "licensed base + 96-unit horizontal bar at custom height",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFD9",
+    "name": "MODIFIER LETTER SMALL J WITH STROKE",
+    "placement": "<super>",
+    "base": "U+0249",
+    "base_character": "ɉ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0249"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFDA",
+    "name": "MODIFIER LETTER SMALL UPSILON WITH STROKE",
+    "placement": "<super>",
+    "base": "U+1D7F",
+    "base_character": "ᵿ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D7F"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFDB",
+    "name": "MODIFIER LETTER SMALL BARRED W",
+    "placement": "<super>",
+    "base": "U+1DF3F",
+    "base_character": "𝼿",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0077"
+    ],
+    "construction": "licensed base + 96-unit horizontal bar at custom height",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFDC",
+    "name": "MODIFIER LETTER SMALL N WITH LONG RIGHT LEG",
+    "placement": "<super>",
+    "base": "U+019E",
+    "base_character": "ƞ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+019E"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFDD",
+    "name": "MODIFIER LETTER SMALL R WITH LONG LEG",
+    "placement": "<super>",
+    "base": "U+027C",
+    "base_character": "ɼ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+027C"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFDE",
+    "name": "MODIFIER LETTER SMALL DB DIGRAPH",
+    "placement": "<super>",
+    "base": "U+0238",
+    "base_character": "ȸ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0238"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFDF",
+    "name": "MODIFIER LETTER SMALL QP DIGRAPH",
+    "placement": "<super>",
+    "base": "U+0239",
+    "base_character": "ȹ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0239"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE0",
+    "name": "MODIFIER LETTER SMALL DEZH DIGRAPH WITH CURL",
+    "placement": "<super>",
+    "base": "U+1DF2B",
+    "base_character": "𝼫",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0064",
+      "U+0293"
+    ],
+    "construction": "joined licensed d/t and curled consonant outlines, preserving the distinguishing curl",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFE1",
+    "name": "MODIFIER LETTER SMALL DEZH DIGRAPH WITH RETROFLEX HOOK",
+    "placement": "<super>",
+    "base": "U+1DF19",
+    "base_character": "𝼙",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1DF19"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE2",
+    "name": "MODIFIER LETTER SMALL ESH WITH CURL",
+    "placement": "<super>",
+    "base": "U+0286",
+    "base_character": "ʆ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0286"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE3",
+    "name": "MODIFIER LETTER SMALL ESH WITH RETROFLEX HOOK",
+    "placement": "<super>",
+    "base": "U+1D98",
+    "base_character": "ᶘ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D98"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE4",
+    "name": "MODIFIER LETTER SMALL TESH DIGRAPH WITH CURL",
+    "placement": "<super>",
+    "base": "U+1DF2C",
+    "base_character": "𝼬",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "unifont_upper-18.0.01.otf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0074",
+      "U+0286"
+    ],
+    "construction": "joined licensed d/t and curled consonant outlines, preserving the distinguishing curl",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": true
+  },
+  {
+    "codepoint": "U+1DFE5",
+    "name": "MODIFIER LETTER SMALL TESH DIGRAPH WITH RETROFLEX HOOK",
+    "placement": "<super>",
+    "base": "U+1DF1C",
+    "base_character": "𝼜",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1DF1C"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE6",
+    "name": "MODIFIER LETTER SMALL EZH WITH CURL",
+    "placement": "<super>",
+    "base": "U+0293",
+    "base_character": "ʓ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0293"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE7",
+    "name": "MODIFIER LETTER SMALL EZH WITH RETROFLEX HOOK",
+    "placement": "<super>",
+    "base": "U+1D9A",
+    "base_character": "ᶚ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D9A"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE8",
+    "name": "MODIFIER LETTER SMALL CAPITAL D",
+    "placement": "<super>",
+    "base": "U+1D05",
+    "base_character": "ᴅ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D05"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFE9",
+    "name": "MODIFIER LETTER SMALL CAPITAL A",
+    "placement": "<super>",
+    "base": "U+1D00",
+    "base_character": "ᴀ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D00"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFEA",
+    "name": "MODIFIER LETTER SMALL CAPITAL E",
+    "placement": "<super>",
+    "base": "U+1D07",
+    "base_character": "ᴇ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D07"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFEB",
+    "name": "MODIFIER LETTER SMALL REVERSED R WITH FISHHOOK",
+    "placement": "<super>",
+    "base": "U+027F",
+    "base_character": "ɿ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+027F"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFEC",
+    "name": "MODIFIER LETTER SMALL SQUAT REVERSED ESH",
+    "placement": "<super>",
+    "base": "U+0285",
+    "base_character": "ʅ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0285"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFED",
+    "name": "MODIFIER LETTER SMALL TURNED H WITH FISHHOOK",
+    "placement": "<super>",
+    "base": "U+02AE",
+    "base_character": "ʮ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+02AE"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFEE",
+    "name": "MODIFIER LETTER SMALL TURNED H WITH FISHHOOK AND TAIL",
+    "placement": "<super>",
+    "base": "U+02AF",
+    "base_character": "ʯ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+02AF"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFEF",
+    "name": "MODIFIER LETTER SMALL D WITH CURL",
+    "placement": "<super>",
+    "base": "U+0221",
+    "base_character": "ȡ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0221"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF0",
+    "name": "MODIFIER LETTER SMALL L WITH CURL",
+    "placement": "<super>",
+    "base": "U+0234",
+    "base_character": "ȴ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0234"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF1",
+    "name": "MODIFIER LETTER SMALL N WITH CURL",
+    "placement": "<super>",
+    "base": "U+0235",
+    "base_character": "ȵ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0235"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF2",
+    "name": "MODIFIER LETTER SMALL T WITH CURL",
+    "placement": "<super>",
+    "base": "U+0236",
+    "base_character": "ȶ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0236"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF3",
+    "name": "MODIFIER LETTER SMALL GREEK PSI",
+    "placement": "<super>",
+    "base": "U+03C8",
+    "base_character": "ψ",
+    "source_font": "Gentium-Regular.ttf",
+    "previous_source_font": "unifont-18.0.01.otf",
+    "actual_source": "Gentium",
+    "components": [
+      "U+03C8"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "158d89548ef28f62abfc2921878fa253b833111e8d3932da7f501daef6d0eccf",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF4",
+    "name": "MODIFIER LETTER SMALL GREEK OMEGA",
+    "placement": "<super>",
+    "base": "U+03C9",
+    "base_character": "ω",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+03C9"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF5",
+    "name": "MODIFIER LETTER SMALL D WITH PALATAL HOOK",
+    "placement": "<super>",
+    "base": "U+1D81",
+    "base_character": "ᶁ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D81"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF6",
+    "name": "MODIFIER LETTER SMALL H WITH PALATAL HOOK",
+    "placement": "<super>",
+    "base": "U+A795",
+    "base_character": "ꞕ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+A795"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF7",
+    "name": "MODIFIER LETTER SMALL N WITH PALATAL HOOK",
+    "placement": "<super>",
+    "base": "U+1D87",
+    "base_character": "ᶇ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D87"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF8",
+    "name": "MODIFIER LETTER SMALL S WITH PALATAL HOOK",
+    "placement": "<super>",
+    "base": "U+1D8A",
+    "base_character": "ᶊ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D8A"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFF9",
+    "name": "MODIFIER LETTER SMALL Z WITH PALATAL HOOK",
+    "placement": "<super>",
+    "base": "U+1D8E",
+    "base_character": "ᶎ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1D8E"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFA",
+    "name": "MODIFIER LETTER SMALL C WITH HOOK",
+    "placement": "<super>",
+    "base": "U+0188",
+    "base_character": "ƈ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0188"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFB",
+    "name": "MODIFIER LETTER SMALL K WITH HOOK",
+    "placement": "<super>",
+    "base": "U+0199",
+    "base_character": "ƙ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+0199"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFC",
+    "name": "MODIFIER LETTER SMALL P WITH HOOK",
+    "placement": "<super>",
+    "base": "U+01A5",
+    "base_character": "ƥ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+01A5"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFD",
+    "name": "MODIFIER LETTER SMALL Q WITH HOOK",
+    "placement": "<super>",
+    "base": "U+02A0",
+    "base_character": "ʠ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+02A0"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFE",
+    "name": "MODIFIER LETTER SMALL T WITH HOOK",
+    "placement": "<super>",
+    "base": "U+01AD",
+    "base_character": "ƭ",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+01AD"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  },
+  {
+    "codepoint": "U+1DFFF",
+    "name": "MODIFIER LETTER SMALL T WITH HOOK AND RETROFLEX HOOK",
+    "placement": "<super>",
+    "base": "U+1DF09",
+    "base_character": "𝼉",
+    "source_font": "Charis-Regular.ttf",
+    "previous_source_font": "Charis-Regular.ttf",
+    "actual_source": "Charis",
+    "components": [
+      "U+1DF09"
+    ],
+    "construction": "licensed smooth base; common optical proportions and spacing",
+    "source_sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "transform": [
+      0.69,
+      0,
+      0.03,
+      0.62,
+      35,
+      770
+    ],
+    "pixel_origin": false,
+    "redrawn": false
+  }
+]

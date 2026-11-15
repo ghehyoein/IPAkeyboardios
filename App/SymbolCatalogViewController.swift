@@ -109,7 +109,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entry = filtered[indexPath.section].entries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "entry") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "entry")
-        let heading = NSMutableAttributedString(string: entry.display, attributes: [.font: UIFont.preferredFont(forTextStyle: .title2), .foregroundColor: UIColor.label])
+        let heading = NSMutableAttributedString(string: entry.display, attributes: [.font: PhoneticDisplay.scaledFont(for: .title2), .foregroundColor: UIColor.label])
         heading.append(NSAttributedString(string: "   " + codes(entry.text), attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1), .foregroundColor: UIColor.secondaryLabel]))
         cell.textLabel?.attributedText = heading
         cell.textLabel?.numberOfLines = 0
@@ -174,7 +174,7 @@ final class SymbolDetailViewController: UIViewController {
         text.adjustsFontForContentSizeCategory = true
         text.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 24, right: 20)
         text.accessibilityIdentifier = "selectableSymbolDetails"
-        let content = NSMutableAttributedString(string: display + "\n", attributes: [.font: UIFont.preferredFont(forTextStyle: .largeTitle), .foregroundColor: UIColor.label])
+        let content = NSMutableAttributedString(string: display + "\n", attributes: [.font: PhoneticDisplay.scaledFont(for: .largeTitle), .foregroundColor: UIColor.label])
         content.append(NSAttributedString(string: code + "\n\n", attributes: [.font: UIFont.preferredFont(forTextStyle: .subheadline), .foregroundColor: UIColor.secondaryLabel]))
         content.append(NSAttributedString(string: note, attributes: [.font: UIFont.preferredFont(forTextStyle: .body), .foregroundColor: UIColor.label]))
         text.attributedText = content

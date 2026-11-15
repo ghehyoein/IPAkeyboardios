@@ -12,7 +12,7 @@ final class LetterKey: UIControl {
     var legendHidden = false { didSet { label.isHidden = legendHidden } }
     var mapping: IPAKeyMapping?
     private var keyTitle: String { letter == "'" ? "′" : (letter == "\"" ? "″" : letter) }
-    var numericAppearance = false { didSet { label.font = .systemFont(ofSize: numericAppearance ? 22 : 25) } }
+    var numericAppearance = false { didSet { label.font = PhoneticDisplay.keyFont(for: keyTitle, size: numericAppearance ? 22 : 25) } }
     var uppercase = false { didSet { label.text = uppercase ? keyTitle.uppercased() : keyTitle } }
     var onInsert: ((String) -> Void)?
     var onPreview: ((LetterKey, String?) -> Void)?
@@ -32,7 +32,7 @@ final class LetterKey: UIControl {
         layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowRadius = 1.5
         label.text = keyTitle
-        label.font = .systemFont(ofSize: 25)
+        label.font = PhoneticDisplay.keyFont(for: keyTitle, size: 25)
         label.textAlignment = .center
         label.isUserInteractionEnabled = false
         addSubview(label)
