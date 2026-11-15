@@ -466,4 +466,28 @@ final class KeyboardTests: XCTestCase {
         XCTAssertNil(SymbolCategoryScrollView.categoryIndex(at: 0, width: 320, count: 0))
     }
 
+    func testSystemBundleNamesAcrossLanguagePreferences() throws {
+        let app = Bundle.main
+        let plugins = try XCTUnwrap(app.builtInPlugInsURL)
+        let keyboard = try XCTUnwrap(Bundle(url: plugins.appendingPathComponent("IPAKeyboardExtension.appex")))
+        let expected = ["en": "ipa+ keyboard", "zh-Hans": "ipa+键盘", "zh-Hant": "ipa+鍵盤", "ja": "ipa+キーボード"]
+        for bundle in [app, keyboard] {
+            XCTAssertEqual(bundle.infoDictionary?["CFBundleName"] as? String, "ipa+ keyboard")
+            XCTAssertEqual(bundle.infoDictionary?["CFBundleDisplayName"] as? String, "ipa+ keyboard")
+            for (language, name) in expected {
+                let path = try XCTUnwrap(bundle.path(forResource: "InfoPlist", ofType: "strings", inDirectory: nil, forLocalization: language))
+                let data = try Data(contentsOf: URL(fileURLWithPath: path))
+                let values = try XCTUnwrap(PropertyListSerialization.propertyList(from: data, format: nil) as? [String: String])
+                XCTAssertEqual(values["CFBundleName"], name)
+                XCTAssertEqual(values["CFBundleDisplayName"], name)
+            }
+        }
+        let preferences = [["en-US"], ["en-GB"], ["zh-CN"], ["zh-SG"], ["zh-TW"], ["zh-HK"], ["ja-JP"], ["fr-FR"], ["fr-FR", "ja-JP"], ["ja-JP", "zh-Hant"], ["zh-Hant", "en-US"]]
+        for preferred in preferences {
+            XCTAssertEqual(Bundle.preferredLocalizations(from: app.localizations, forPreferences: preferred),
+                           Bundle.preferredLocalizations(from: keyboard.localizations, forPreferences: preferred),
+                           "App/extension must resolve the same language: \(preferred)")
+        }
+    }
+
 }

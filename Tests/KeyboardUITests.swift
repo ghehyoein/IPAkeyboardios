@@ -21,6 +21,48 @@ final class KeyboardUITests: XCTestCase {
         app.buttons["closeSymbolPanel"].tap()
         XCTAssertTrue(key("q", in: app).isHittable)
     }
+
+    func testSystemKeyboardListDoesNotRepeatName() {
+        continueAfterFailure = false
+        // The app uses Japanese while Settings uses English: two independent contexts.
+        let app = XCUIApplication()
+        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(ja)"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars["ipa+キーボード"].waitForExistence(timeout: 10))
+        let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
+        settings.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        settings.launch()
+        defer { settings.terminate() }
+        func tapCell(_ names: [String]) {
+            for _ in 0..<8 {
+                for name in names {
+                    let cell = settings.cells.containing(.staticText, identifier: name).firstMatch
+                    if cell.exists && cell.isHittable { cell.tap(); return }
+                }
+                settings.swipeUp()
+            }
+            XCTFail("Missing Settings row: \(names)")
+        }
+        tapCell(["General", "通用", "一般"])
+        tapCell(["Keyboard", "键盘", "鍵盤", "キーボード"])
+        tapCell(["Keyboards", "键盘", "鍵盤", "キーボード"])
+        let brand = NSPredicate(format: "label CONTAINS[c] %@", "ipa+")
+        if !settings.staticTexts.matching(brand).firstMatch.exists {
+            tapCell(["Add New Keyboard…", "Add New Keyboard...", "添加新键盘…", "添加新键盘...", "新增鍵盤…", "加入新鍵盤…", "新しいキーボードを追加…", "新しいキーボードを追加..."])
+            let entry = settings.staticTexts.matching(brand).firstMatch
+            XCTAssertTrue(entry.waitForExistence(timeout: 10))
+            entry.tap()
+        }
+        let entry = settings.staticTexts.matching(brand).firstMatch
+        XCTAssertTrue(entry.waitForExistence(timeout: 10))
+        let addRow = NSPredicate(format: "label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@ OR label BEGINSWITH %@", "Add New Keyboard", "添加新键盘", "新增鍵盤", "加入新鍵盤", "新しいキーボードを追加")
+        if !settings.staticTexts.matching(addRow).firstMatch.exists { entry.tap() }
+        XCTAssertTrue(settings.staticTexts.matching(addRow).firstMatch.waitForExistence(timeout: 5))
+        attach(settings, name: "system-keyboard-list-mixed-language")
+        for label in settings.staticTexts.matching(brand).allElementsBoundByIndex.map({ $0.label }) {
+            XCTAssertEqual(label.components(separatedBy: "ipa+").count - 1, 1, "Repeated system keyboard name: \(label)")
+        }
+    }
     private func launch() -> (XCUIApplication, XCUIElement) {
         continueAfterFailure = false
         let app = XCUIApplication()

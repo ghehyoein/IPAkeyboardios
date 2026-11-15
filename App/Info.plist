@@ -18,7 +18,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>ipa+ keyboard</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.7.2</string>
 	<key>CFBundleVersion</key>

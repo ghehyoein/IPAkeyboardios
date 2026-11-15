@@ -24,11 +24,16 @@ for bundle in [app, extension]:
         raise SystemExit(f'Expected iOS 17 deployment target: {bundle}')
     if set(info.get('UIDeviceFamily', [])) != {1, 2}:
         raise SystemExit(f'Expected universal iPhone/iPad bundle: {bundle}')
-    if info.get('CFBundleDisplayName') != 'ipa+ keyboard':
+    if info.get('CFBundleDisplayName') != 'ipa+ keyboard' or info.get('CFBundleName') != 'ipa+ keyboard':
         raise SystemExit(f'Unexpected keyboard display name: {bundle}')
     for language in ('en', 'zh-Hans', 'zh-Hant', 'ja'):
-        if not (bundle / (language + '.lproj') / 'InfoPlist.strings').is_file():
+        name_file = bundle / (language + '.lproj') / 'InfoPlist.strings'
+        if not name_file.is_file():
             raise SystemExit(f'Missing localized system name: {bundle} {language}')
+        names = plistlib.loads(subprocess.check_output(['plutil', '-convert', 'xml1', '-o', '-', str(name_file)]))
+        expected_name = {'en': 'ipa+ keyboard', 'zh-Hans': 'ipa+键盘', 'zh-Hant': 'ipa+鍵盤', 'ja': 'ipa+キーボード'}[language]
+        if names.get('CFBundleName') != expected_name or names.get('CFBundleDisplayName') != expected_name:
+            raise SystemExit(f'Inconsistent localized keyboard name: {bundle} {language}')
     print(subprocess.check_output(['file', str(executable)], text=True).strip())
     if not (bundle / 'ipa-catalog.json').is_file():
         raise SystemExit(f'Missing IPA catalog: {bundle}')
