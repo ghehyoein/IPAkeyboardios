@@ -3,6 +3,37 @@ import UIKit
 @testable import IPAKeyboard
 
 final class KeyboardTests: XCTestCase {
+    func testAdaptiveMetricsAndLegacyGlobePlacement() {
+        for width: CGFloat in [320, 375, 414, 440, 507, 768, 1024, 1366] {
+            let pad = KeyboardMetrics(width: width, isTablet: true, landscape: false)
+            XCTAssertGreaterThanOrEqual(pad.letterContentHeight, 229)
+            XCTAssertEqual(Int((pad.symbolGridHeight + 6) / (pad.symbolKeyHeight + 6)), 5)
+            XCTAssertTrue((10...18).contains(pad.symbolColumns))
+        }
+        XCTAssertTrue(KeyboardMetrics.usesInlineGlobe(isTablet: false, screen: CGSize(width: 375, height: 667)))
+        XCTAssertFalse(KeyboardMetrics.usesInlineGlobe(isTablet: false, screen: CGSize(width: 414, height: 896)))
+        XCTAssertFalse(KeyboardMetrics.usesInlineGlobe(isTablet: true, screen: CGSize(width: 320, height: 480)))
+    }
+    @MainActor func testScrollingReportsOnlySectionChangesAndKeepsCellGeometry() {
+        let grid = SymbolGrid(frame: CGRect(x: 0, y: 0, width: 428, height: 204), sections: [
+            SymbolSection(id: "first", title: "First", values: Array(repeating: "a", count: 80)),
+            SymbolSection(id: "second", title: "Second", values: ["b"])
+        ])
+        grid.layoutIfNeeded()
+        var changes: [String] = []
+        grid.onSectionChange = { id, _ in changes.append(id) }
+        for offset in 0..<20 { grid.contentOffset.x = CGFloat(offset); grid.scrollViewDidScroll(grid) }
+        XCTAssertEqual(changes, ["first"])
+        let index = IndexPath(item: 0, section: 1)
+        let original = grid.collectionViewLayout.layoutAttributesForItem(at: index)?.frame
+        grid.selectSection("second")
+        XCTAssertEqual(changes, ["first", "second"])
+        XCTAssertEqual(original, grid.collectionViewLayout.layoutAttributesForItem(at: index)?.frame)
+        XCTAssertNil(grid.layer.mask)
+        let strip = SymbolCategoryScrollView()
+        XCTAssertTrue(strip.touchesShouldCancel(in: UIButton()))
+    }
+
     func testLocalizedSectionIndexesAndSpacing() {
         let original = L10n.selection
         defer { L10n.selection = original }
@@ -248,6 +279,17 @@ final class KeyboardTests: XCTestCase {
             keyboard.showPage(page); keyboard.layoutIfNeeded()
             XCTAssertEqual(keyboard.subviews.compactMap { $0 as? LetterKey }.count, page.rows.flatMap { $0 }.count)
         }
+    }
+    @MainActor func testLegacyPanelKeepsNextKeyboardAccessible() throws {
+        let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 375, height: 305))
+        keyboard.systemManagedLayout = true; keyboard.usesInlineGlobe = true; keyboard.needsGlobe = true
+        keyboard.layoutIfNeeded(); keyboard.showSymbolsForSnapshot(); keyboard.layoutIfNeeded()
+        let panel = try XCTUnwrap(keyboard.subviews.last)
+        let globe = try XCTUnwrap(panel.subviews.first { $0.accessibilityIdentifier == "panelNextKeyboard" })
+        let close = try XCTUnwrap(panel.subviews.first { $0.accessibilityIdentifier == "closeSymbolPanel" })
+        XCTAssertFalse(globe.isHidden)
+        XCTAssertTrue(keyboard.bounds.contains(globe.frame))
+        XCTAssertGreaterThan(globe.frame.minX, close.frame.maxX)
     }
     @MainActor func testContinuousSymbolSectionsCrossBoundary() {
         let grid = SymbolGrid(frame: CGRect(x: 0, y: 0, width: 428, height: 150), sections: [SymbolSection(id: "recent", title: "最近", values: []), SymbolSection(id: "a", title: "A", values: ["ɑ"]), SymbolSection(id: "b", title: "B", values: ["β"])])

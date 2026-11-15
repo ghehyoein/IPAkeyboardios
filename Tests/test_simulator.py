@@ -22,3 +22,13 @@ class SimulatorSelection(unittest.TestCase):
         self.assertEqual(simulator.select(records, '26.0', 'a')[1]['identifier'], 'a')
         for minimum, requested in [('28.0', None), ('26.0', 'missing')]:
             with self.assertRaises(ValueError): simulator.select(records, minimum, requested)
+
+    def test_explicit_runtime_and_tablet_selection(self):
+        records = [self.runtime('17.5', [('iPad A','tablet'), ('iPhone SE','se')]),
+                   self.runtime('26.3', [('iPad B','new-tablet-8GB')])]
+        runtime, device = simulator.select(records, '17.0', 'tablet', '17', 'iPad')
+        self.assertEqual(runtime['version'], '17.5')
+        self.assertEqual(device['identifier'], 'tablet')
+        self.assertEqual(simulator.select(records, '17.0', 'new-tablet', '26', 'iPad')[1]['identifier'], 'new-tablet-8GB')
+        with self.assertRaises(ValueError):
+            simulator.select(records, '17.0', runtime_prefix='18')

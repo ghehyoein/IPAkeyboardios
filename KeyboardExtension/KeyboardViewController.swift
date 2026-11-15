@@ -42,11 +42,13 @@ final class KeyboardViewController: UIInputViewController {
     private func updateHeight() {
         keyboard.needsGlobe = needsInputModeSwitchKey
         let screen = view.window?.windowScene?.screen.bounds.size ?? UIScreen.main.bounds.size
-        keyboard.usesInlineGlobe = needsInputModeSwitchKey && max(screen.width, screen.height) <= 736
-        let landscape = view.bounds.width > view.bounds.height && view.bounds.width > 600
-        // Four key rows, with small top/bottom insets and no permanent callout band.
+        keyboard.isTablet = traitCollection.userInterfaceIdiom == .pad
+        keyboard.usesInlineGlobe = needsInputModeSwitchKey && KeyboardMetrics.usesInlineGlobe(isTablet: keyboard.isTablet, screen: screen)
+        let landscape = view.window?.windowScene?.interfaceOrientation.isLandscape ?? false
+        keyboard.landscape = landscape
         let ownGlobeFooter: CGFloat = needsInputModeSwitchKey && !keyboard.usesInlineGlobe ? 42 : 0
-        heightConstraint?.constant = keyboard.contentHeight(landscape: landscape, globeFooter: ownGlobeFooter)
+        let height = keyboard.contentHeight(landscape: landscape, globeFooter: ownGlobeFooter)
+        if heightConstraint?.constant != height { heightConstraint?.constant = height }
     }
     override func textDidChange(_ textInput: UITextInput?) { KeyFeedback.shared.soundAvailable = hasFullAccess; keyboard.refreshVisibility(); updateAppearance() }
     override func viewWillDisappear(_ animated: Bool) {

@@ -14,7 +14,10 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     private var suppressSpaceTap = false
     var onDelete: (() -> Void)?
     var onNextKeyboard: ((UIButton, UIEvent) -> Void)?
-    var usesInlineGlobe = false { didSet { setNeedsLayout() } }
+    var usesInlineGlobe = false { didSet { if oldValue != usesInlineGlobe { applyColors(); setNeedsLayout() } } }
+    var isTablet = false { didSet { if oldValue != isTablet { invalidateIntrinsicContentSize(); setNeedsLayout() } } }
+    var landscape = false { didSet { if oldValue != landscape { invalidateIntrinsicContentSize(); setNeedsLayout() } } }
+    private var metrics: KeyboardMetrics { KeyboardMetrics(width: bounds.width, isTablet: isTablet, landscape: landscape) }
     private var swipePreferences = SymbolSettingsStore.shared.loadSwipes()
     var systemManagedLayout = false { didSet {
         backgroundMaterial?.isHidden = systemManagedLayout
@@ -22,7 +25,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         invalidateIntrinsicContentSize(); setNeedsLayout()
     } }
     private var backgroundMaterial: UIVisualEffectView?
-    var needsGlobe = true { didSet { setNeedsLayout() } }
+    var needsGlobe = true { didSet { if oldValue != needsGlobe { setNeedsLayout() } } }
     var returnTitle = "return" { didSet { updateReturnKey() } }
     private let catalog = IPACatalog.shared
     private(set) var visibility = SymbolSettingsStore.shared.load()
@@ -38,14 +41,12 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     private let spaceButton = UIButton(type: .system)
     private let symbolsButton = UIButton(type: .system)
     private let returnButton = UIButton(type: .system)
-    private let preview = UILabel()
     private var touchPreview: VariantStrip?
     private var overlay: UIView?
     private var variantStrip: VariantStrip?
     private var repeatTimer: Timer?
     private var delayTimer: Timer?
     private var panelCategory = "diacritics"
-    private var panelTitle: UILabel?
     private var previousSize = CGSize.zero
 
     override init(frame: CGRect) {
@@ -94,28 +95,17 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         symbolsButton.accessibilityLabel = "IPA 附加符号与全部符号".localized
         configure(returnButton, title: "", action: #selector(newline))
         updateReturnKey()
-        preview.font = .systemFont(ofSize: 33)
-        preview.textAlignment = .center
-        preview.layer.cornerRadius = 8
-        preview.clipsToBounds = true
-        preview.isUserInteractionEnabled = false
-        preview.isHidden = true
-        addSubview(preview)
         applyColors()
         updateLocalizedLabels()
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : (isSymbolPanelVisible ? 377 : 301)) }
+    override var intrinsicContentSize: CGSize { CGSize(width: UIView.noIntrinsicMetric, height: systemManagedLayout ? UIView.noIntrinsicMetric : ((isSymbolPanelVisible ? metrics.symbolContentHeight : metrics.letterContentHeight) + metrics.demoBottomInset)) }
 
     private func configure(_ button: UIButton, title: String, action: Selector?) {
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18)
         button.layer.cornerRadius = 12
         button.layer.cornerCurve = .continuous
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0
-        button.layer.shadowOffset = CGSize(width: 0, height: 1)
-        button.layer.shadowRadius = 0
         button.addTarget(self, action: #selector(keyFeedback), for: .touchDown)
         if let action = action { button.addTarget(self, action: action, for: .touchUpInside) }
         addSubview(button)
@@ -124,14 +114,14 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         super.layoutSubviews()
         let width = bounds.width
         guard width > 0 else { return }
-        if previousSize != .zero && previousSize != bounds.size { dismissVariants(); preview.isHidden = true }
+        if previousSize != .zero && previousSize != bounds.size { dismissVariants() }
         previousSize = bounds.size
         let gap: CGFloat = width < 360 ? 5 : 6
         let inset: CGFloat = 8.5
         let keyWidth = (width - inset * 2 - gap * 9) / 10
-        let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : 80
+        let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : metrics.demoBottomInset + 8
         let available = max(140, bounds.height - footer - 8)
-        let rowPitch: CGFloat = min(width > 600 ? 40 : 56, (available + 11) / 4)
+        let rowPitch: CGFloat = min(metrics.rowPitch, (available + 11) / 4)
         let keyHeight = max(24, rowPitch - 11)
         let top: CGFloat = 8
         for (r, row) in rows.enumerated() {
@@ -196,8 +186,6 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         spaceButton.tintColor = dark ? .white : .black
         globeButton.backgroundColor = usesInlineGlobe ? KeyboardMaterial.utility : .clear
         if !usesInlineGlobe { globeButton.layer.borderWidth = 0 }
-        preview.backgroundColor = dark ? UIColor(white: 0.4, alpha: 1) : .white
-        preview.textColor = dark ? .white : .black
         updateReturnKey()
     }
     private func updateLocalizedLabels() {
@@ -329,13 +317,12 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     @objc private func nextKeyboard(_ sender: UIButton, event: UIEvent) { onNextKeyboard?(sender, event) }
     private func showPreview(key: LetterKey, value: String?) {
         touchPreview?.removeFromSuperview(); touchPreview = nil
-        preview.isHidden = true
         guard let value = value, overlay == nil, variantStrip == nil else { return }
         let bubble = VariantStrip(keyFrame: key.frame, base: value, variants: [], in: bounds, showsSelection: false)
         addSubview(bubble); touchPreview = bubble
     }
     @objc private func closePanel() {
-        overlay?.removeFromSuperview(); overlay = nil; panelTitle = nil
+        overlay?.removeFromSuperview(); overlay = nil
         if isSymbolPanelVisible {
             isSymbolPanelVisible = false; invalidateIntrinsicContentSize(); onHeightChange?()
         }
@@ -345,7 +332,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
     @objc private func returnToLetters() { showPage(.letters) }
     private func makePanel() -> UIView {
         overlay?.removeFromSuperview(); overlay = nil
-        dismissVariants(); preview.isHidden = true
+        dismissVariants()
         touchPreview?.removeFromSuperview(); touchPreview = nil
         subviews.compactMap { $0 as? UIControl }.forEach { $0.isHidden = true }
         let panel = UIView(frame: bounds)
@@ -363,13 +350,22 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         close.addTarget(self, action: #selector(returnToLetters), for: .touchUpInside)
         close.addTarget(self, action: #selector(keyFeedback), for: .touchDown)
         panel.addSubview(close)
+        if needsGlobe {
+            let globe = UIButton(type: .system)
+            globe.setImage(UIImage(systemName: "globe", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24)), for: .normal)
+            globe.tintColor = .label
+            globe.accessibilityIdentifier = "panelNextKeyboard"
+            globe.accessibilityLabel = "切换输入法".localized
+            globe.addTarget(self, action: #selector(nextKeyboard(_:event:)), for: .allTouchEvents)
+            panel.addSubview(globe)
+        }
         return panel
     }
     func dismissVariants() {
         variantStrip?.cancel(); variantStrip?.removeFromSuperview(); variantStrip = nil
     }
     private func showVariants(_ key: LetterKey) {
-        dismissVariants(); touchPreview?.removeFromSuperview(); touchPreview = nil; preview.isHidden = true
+        dismissVariants(); touchPreview?.removeFromSuperview(); touchPreview = nil
         let variants = key.mapping?.variants ?? []
         let strip = VariantStrip(keyFrame: key.frame, base: key.uppercase ? key.letter.uppercased() : key.letter, variants: variants, in: bounds)
         addSubview(strip); variantStrip = strip
@@ -393,7 +389,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         let allowed = Set(inventory.flatMap { $0.values })
         let recent = RecentSymbols.shared.values.filter { allowed.contains($0) }
         let sections = [SymbolSection(id: "recent", title: "最近使用".localized, values: recent)] + inventory
-        let tabs = UIScrollView(frame: CGRect(x: numberButton.frame.maxX + 6, y: numberButton.frame.minY, width: bounds.width - numberButton.frame.maxX - 14.5, height: numberButton.frame.height))
+        let tabs = SymbolCategoryScrollView(frame: CGRect(x: numberButton.frame.maxX + 6, y: numberButton.frame.minY, width: bounds.width - numberButton.frame.maxX - 14.5, height: numberButton.frame.height))
         tabs.showsHorizontalScrollIndicator = false
         tabs.accessibilityIdentifier = "symbolCategories"
         panel.addSubview(tabs)
@@ -402,7 +398,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         title.font = .systemFont(ofSize: 12, weight: .medium); title.textColor = .secondaryLabel
         title.accessibilityIdentifier = "symbolSectionTitle"; panel.addSubview(title)
         let grid = SymbolGrid(frame: CGRect(x: 0, y: top + 20, width: bounds.width, height: max(1, numberButton.frame.minY - top - 26)), sections: sections)
-        grid.keyHeight = 36
+        grid.keyHeight = metrics.symbolKeyHeight
         grid.onInsert = { [weak self] text in self?.insert(text) }
         panel.addSubview(grid)
         var x: CGFloat = 0
@@ -435,34 +431,45 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         grid.selectSection(target)
     }
     func contentHeight(landscape: Bool, globeFooter: CGFloat) -> CGFloat {
-        (isSymbolPanelVisible ? 305 : (landscape ? 165 : 229)) + globeFooter
+        let layout = KeyboardMetrics(width: bounds.width, isTablet: isTablet, landscape: landscape)
+        return (isSymbolPanelVisible ? layout.symbolContentHeight : layout.letterContentHeight) + globeFooter
     }
     private func layoutSymbolPanel() {
         guard let panel = overlay else { return }
         panel.frame = bounds
-        let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : 80
+        let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : metrics.demoBottomInset + 8
         let toolbarY = bounds.height - footer - 45
         if let close = panel.subviews.first(where: { $0.accessibilityIdentifier == "closeSymbolPanel" }) {
             close.frame = CGRect(x: numberButton.frame.minX, y: toolbarY, width: numberButton.frame.width, height: 45)
         }
+        var tabsX = numberButton.frame.maxX + 6
+        if let globe = panel.subviews.first(where: { $0.accessibilityIdentifier == "panelNextKeyboard" }) {
+            globe.isHidden = !needsGlobe
+            globe.frame = usesInlineGlobe
+                ? CGRect(x: tabsX, y: toolbarY, width: 42, height: 45)
+                : CGRect(x: bounds.width - 64, y: toolbarY + 51, width: 42, height: 42)
+            if needsGlobe && usesInlineGlobe { tabsX += 48 }
+        }
         if let tabs = panel.subviews.first(where: { $0.accessibilityIdentifier == "symbolCategories" }) as? UIScrollView {
-            tabs.frame = CGRect(x: numberButton.frame.maxX + 6, y: toolbarY, width: bounds.width - numberButton.frame.maxX - 14.5, height: 45)
+            tabs.frame = CGRect(x: tabsX, y: toolbarY, width: bounds.width - tabsX - 8.5, height: 45)
             for button in tabs.subviews.compactMap({ $0 as? UIButton }) { button.frame.size.height = 45 }
         }
         if let grid = panel.subviews.compactMap({ $0 as? SymbolGrid }).first {
-            let changed = grid.frame.size != CGSize(width: bounds.width, height: min(204, max(1, toolbarY - 48)))
-            grid.frame = CGRect(x: 0, y: 36, width: bounds.width, height: min(204, max(1, toolbarY - 48)))
+            grid.keyHeight = metrics.symbolKeyHeight
+            let changed = grid.frame.size != CGSize(width: bounds.width, height: min(metrics.symbolGridHeight, max(1, toolbarY - 48)))
+            grid.frame = CGRect(x: 0, y: 36, width: bounds.width, height: min(metrics.symbolGridHeight, max(1, toolbarY - 48)))
             if changed { let selected = panelCategory; grid.layoutIfNeeded(); grid.selectSection(selected) }
         }
     }
     @objc private func showNumbers() { showPage(page == .letters ? .numbers : .letters) }
     #if DEBUG
+    func showSymbolsForSnapshot() { showSymbols() }
     func showCalloutForSnapshot(_ letter: String) {
         if let key = rows.flatMap({ $0 }).first(where: { $0.letter == letter }) { showVariants(key) }
     }
     #endif
     func cancelInteraction() {
-        endCursorTracking(); deleteUp(); closePanel(); dismissVariants(); touchPreview?.removeFromSuperview(); touchPreview = nil; rows.flatMap { $0 }.forEach { $0.cancelInteraction() }; preview.isHidden = true
+        endCursorTracking(); deleteUp(); closePanel(); dismissVariants(); touchPreview?.removeFromSuperview(); touchPreview = nil; rows.flatMap { $0 }.forEach { $0.cancelInteraction() }
     }
     deinit { repeatTimer?.invalidate(); delayTimer?.invalidate() }
 }

@@ -14,9 +14,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         var root: UIViewController = SymbolSettingsViewController()
         #if DEBUG
-        // The preview exists only as an explicitly launched test harness.
+        // Screenshot and UI-test launch shortcuts; the demo is also available in Settings.
         if CommandLine.arguments.contains("--ui-testing") || CommandLine.arguments.contains("--screenshot") {
-            root = SandboxViewController()
+            root = DemoViewController()
         }
         #endif
         window.rootViewController = UINavigationController(rootViewController: root)

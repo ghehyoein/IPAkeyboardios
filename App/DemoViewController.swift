@@ -1,6 +1,6 @@
 import UIKit
 
-private final class SandboxInputView: UIInputView {
+private final class DemoInputView: UIInputView {
     var requestedHeight: CGFloat = 301 {
         didSet { invalidateIntrinsicContentSize() }
     }
@@ -12,9 +12,12 @@ private final class SandboxInputView: UIInputView {
     }
 }
 
-final class SandboxViewController: UIViewController {
+final class DemoViewController: UIViewController {
     private let editor = UITextView()
     private let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: 428, height: 301))
+    private var introduction: [UIView] = []
+    private var installedWidth: CGFloat = 0
+    private var installedLandscape = false
     override func viewDidLoad() {
         super.viewDidLoad()
         #if DEBUG
@@ -28,7 +31,9 @@ final class SandboxViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "使用说明".localized, style: .plain, target: self, action: #selector(showGuide))
         let heading = UILabel()
         heading.text = "把声音，写准确。".localized
-        heading.font = .systemFont(ofSize: 28, weight: .bold)
+        heading.font = .preferredFont(forTextStyle: .title1)
+        heading.numberOfLines = 0
+        heading.adjustsFontForContentSizeCategory = true
         let description = UILabel()
         description.text = "轻点字母 · 四向滑动 · 长按选变体".localized
         description.font = .systemFont(ofSize: 15)
@@ -72,6 +77,7 @@ final class SandboxViewController: UIViewController {
         footer.font = .systemFont(ofSize: 13)
         footer.textColor = .secondaryLabel
         footer.numberOfLines = 0
+        introduction = [heading, description, footer]
         let stack = UIStackView(arrangedSubviews: [heading, description, editor, footer])
         stack.axis = .vertical; stack.spacing = 16
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +86,8 @@ final class SandboxViewController: UIViewController {
         editorHeight.priority = .defaultHigh
         NSLayoutConstraint.activate([
             stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 18),
-            stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            stack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
             stack.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor, constant: -12),
             editorHeight
         ])
@@ -89,9 +95,14 @@ final class SandboxViewController: UIViewController {
     private func installKeyboardInputView() {
         // UITextView caches an input view's hosted height. A new host ensures that
         // both expanding and collapsing use the requested size immediately.
+        let width = view.bounds.width
+        keyboard.isTablet = traitCollection.userInterfaceIdiom == .pad
+        keyboard.landscape = view.window?.windowScene?.interfaceOrientation.isLandscape ?? false
+        keyboard.frame.size.width = width
+        installedWidth = width
+        installedLandscape = keyboard.landscape
         let height = keyboard.intrinsicContentSize.height
-        let width = view.window?.bounds.width ?? view.bounds.width
-        let container = SandboxInputView(frame: CGRect(x: 0, y: 0, width: width, height: height), inputViewStyle: .default)
+        let container = DemoInputView(frame: CGRect(x: 0, y: 0, width: width, height: height), inputViewStyle: .default)
         container.requestedHeight = height
         container.allowsSelfSizing = true
         keyboard.removeFromSuperview()
@@ -102,19 +113,36 @@ final class SandboxViewController: UIViewController {
         editor.inputView = container
         if editor.isFirstResponder { editor.reloadInputViews() }
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let landscape = view.window?.windowScene?.interfaceOrientation.isLandscape ?? false
+        let compact = view.bounds.height < 500 || (view.bounds.height < 750 && keyboard.isSymbolPanelVisible)
+        for (index, label) in introduction.enumerated() { label.isHidden = compact && index != 1 }
+        if !CommandLine.arguments.contains("--reference-keyboard"),
+           installedWidth != view.bounds.width || installedLandscape != landscape {
+            installKeyboardInputView()
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         keyboard.refreshVisibility()
     }
     @objc private func showSymbolSettings() {
         editor.resignFirstResponder()
-        navigationController?.pushViewController(SymbolSettingsViewController(), animated: true)
+        if navigationController?.viewControllers.dropLast().last is SymbolSettingsViewController {
+            navigationController?.popViewController(animated: true)
+        } else {
+            navigationController?.pushViewController(SymbolSettingsViewController(), animated: true)
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if ProcessInfo.processInfo.arguments.contains("--screenshot") {
             editor.becomeFirstResponder()
             #if DEBUG
+            if CommandLine.arguments.contains("--screenshot-panel") {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in self?.keyboard.showSymbolsForSnapshot() }
+            }
             if ProcessInfo.processInfo.arguments.contains("--screenshot-popup") {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) { [weak self] in self?.keyboard.showCalloutForSnapshot("q") }
             }
