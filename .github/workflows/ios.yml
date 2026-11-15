@@ -1,49 +1,52 @@
 name: iOS build and unsigned IPA
-'on':
+
+on:
   push:
-    branches:
-    - main
-  pull_request: null
-  workflow_dispatch: null
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 concurrency:
   group: ios-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
   validate:
     strategy:
       fail-fast: false
       matrix:
         include:
-        - name: iOS26-iPhone
-          runner: macos-15
-          xcode: '26.3'
-          runtime: '26'
-          device: iPhone-16-Pro-Max
-          family: iPhone
-          tests: ''
-        - name: iOS17-iPhone-SE
-          runner: macos-15
-          xcode: '26.3'
-          runtime: '17'
-          device: iPhone-SE-3rd-generation
-          family: iPhone
-          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
-        - name: iOS17-iPad
-          runner: macos-15
-          xcode: '26.3'
-          runtime: '17'
-          device: iPad-9th-generation
-          family: iPad
-          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
-        - name: iOS26-iPad
-          runner: macos-15
-          xcode: '26.3'
-          runtime: '26'
-          device: iPad-Pro-13-inch-M4
-          family: iPad
-          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
+          - name: iOS26-iPhone
+            runner: macos-15
+            xcode: '26.3'
+            runtime: '26'
+            device: iPhone-16-Pro-Max
+            family: iPhone
+            tests: ''
+          - name: iOS17-iPhone-SE
+            runner: macos-15
+            xcode: '26.3'
+            runtime: '17'
+            device: iPhone-SE-3rd-generation
+            family: iPhone
+            tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
+          - name: iOS17-iPad
+            runner: macos-15
+            xcode: '26.3'
+            runtime: '17'
+            device: iPad-9th-generation
+            family: iPad
+            tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
+          - name: iOS26-iPad
+            runner: macos-15
+            xcode: '26.3'
+            runtime: '26'
+            device: iPad-Pro-13-inch-M4
+            family: iPad
+            tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 45
     env:
@@ -52,80 +55,78 @@ jobs:
       IPA_SIMULATOR_FAMILY: ${{ matrix.family }}
       IPA_SIMULATOR_RUNTIME: ${{ matrix.runtime }}
     steps:
-    - uses: actions/checkout@v4
-    - name: Generate and validate project
-      run: |
-        xcodebuild -version
-        python3 tools/generate_project.py
-        python3 -m unittest discover -s Tests -p 'test_*.py' -v
-    - name: Install iOS 17 compatibility runtime
-      if: matrix.runtime == '17'
-      run: python3 tools/install_test_runtime.py 17.5
-    - name: Create and boot simulator
-      run: |
-        python3 tools/create_simulator.py
-    - name: Run simulator tests
-      run: |
-        set -o pipefail
-        mkdir -p build
-        python3 tools/boot_simulator.py "$SIMULATOR_ID"
-        xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
-          -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-          -parallel-testing-enabled NO -derivedDataPath build/Simulator \
-          -resultBundlePath build/Tests.xcresult \
-          ${{ matrix.tests }} test CODE_SIGNING_ALLOWED=NO | tee build/simulator.log
-    - name: Archive and package unsigned IPA
-      if: matrix.name == 'iOS26-iPhone'
-      run: |
-        set -o pipefail
-        xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
-          -configuration Release -destination 'generic/platform=iOS' \
-          -archivePath build/IPAKeyboard.xcarchive \
-          archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tee build/archive.log
-        python3 tools/package_unsigned_ipa.py build/IPAKeyboard.xcarchive build/IPAKeyboard-unsigned.ipa
-        cd build
-        shasum -a 256 IPAKeyboard-unsigned.ipa > SHA256SUMS.txt
-    - uses: actions/upload-artifact@v4
-      if: matrix.name == 'iOS26-iPhone'
-      with:
-        name: unsigned-ipa
-        path: |
-          build/IPAKeyboard-unsigned.ipa
-          build/SHA256SUMS.txt
-        retention-days: 7
-    - uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: diagnostics-${{ matrix.name }}
-        path: |
-          build/*.log
-          build/*.xcresult
-        if-no-files-found: ignore
-        retention-days: 7
+      - uses: actions/checkout@v4
+      - name: Generate and validate project
+        run: |
+          xcodebuild -version
+          python3 tools/generate_project.py
+          python3 -m unittest discover -s Tests -p 'test_*.py' -v
+      - name: Install iOS 17 compatibility runtime
+        if: matrix.runtime == '17'
+        run: python3 tools/install_test_runtime.py 17.5
+      - name: Create and boot simulator
+        run: |
+          python3 tools/create_simulator.py
+      - name: Run simulator tests
+        run: |
+          set -o pipefail
+          mkdir -p build
+          python3 tools/boot_simulator.py "$SIMULATOR_ID"
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -parallel-testing-enabled NO -derivedDataPath build/Simulator \
+            -resultBundlePath build/Tests.xcresult \
+            ${{ matrix.tests }} test CODE_SIGNING_ALLOWED=NO | tee build/simulator.log
+      - name: Archive and package unsigned IPA
+        if: matrix.name == 'iOS26-iPhone'
+        run: |
+          set -o pipefail
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath build/IPAKeyboard.xcarchive \
+            archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tee build/archive.log
+          python3 tools/package_unsigned_ipa.py build/IPAKeyboard.xcarchive build/IPAKeyboard-unsigned.ipa
+          cd build
+          shasum -a 256 IPAKeyboard-unsigned.ipa > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        if: matrix.name == 'iOS26-iPhone'
+        with:
+          name: unsigned-ipa
+          path: |
+            build/IPAKeyboard-unsigned.ipa
+            build/SHA256SUMS.txt
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diagnostics-${{ matrix.name }}
+          path: |
+            build/*.log
+            build/*.xcresult
+          if-no-files-found: ignore
+          retention-days: 7
   release:
-    needs:
-    - validate
+    needs: [validate]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/download-artifact@v4
-      with:
-        name: unsigned-ipa
-        path: build
-    - name: Publish verified build
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        tag="v$(cat VERSION)"
-        python3 tools/package_font.py build
-        cp RELEASE_NOTES.md build/RELEASE.md
-        cat >> build/RELEASE.md <<EOF
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: unsigned-ipa
+          path: build
+      - name: Publish verified app and font
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="v$(cat VERSION)"
+          python3 tools/package_font.py build
+          cp RELEASE_NOTES.md build/RELEASE.md
+          cat >> build/RELEASE.md <<EOF
 
-        Validated on iOS 17 and iOS 26 iPhone/iPad simulators.
-        Source: $GITHUB_SHA
-        Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-
-        EOF
-        gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt \
-          --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md
+          Validated on iOS 17 and iOS 26 iPhone/iPad simulators.
+          Source: $GITHUB_SHA
+          Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          EOF
+          gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt \
+            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md

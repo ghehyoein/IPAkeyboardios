@@ -28,5 +28,7 @@ class SimulatorReuseTests(unittest.TestCase):
             baseline = validation_configuration(path)
             path.write_text('jobs:\n  validate:\n    tests: all\n  release:\n    uses: isolated.yml\n')
             self.assertEqual(validation_configuration(path), baseline)
+            path.write_text('jobs:\n  validate:\n    tests: all\n  release:\n    runs-on: ubuntu-latest\n')
+            self.assertEqual(validation_configuration(path), baseline)
             path.write_text('jobs:\n  validate:\n    tests: subset\n  release:\n    uses: isolated.yml\n')
             self.assertNotEqual(validation_configuration(path), baseline)

@@ -17,7 +17,7 @@ def validations_passed(jobs):
 
 def validation_configuration(path):
     # Release-only changes cannot alter the matrix or simulator test commands.
-    return Path(path).read_text()
+    return Path(path).read_text().split("  release:\n", 1)[0]
 
 def main():
     repo = os.environ["GITHUB_REPOSITORY"]
