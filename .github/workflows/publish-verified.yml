@@ -66,16 +66,24 @@ jobs:
                 assert p['CFBundleDisplayName'] == 'ipa+ keyboard'
         PY
         cat > build/RELEASE.md <<NOTES
-        Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Localized ipa+ keyboard display names, hidden demo navigation, and full-range category long-press selection within the visible strip, selection feedback, and consistent system-name fallbacks.
+        Long-press the symbol category strip to see one representative phonetic symbol per category instead of crowded text. Representatives belong to their own categories and are checked against the installed system fonts; Recent uses the system clock icon.
+        Category icons and full labels switch immediately without the button title fade. Full-range sliding selection, haptic feedback, accessible category names and the original scroll position are preserved. Supports iPhone and iPad from iOS 17.
 
-        Download IPAKeyboard-unsigned.ipa directly; sign both app and extension before installing.
+        Download **IPAKeyboard-unsigned.ipa** directly; sign both app and extension before installing.
 
-        All four validation jobs passed: iOS 17.5 iPhone SE and iPad 9, and iOS 26.2 iPhone 16 Pro Max and iPad Pro 13-inch M4. The full iPhone regression and the unit/rotation/input checks on the other configurations passed. Simulator results do not establish physical-device frame rates.
-
+        All four application validation jobs passed on iOS 17 and iOS 26 iPhone/iPad simulators. Physical-device performance may differ.
         Validation and IPA: https://github.com/$GITHUB_REPOSITORY/actions/runs/$VALIDATION_RUN
-
-        Source: $GITHUB_SHA
         Publication: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
         This GitHub release does not automatically replace the App Store version.
         NOTES
-        gh release create "v$(cat VERSION)" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --target "$GITHUB_SHA" --title "ipa+ keyboard v$(cat VERSION)" --notes-file build/RELEASE.md
+        tag="v$(cat VERSION)"
+        if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+          # Keep a published tag immutable. Replacement artifacts must still
+          # describe exactly the same application as that published commit.
+          sha=$(gh api "repos/$GITHUB_REPOSITORY/commits/$tag" --jq .sha)
+          git diff --exit-code "$sha" HEAD -- App Shared KeyboardExtension IPAKeyboard.xcodeproj VERSION tools/generate_project.py tools/build_catalog.py 'Tests/*.swift'
+          gh release upload "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --clobber
+          gh release edit "$tag" --repo "$GITHUB_REPOSITORY" --notes-file build/RELEASE.md
+        else
+          gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md
+        fi
