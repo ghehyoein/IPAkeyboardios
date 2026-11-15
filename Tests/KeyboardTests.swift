@@ -51,7 +51,14 @@ final class KeyboardTests: XCTestCase {
             for width: CGFloat in [320, 428, 768] {
                 for style: UIUserInterfaceStyle in [.light, .dark] {
                     let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: width, height: 305))
-                    keyboard.overrideUserInterfaceStyle = style
+                    let window = UIWindow(frame: keyboard.bounds)
+                    let controller = UIViewController()
+                    window.rootViewController = controller
+                    window.overrideUserInterfaceStyle = style
+                    controller.view.backgroundColor = .systemGroupedBackground
+                    controller.view.addSubview(keyboard)
+                    window.isHidden = false
+                    defer { window.isHidden = true }
                     keyboard.isTablet = width >= 768
                     keyboard.layoutIfNeeded(); keyboard.showSymbolsForSnapshot(); keyboard.layoutIfNeeded()
                     let panel = try XCTUnwrap(keyboard.subviews.last)
@@ -61,6 +68,9 @@ final class KeyboardTests: XCTestCase {
                     let frames = strip.selectionButtons.map { $0.frame }
                     let titles = strip.selectionButtons.map { $0.title(for: .normal) }
                     strip.beginScrubbing(); strip.layoutIfNeeded()
+                    strip.selectionButtons.forEach { $0.layoutIfNeeded() }
+                    // UIKit commits button title changes on the next display pass.
+                    RunLoop.main.run(until: Date().addingTimeInterval(0.1))
                     XCTAssertNotNil(strip.selectionButtons.first?.image(for: .normal))
                     for (index, button) in strip.selectionButtons.enumerated() {
                         XCTAssertTrue(strip.bounds.insetBy(dx: -0.01, dy: 0).contains(button.frame))
@@ -69,11 +79,13 @@ final class KeyboardTests: XCTestCase {
                             let title = try XCTUnwrap(button.title(for: .normal))
                             XCTAssertEqual(title.count, 1)
                             XCTAssertTrue(PhoneticDisplay.isSupported(title))
+                            XCTAssertEqual(button.titleLabel?.text, title)
+                            XCTAssertGreaterThan(button.titleLabel?.bounds.width ?? 0, 0)
                         }
                     }
                     if language == "en" {
                         let renderer = UIGraphicsImageRenderer(size: keyboard.bounds.size)
-                        let image = renderer.image { keyboard.layer.render(in: $0.cgContext) }
+                        let image = renderer.image { _ in keyboard.drawHierarchy(in: keyboard.bounds, afterScreenUpdates: true) }
                         let attachment = XCTAttachment(image: image)
                         attachment.name = "category-icons-\(Int(width))-\(style == .dark ? "dark" : "light")"
                         attachment.lifetime = .keepAlways; add(attachment)
