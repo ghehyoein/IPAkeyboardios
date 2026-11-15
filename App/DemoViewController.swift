@@ -38,7 +38,7 @@ final class DemoViewController: UIViewController {
         description.font = .systemFont(ofSize: 15)
         description.textColor = .secondaryLabel
         description.numberOfLines = 0
-        editor.font = .systemFont(ofSize: 28)
+        editor.font = PhoneticDisplay.font(ofSize: 28)
         editor.text = "[ˌɪntəˈnæʃənəl fəˈnɛtɪk ˈælfəbet]\n"
         editor.backgroundColor = .secondarySystemBackground
         editor.layer.cornerRadius = 14

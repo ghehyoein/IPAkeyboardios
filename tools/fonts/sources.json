@@ -1,0 +1,32 @@
+[
+  {
+    "path": "Charis-7.000/Charis-Regular.ttf",
+    "url": "https://github.com/silnrsi/font-charis/releases/download/v7.000/Charis-7.000.zip",
+    "archive_member": "Charis-7.000/Charis-Regular.ttf",
+    "sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6"
+  },
+  {
+    "path": "BabelStoneRoman.ttf",
+    "url": "https://www.babelstone.co.uk/Fonts/Download/BabelStoneRoman.ttf",
+    "archive_member": null,
+    "sha256": "ffa5663ef462ac7510587cb1bd93ca1d2173567006c0a19a654c48c28cce8a6a"
+  },
+  {
+    "path": "unifont-18.0.01.otf",
+    "url": "https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/unifont-18.0.01.otf",
+    "archive_member": null,
+    "sha256": "88d0a14d4aa9a96419720b39ba5da921a59560d76d4ec7d523acc06ed85cd3c2"
+  },
+  {
+    "path": "unifont_upper-18.0.01.otf",
+    "url": "https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/unifont_upper-18.0.01.otf",
+    "archive_member": null,
+    "sha256": "472201e45a050bff4c7658208b8c73e34ebce3764b287a5a46c7774038ef9391"
+  },
+  {
+    "path": "UnicodeData.txt",
+    "url": "https://www.unicode.org/Public/18.0.0/ucd/UnicodeData.txt",
+    "archive_member": null,
+    "sha256": "0736451de439ae7baf1425136617da495e09ee5afbe6e394374db7009ea08950"
+  }
+]

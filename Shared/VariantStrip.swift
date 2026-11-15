@@ -57,8 +57,8 @@ final class VariantStrip: UIView {
             let label = UILabel(frame: CGRect(x: CGFloat(i) * cellWidth, y: 0, width: cellWidth, height: height - 10))
             let display = IPACatalog.shared.symbol(value)?.display ?? value
             label.text = PhoneticDisplay.title(for: display)
-            label.numberOfLines = 2
-            label.font = .systemFont(ofSize: PhoneticDisplay.isSupported(display) ? (showsSelection ? 27 : 34) : 10, weight: showsSelection ? .regular : .light)
+            label.numberOfLines = PhoneticDisplay.isSupported(display) ? 1 : 2
+            label.font = PhoneticDisplay.keyFont(for: display, size: PhoneticDisplay.isSupported(display) ? (showsSelection ? 27 : 34) : 10)
             label.textAlignment = .center
             label.adjustsFontSizeToFitWidth = true
             label.minimumScaleFactor = 0.55

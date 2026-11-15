@@ -1,19 +1,41 @@
 import UIKit
 import CoreText
 
-/// Use the system's fallback fonts. If even fallback fonts lack a new Unicode
-/// character, show its code point instead of an indistinguishable tofu box.
+/// One bundled, subsetted OFL font for phonetic text in both hosting processes.
+/// UIKit still supplies the interface font and fallback for ordinary UI languages.
 enum PhoneticDisplay {
-    private static let cache: NSCache<NSString, NSNumber> = {
-        let cache = NSCache<NSString, NSNumber>(); cache.countLimit = 512; return cache
+    static let fontName = "IPAPlusUnified-Regular"
+    private final class BundleToken: NSObject {}
+    private static let bundledFont: UIFont? = {
+        if let font = UIFont(name: fontName, size: 26) { return font }
+        let bundle = Bundle(for: BundleToken.self)
+        if let url = bundle.url(forResource: "IPAPlusUnified-Regular", withExtension: "ttf") {
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+        return UIFont(name: fontName, size: 26)
     }()
-    static func isSupported(_ text: String) -> Bool {
-        if let cached = cache.object(forKey: text as NSString) { return cached.boolValue }
-        let line = CTLineCreateWithAttributedString(NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 26)]))
+    static func font(ofSize size: CGFloat) -> UIFont {
+        bundledFont?.withSize(size) ?? .systemFont(ofSize: size)
+    }
+    static func keyFont(for text: String, size: CGFloat) -> UIFont {
+        text.unicodeScalars.allSatisfy { $0.value < 128 } ? .systemFont(ofSize: size) : font(ofSize: size)
+    }
+    static func scaledFont(for style: UIFont.TextStyle) -> UIFont {
+        UIFontMetrics(forTextStyle: style).scaledFont(for: font(ofSize: UIFont.preferredFont(forTextStyle: style,
+            compatibleWith: UITraitCollection(preferredContentSizeCategory: .large)).pointSize))
+    }
+    private static let cache: NSCache<NSString, NSNumber> = {
+        let cache = NSCache<NSString, NSNumber>(); cache.countLimit = 2048; return cache
+    }()
+    static func isSupported(_ text: String) -> Bool { supports(text, font: font(ofSize: 26), prefix: "bundled:") }
+    // Category representatives retain the promise that system fonts can show them.
+    static func isSystemSupported(_ text: String) -> Bool { supports(text, font: .systemFont(ofSize: 26), prefix: "system:") }
+    private static func supports(_ text: String, font: UIFont, prefix: String) -> Bool {
+        let key = (prefix + text) as NSString
+        if let cached = cache.object(forKey: key) { return cached.boolValue }
+        let line = CTLineCreateWithAttributedString(NSAttributedString(string: text, attributes: [.font: font]))
         let runs = CTLineGetGlyphRuns(line) as! [CTRun]
         let supported = runs.allSatisfy { run in
-            // Apple's LastResort font has nonzero glyph IDs but draws boxed
-            // placeholders. Treat it as missing coverage too.
             let attributes = CTRunGetAttributes(run) as NSDictionary
             if let font = attributes[kCTFontAttributeName] {
                 let name = CTFontCopyPostScriptName(font as! CTFont) as String
@@ -23,7 +45,7 @@ enum PhoneticDisplay {
             CTRunGetGlyphs(run, CFRange(location: 0, length: 0), &glyphs)
             return !glyphs.contains(0)
         }
-        cache.setObject(NSNumber(value: supported), forKey: text as NSString)
+        cache.setObject(NSNumber(value: supported), forKey: key)
         return supported
     }
     static func title(for text: String) -> String {
@@ -49,7 +71,7 @@ enum SymbolCategoryIcon {
     ]
 
     static func representative(for section: SymbolSection, catalog: IPACatalog,
-                               supports: (String) -> Bool = PhoneticDisplay.isSupported) -> IPASymbol? {
+                               supports: (String) -> Bool = PhoneticDisplay.isSystemSupported) -> IPASymbol? {
         guard section.id != "recent" else { return nil }
         let visible = section.values.compactMap { catalog.symbol($0) }
         guard let first = visible.first else { return nil }

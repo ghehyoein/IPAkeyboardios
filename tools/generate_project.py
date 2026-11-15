@@ -15,13 +15,13 @@ def add(token, **attrs):
 
 def plist(path, data):
  with (R/path).open('wb') as f: plistlib.dump(data, f, sort_keys=False)
-base={'CFBundleDevelopmentRegion':'en','CFBundleLocalizations':['en','zh-Hans','zh-Hant','ja'],'CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'ipa+ keyboard','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)'}
+base={'CFBundleDevelopmentRegion':'en','CFBundleLocalizations':['en','zh-Hans','zh-Hant','ja'],'CFBundleExecutable':'$(EXECUTABLE_NAME)','CFBundleIdentifier':'$(PRODUCT_BUNDLE_IDENTIFIER)','CFBundleInfoDictionaryVersion':'6.0','CFBundleName':'ipa+ keyboard','CFBundleShortVersionString':version,'CFBundleVersion':build_number,'IPASettingsAppGroup':'$(IPA_APP_GROUP_IDENTIFIER)','UIAppFonts':['IPAPlusUnified-Regular.ttf']}
 plist('App/Info.plist', dict(base,CFBundlePackageType='APPL',CFBundleDisplayName='ipa+ keyboard',ITSAppUsesNonExemptEncryption=False,LSRequiresIPhoneOS=True,UILaunchScreen={},UISupportedInterfaceOrientations=['UIInterfaceOrientationPortrait','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight'],**{'UISupportedInterfaceOrientations~ipad':['UIInterfaceOrientationPortrait','UIInterfaceOrientationPortraitUpsideDown','UIInterfaceOrientationLandscapeLeft','UIInterfaceOrientationLandscapeRight']}))
 plist('KeyboardExtension/Info.plist',dict(base,CFBundlePackageType='XPC!',CFBundleDisplayName='ipa+ keyboard',NSExtension={'NSExtensionPointIdentifier':'com.apple.keyboard-service','NSExtensionPrincipalClass':'$(PRODUCT_MODULE_NAME).KeyboardViewController','NSExtensionAttributes':{'IsASCIICapable':True,'PrefersRightToLeft':False,'PrimaryLanguage':'mul','RequestsOpenAccess':True}}))
 for file in ['App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']:
  plist(file,{'com.apple.security.application-groups':['$(IPA_APP_GROUP_IDENTIFIER)']})
 shared=['Shared/KeyboardMetrics.swift','Shared/PhoneticDisplay.swift','Shared/SymbolInventory.swift','Shared/Localization.swift','Shared/SwipePreferences.swift','Shared/KeyboardMaterial.swift','Shared/KeyFeedback.swift','Shared/SymbolVisibility.swift','Shared/IPACatalog.swift','Shared/KeyboardLayout.swift','Shared/LetterKey.swift','Shared/KeyboardSurface.swift','Shared/VariantStrip.swift','Shared/SymbolGrid.swift']
-source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/DemoViewController.swift','App/SymbolSettingsViewController.swift','App/SymbolCatalogViewController.swift','App/SwipeSettingsViewController.swift']+shared,'IPAKeyboardExtension':['KeyboardExtension/KeyboardViewController.swift']+shared,'IPAKeyboardTests':['Tests/KeyboardTests.swift'],'IPAKeyboardUITests':['Tests/KeyboardUITests.swift','Tests/CompatibilityUITests.swift']}
+source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/DemoViewController.swift','App/SymbolSettingsViewController.swift','App/SymbolCatalogViewController.swift','App/SwipeSettingsViewController.swift']+shared,'IPAKeyboardExtension':['KeyboardExtension/KeyboardViewController.swift']+shared,'IPAKeyboardTests':['Tests/KeyboardTests.swift','Tests/UnifiedFontTests.swift'],'IPAKeyboardUITests':['Tests/KeyboardUITests.swift','Tests/CompatibilityUITests.swift']}
 files=sorted(set(sum(source_sets.values(),[])+['Shared/localization.json','Shared/PrivacyInfo.xcprivacy','Shared/ipa-catalog.json','App/Info.plist','KeyboardExtension/Info.plist','App/Assets.xcassets','App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']))
 # Localized system display names for both the containing app and keyboard extension.
 localization_folders=[]
@@ -30,11 +30,12 @@ for language, name in [('en','ipa+ keyboard'),('zh-Hans','ipa+键盘'),('zh-Hant
  folder.mkdir(exist_ok=True)
  (folder/'InfoPlist.strings').write_text(f'"CFBundleDisplayName" = "{name}";\n"CFBundleName" = "{name}";\n')
  localization_folders.append(f'Shared/{language}.lproj')
-files += localization_folders
+font_resources=['Shared/Fonts/IPAPlusUnified-Regular.ttf','Shared/Fonts/Font-Licenses.txt']
+files += localization_folders + font_resources
 refs={}
 for file in files:
  ext=Path(file).suffix
- refs[file]=add('file:'+file,isa='PBXFileReference',lastKnownFileType={'.lproj':'folder','.swift':'sourcecode.swift','.json':'text.json','.plist':'text.plist.xml','.entitlements':'text.plist.entitlements','.xcassets':'folder.assetcatalog','.xcprivacy':'text.xml'}[ext],path=file,sourceTree='<group>')
+ refs[file]=add('file:'+file,isa='PBXFileReference',lastKnownFileType={'.ttf':'file','.txt':'text','.lproj':'folder','.swift':'sourcecode.swift','.json':'text.json','.plist':'text.plist.xml','.entitlements':'text.plist.entitlements','.xcassets':'folder.assetcatalog','.xcprivacy':'text.xml'}[ext],path=file,sourceTree='<group>')
 products={}
 for target,extension,typ in [('IPAKeyboard','app','wrapper.application'),('IPAKeyboardExtension','appex','wrapper.app-extension'),('IPAKeyboardTests','xctest','wrapper.cfbundle'),('IPAKeyboardUITests','xctest','wrapper.cfbundle')]:
  products[target]=add('product:'+target,isa='PBXFileReference',explicitFileType=typ,includeInIndex=0,path=target+'.'+extension,sourceTree='BUILT_PRODUCTS_DIR')
@@ -63,6 +64,8 @@ for target,fileset in source_sets.items():
  if target in ['IPAKeyboard','IPAKeyboardExtension']:
   for folder in localization_folders:
    objects[phases[1]]['files'].append(add(target+':'+folder,isa='PBXBuildFile',fileRef=refs[folder]))
+  for font_resource in font_resources:
+   objects[phases[1]]['files'].append(add(target+':'+font_resource,isa='PBXBuildFile',fileRef=refs[font_resource]))
   privacy=add(target+':privacy',isa='PBXBuildFile',fileRef=refs['Shared/PrivacyInfo.xcprivacy'])
   objects[phases[1]]['files'].append(privacy)
  dependencies=[]

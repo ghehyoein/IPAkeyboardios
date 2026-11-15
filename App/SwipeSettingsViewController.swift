@@ -19,6 +19,8 @@ final class SwipeSettingsViewController: UITableViewController {
         let map = SymbolSettingsStore.shared.loadSwipes().applying(to: SwipePreferences.source(for: key), key: key)
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.numberOfLines = 0; cell.detailTextLabel?.numberOfLines = 0
+        cell.textLabel?.font = PhoneticDisplay.keyFont(for: key, size: 17)
+        cell.detailTextLabel?.font = PhoneticDisplay.scaledFont(for: .subheadline)
         cell.textLabel?.text = key
         cell.detailTextLabel?.text = zip(["↑", "↓", "←", "→"], SwipePreferences.directions).map { $0.0 + " " + (map.swipes[$0.1] ?? "—") }.joined(separator: "    ")
         cell.accessibilityIdentifier = "configureSwipe_" + key
@@ -43,6 +45,7 @@ private final class SwipeKeyViewController: UITableViewController {
         let direction = SwipePreferences.directions[indexPath.row]
         cell.textLabel?.text = ["↑ 上滑".localized, "↓ 下滑".localized, "← 左滑".localized, "→ 右滑".localized][indexPath.row]
         let mapping = SymbolSettingsStore.shared.loadSwipes().applying(to: SwipePreferences.source(for: key), key: key)
+        cell.detailTextLabel?.font = PhoneticDisplay.scaledFont(for: .body)
         cell.detailTextLabel?.text = mapping.swipes[direction] ?? "无变体".localized
         cell.accessibilityIdentifier = "swipeDirection_" + direction
         cell.accessoryType = .disclosureIndicator
@@ -83,6 +86,7 @@ private final class SwipeCandidateViewController: UITableViewController, UISearc
         let text = filtered[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.numberOfLines = 0; cell.detailTextLabel?.numberOfLines = 0
+        cell.textLabel?.font = PhoneticDisplay.scaledFont(for: .title2)
         cell.textLabel?.text = IPACatalog.shared.symbol(text)?.display ?? text
         cell.detailTextLabel?.text = IPACatalog.shared.symbol(text)?.name ?? "基础字符".localized
         cell.accessibilityIdentifier = "swipeCandidate_" + text

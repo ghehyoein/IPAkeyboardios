@@ -55,7 +55,13 @@ are made available under **Creative Commons Attribution-ShareAlike 4.0 Internati
 
 Any official Unicode data incorporated into these materials remains subject to its respective Unicode license. Rights granted by the applicable third-party licenses, including commercial-use rights where permitted, are not restricted by the noncommercial license governing the project's original software.
 
-### 4.3 Other Third-Party Materials
+### 4.3 Bundled Fonts
+
+The modified fonts in `Shared/Fonts` and `Reference/Fonts` are licensed under the **SIL Open Font License 1.1**, independently of the original software's noncommercial license. Their original copyright notices and license terms are reproduced in [Shared/Fonts/Font-Licenses.txt](Shared/Fonts/Font-Licenses.txt) and [Reference/Fonts/Supplement-OFL.txt](Reference/Fonts/Supplement-OFL.txt).
+
+These fonts may be modified, embedded, and redistributed, including with commercial software, subject to the OFL's conditions. Unifont-derived compiled font data uses its OFL licensing option. No Unicode chart font data is included.
+
+### 4.4 Other Third-Party Materials
 
 External works, reference materials, standards, dependencies, and assets remain subject to the licenses and attribution requirements established by their respective rights holders. Consult the notices accompanying those materials and [Reference/SOURCES.md](Reference/SOURCES.md).
 
