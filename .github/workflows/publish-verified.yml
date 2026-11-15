@@ -76,10 +76,10 @@ jobs:
                   p = plistlib.loads(z.read(path))
                   assert p['CFBundleShortVersionString'] == Path('VERSION').read_text().strip()
                   assert p['MinimumOSVersion'] == '17.0' and set(p['UIDeviceFamily']) == {1,2}
-                  assert p['CFBundleDisplayName'] == 'IPA Keyboard'
+                  assert p['CFBundleDisplayName'] == 'ipa+ keyboard'
           PY
           cat > build/RELEASE.md <<NOTES
-          Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Restores the display name to IPA Keyboard. Retains the demo page in Settings in Simplified Chinese, Traditional Chinese, English and Japanese.
+          Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Localized ipa+ keyboard display names, hidden demo navigation, and category long-press scrubbing with selection feedback.
 
           Download IPAKeyboard-unsigned.ipa directly; sign both app and extension before installing. AppStore-Screenshots.zip contains 36 native screenshots in four languages, at two iPhone sizes and one iPad size.
 
@@ -93,4 +93,4 @@ jobs:
           Publication: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
           This GitHub release does not automatically replace the App Store version.
           NOTES
-          gh release create "v$(cat VERSION)" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/AppStore-Screenshots.zip --target "$GITHUB_SHA" --title "IPA Keyboard v$(cat VERSION)" --notes-file build/RELEASE.md
+          gh release create "v$(cat VERSION)" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/AppStore-Screenshots.zip --target "$GITHUB_SHA" --title "ipa+ keyboard v$(cat VERSION)" --notes-file build/RELEASE.md

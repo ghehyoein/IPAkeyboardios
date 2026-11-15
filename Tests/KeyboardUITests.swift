@@ -1,6 +1,19 @@
 import XCTest
 
 final class KeyboardUITests: XCTestCase {
+    func testCategoryLongPressScrubbing() {
+        let (app, _) = launch()
+        app.buttons["diacriticsKey"].tap()
+        let recent = app.buttons["category_recent"]
+        let modifiers = app.buttons["category_diacritics"]
+        XCTAssertTrue(recent.waitForExistence(timeout: 5))
+        modifiers.press(forDuration: 0.5, thenDragTo: recent)
+        XCTAssertTrue(recent.isSelected)
+        recent.press(forDuration: 0.5, thenDragTo: modifiers)
+        XCTAssertTrue(modifiers.isSelected)
+        app.buttons["closeSymbolPanel"].tap()
+        XCTAssertTrue(key("q", in: app).isHittable)
+    }
     private func launch() -> (XCUIApplication, XCUIElement) {
         continueAfterFailure = false
         let app = XCUIApplication()
@@ -16,12 +29,13 @@ final class KeyboardUITests: XCTestCase {
         XCTAssertTrue(result.waitForExistence(timeout: 5)); return result
     }
     func testFourInterfaceLanguagesAndLocalizedSymbolSearch() {
-        let cases = [("zh-Hans", "符号显示", "送气"), ("zh-Hant", "符號顯示", "送氣"), ("en", "Symbol settings", "Aspirated"), ("ja", "記号の設定", "有気音")]
+        let cases = [("zh-Hans", "ipa+键盘", "送气"), ("zh-Hant", "ipa+鍵盤", "送氣"), ("en", "ipa+ keyboard", "Aspirated"), ("ja", "ipa+キーボード", "有気音")]
         for (language, title, note) in cases {
             let app = XCUIApplication()
             app.launchArguments = ["--reset-settings", "-AppleLanguages", "(\(language))"]
             app.launch()
             XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 10))
+            XCTAssertFalse(app.buttons["openKeyboardDemo"].exists)
             attach(app, name: "settings-" + language)
             let catalog = app.cells["openSymbolCatalog"]
             for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
@@ -65,11 +79,11 @@ final class KeyboardUITests: XCTestCase {
         XCTAssertFalse(app.staticTexts["跟随系统"].exists)
         attach(app, name: "language-options")
         app.cells["language_en"].tap()
-        XCTAssertTrue(app.navigationBars["Symbol settings"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["ipa+ keyboard"].waitForExistence(timeout: 5))
         app.terminate()
         app.launchArguments = ["-AppleLanguages", "(zh-Hans)"]
         app.launch()
-        XCTAssertTrue(app.navigationBars["Symbol settings"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.navigationBars["ipa+ keyboard"].waitForExistence(timeout: 10))
     }
     func testTapAndLongPressReleaseProduceExactlyOneCharacter() {
         let (app, editor) = launch()

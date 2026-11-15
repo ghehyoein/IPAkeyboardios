@@ -24,11 +24,10 @@ final class DemoViewController: UIViewController {
         if ProcessInfo.processInfo.arguments.contains("--ui-testing") && !ProcessInfo.processInfo.arguments.contains("--preserve-settings") { SymbolSettingsStore.shared.resetForTesting() }
         #endif
         keyboard.refreshVisibility()
-        title = "IPA Keyboard"
+        title = "ipa+键盘".localized
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "符号显示".localized, style: .plain, target: self, action: #selector(showSymbolSettings))
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = "openSymbolSettings"
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "使用说明".localized, style: .plain, target: self, action: #selector(showGuide))
         let heading = UILabel()
         heading.text = "把声音，写准确。".localized
         heading.font = .preferredFont(forTextStyle: .title1)
@@ -150,22 +149,4 @@ final class DemoViewController: UIViewController {
         }
     }
     @objc private func dismissKeyboard() { editor.resignFirstResponder() }
-    @objc private func showGuide() {
-        let guide = UIViewController()
-        guide.title = "启用与输入".localized
-        guide.view.backgroundColor = .systemBackground
-        let text = UITextView()
-        text.isEditable = false
-        text.font = .systemFont(ofSize: 17)
-        text.text = "键盘使用说明".localized
-        text.translatesAutoresizingMaskIntoConstraints = false
-        guide.view.addSubview(text)
-        NSLayoutConstraint.activate([
-            text.topAnchor.constraint(equalTo: guide.view.safeAreaLayoutGuide.topAnchor),
-            text.bottomAnchor.constraint(equalTo: guide.view.safeAreaLayoutGuide.bottomAnchor),
-            text.leadingAnchor.constraint(equalTo: guide.view.leadingAnchor, constant: 16),
-            text.trailingAnchor.constraint(equalTo: guide.view.trailingAnchor, constant: -16)
-        ])
-        navigationController?.pushViewController(guide, animated: true)
-    }
 }

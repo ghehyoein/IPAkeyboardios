@@ -29,4 +29,4 @@ Missing glyphs display their code points without changing the inserted text.
 `ios.yml` validates simulator behavior before release; the workflow result is the
 record of which OS/device configurations actually passed. `capture_screenshots.py`
 produces native simulator screenshots and a manifest identifying each language,
-device and runtime. The demonstration screen is accessible from Settings.
+device and runtime. The demonstration screen is retained for debug launch arguments only.

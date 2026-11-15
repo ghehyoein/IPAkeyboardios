@@ -24,8 +24,11 @@ for bundle in [app, extension]:
         raise SystemExit(f'Expected iOS 17 deployment target: {bundle}')
     if set(info.get('UIDeviceFamily', [])) != {1, 2}:
         raise SystemExit(f'Expected universal iPhone/iPad bundle: {bundle}')
-    if info.get('CFBundleDisplayName') != 'IPA Keyboard':
+    if info.get('CFBundleDisplayName') != 'ipa+ keyboard':
         raise SystemExit(f'Unexpected keyboard display name: {bundle}')
+    for language in ('en', 'zh-Hans', 'zh-Hant', 'ja'):
+        if not (bundle / (language + '.lproj') / 'InfoPlist.strings').is_file():
+            raise SystemExit(f'Missing localized system name: {bundle} {language}')
     print(subprocess.check_output(['file', str(executable)], text=True).strip())
     if not (bundle / 'ipa-catalog.json').is_file():
         raise SystemExit(f'Missing IPA catalog: {bundle}')
