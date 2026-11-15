@@ -66,11 +66,11 @@ jobs:
                 assert p['CFBundleDisplayName'] == 'ipa+ keyboard'
         PY
         cat > build/RELEASE.md <<NOTES
-        Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Localized ipa+ keyboard display names, hidden demo navigation, and category long-press scrubbing with selection feedback.
+        Supports iPhone and iPad from iOS 17, with adaptive portrait/landscape layouts and more efficient continuous symbol browsing. Localized ipa+ keyboard display names, hidden demo navigation, and full-range category long-press selection within the visible strip, selection feedback, and consistent system-name fallbacks.
 
         Download IPAKeyboard-unsigned.ipa directly; sign both app and extension before installing.
 
-        All four validation jobs passed: iOS 17.5 iPhone SE and iPad 9, and iOS 26.2 iPhone 16 Pro Max and iPad Pro 13-inch M4. Full iPhone regression passed 30 unit tests and 16 UI tests. Other configurations each passed 30 unit tests and a portrait/landscape input test. Simulator results do not establish physical-device frame rates.
+        All four validation jobs passed: iOS 17.5 iPhone SE and iPad 9, and iOS 26.2 iPhone 16 Pro Max and iPad Pro 13-inch M4. The full iPhone regression and the unit/rotation/input checks on the other configurations passed. Simulator results do not establish physical-device frame rates.
 
         Validation and IPA: https://github.com/$GITHUB_REPOSITORY/actions/runs/$VALIDATION_RUN
 

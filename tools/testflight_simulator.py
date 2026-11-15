@@ -15,6 +15,10 @@ def validations_passed(jobs):
                    and job.get('conclusion') == 'success' for job in jobs)
                for name in configurations)
 
+def validation_configuration(path):
+    # Release-only changes cannot alter the matrix or simulator test commands.
+    return Path(path).read_text()
+
 def main():
     repo = os.environ["GITHUB_REPOSITORY"]
     url = f"repos/{repo}/actions/workflows/ios.yml/runs?branch=main&status=completed&per_page=1"
@@ -37,12 +41,14 @@ def main():
     if subprocess.run(["git", "merge-base", "--is-ancestor", sha, "HEAD"]).returncode:
         return
     # Compare app/extension sources, resources, entitlements, tests and build graph.
-    relevant = ["App", "Shared", "KeyboardExtension", "IPAKeyboard.xcodeproj", "Tests", "Reference", "tools/build_catalog.py", "VERSION", "tools/create_simulator.py", ".github/workflows/ios.yml"]
+    relevant = ["App", "Shared", "KeyboardExtension", "IPAKeyboard.xcodeproj", "Tests", "Reference", "tools/build_catalog.py", "VERSION", "tools/create_simulator.py", "tools/generate_project.py", "tools/boot_simulator.py", "tools/install_test_runtime.py"]
     with tempfile.TemporaryDirectory() as folder:
         old = Path(folder) / "previous"
         subprocess.run(["git","worktree","add","--quiet","--detach",str(old),sha],check=True)
         try:
             subprocess.run(["python3","tools/generate_project.py"],cwd=old,check=True)
+            if validation_configuration(old / '.github/workflows/ios.yml') != validation_configuration('.github/workflows/ios.yml'):
+                return
             for part in relevant:
                 args=["diff","-qr","-x","__pycache__","-x","test_testflight.py","-x","test_simulator_reuse.py",str(old/part),part]
                 if subprocess.run(args,stdout=subprocess.DEVNULL).returncode:
