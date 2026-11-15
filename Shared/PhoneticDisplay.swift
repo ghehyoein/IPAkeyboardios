@@ -32,3 +32,49 @@ enum PhoneticDisplay {
     }
 }
 
+/// A category keeps its own symbol even when the panel's visibility filters change.
+/// Recent items have no exclusive symbol, so use the familiar system clock instead.
+enum SymbolCategoryIcon {
+    case glyph(String)
+    case systemImage(String)
+
+    private static let preferred: [String: [String]] = [
+        "pulmonic": ["ʃ", "ŋ"], "vowels": ["ə", "ɑ"], "nonpulmonic": ["ɓ", "ǃ"],
+        "other": ["ɕ", "\u{0361}"], "diacritics": ["\u{0303}", "ʰ"],
+        "suprasegmentals": ["ː", "\u{0306}"], "tones": ["˥", "\u{030C}"],
+        "chinese": ["ɿ", "¹"], "historical": ["ƀ", "\u{0328}"],
+        "extipa": ["ʩ", "\u{0348}", "ʶ"], "superscripts": ["ᵐ", "ᵃ"],
+        "subscripts": ["ᵢ", "ₐ"], "combining": ["\u{0332}", "\u{0305}"],
+        "unicode": ["ɫ", "ᴂ"], "extras": ["/"]
+    ]
+
+    static func representative(for section: SymbolSection, catalog: IPACatalog,
+                               supports: (String) -> Bool = PhoneticDisplay.isSupported) -> IPASymbol? {
+        guard section.id != "recent" else { return nil }
+        let visible = section.values.compactMap { catalog.symbol($0) }
+        guard let first = visible.first else { return nil }
+        func choose(_ members: [IPASymbol]) -> IPASymbol? {
+            let preferredMembers = (preferred[first.category] ?? []).compactMap { text in
+                members.first { $0.text == text }
+            }
+            return (preferredMembers + members).first {
+                $0.display.count == 1 && !$0.display.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && supports($0.display)
+            }
+        }
+        if let symbol = choose(visible) { return symbol }
+        // A filter may leave only newer Unicode characters unsupported by this OS.
+        // Use an older representative from the same canonical category AND partition;
+        // never borrow another category's symbol or show a missing-glyph box.
+        return choose(catalog.symbols.filter {
+            $0.atomic && $0.category == first.category &&
+            SymbolPanelInventory.isModifier($0) == SymbolPanelInventory.isModifier(first)
+        })
+    }
+
+    static func icon(for section: SymbolSection, catalog: IPACatalog) -> Self {
+        if section.id == "recent" { return .systemImage("clock") }
+        if let symbol = representative(for: section, catalog: catalog) { return .glyph(symbol.display) }
+        return .systemImage("square.dashed")
+    }
+}
+

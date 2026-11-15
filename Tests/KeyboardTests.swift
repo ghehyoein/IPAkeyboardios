@@ -3,6 +3,91 @@ import UIKit
 @testable import IPAKeyboard
 
 final class KeyboardTests: XCTestCase {
+    func testCategoryRepresentativesAreExclusiveAndSystemFontSupported() throws {
+        let catalog = IPACatalog.shared
+        // Include every combination of source and panel visibility filters.
+        for mask in 0..<64 {
+            let visibility = SymbolVisibility(chinese: mask & 1 != 0, historical: mask & 2 != 0, extipa: mask & 4 != 0,
+                panelUnavailable: mask & 8 != 0, panelModifiers: mask & 16 != 0, panelOrdinary: mask & 32 != 0)
+            let sections = SymbolPanelInventory.sections(catalog: catalog, visibility: visibility)
+            var chosen = Set<String>()
+            for section in sections {
+                let symbol = try XCTUnwrap(SymbolCategoryIcon.representative(for: section, catalog: catalog), section.id)
+                let member = try XCTUnwrap(catalog.symbol(try XCTUnwrap(section.values.first)))
+                XCTAssertEqual(symbol.category, member.category)
+                XCTAssertEqual(SymbolPanelInventory.isModifier(symbol), SymbolPanelInventory.isModifier(member))
+                XCTAssertTrue(chosen.insert(symbol.display).inserted, "Duplicate category icon: \(symbol.display)")
+                XCTAssertTrue(PhoneticDisplay.isSupported(symbol.display), section.id)
+                XCTAssertEqual(symbol.display.count, 1, "One displayed symbol, including its combining mark")
+                XCTAssertFalse(sections.contains { $0.id != section.id && $0.values.contains(symbol.text) })
+                if mask == 63 {
+                    XCTAssertTrue(section.values.contains(symbol.text))
+                    print("Category icon: \(section.id) = \(symbol.display)")
+                }
+            }
+        }
+    }
+
+    func testCategoryRepresentativesRejectUnsupportedGlyphsWithoutBorrowingOtherSections() throws {
+        let catalog = IPACatalog.shared
+        let section = SymbolSection(id: "vowels", title: "Vowels", values: ["ə", "ɑ"])
+        let fallback = SymbolCategoryIcon.representative(for: section, catalog: catalog, supports: { $0 == "ɑ" })
+        XCTAssertEqual(fallback?.text, "ɑ")
+        XCTAssertNil(SymbolCategoryIcon.representative(for: section, catalog: catalog, supports: { _ in false }))
+        XCTAssertNil(SymbolCategoryIcon.representative(for: section, catalog: catalog, supports: { $0 == "ʃ" }))
+        let filtered = SymbolSection(id: "vowels", title: "Vowels", values: ["ə"])
+        XCTAssertEqual(SymbolCategoryIcon.representative(for: filtered, catalog: catalog, supports: { $0 == "ɑ" })?.text, "ɑ")
+        let recent = SymbolSection(id: "recent", title: "Recent", values: ["ə"])
+        guard case .systemImage("clock") = SymbolCategoryIcon.icon(for: recent, catalog: catalog) else {
+            return XCTFail("Recent items need a clock, not a borrowed phonetic symbol")
+        }
+    }
+
+    @MainActor func testCompactCategoryIconsRestoreLabelsAndScrollPosition() throws {
+        let originalSettings = SymbolSettingsStore.shared.load()
+        defer { SymbolSettingsStore.shared.save(originalSettings); L10n.selection = originalSettings.language }
+        for language in L10n.languages {
+            SymbolSettingsStore.shared.save(SymbolVisibility(language: language))
+            for width: CGFloat in [320, 428, 768] {
+                for style: UIUserInterfaceStyle in [.light, .dark] {
+                    let keyboard = KeyboardSurface(frame: CGRect(x: 0, y: 0, width: width, height: 305))
+                    keyboard.overrideUserInterfaceStyle = style
+                    keyboard.isTablet = width >= 768
+                    keyboard.layoutIfNeeded(); keyboard.showSymbolsForSnapshot(); keyboard.layoutIfNeeded()
+                    let panel = try XCTUnwrap(keyboard.subviews.last)
+                    let strip = try XCTUnwrap(panel.subviews.compactMap { $0 as? SymbolCategoryScrollView }.first)
+                    strip.contentOffset.x = 80
+                    let offset = strip.contentOffset
+                    let frames = strip.selectionButtons.map { $0.frame }
+                    let titles = strip.selectionButtons.map { $0.title(for: .normal) }
+                    strip.beginScrubbing(); strip.layoutIfNeeded()
+                    XCTAssertNotNil(strip.selectionButtons.first?.image(for: .normal))
+                    for (index, button) in strip.selectionButtons.enumerated() {
+                        XCTAssertTrue(strip.bounds.insetBy(dx: -0.01, dy: 0).contains(button.frame))
+                        XCTAssertEqual(button.accessibilityLabel, titles[index])
+                        if index > 0 {
+                            let title = try XCTUnwrap(button.title(for: .normal))
+                            XCTAssertEqual(title.count, 1)
+                            XCTAssertTrue(PhoneticDisplay.isSupported(title))
+                        }
+                    }
+                    if language == "en" {
+                        let renderer = UIGraphicsImageRenderer(size: keyboard.bounds.size)
+                        let image = renderer.image { keyboard.layer.render(in: $0.cgContext) }
+                        let attachment = XCTAttachment(image: image)
+                        attachment.name = "category-icons-\(Int(width))-\(style == .dark ? "dark" : "light")"
+                        attachment.lifetime = .keepAlways; add(attachment)
+                    }
+                    strip.stopScrubbing()
+                    XCTAssertEqual(strip.contentOffset, offset)
+                    XCTAssertEqual(strip.selectionButtons.map { $0.frame }, frames)
+                    XCTAssertEqual(strip.selectionButtons.map { $0.title(for: .normal) }, titles)
+                    XCTAssertTrue(strip.selectionButtons.allSatisfy { $0.image(for: .normal) == nil })
+                }
+            }
+        }
+    }
+
     func testAdaptiveMetricsAndLegacyGlobePlacement() {
         for width: CGFloat in [320, 375, 414, 440, 507, 768, 1024, 1366] {
             let pad = KeyboardMetrics(width: width, isTablet: true, landscape: false)

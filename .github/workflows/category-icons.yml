@@ -1,0 +1,58 @@
+name: Verify keyboard category icons
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runtime: '17'
+            device: iPhone-SE-3rd-generation
+          - runtime: '26'
+            device: iPhone-16-Pro-Max
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      IPA_SIMULATOR_RUNTIME: ${{ matrix.runtime }}
+      IPA_SIMULATOR_DEVICE_TYPE: com.apple.CoreSimulator.SimDeviceType.${{ matrix.device }}
+      IPA_SIMULATOR_FAMILY: iPhone
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate and validate project
+        run: |
+          python3 tools/generate_project.py
+          python3 -m unittest discover -s Tests -p 'test_*.py'
+      - name: Install iOS 17 runtime
+        if: matrix.runtime == '17'
+        run: python3 tools/install_test_runtime.py 17.5
+      - name: Create simulator
+        run: python3 tools/create_simulator.py
+      - name: Verify system glyphs, compact layout and category selection
+        run: |
+          set -o pipefail
+          mkdir -p build
+          python3 tools/boot_simulator.py "$SIMULATOR_ID"
+          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -parallel-testing-enabled NO -derivedDataPath build/Simulator \
+            -resultBundlePath build/CategoryIcons.xcresult \
+            -only-testing:IPAKeyboardTests \
+            -only-testing:IPAKeyboardUITests/KeyboardUITests/testCategoryLongPressScrubbing \
+            -only-testing:IPAKeyboardUITests/CompatibilityUITests \
+            test CODE_SIGNING_ALLOWED=NO | tee build/category-icons.log
+      - name: Export previews
+        if: always()
+        run: xcrun xcresulttool export attachments --path build/CategoryIcons.xcresult --output-path build/attachments || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: category-icons-ios${{ matrix.runtime }}
+          path: |
+            build/category-icons.log
+            build/attachments
+          if-no-files-found: ignore
+          retention-days: 7

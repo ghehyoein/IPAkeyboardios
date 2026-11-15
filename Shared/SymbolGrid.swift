@@ -83,8 +83,8 @@ final class SymbolCategoryScrollView: UIScrollView {
     var selectionButtons: [UIButton] = []
     var onScrubSelection: ((Int) -> Void)?
     private var selectedIndex: Int?
-    var compactTitles: [String] = []
-    private var originalButtons: [(frame: CGRect, title: String?)] = []
+    var compactIcons: [SymbolCategoryIcon] = []
+    private var originalButtons: [(frame: CGRect, title: String?, image: UIImage?)] = []
     private var compactWidth: CGFloat = 0
     static func categoryIndex(at x: CGFloat, width: CGFloat, count: Int) -> Int? {
         guard width > 0, count > 0, x.isFinite else { return nil }
@@ -111,21 +111,7 @@ final class SymbolCategoryScrollView: UIScrollView {
     @objc private func scrub(_ gesture: UILongPressGestureRecognizer) {
         switch gesture.state {
         case .began:
-            guard !selectionButtons.isEmpty, bounds.width > 0 else { return }
-            setContentOffset(contentOffset, animated: false)
-            originalButtons = selectionButtons.map { ($0.frame, $0.title(for: .normal)) }
-            compactWidth = bounds.width
-            let width = compactWidth / CGFloat(selectionButtons.count)
-            for (index, button) in selectionButtons.enumerated() {
-                button.accessibilityLabel = originalButtons[index].title
-                button.frame = CGRect(x: bounds.minX + CGFloat(index) * width, y: 0,
-                                      width: width, height: bounds.height)
-                button.setTitle(compactTitles.indices.contains(index) ? compactTitles[index] : originalButtons[index].title, for: .normal)
-                button.titleLabel?.font = .systemFont(ofSize: 10, weight: .medium)
-                button.titleLabel?.adjustsFontSizeToFitWidth = true
-                button.titleLabel?.minimumScaleFactor = 0.5
-                button.layer.cornerRadius = min(8, width / 2)
-            }
+            beginScrubbing()
             chooseUnderFinger(gesture.location(in: self))
         case .changed:
             chooseUnderFinger(gesture.location(in: self))
@@ -143,10 +129,35 @@ final class SymbolCategoryScrollView: UIScrollView {
         KeyFeedback.shared.candidateChanged()
         onScrubSelection?(index)
     }
-    private func stopScrubbing() {
+    func beginScrubbing() {
+        guard originalButtons.isEmpty, !selectionButtons.isEmpty, bounds.width > 0 else { return }
+        setContentOffset(contentOffset, animated: false)
+        originalButtons = selectionButtons.map { ($0.frame, $0.title(for: .normal), $0.image(for: .normal)) }
+        compactWidth = bounds.width
+        let width = compactWidth / CGFloat(selectionButtons.count)
+        for (index, button) in selectionButtons.enumerated() {
+            button.accessibilityLabel = originalButtons[index].title
+            button.frame = CGRect(x: bounds.minX + CGFloat(index) * width, y: 0, width: width, height: bounds.height)
+            button.setTitle(nil, for: .normal)
+            button.setImage(nil, for: .normal)
+            if compactIcons.indices.contains(index) {
+                switch compactIcons[index] {
+                case .glyph(let text): button.setTitle(text, for: .normal)
+                case .systemImage(let name):
+                    button.setImage(UIImage(systemName: name, withConfiguration: UIImage.SymbolConfiguration(pointSize: max(8, min(16, width - 2)))), for: .normal)
+                }
+            }
+            button.titleLabel?.font = .systemFont(ofSize: 18)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            button.titleLabel?.minimumScaleFactor = 0.65
+            button.layer.cornerRadius = min(8, width / 2)
+        }
+    }
+    func stopScrubbing() {
         for (button, original) in zip(selectionButtons, originalButtons) {
             button.frame = original.frame
             button.setTitle(original.title, for: .normal)
+            button.setImage(original.image, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 12)
             button.titleLabel?.adjustsFontSizeToFitWidth = false
             button.layer.cornerRadius = 12
