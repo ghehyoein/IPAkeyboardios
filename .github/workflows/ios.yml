@@ -119,7 +119,7 @@ jobs:
       run: |
         tag="v$(cat VERSION)"
         cat > build/RELEASE.md <<EOF
-        iPhone and iPad support from iOS 17, adaptive keyboard geometry, and smoother continuous symbol browsing.
+        Long-press the symbol category strip to select any category within its visible width, with selection haptics. Release to restore the original labels and scroll position. Supports iPhone and iPad from iOS 17.
         Localized ipa+ keyboard names in Simplified Chinese, Traditional Chinese, English and Japanese. Production navigation no longer exposes the demo.
 
         Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
