@@ -64,16 +64,12 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         configure(shiftButton, title: "", action: #selector(shift))
         configure(deleteButton, title: "", action: nil)
         shiftButton.setImage(UIImage(systemName: "shift", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15)), for: .normal)
-        deleteButton.setImage(UIImage(systemName: "delete.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15)), for: .normal)
         shiftButton.accessibilityIdentifier = "pageToggleKey"
         numberButton.accessibilityIdentifier = "numberModeKey"
         symbolsButton.accessibilityIdentifier = "diacriticsKey"
         spaceButton.accessibilityIdentifier = "spaceKey"
         spaceButton.accessibilityLabel = "space"
-        deleteButton.accessibilityIdentifier = "deleteKey"
-        deleteButton.accessibilityLabel = "删除".localized
-        deleteButton.addTarget(self, action: #selector(deleteDown), for: .touchDown)
-        deleteButton.addTarget(self, action: #selector(deleteUp), for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])
+        configureDeletion(deleteButton, identifier: "deleteKey")
         configure(numberButton, title: "123", action: #selector(showNumbers))
         configure(globeButton, title: "◎", action: nil)
         globeButton.setImage(UIImage(systemName: "globe"), for: .normal)
@@ -109,6 +105,13 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         button.addTarget(self, action: #selector(keyFeedback), for: .touchDown)
         if let action = action { button.addTarget(self, action: action, for: .touchUpInside) }
         addSubview(button)
+    }
+    private func configureDeletion(_ button: UIButton, identifier: String) {
+        button.setImage(UIImage(systemName: "delete.left", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15)), for: .normal)
+        button.accessibilityIdentifier = identifier
+        button.accessibilityLabel = "删除".localized
+        button.addTarget(self, action: #selector(deleteDown), for: .touchDown)
+        button.addTarget(self, action: #selector(deleteUp), for: [.touchUpInside, .touchUpOutside, .touchCancel, .touchDragExit])
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -322,6 +325,7 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         addSubview(bubble); touchPreview = bubble
     }
     @objc private func closePanel() {
+        deleteUp()
         overlay?.removeFromSuperview(); overlay = nil
         if isSymbolPanelVisible {
             isSymbolPanelVisible = false; invalidateIntrinsicContentSize(); onHeightChange?()
@@ -330,7 +334,18 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         setNeedsLayout()
     }
     @objc private func returnToLetters() { showPage(.letters) }
+    private func panelControl() -> UIButton {
+        let button = UIButton(type: .system)
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        button.backgroundColor = .clear
+        button.tintColor = .label
+        button.layer.cornerRadius = 9
+        button.layer.cornerCurve = .continuous
+        button.addTarget(self, action: #selector(keyFeedback), for: .touchDown)
+        return button
+    }
     private func makePanel() -> UIView {
+        deleteUp()
         overlay?.removeFromSuperview(); overlay = nil
         dismissVariants()
         touchPreview?.removeFromSuperview(); touchPreview = nil
@@ -338,18 +353,15 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         let panel = UIView(frame: bounds)
         panel.backgroundColor = backgroundColor
         addSubview(panel); overlay = panel
-        let close = UIButton(type: .system)
+        let close = panelControl()
         close.setTitle("ABC", for: .normal)
         close.accessibilityIdentifier = "closeSymbolPanel"
-        close.titleLabel?.font = .systemFont(ofSize: 18)
         close.frame = numberButton.frame
-        close.backgroundColor = .clear
-        close.tintColor = numberButton.tintColor
-        close.layer.cornerRadius = 9
-        close.layer.cornerCurve = .continuous
         close.addTarget(self, action: #selector(returnToLetters), for: .touchUpInside)
-        close.addTarget(self, action: #selector(keyFeedback), for: .touchDown)
         panel.addSubview(close)
+        let backspace = panelControl()
+        configureDeletion(backspace, identifier: "panelDeleteKey")
+        panel.addSubview(backspace)
         if needsGlobe {
             let globe = UIButton(type: .system)
             globe.setImage(UIImage(systemName: "globe", withConfiguration: UIImage.SymbolConfiguration(pointSize: 24)), for: .normal)
@@ -444,6 +456,14 @@ final class KeyboardSurface: UIView, UIInputViewAudioFeedback {
         panel.frame = bounds
         let footer: CGFloat = systemManagedLayout ? (needsGlobe && !usesInlineGlobe ? 50 : 8) : metrics.demoBottomInset + 8
         let toolbarY = bounds.height - footer - 45
+        let deleteWidth = max(44, numberButton.frame.width)
+        let deleteFrame = CGRect(x: bounds.width - 8.5 - deleteWidth, y: 0, width: deleteWidth, height: 36)
+        if let backspace = panel.subviews.first(where: { $0.accessibilityIdentifier == "panelDeleteKey" }) {
+            backspace.frame = deleteFrame
+        }
+        if let title = panel.subviews.first(where: { $0.accessibilityIdentifier == "symbolSectionTitle" }) {
+            title.frame = CGRect(x: 10, y: 8, width: max(0, deleteFrame.minX - 18), height: 20)
+        }
         if let close = panel.subviews.first(where: { $0.accessibilityIdentifier == "closeSymbolPanel" }) {
             close.frame = CGRect(x: numberButton.frame.minX, y: toolbarY, width: numberButton.frame.width, height: 45)
         }
