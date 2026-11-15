@@ -1,139 +1,133 @@
 name: iOS build and unsigned IPA
-
-on:
+'on':
   push:
-    branches: [main]
-  pull_request:
-  workflow_dispatch:
-
+    branches:
+    - main
+  pull_request: null
+  workflow_dispatch: null
 permissions:
   contents: write
-
 concurrency:
   group: ios-${{ github.ref }}
   cancel-in-progress: true
-
 jobs:
-  build:
-    runs-on: macos-15
-    timeout-minutes: 35
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - name: iOS26-iPhone
+          runner: macos-15
+          xcode: '26.3'
+          runtime: '26'
+          device: iPhone-16-Pro-Max
+          family: iPhone
+          tests: ''
+        - name: iOS17-iPhone-SE
+          runner: macos-15
+          xcode: '26.3'
+          runtime: '17'
+          device: iPhone-SE-3rd-generation
+          family: iPhone
+          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
+        - name: iOS17-iPad
+          runner: macos-15
+          xcode: '26.3'
+          runtime: '17'
+          device: iPad-10th-generation
+          family: iPad
+          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
+        - name: iOS26-iPad
+          runner: macos-15
+          xcode: '26.3'
+          runtime: '26'
+          device: iPad-Pro-13-inch-M4
+          family: iPad
+          tests: -only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
     env:
-      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+      IPA_SIMULATOR_DEVICE_TYPE: com.apple.CoreSimulator.SimDeviceType.${{ matrix.device }}
+      IPA_SIMULATOR_FAMILY: ${{ matrix.family }}
+      IPA_SIMULATOR_RUNTIME: ${{ matrix.runtime }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Show build environment
-        run: |
-          xcodebuild -version
-          swift --version
-      - name: Validate catalog and project references
-        run: python3 -m unittest discover -s Tests -p 'test_*.py' -v
-      - name: Create a compatible iPhone simulator
-        run: python3 tools/create_simulator.py
-      - name: Boot the selected simulator
-        run: |
-          python3 - <<'PYCODE'
-          import os, subprocess
-          device = os.environ['SIMULATOR_ID']
-          for attempt in range(2):
-              try:
-                  subprocess.run(['xcrun', 'simctl', 'boot', device], check=True, timeout=60)
-                  subprocess.run(['xcrun', 'simctl', 'bootstatus', device, '-b'], check=True, timeout=180)
-                  break
-              except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
-                  if attempt == 1:
-                      raise
-                  print('Simulator boot stalled; restarting once.', flush=True)
-                  subprocess.run(['xcrun', 'simctl', 'shutdown', device], timeout=30)
-          PYCODE
-          xcrun simctl status_bar "$SIMULATOR_ID" override --time '9:41' --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState charged --batteryLevel 100
-      - name: Compile and run XCTest on simulator
-        run: |
-          set -o pipefail
-          mkdir -p build
-          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
-            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-            -parallel-testing-enabled NO \
-            -derivedDataPath build/Simulator \
-            -resultBundlePath build/Tests.xcresult \
-            test CODE_SIGNING_ALLOWED=NO | tee build/simulator.log
-      - name: Archive for physical iPhone and iPad without signing
-        run: |
-          set -o pipefail
-          xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
-            -configuration Release -destination 'generic/platform=iOS' \
-            -archivePath build/IPAKeyboard.xcarchive \
-            archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-            | tee build/archive.log
-      - name: Package unsigned IPA and verify extension
-        run: |
-          python3 tools/package_unsigned_ipa.py build/IPAKeyboard.xcarchive build/IPAKeyboard-unsigned.ipa
-          shasum -a 256 build/IPAKeyboard-unsigned.ipa > build/SHA256SUMS.txt
-          cat > build/INSTALL-NOTE.txt <<'EOF'
-          This IPA is UNSIGNED and cannot be installed directly.
-          Sign both IPAKeyboard.app and PlugIns/IPAKeyboardExtension.appex with compatible identifiers, entitlements, and provisioning profiles.
-          No Apple certificates or provisioning profiles are included.
-          After installation: Settings > General > Keyboard > Keyboards > Add New Keyboard > IPA Keyboard.
-          Basic input and read-only preference sync do not require Full Access. Keyboard click audio does.
-          Preserve the same App Group entitlement and IPASettingsAppGroup Info.plist identifier in the app and extension when re-signing.
-          EOF
-      - name: Capture system and custom keyboards on the same device
-        run: |
-          mkdir -p build/screenshots
-          xcrun simctl install "$SIMULATOR_ID" build/Simulator/Build/Products/Debug-iphonesimulator/IPAKeyboard.app
-          xcrun simctl terminate "$SIMULATOR_ID" org.example.IPAKeyboard || true
-          xcrun simctl launch "$SIMULATOR_ID" org.example.IPAKeyboard --screenshot --reference-keyboard
-          sleep 3
-          xcrun simctl io "$SIMULATOR_ID" screenshot build/screenshots/keyboard-system.png
-          xcrun simctl terminate "$SIMULATOR_ID" org.example.IPAKeyboard
-          xcrun simctl launch "$SIMULATOR_ID" org.example.IPAKeyboard --screenshot
-          sleep 3
-          xcrun simctl io "$SIMULATOR_ID" screenshot build/screenshots/keyboard-ipa.png
-          xcrun simctl terminate "$SIMULATOR_ID" org.example.IPAKeyboard
-          xcrun simctl launch "$SIMULATOR_ID" org.example.IPAKeyboard --screenshot --screenshot-popup
-          sleep 2
-          xcrun simctl io "$SIMULATOR_ID" screenshot build/screenshots/keyboard-longpress.png
-          xcrun simctl ui "$SIMULATOR_ID" appearance dark
-          xcrun simctl terminate "$SIMULATOR_ID" org.example.IPAKeyboard
-          xcrun simctl launch "$SIMULATOR_ID" org.example.IPAKeyboard --screenshot --screenshot-popup
-          sleep 2
-          xcrun simctl io "$SIMULATOR_ID" screenshot build/screenshots/keyboard-dark.png
-      - name: Publish IPA directly as a release asset
-        if: github.event_name != 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          tag="v$(cat VERSION)"
-          cat > build/RELEASE.md <<EOF
-          IPA Keyboard. Tested on iOS $TEST_IOS_VERSION.
+    - uses: actions/checkout@v4
+    - name: Generate and validate project
+      run: |
+        xcodebuild -version
+        python3 tools/generate_project.py
+        python3 -m unittest discover -s Tests -p 'test_*.py' -v
+    - name: Install iOS 17 compatibility runtime
+      if: matrix.runtime == '17'
+      run: python3 tools/install_test_runtime.py 17.5
+    - name: Create and boot simulator
+      run: |
+        python3 tools/create_simulator.py
+    - name: Run simulator tests
+      run: |
+        set -o pipefail
+        mkdir -p build
+        python3 tools/boot_simulator.py "$SIMULATOR_ID"
+        xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+          -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+          -parallel-testing-enabled NO -derivedDataPath build/Simulator \
+          -resultBundlePath build/Tests.xcresult \
+          ${{ matrix.tests }} test CODE_SIGNING_ALLOWED=NO | tee build/simulator.log
+    - name: Archive and package unsigned IPA
+      if: matrix.name == 'iOS26-iPhone'
+      run: |
+        set -o pipefail
+        xcodebuild -project IPAKeyboard.xcodeproj -scheme IPAKeyboard \
+          -configuration Release -destination 'generic/platform=iOS' \
+          -archivePath build/IPAKeyboard.xcarchive \
+          archive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tee build/archive.log
+        python3 tools/package_unsigned_ipa.py build/IPAKeyboard.xcarchive build/IPAKeyboard-unsigned.ipa
+        cd build
+        shasum -a 256 IPAKeyboard-unsigned.ipa > SHA256SUMS.txt
+    - uses: actions/upload-artifact@v4
+      if: matrix.name == 'iOS26-iPhone'
+      with:
+        name: unsigned-ipa
+        path: |
+          build/IPAKeyboard-unsigned.ipa
+          build/SHA256SUMS.txt
+        retention-days: 7
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: diagnostics-${{ matrix.name }}
+        path: |
+          build/*.log
+          build/Tests.xcresult
+        if-no-files-found: ignore
+        retention-days: 7
+  release:
+    needs:
+    - validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/download-artifact@v4
+      with:
+        name: unsigned-ipa
+        path: build
+    - name: Publish verified build
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        tag="v$(cat VERSION)"
+        cat > build/RELEASE.md <<EOF
+        iPhone and iPad support from iOS 17, adaptive keyboard geometry, and smoother continuous symbol browsing.
+        The demo page remains available in Settings, localized in Simplified Chinese, Traditional Chinese, English and Japanese.
 
-          Download **IPAKeyboard-unsigned.ipa** below directly. No outer ZIP is needed.
-          This is an UNSIGNED device IPA. Sign the app and its keyboard extension before installing.
+        Validated with iOS 17 and iOS 26 simulators on iPhone and iPad. Physical-device performance may differ.
+        Download **IPAKeyboard-unsigned.ipa** directly; sign the app and keyboard extension before installing.
 
-          Text-only search key with a softer dark appearance. Streamlined settings and symbol reference pages.
-          Symbol details support text selection, with direct actions to copy symbols or descriptions.
 
-          Source: $GITHUB_SHA
-          Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-          EOF
-          gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt \
-            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
-            --title "IPA Keyboard $tag" \
-            --notes-file build/RELEASE.md --prerelease
-      - name: Export screenshot attachments even if a test fails
-        if: always()
-        run: |
-          if [ -d build/Tests.xcresult ]; then
-            xcrun xcresulttool export attachments --path build/Tests.xcresult --output-path build/test-attachments
-          fi
-      - name: Upload build and test diagnostics
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: iOS-diagnostics-${{ github.run_number }}
-          path: |
-            build/*.log
-            build/Tests.xcresult
-            build/screenshots/
-            build/test-attachments/
-          if-no-files-found: ignore
-          retention-days: 7
+        Source: $GITHUB_SHA
+        Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+        EOF
+        gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt \
+          --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "IPA Keyboard $tag" --notes-file build/RELEASE.md

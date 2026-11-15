@@ -32,6 +32,18 @@ struct IPACatalog: Decodable {
     let categories: [IPACategory]
     let symbols: [IPASymbol]
     let keys: [String: IPAKeyMapping]
+    private let symbolsByText: [String: IPASymbol]
+    private enum CodingKeys: String, CodingKey { case categories, symbols, keys }
+    init(categories: [IPACategory], symbols: [IPASymbol], keys: [String: IPAKeyMapping]) {
+        self.categories = categories; self.symbols = symbols; self.keys = keys
+        symbolsByText = Dictionary(symbols.map { ($0.text, $0) }, uniquingKeysWith: { first, _ in first })
+    }
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.init(categories: try values.decode([IPACategory].self, forKey: .categories),
+                  symbols: try values.decode([IPASymbol].self, forKey: .symbols),
+                  keys: try values.decode([String: IPAKeyMapping].self, forKey: .keys))
+    }
     static let shared: IPACatalog = {
         guard let url = Bundle.main.url(forResource: "ipa-catalog", withExtension: "json"),
               let data = try? Data(contentsOf: url),
@@ -41,7 +53,7 @@ struct IPACatalog: Decodable {
         }
         return catalog
     }()
-    func symbol(_ text: String) -> IPASymbol? { symbols.first { $0.text == text } }
+    func symbol(_ text: String) -> IPASymbol? { symbolsByText[text] }
 }
 
 enum SwipeDirection: String { case up, right, down, left }

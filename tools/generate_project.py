@@ -20,8 +20,8 @@ plist('App/Info.plist', dict(base,CFBundlePackageType='APPL',CFBundleDisplayName
 plist('KeyboardExtension/Info.plist',dict(base,CFBundlePackageType='XPC!',CFBundleDisplayName='IPA Keyboard',NSExtension={'NSExtensionPointIdentifier':'com.apple.keyboard-service','NSExtensionPrincipalClass':'$(PRODUCT_MODULE_NAME).KeyboardViewController','NSExtensionAttributes':{'IsASCIICapable':True,'PrefersRightToLeft':False,'PrimaryLanguage':'mul','RequestsOpenAccess':True}}))
 for file in ['App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']:
  plist(file,{'com.apple.security.application-groups':['$(IPA_APP_GROUP_IDENTIFIER)']})
-shared=['Shared/Localization.swift','Shared/SwipePreferences.swift','Shared/KeyboardMaterial.swift','Shared/KeyFeedback.swift','Shared/SymbolVisibility.swift','Shared/IPACatalog.swift','Shared/KeyboardLayout.swift','Shared/LetterKey.swift','Shared/KeyboardSurface.swift','Shared/VariantStrip.swift','Shared/SymbolGrid.swift']
-source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/SandboxViewController.swift','App/SymbolSettingsViewController.swift','App/SymbolCatalogViewController.swift','App/SwipeSettingsViewController.swift']+shared,'IPAKeyboardExtension':['KeyboardExtension/KeyboardViewController.swift']+shared,'IPAKeyboardTests':['Tests/KeyboardTests.swift'],'IPAKeyboardUITests':['Tests/KeyboardUITests.swift']}
+shared=['Shared/KeyboardMetrics.swift','Shared/PhoneticDisplay.swift','Shared/SymbolInventory.swift','Shared/Localization.swift','Shared/SwipePreferences.swift','Shared/KeyboardMaterial.swift','Shared/KeyFeedback.swift','Shared/SymbolVisibility.swift','Shared/IPACatalog.swift','Shared/KeyboardLayout.swift','Shared/LetterKey.swift','Shared/KeyboardSurface.swift','Shared/VariantStrip.swift','Shared/SymbolGrid.swift']
+source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/DemoViewController.swift','App/SymbolSettingsViewController.swift','App/SymbolCatalogViewController.swift','App/SwipeSettingsViewController.swift']+shared,'IPAKeyboardExtension':['KeyboardExtension/KeyboardViewController.swift']+shared,'IPAKeyboardTests':['Tests/KeyboardTests.swift'],'IPAKeyboardUITests':['Tests/KeyboardUITests.swift','Tests/CompatibilityUITests.swift']}
 files=sorted(set(sum(source_sets.values(),[])+['Shared/localization.json','Shared/PrivacyInfo.xcprivacy','Shared/ipa-catalog.json','App/Info.plist','KeyboardExtension/Info.plist','App/Assets.xcassets','App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']))
 refs={}
 for file in files:
@@ -43,7 +43,7 @@ def configs(name, settings):
   if mode=='Debug': opts['SWIFT_ACTIVE_COMPILATION_CONDITIONS']='DEBUG'; opts['ENABLE_TESTABILITY']='YES'
   ids.append(add(name+mode,isa='XCBuildConfiguration',buildSettings=opts,name=mode))
  return add(name+'configs',isa='XCConfigurationList',buildConfigurations=ids,defaultConfigurationIsVisible=0,defaultConfigurationName='Release')
-projectSettings={'IPA_APP_GROUP_IDENTIFIER':app_group,'IPHONEOS_DEPLOYMENT_TARGET':'26.0','SDKROOT':'iphoneos','SWIFT_VERSION':'5.0','CLANG_ENABLE_MODULES':'YES','CLANG_ENABLE_OBJC_ARC':'YES','SWIFT_STRICT_CONCURRENCY':'minimal','TARGETED_DEVICE_FAMILY':'1','CODE_SIGN_STYLE':'Automatic'}
+projectSettings={'IPA_APP_GROUP_IDENTIFIER':app_group,'IPHONEOS_DEPLOYMENT_TARGET':'17.0','SDKROOT':'iphoneos','SWIFT_VERSION':'5.0','CLANG_ENABLE_MODULES':'YES','CLANG_ENABLE_OBJC_ARC':'YES','SWIFT_STRICT_CONCURRENCY':'minimal','TARGETED_DEVICE_FAMILY':'1,2','CODE_SIGN_STYLE':'Automatic'}
 projectConfigs=configs('project',projectSettings)
 for target,fileset in source_sets.items():
  sources=[]

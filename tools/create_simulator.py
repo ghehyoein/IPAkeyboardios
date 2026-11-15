@@ -1,4 +1,4 @@
-"""Select an installed iOS runtime and compatible iPhone using project requirements."""
+"""Select an installed iOS runtime and compatible device using project requirements."""
 import json
 import os
 from pathlib import Path
@@ -13,19 +13,21 @@ def version(value):
     return (parts + (0, 0, 0))[:3]
 
 
-def select(runtimes, minimum, requested=None):
+def select(runtimes, minimum, requested=None, runtime_prefix=None, family="iPhone"):
     compatible = sorted(
         (r for r in runtimes if r.get('isAvailable') and r['name'].startswith('iOS ')
-         and version(r['version']) >= version(minimum)),
+         and version(r['version']) >= version(minimum)
+         and (not runtime_prefix or r['version'].split('.')[0] == runtime_prefix)),
         key=lambda r: version(r['version']), reverse=True)
     for runtime in compatible:
         devices = sorted((d for d in runtime.get('supportedDeviceTypes', [])
-                          if d['name'].startswith('iPhone')
-                          and (not requested or d['identifier'] == requested)),
+                          if d['name'].startswith(family)
+                          and (not requested or d['identifier'] == requested or d['identifier'].startswith(requested + '-'))),
                          key=lambda d: d['identifier'])
         if devices:
             return runtime, devices[0]
-    raise ValueError('No compatible installed iOS runtime and iPhone device type found.')
+    raise ValueError(f'No compatible {family} for runtime {runtime_prefix or minimum}: {requested}. '
+                     f'Available: {[(r["version"], [d["identifier"] for d in r.get("supportedDeviceTypes", []) if d["name"].startswith(family)]) for r in compatible]}')
 
 
 def create():
@@ -36,7 +38,16 @@ def create():
     minimum = max(targets, key=version)
     runtimes = json.loads(subprocess.check_output(
         ['xcrun', 'simctl', 'list', 'runtimes', '--json']))['runtimes']
-    runtime, device_type = select(runtimes, minimum, os.environ.get('IPA_SIMULATOR_DEVICE_TYPE'))
+    # Older simulator metadata omits supportedDeviceTypes. simctl validates the
+    # explicitly requested device when creating it on those runtimes.
+    device_types = json.loads(subprocess.check_output(
+        ['xcrun', 'simctl', 'list', 'devicetypes', '--json']))['devicetypes']
+    for item in runtimes:
+        if not item.get('supportedDeviceTypes'):
+            item['supportedDeviceTypes'] = device_types
+    runtime, device_type = select(runtimes, minimum, os.environ.get('IPA_SIMULATOR_DEVICE_TYPE'),
+                                  os.environ.get('IPA_SIMULATOR_RUNTIME'),
+                                  os.environ.get('IPA_SIMULATOR_FAMILY', 'iPhone'))
     device = subprocess.check_output(
         ['xcrun', 'simctl', 'create', 'IPA Keyboard Tests', device_type['identifier'], runtime['identifier']],
         text=True).strip()

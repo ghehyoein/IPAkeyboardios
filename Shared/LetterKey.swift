@@ -49,7 +49,10 @@ final class LetterKey: UIControl {
         updateColors()
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    override func layoutSubviews() { super.layoutSubviews(); label.frame = bounds }
+    override func layoutSubviews() {
+        super.layoutSubviews(); label.frame = bounds
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
+    }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection); updateColors()
     }

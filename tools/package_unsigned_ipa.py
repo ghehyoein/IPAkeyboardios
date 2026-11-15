@@ -20,6 +20,12 @@ for bundle in [app, extension]:
         raise SystemExit(f'Missing executable: {executable}')
     if info.get('DTPlatformName') != 'iphoneos':
         raise SystemExit(f'Expected device build, got {info.get("DTPlatformName")}: {bundle}')
+    if info.get('MinimumOSVersion') != '17.0':
+        raise SystemExit(f'Expected iOS 17 deployment target: {bundle}')
+    if set(info.get('UIDeviceFamily', [])) != {1, 2}:
+        raise SystemExit(f'Expected universal iPhone/iPad bundle: {bundle}')
+    if info.get('CFBundleDisplayName') != 'IPA Keyboard':
+        raise SystemExit(f'Unexpected keyboard display name: {bundle}')
     print(subprocess.check_output(['file', str(executable)], text=True).strip())
     if not (bundle / 'ipa-catalog.json').is_file():
         raise SystemExit(f'Missing IPA catalog: {bundle}')
