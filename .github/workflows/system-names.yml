@@ -28,10 +28,12 @@ jobs:
       TEST_REGION: ${{ matrix.region }}
     steps:
       - uses: actions/checkout@v4
-      - name: Generate project and configure system language before first boot
+      - name: Generate project and create simulator
         run: |
           python3 tools/generate_project.py
           python3 tools/create_simulator.py
+      - name: Configure system language before first boot
+        run: |
           python3 - <<'PY'
           import os, plistlib
           from pathlib import Path
