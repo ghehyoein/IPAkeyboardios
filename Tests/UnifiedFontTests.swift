@@ -74,10 +74,31 @@ final class UnifiedFontTests: XCTestCase {
             XCTAssertGreaterThan(boxes[1].minY, boxes[0].maxY)
         }
     }
+    func testEnclosingMarkIsCenteredAroundItsBase() {
+        var boxes: [CGRect] = []
+        for run in CTLineGetGlyphRuns(line("a\u{20DD}")) as! [CTRun] {
+            let font = (CTRunGetAttributes(run) as NSDictionary)[kCTFontAttributeName] as! CTFont
+            var glyphs = [CGGlyph](repeating: 0, count: CTRunGetGlyphCount(run))
+            var points = [CGPoint](repeating: .zero, count: glyphs.count)
+            CTRunGetGlyphs(run, CFRange(location: 0, length: 0), &glyphs)
+            CTRunGetPositions(run, CFRange(location: 0, length: 0), &points)
+            for index in glyphs.indices {
+                var glyph = glyphs[index]
+                boxes.append(CTFontGetBoundingRectsForGlyphs(font, .default, &glyph, nil, 1)
+                    .offsetBy(dx: points[index].x, dy: points[index].y))
+            }
+        }
+        XCTAssertEqual(boxes.count, 2)
+        if boxes.count == 2 {
+            XCTAssertEqual(boxes[0].midX, boxes[1].midX, accuracy: 1)
+            XCTAssertEqual(boxes[0].midY, boxes[1].midY, accuracy: 1)
+            XCTAssertGreaterThan(boxes[1].height, boxes[0].height)
+        }
+    }
     @MainActor func testUnifiedFontProof() {
         let values = ["a\u{1ACF}", "a\u{1ACF}\u{0301}", "a\u{0301}\u{1ACF}", "a\u{0325}\u{1ADD}", "t͡s", "ɿ", "ɥ", "ə", "ᴇ", "ᴀ", "⦃", "＠"] +
             (0x1DFCD...0x1DFFF).map { String(Unicode.Scalar($0)!) } +
-            ["\u{1AD0}", "\u{1ADE}", "\u{1DF50}", "\u{1DF57}", "\u{209D}", "₽", "◌̥", "◌̃"]
+            ["\u{1AD0}", "\u{1ADE}", "\u{1DF50}", "\u{1DF57}", "\u{209D}", "₽", "◌̥", "◌̃", "a⃝", "S⃝"]
         let format = UIGraphicsImageRendererFormat(); format.scale = 1
         let image = UIGraphicsImageRenderer(size: CGSize(width: 960, height: 1080), format: format).image { context in
             UIColor.white.setFill(); context.fill(CGRect(x: 0, y: 0, width: 960, height: 1080))

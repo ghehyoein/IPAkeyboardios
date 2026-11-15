@@ -14,7 +14,7 @@ def add_cross_source_positioning(font,assignments,unicode_data):
   record=records.get(cp)
   if not record or not record[2].startswith('M') or name not in bounds:continue
   ccc=int(record[3]);label=record[1]
-  group='overlay' if ccc==1 or 'OVERLAY' in label else ('below' if 'BELOW' in label or ccc in [202,218,220,222,233,240] else 'above')
+  group='overlay' if ccc==1 or record[2]=='Me' or 'OVERLAY' in label else ('below' if 'BELOW' in label or ccc in [202,218,220,222,233,240] else 'above')
   classes[name]=group
   if origin.get(name)!='Charis':font['hmtx'].metrics[name]=(0,font['hmtx'][name][1])
  gdef=font['GDEF'].table

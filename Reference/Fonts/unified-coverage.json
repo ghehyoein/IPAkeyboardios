@@ -1,8 +1,8 @@
 {
   "codepoints": 1308,
   "glyphs_including_layout_dependencies": 1469,
-  "bytes": 239380,
-  "sha256": "9cab5d7f12c661ec11ba98277dc25270f44b16c1205c0ae3f5a21d717735a903",
+  "bytes": 239356,
+  "sha256": "09d2faff2c0867c1d683df07dd69a5f0f015335ee0a82c4dc708c1153ccef0ea",
   "sources": [
     {
       "source": "Charis",
