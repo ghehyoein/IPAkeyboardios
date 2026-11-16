@@ -18,37 +18,39 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # Pin Intel hosts: the generic macos-15 label now uses the
+        # capacity-constrained ARM pool. Xcode and iOS coverage stay unchanged.
         include:
           - name: iOS26-iPhone
-            runner: macos-15
+            runner: macos-15-intel
             xcode: '26.3'
             runtime: '26'
             device: iPhone-16-Pro-Max
             family: iPhone
             tests: ''
           - name: iOS17-iPhone-SE
-            runner: macos-15
+            runner: macos-15-intel
             xcode: '26.3'
             runtime: '17'
             device: iPhone-SE-3rd-generation
             family: iPhone
             tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
           - name: iOS17-iPad
-            runner: macos-15
+            runner: macos-15-intel
             xcode: '26.3'
             runtime: '17'
             device: iPad-9th-generation
             family: iPad
             tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
           - name: iOS26-iPad
-            runner: macos-15
+            runner: macos-15-intel
             xcode: '26.3'
             runtime: '26'
             device: iPad-Pro-13-inch-M4
             family: iPad
             tests: '-only-testing:IPAKeyboardTests -only-testing:IPAKeyboardUITests/CompatibilityUITests'
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
       IPA_SIMULATOR_DEVICE_TYPE: com.apple.CoreSimulator.SimDeviceType.${{ matrix.device }}
