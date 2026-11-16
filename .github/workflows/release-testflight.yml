@@ -44,5 +44,5 @@ jobs:
           fi
           gh workflow run testflight.yml -R "$GITHUB_REPOSITORY" --ref main \
             -f "app_version=${tag#v}" -f "release_sha=$sha" -f upload=true
-          echo "Dispatched internal TestFlight for $tag ($sha)." >> "$GITHUB_STEP_SUMMARY"
+          echo "Dispatched App Store-eligible TestFlight for $tag ($sha)." >> "$GITHUB_STEP_SUMMARY"
 

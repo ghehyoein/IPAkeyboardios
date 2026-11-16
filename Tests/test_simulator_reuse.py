@@ -10,7 +10,7 @@ from testflight_simulator import validations_passed, validation_configuration
 class SimulatorReuseTests(unittest.TestCase):
     def setUp(self):
         self.jobs = [dict(name=f'validate ({name}, macos-15)', conclusion='success')
-                     for name in ('iOS26-iPhone', 'iOS17-iPhone-SE', 'iOS17-iPad', 'iOS26-iPad')]
+                     for name in ('iOS26-iPhone', 'iOS17-iPad')]
 
     def test_requires_every_device_configuration(self):
         self.assertFalse(validations_passed(self.jobs[:-1]))

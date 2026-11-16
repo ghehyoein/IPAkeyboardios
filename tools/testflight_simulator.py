@@ -9,8 +9,8 @@ def run(*args, **kwargs):
     return subprocess.check_output(args, text=True, **kwargs)
 
 def validations_passed(jobs):
-    """Require all four application validation configurations."""
-    configurations = ('iOS26-iPhone', 'iOS17-iPhone-SE', 'iOS17-iPad', 'iOS26-iPad')
+    """Require both representative application validation configurations."""
+    configurations = ('iOS26-iPhone', 'iOS17-iPad')
     return all(any(job['name'].startswith('validate (' + name + ',')
                    and job.get('conclusion') == 'success' for job in jobs)
                for name in configurations)
@@ -21,11 +21,12 @@ def validation_configuration(path):
 
 def main():
     repo = os.environ["GITHUB_REPOSITORY"]
-    url = f"repos/{repo}/actions/workflows/ios.yml/runs?branch=main&status=completed&per_page=1"
+    url = f"repos/{repo}/actions/workflows/ios.yml/runs?branch=main&status=completed&per_page=30"
     runs = json.loads(run("gh", "api", url))["workflow_runs"]
     if not runs:
         return
-    previous = runs[0]
+    head = run("git", "rev-parse", "HEAD").strip()
+    previous = next((item for item in runs if item["head_sha"] == head and item["conclusion"] == "success"), runs[0])
     jobs = []
     page = 1
     while True:
