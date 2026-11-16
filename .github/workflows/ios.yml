@@ -18,11 +18,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Pin Intel hosts: the generic macos-15 label now uses the
-        # capacity-constrained ARM pool. Xcode and iOS coverage stay unchanged.
+        # Run the full UI suite on ARM for simulator performance; use the
+        # Intel pool for the three smaller compatibility suites.
         include:
           - name: iOS26-iPhone
-            runner: macos-15-intel
+            runner: macos-15
             xcode: '26.3'
             runtime: '26'
             device: iPhone-16-Pro-Max
@@ -130,5 +130,17 @@ jobs:
           Source: $GITHUB_SHA
           Validation: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
           EOF
-          gh release create "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt \
-            --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md
+          # A pre-created draft permits upload even when the Actions integration
+          # cannot create a Release. Never replace an already published version.
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            test "$(gh release view "$tag" --repo "$GITHUB_REPOSITORY" --json isDraft --jq .isDraft)" = true
+            test "$(gh api "repos/$GITHUB_REPOSITORY/commits/$tag" --jq .sha)" = "$GITHUB_SHA"
+          else
+            gh release create "$tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+              --title "ipa+ keyboard $tag" --notes-file build/RELEASE.md --draft
+          fi
+          gh release upload "$tag" build/IPAKeyboard-unsigned.ipa build/SHA256SUMS.txt build/ipa-plus.ttf build/ipa-plus-font.zip build/Font-Licenses.txt \
+            --repo "$GITHUB_REPOSITORY" --clobber
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --dir build/published
+          (cd build/published && sha256sum --check SHA256SUMS.txt)
+          gh release edit "$tag" --repo "$GITHUB_REPOSITORY" --notes-file build/RELEASE.md --draft=false --latest

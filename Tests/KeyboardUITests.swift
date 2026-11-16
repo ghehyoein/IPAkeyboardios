@@ -105,12 +105,15 @@ final class KeyboardUITests: XCTestCase {
         // On iOS 26 the navigation search field can move into a bottom toolbar
         // while activating. Wait for its keyboard before sending input, and
         // resolve it again if the first tap only completed that transition.
-        let search = app.searchFields.firstMatch
+        // Search is hosted by the navigation bar on older iOS versions and
+        // by a toolbar on iOS 26. Avoid scanning every catalogue row to find it.
+        let navigationSearch = app.navigationBars.searchFields["catalogSearch"]
+        let search = navigationSearch.exists ? navigationSearch : app.toolbars.searchFields["catalogSearch"]
         XCTAssertTrue(search.waitForExistence(timeout: 10))
         search.tap()
         let keyboard = app.keyboards.firstMatch
         if !keyboard.waitForExistence(timeout: 5) {
-            app.searchFields.firstMatch.tap()
+            search.tap()
         }
         guard keyboard.waitForExistence(timeout: 10) else {
             XCTFail("Catalog search must have an active keyboard before typing")
@@ -133,10 +136,26 @@ final class KeyboardUITests: XCTestCase {
             for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
             catalog.tap()
             searchCatalog("U+02B0", in: app)
-            XCTAssertTrue(app.staticTexts[note].waitForExistence(timeout: 5))
+            let result = app.cells["catalogEntry_U+02B0"]
+            XCTAssertTrue(result.waitForExistence(timeout: 5))
+            XCTAssertTrue(result.label.contains(note))
             attach(app, name: "symbol-search-" + language)
             app.terminate()
         }
+    }
+    func testNewUnicodeNameSearchOnSystemWithoutItsUnicodeName() {
+        let app = XCUIApplication()
+        app.launchArguments = ["--reset-settings", "-AppleLanguages", "(en)"]
+        app.launch()
+        let catalog = app.cells["openSymbolCatalog"]
+        for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
+        catalog.tap()
+        searchCatalog("MODIFIER LETTER HIGH AND LOW VERTICAL LINE", in: app)
+        let result = app.cells["catalogEntry_U+208F"]
+        XCTAssertTrue(result.waitForExistence(timeout: 10))
+        XCTAssertTrue(result.label.contains("Variable primary or secondary stress"))
+        result.tap()
+        XCTAssertTrue(app.buttons["copySymbol"].waitForExistence(timeout: 5))
     }
     func testSymbolDetailsSupportSelectionAndCopy() {
         let app = XCUIApplication()
@@ -297,7 +316,10 @@ final class KeyboardUITests: XCTestCase {
         for name in ["chinese", "historical", "extipa"] { XCTAssertEqual(app.switches["visibility_" + name].value as? String, "0") }
         XCTAssertEqual(app.switches["feedback_haptics"].value as? String, "0")
         app.switches["visibility_chinese"].tap()
-        XCTAssertEqual(app.switches["visibility_chinese"].value as? String, "1")
+        let enabled = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            app.switches["visibility_chinese"].value as? String == "1"
+        }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [enabled], timeout: 5), .completed)
         XCTAssertEqual(app.switches["visibility_historical"].value as? String, "0")
     }
     func testProductionHomeAndSearchableInventory() {
@@ -312,7 +334,7 @@ final class KeyboardUITests: XCTestCase {
         XCTAssertTrue(app.tables["symbolCatalog"].waitForExistence(timeout: 5))
         attach(app, name: "catalog-index")
         searchCatalog("U+0308", in: app)
-        XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "U+0308")).firstMatch.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.cells["catalogEntry_U+0308"].waitForExistence(timeout: 5))
         attach(app, name: "symbol-catalog-search")
     }
     func testPanelSettingsAreAvailableAndToggle() {

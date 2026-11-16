@@ -936,6 +936,66 @@
     "高调（组合标记）": {
       "en": "High tone (combining mark)",
       "ja": "高平調（結合記号）"
+    },
+    "腭化钩 t（旧版 IPA）": {
+      "en": "Palatal-hook t (historical IPA)",
+      "ja": "口蓋化フック付き t（旧 IPA）"
+    },
+    "可变主重音或次重音": {
+      "en": "Variable primary or secondary stress",
+      "ja": "可変の第一・第二強勢"
+    },
+    "上标带横划 H：咽腔化": {
+      "en": "Superscript barred H: faucalization",
+      "ja": "上付き横線付き H：咽頭腔化"
+    },
+    "上标 œ：开放圆唇唇化": {
+      "en": "Superscript oe: open-rounded labialization",
+      "ja": "上付き œ：開いた円唇化"
+    },
+    "电子喉发声（VoQS）": {
+      "en": "Electrolarynx phonation (VoQS)",
+      "ja": "電気喉頭発声（VoQS）"
+    },
+    "左上半括号：可疑音": {
+      "en": "Top half left parenthesis: doubtful sound",
+      "ja": "左上半括弧：不確かな音"
+    },
+    "右上半括号：可疑音": {
+      "en": "Top half right parenthesis: doubtful sound",
+      "ja": "右上半括弧：不確かな音"
+    },
+    "左下半括号：可疑音": {
+      "en": "Bottom half left parenthesis: doubtful sound",
+      "ja": "左下半括弧：不確かな音"
+    },
+    "右下半括号：可疑音": {
+      "en": "Bottom half right parenthesis: doubtful sound",
+      "ja": "右下半括弧：不確かな音"
+    },
+    "下标 j": {
+      "en": "Subscript j",
+      "ja": "下付き j"
+    },
+    "上标大写 V": {
+      "en": "Superscript capital V",
+      "ja": "上付き大文字 V"
+    },
+    "上标大写 S：语音通配标记": {
+      "en": "Superscript capital S: phonetic wildcard",
+      "ja": "上付き大文字 S：音声ワイルドカード"
+    },
+    "上标大写 C：语音通配标记": {
+      "en": "Superscript capital C: phonetic wildcard",
+      "ja": "上付き大文字 C：音声ワイルドカード"
+    },
+    "上标大写 F：语音通配标记": {
+      "en": "Superscript capital F: phonetic wildcard",
+      "ja": "上付き大文字 F：音声ワイルドカード"
+    },
+    "上标大写 Q：日语音位转写": {
+      "en": "Superscript capital Q: Japanese phonemic transcription",
+      "ja": "上付き大文字 Q：日本語の音韻表記"
     }
   },
   "words": {
@@ -2098,6 +2158,10 @@
     "RAISED": {
       "zh-Hans": "升高",
       "ja": "高め"
+    },
+    "CIRCLED": {
+      "zh-Hans": "带圈",
+      "ja": "丸囲み"
     }
   }
 }

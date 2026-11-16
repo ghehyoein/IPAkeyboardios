@@ -89,7 +89,13 @@ final class CompatibilityUITests: XCTestCase {
         XCTAssertTrue(app.tables["information_font"].waitForExistence(timeout: 5))
         XCUIDevice.shared.orientation = .landscapeLeft
         let done = app.buttons["closeFontInformation"]
-        XCTAssertTrue(done.isHittable)
+        // Rotation and the sheet's adaptive layout finish asynchronously,
+        // especially on the older iPad simulator. Require a usable close button
+        // after the transition rather than inspecting an intermediate frame.
+        let closeReady = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            done.exists && done.isHittable
+        }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [closeReady], timeout: 10), .completed)
         reveal(app.cells["fontDisplayNotice"], in: app)
         done.tap()
         XCTAssertTrue(app.tables["symbolSettings"].waitForExistence(timeout: 5))

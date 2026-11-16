@@ -58,8 +58,30 @@ def expand_catalog(catalog):
         family=entries.get(base,{}).get('family','extipa')
         if family in ['current','extras','unicode']:family='extipa'
         add(c,family,'superscripts' if decomp[0]=='<super>' else 'subscripts')
+    # Audited IPA/VoQS and related transcription additions (font 0.601).
+    add('ƫ','historical','historical','腭化钩 t（旧版 IPA）')
+    add('\u208f','unicode','suprasegmentals','可变主重音或次重音')
+    add('ꟸ','extipa','superscripts','上标带横划 H：咽腔化')
+    add('ꟹ','extipa','superscripts','上标 œ：开放圆唇唇化')
+    add('И','extipa','extipa','电子喉发声（VoQS）')
+    add('⹙','extipa','extipa','左上半括号：可疑音')
+    add('⹚','extipa','extipa','右上半括号：可疑音')
+    add('⹛','extipa','extipa','左下半括号：可疑音')
+    add('⹜','extipa','extipa','右下半括号：可疑音')
+    add('ⱼ','unicode','subscripts','下标 j')
+    add('ⱽ','unicode','superscripts','上标大写 V')
+    add('\ua7f1','unicode','superscripts','上标大写 S：语音通配标记')
+    add('ꟲ','unicode','superscripts','上标大写 C：语音通配标记')
+    add('ꟳ','unicode','superscripts','上标大写 F：语音通配标记')
+    add('ꟴ','unicode','superscripts','上标大写 Q：日语音位转写')
+    # Related transcription superscripts are not mislabeled as standard extIPA.
+    for c in 'ⱼⱽ꟱ꟲꟳꟴ':
+        entries[c].update(family='unicode',priority=PRIORITY['unicode'],category='subscripts' if c=='ⱼ' else 'superscripts')
     # Spacing historical diacritics also belong in the historical panel.
     for c in '˂˃˄˅ˊˋˌˍˎˏːˑ˒˓˔˕˖˗˘˙˚˛˜˝':add(c,'historical')
+    # These are real single-code-point compatibility characters. Keep them
+    # distinct from a letter followed by U+20DD, and place them after IPA forms.
+    for cp in range(0x24B6, 0x24D0):add(chr(cp),'extras','extras')
     # A shortcut inserts one atomic symbol, never a ready-made transcription.
     # Canonical decompositions also catch single-code-point forms such as ã.
     def canonical(text):
@@ -82,7 +104,7 @@ def expand_catalog(catalog):
     key_for={}
     for key,mapping in catalog['keys'].items():
         for text in mapping['variants']:key_for.setdefault(text,key)
-    key_for.update({'ɿ':'i','ʅ':'i','ʮ':'u','ʯ':'u','ᴀ':'a','ᴇ':'e','ᴏ':'o','ʩ':'f','ʪ':'l','ʫ':'l','ʬ':'b','ʭ':'d','¡':'c','ꞎ':'l','ꞯ':'q','𝼀':'f','𝼁':'g','𝼂':'g','𝼃':'k','𝼄':'l','𝼅':'l','𝼆':'y','𝼇':'n','ↀ':'b','π':'p','μ':'m','б':'b','Ƿ':'w','з':'z','δ':'d','ẟ':'d','ƍ':'d','σ':'s','ƻ':'z','ꜫ':'k','ꜭ':'k','т':'t','д':'d','н':'n','л':'l','р':'r','ƕ':'h','ъ':'e','ƨ':'z','ρ':'r','ᴩ':'r','ƣ':'g','ђ':'d','ᴫ':'l','ᴤ':'h','ᴥ':'q','ȣ':'u','ꜵ':'a','Ꜵ':'a','ო':'o','ꝏ':'o','ᵫ':'u','𝼢':'t','𝼣':'t','𝼠':'d','𝼡':'d','ь':'e','𝼺':'q'})
+    key_for.update({'И':'i','ɿ':'i','ʅ':'i','ʮ':'u','ʯ':'u','ᴀ':'a','ᴇ':'e','ᴏ':'o','ʩ':'f','ʪ':'l','ʫ':'l','ʬ':'b','ʭ':'d','¡':'c','ꞎ':'l','ꞯ':'q','𝼀':'f','𝼁':'g','𝼂':'g','𝼃':'k','𝼄':'l','𝼅':'l','𝼆':'y','𝼇':'n','ↀ':'b','π':'p','μ':'m','б':'b','Ƿ':'w','з':'z','δ':'d','ẟ':'d','ƍ':'d','σ':'s','ƻ':'z','ꜫ':'k','ꜭ':'k','т':'t','д':'d','н':'n','л':'l','р':'r','ƕ':'h','ъ':'e','ƨ':'z','ρ':'r','ᴩ':'r','ƣ':'g','ђ':'d','ᴫ':'l','ᴤ':'h','ᴥ':'q','ȣ':'u','ꜵ':'a','Ꜵ':'a','ო':'o','ꝏ':'o','ᵫ':'u','𝼢':'t','𝼣':'t','𝼠':'d','𝼡':'d','ь':'e','𝼺':'q'})
     special={'SCHWA':'e','EPSILON':'e','GAMMA':'g','BETA':'b','THETA':'t','PHI':'f','CHI':'x','PSI':'p','OMEGA':'o','ETA':'n','ENG':'n','EZH':'z','ESH':'s','LEZH':'l','HENG':'h','FENG':'f','OE':'o','AE':'a','IOTA':'i','UPSILON':'u','YOGH':'z','ETH':'d','THORN':'t','GLOTTAL STOP':'q','CLICK':'c','DEZH':'d','TESH':'t','DZ':'d','TS':'t','DB':'d','QP':'q','LS':'l','LZ':'l','TC':'t','LAMBDA':'l','ALPHA':'a','GREEK MU':'m','GREEK RHO':'r','GREEK DELTA':'d','GREEK PI':'p','GREEK SIGMA':'s'}
     def base_key(text,seen=None):
         if text in key_for:return key_for[text]
@@ -109,6 +131,7 @@ def expand_catalog(catalog):
     for s in entries.values():
         key=base_key(s['text'])
         s['baseKey']=key
+        s['unicodeNames']=[U[c]['name'] for c in s['text']]
         if key and not s['text'].isascii() and s['text'] not in catalog['keys'][key]['variants']:
             catalog['keys'][key]['variants'].append(s['text'])
     for s in entries.values():

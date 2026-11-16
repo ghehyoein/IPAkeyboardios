@@ -4,10 +4,11 @@ struct IPASymbol: Decodable {
     let id: String
     let text: String
     let display: String
+    let unicodeNames: [String]?
     let rawName: String
     var name: String { L10n.symbolName(rawName) }
     private enum CodingKeys: String, CodingKey {
-        case id, text, display, rawName = "name", category, combining, official, atomic, family, priority, collections, baseKey
+        case id, text, display, rawName = "name", unicodeNames, category, combining, official, atomic, family, priority, collections, baseKey
     }
     let category: String
     let combining: Bool

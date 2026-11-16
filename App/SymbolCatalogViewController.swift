@@ -7,6 +7,14 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let text: String
         let display: String
         let note: String
+        let code: String
+        let searchText: String
+        init(text: String, display: String, note: String) {
+            self.text = text; self.display = display; self.note = note
+            code = text.unicodeScalars.map { String(format: "U+%04X", $0.value) }.joined(separator: " ")
+            let unicodeNames = IPACatalog.shared.symbol(text)?.unicodeNames?.joined(separator: " ") ?? text.unicodeScalars.compactMap { $0.properties.name }.joined(separator: " ")
+            searchText = [text, display, note, IPACatalog.shared.symbol(text)?.rawName ?? "", unicodeNames, code].joined(separator: " ")
+        }
     }
     private struct Group {
         let id: String
@@ -17,6 +25,8 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     private var groups: [Group] = []
     private var filtered: [Group] = []
     private let search = UISearchController(searchResultsController: nil)
+    private var lastQuery = ""
+    private var lastScope: String?
 
     init() { super.init(style: .insetGrouped) }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -60,6 +70,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "搜索符号、名称或 Unicode 编码".localized
+        search.searchBar.searchTextField.accessibilityIdentifier = "catalogSearch"
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -82,15 +93,15 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
     private func codes(_ text: String) -> String {
         text.unicodeScalars.map { String(format: "U+%04X", $0.value) }.joined(separator: " ")
     }
-    private func searchableText(_ entry: Entry) -> String {
-        let unicodeNames = entry.text.unicodeScalars.compactMap { $0.properties.name }.joined(separator: " ")
-        return [entry.text, entry.display, entry.note, IPACatalog.shared.symbol(entry.text)?.rawName ?? "", unicodeNames, codes(entry.text)].joined(separator: " ")
-    }
     func updateSearchResults(for searchController: UISearchController) {
         let query = (searchController.searchBar.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        // Activating/moving the native search bar also calls this delegate.
+        // Do not rebuild the entire table while it is acquiring keyboard focus.
+        guard query != lastQuery || selectedGroup != lastScope else { return }
+        lastQuery = query; lastScope = selectedGroup
         let scope = groups.filter { selectedGroup == nil || $0.title == selectedGroup }
         filtered = query.isEmpty ? scope : scope.compactMap { group in
-            let entries = group.entries.filter { searchableText($0).localizedCaseInsensitiveContains(query) }
+            let entries = group.entries.filter { $0.searchText.localizedCaseInsensitiveContains(query) }
             return entries.isEmpty ? nil : Group(id: group.id, title: group.title, entries: entries)
         }
         tableView.reloadData()
@@ -110,7 +121,7 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         let entry = filtered[indexPath.section].entries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "entry") ?? UITableViewCell(style: .subtitle, reuseIdentifier: "entry")
         let heading = NSMutableAttributedString(string: entry.display, attributes: [.font: PhoneticDisplay.scaledFont(for: .title2), .foregroundColor: UIColor.label])
-        heading.append(NSAttributedString(string: "   " + codes(entry.text), attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1), .foregroundColor: UIColor.secondaryLabel]))
+        heading.append(NSAttributedString(string: "   " + entry.code, attributes: [.font: UIFont.preferredFont(forTextStyle: .caption1), .foregroundColor: UIColor.secondaryLabel]))
         cell.textLabel?.attributedText = heading
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = entry.note
@@ -120,7 +131,12 @@ final class SymbolCatalogViewController: UITableViewController, UISearchResultsU
         cell.textLabel?.adjustsFontForContentSizeCategory = true
         cell.detailTextLabel?.adjustsFontForContentSizeCategory = true
         cell.accessoryType = .disclosureIndicator
-        cell.accessibilityIdentifier = "catalogEntry_" + codes(entry.text)
+        cell.accessibilityIdentifier = "catalogEntry_" + entry.code
+        // One coherent VoiceOver item per entry also avoids expanding every
+        // attributed label into a large accessibility subtree for the catalogue.
+        cell.isAccessibilityElement = true
+        cell.accessibilityLabel = [entry.display, entry.code, entry.note].joined(separator: ", ")
+        cell.accessibilityTraits = .button
         cell.selectionStyle = .default
         return cell
     }

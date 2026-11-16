@@ -96,6 +96,30 @@ final class UnifiedFontTests: XCTestCase {
             XCTAssertGreaterThan(boxes[1].height, boxes[0].height)
         }
     }
+    func testEnclosedDiacriticsAfterNormalization() {
+        let samples = ["a\u{0325}\u{1ABD}", "g\u{030A}\u{1ABB}", "g\u{030C}\u{1ABB}",
+                       "c\u{030C}\u{1AC1}", "ʒ\u{030C}\u{1AC2}", "ǧ\u{1ABB}", "č\u{1ABB}",
+                       "a\u{1ABD}\u{0325}", "i\u{032C}\u{1ABD}"]
+        for text in samples {
+            var boxes: [CGRect] = []
+            for run in CTLineGetGlyphRuns(line(text)) as! [CTRun] {
+                let font = (CTRunGetAttributes(run) as NSDictionary)[kCTFontAttributeName] as! CTFont
+                var glyphs = [CGGlyph](repeating: 0, count: CTRunGetGlyphCount(run))
+                var positions = [CGPoint](repeating: .zero, count: glyphs.count)
+                CTRunGetGlyphs(run, CFRange(location: 0, length: 0), &glyphs)
+                CTRunGetPositions(run, CFRange(location: 0, length: 0), &positions)
+                for index in glyphs.indices {
+                    var glyph = glyphs[index]
+                    boxes.append(CTFontGetBoundingRectsForGlyphs(font, .default, &glyph, nil, 1)
+                        .offsetBy(dx: positions[index].x, dy: positions[index].y))
+                }
+            }
+            XCTAssertEqual(boxes.count, 3, text)
+            if boxes.count == 3 {
+                XCTAssertEqual(boxes[1].midY, boxes[2].midY, accuracy: 1.3, text)
+            }
+        }
+    }
     @MainActor func testUnifiedFontProof() {
         let values = ["a\u{1ACF}", "a\u{1ACF}\u{0301}", "a\u{0301}\u{1ACF}", "a\u{0325}\u{1ADD}", "t͡s", "ɿ", "ɥ", "ə", "ᴇ", "ᴀ", "⦃", "＠"] +
             (0x1DFCD...0x1DFFF).map { String(Unicode.Scalar($0)!) } +

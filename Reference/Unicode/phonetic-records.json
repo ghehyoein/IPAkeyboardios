@@ -4752,6 +4752,11 @@
    "category": "Lu",
    "decomposition": ""
   },
+  "И": {
+   "name": "CYRILLIC CAPITAL LETTER I",
+   "category": "Lu",
+   "decomposition": ""
+  },
   "б": {
    "name": "CYRILLIC SMALL LETTER BE",
    "category": "Ll",
@@ -6437,10 +6442,20 @@
    "category": "Ll",
    "decomposition": ""
   },
+  "‖": {
+   "name": "DOUBLE VERTICAL LINE",
+   "category": "Po",
+   "decomposition": ""
+  },
   "…": {
    "name": "HORIZONTAL ELLIPSIS",
    "category": "Po",
    "decomposition": "<compat> 002E 002E 002E"
+  },
+  "‿": {
+   "name": "UNDERTIE",
+   "category": "Pc",
+   "decomposition": ""
   },
   "⁄": {
    "name": "FRACTION SLASH",
@@ -6742,6 +6757,136 @@
    "category": "Sm",
    "decomposition": ""
   },
+  "Ⓐ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER A",
+   "category": "So",
+   "decomposition": "<circle> 0041"
+  },
+  "Ⓑ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER B",
+   "category": "So",
+   "decomposition": "<circle> 0042"
+  },
+  "Ⓒ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER C",
+   "category": "So",
+   "decomposition": "<circle> 0043"
+  },
+  "Ⓓ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER D",
+   "category": "So",
+   "decomposition": "<circle> 0044"
+  },
+  "Ⓔ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER E",
+   "category": "So",
+   "decomposition": "<circle> 0045"
+  },
+  "Ⓕ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER F",
+   "category": "So",
+   "decomposition": "<circle> 0046"
+  },
+  "Ⓖ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER G",
+   "category": "So",
+   "decomposition": "<circle> 0047"
+  },
+  "Ⓗ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER H",
+   "category": "So",
+   "decomposition": "<circle> 0048"
+  },
+  "Ⓘ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER I",
+   "category": "So",
+   "decomposition": "<circle> 0049"
+  },
+  "Ⓙ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER J",
+   "category": "So",
+   "decomposition": "<circle> 004A"
+  },
+  "Ⓚ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER K",
+   "category": "So",
+   "decomposition": "<circle> 004B"
+  },
+  "Ⓛ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER L",
+   "category": "So",
+   "decomposition": "<circle> 004C"
+  },
+  "Ⓜ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER M",
+   "category": "So",
+   "decomposition": "<circle> 004D"
+  },
+  "Ⓝ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER N",
+   "category": "So",
+   "decomposition": "<circle> 004E"
+  },
+  "Ⓞ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER O",
+   "category": "So",
+   "decomposition": "<circle> 004F"
+  },
+  "Ⓟ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER P",
+   "category": "So",
+   "decomposition": "<circle> 0050"
+  },
+  "Ⓠ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER Q",
+   "category": "So",
+   "decomposition": "<circle> 0051"
+  },
+  "Ⓡ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER R",
+   "category": "So",
+   "decomposition": "<circle> 0052"
+  },
+  "Ⓢ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER S",
+   "category": "So",
+   "decomposition": "<circle> 0053"
+  },
+  "Ⓣ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER T",
+   "category": "So",
+   "decomposition": "<circle> 0054"
+  },
+  "Ⓤ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER U",
+   "category": "So",
+   "decomposition": "<circle> 0055"
+  },
+  "Ⓥ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER V",
+   "category": "So",
+   "decomposition": "<circle> 0056"
+  },
+  "Ⓦ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER W",
+   "category": "So",
+   "decomposition": "<circle> 0057"
+  },
+  "Ⓧ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER X",
+   "category": "So",
+   "decomposition": "<circle> 0058"
+  },
+  "Ⓨ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER Y",
+   "category": "So",
+   "decomposition": "<circle> 0059"
+  },
+  "Ⓩ": {
+   "name": "CIRCLED LATIN CAPITAL LETTER Z",
+   "category": "So",
+   "decomposition": "<circle> 005A"
+  },
   "◯": {
    "name": "LARGE CIRCLE",
    "category": "So",
@@ -6782,6 +6927,16 @@
    "category": "Ll",
    "decomposition": ""
   },
+  "ⱼ": {
+   "name": "LATIN SUBSCRIPT SMALL LETTER J",
+   "category": "Lm",
+   "decomposition": "<sub> 006A"
+  },
+  "ⱽ": {
+   "name": "MODIFIER LETTER CAPITAL V",
+   "category": "Lm",
+   "decomposition": "<super> 0056"
+  },
   "⸨": {
    "name": "LEFT DOUBLE PARENTHESIS",
    "category": "Ps",
@@ -6789,6 +6944,26 @@
   },
   "⸩": {
    "name": "RIGHT DOUBLE PARENTHESIS",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "⹙": {
+   "name": "TOP HALF LEFT PARENTHESIS",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  "⹚": {
+   "name": "TOP HALF RIGHT PARENTHESIS",
+   "category": "Pe",
+   "decomposition": ""
+  },
+  "⹛": {
+   "name": "BOTTOM HALF LEFT PARENTHESIS",
+   "category": "Ps",
+   "decomposition": ""
+  },
+  "⹜": {
+   "name": "BOTTOM HALF RIGHT PARENTHESIS",
    "category": "Pe",
    "decomposition": ""
   },
@@ -7056,6 +7231,36 @@
    "name": "LATIN SMALL LETTER U WITH STROKE",
    "category": "Ll",
    "decomposition": ""
+  },
+  "꟱": {
+   "name": "MODIFIER LETTER CAPITAL S",
+   "category": "Lm",
+   "decomposition": "<super> 0053"
+  },
+  "ꟲ": {
+   "name": "MODIFIER LETTER CAPITAL C",
+   "category": "Lm",
+   "decomposition": "<super> 0043"
+  },
+  "ꟳ": {
+   "name": "MODIFIER LETTER CAPITAL F",
+   "category": "Lm",
+   "decomposition": "<super> 0046"
+  },
+  "ꟴ": {
+   "name": "MODIFIER LETTER CAPITAL Q",
+   "category": "Lm",
+   "decomposition": "<super> 0051"
+  },
+  "ꟸ": {
+   "name": "MODIFIER LETTER CAPITAL H WITH STROKE",
+   "category": "Lm",
+   "decomposition": "<super> 0126"
+  },
+  "ꟹ": {
+   "name": "MODIFIER LETTER SMALL LIGATURE OE",
+   "category": "Lm",
+   "decomposition": "<super> 0153"
   },
   "ꬰ": {
    "name": "LATIN SMALL LETTER BARRED ALPHA",
@@ -8581,16 +8786,6 @@
    "name": "MODIFIER LETTER SMALL T WITH HOOK AND RETROFLEX HOOK",
    "category": "Lm",
    "decomposition": "<super> 1DF09"
-  },
-  "‖": {
-   "name": "DOUBLE VERTICAL LINE",
-   "category": "Po",
-   "decomposition": ""
-  },
-  "‿": {
-   "name": "UNDERTIE",
-   "category": "Pc",
-   "decomposition": ""
   }
  }
 }

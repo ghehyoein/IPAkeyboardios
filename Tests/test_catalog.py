@@ -25,7 +25,7 @@ class CatalogTests(unittest.TestCase):
  def test_chart_sections(self):
   # Independently transcribed row counts from the retained official chart.
   expected={'pulmonic':59,'vowels':28,'nonpulmonic':11,'other':12,'diacritics':32,'suprasegmentals':9,'tones':24}
-  self.assertEqual({g:sum(s['category']==g for s in SYMBOLS.values()) for g in expected},expected)
+  self.assertEqual({g:sum(s['category']==g and s['official'] for s in SYMBOLS.values()) for g in expected},expected)
   # Frequently confused or omitted code points: IPA g, clicks, stress, steps, tie bars.
   for text in ['ɡ','ɟ','ʄ','ɠ','ʛ','ǀ','ǃ','ǂ','ǁ','ʘ','ⱱ','ɧ','ɺ','ɞ','ɶ','ꜜ','ꜛ','\u0361','\u035c','\u030a','\u1dc4','\u1dc5','\u1dc8']:
    self.assertTrue(SYMBOLS[text]['official'])
@@ -85,6 +85,28 @@ class CatalogTests(unittest.TestCase):
    self.assertIn('historical',SYMBOLS[text]['collections'])
   for text in ['ʩ','ʪ','ʫ','ʬ','ʭ','𝼀','𝼁','𝼂','𝼃','𝼄','𝼅','𝼆','𝼇','ꞎ','ꞯ','\u1ac1','\u1ac4']:
    self.assertIn('extipa',SYMBOLS[text]['collections'])
+
+ def test_circled_capitals_are_atomic_and_reachable(self):
+  for offset,cp in enumerate(range(0x24B6,0x24D0)):
+   text=chr(cp);key=chr(ord('a')+offset)
+   self.assertTrue(SYMBOLS[text]['atomic'])
+   self.assertIn(text,DATA['keys'][key]['variants'])
+   self.assertEqual(SYMBOLS[text]['family'],'extras')
+   self.assertEqual(SYMBOLS[text]['baseKey'],key)
+
+ def test_audited_additions_have_correct_keys_categories_and_search_names(self):
+  mapping={'ƫ':'t','ꟸ':'h','ꟹ':'o','И':'i','ⱼ':'j','ⱽ':'v','꟱':'s','ꟲ':'c','ꟳ':'f','ꟴ':'q'}
+  for text,key in mapping.items():
+   self.assertIn(text,DATA['keys'][key]['variants'])
+   self.assertTrue(SYMBOLS[text]['atomic'])
+  self.assertEqual(SYMBOLS[chr(0x208F)]['category'],'suprasegmentals')
+  self.assertEqual(SYMBOLS['ⱼ']['category'],'subscripts')
+  for cp in range(0x2E59,0x2E5D):self.assertEqual(SYMBOLS[chr(cp)]['category'],'extipa')
+  names=json.loads((ROOT/'Shared/localization.json').read_text())['names']
+  for text in list(mapping)+[chr(0x208F)]+list(map(chr,range(0x2E59,0x2E5D))):
+   symbol=SYMBOLS[text]
+   self.assertEqual(symbol['unicodeNames'],[UNICODE[text]['name']])
+   for language in ['en','ja']:self.assertTrue(names[symbol['name']][language])
 
  def test_no_composites_in_shortcuts(self):
   for mapping in DATA['keys'].values():
