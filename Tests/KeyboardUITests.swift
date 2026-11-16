@@ -108,7 +108,7 @@ final class KeyboardUITests: XCTestCase {
             app.launchArguments = ["--reset-settings", "-AppleLanguages", "(\(language))"]
             app.launch()
             XCTAssertTrue(app.navigationBars[title].waitForExistence(timeout: 10))
-            XCTAssertFalse(app.buttons["openKeyboardDemo"].exists)
+            XCTAssertTrue(app.buttons["openKeyboardDemo"].exists)
             attach(app, name: "settings-" + language)
             let catalog = app.cells["openSymbolCatalog"]
             for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }

@@ -594,6 +594,26 @@
       "zh-Hant": "ipa+ keyboard 是一款適用於 iPhone 和 iPad 的音標輸入法。輕點輸入字母，四向滑動或長按選擇音標變體，也可在符號面板輸入附加符號。支援符號搜尋與輸入自訂，讓學習、研究與日常轉寫更便捷。",
       "en": "ipa+ keyboard is a phonetic keyboard for iPhone and iPad. Tap to type letters, swipe in four directions or hold to choose phonetic variants, and use the symbol panel for diacritics. Symbol search and customizable input make it useful for learning, research, and everyday transcription.",
       "ja": "ipa+ keyboard は iPhone・iPad 用の音声記号キーボードです。タップで文字を入力し、上下左右へのスワイプや長押しで音声記号を選べます。補助記号のパネル、記号検索、入力のカスタマイズで、学習・研究・日々の音声転写をサポートします。"
+    },
+    "音标输入框": {
+      "zh-Hant": "音標輸入框",
+      "en": "Phonetic editor",
+      "ja": "音声記号エディタ"
+    },
+    "说明": {
+      "zh-Hant": "說明",
+      "en": "Help",
+      "ja": "使い方"
+    },
+    "此输入框使用内置 ipa+ 字体，可显示本应用支持的全部音标符号。若符号在其他地方显示异常，可粘贴到这里查看。": {
+      "zh-Hant": "此輸入框使用內建 ipa+ 字型，可顯示本應用程式支援的全部音標符號。若符號在其他地方顯示異常，可貼到這裡查看。",
+      "en": "This editor uses the bundled ipa+ font to display every phonetic symbol supported by the app. If symbols look wrong elsewhere, paste them here to view them.",
+      "ja": "この入力欄では、内蔵の ipa+ フォントで本アプリが対応するすべての音声記号を表示できます。他の場所で正しく表示されない記号は、ここに貼り付けて確認できます。"
+    },
+    "iOS 可以安装字体，但不能让所有应用统一使用它。这里的字体显示效果也不会随文字一起发送。": {
+      "zh-Hant": "iOS 可以安裝字型，但不能讓所有應用程式統一使用它。這裡的字型顯示效果也不會隨文字一起傳送。",
+      "en": "iOS lets you install fonts, but cannot make every app use them. Sending the text does not carry this font’s appearance with it.",
+      "ja": "iOS にはフォントをインストールできますが、すべてのアプリで一律に使うことはできません。テキストを送信しても、このフォントの表示は引き継がれません。"
     }
   },
   "names": {

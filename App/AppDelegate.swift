@@ -14,7 +14,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         var root: UIViewController = SymbolSettingsViewController()
         #if DEBUG
-        // Screenshot and UI-test launch shortcuts; the demo is intentionally inaccessible in production.
+        // Direct launch shortcuts for UI tests; the editor is also available from settings.
         if CommandLine.arguments.contains("--ui-testing") || CommandLine.arguments.contains("--screenshot") {
             root = DemoViewController()
         }

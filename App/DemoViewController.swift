@@ -27,6 +27,10 @@ final class DemoViewController: UIViewController {
         title = "ipa+键盘".localized
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "符号显示".localized, style: .plain, target: self, action: #selector(showSymbolSettings))
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = "openSymbolSettings"
+        let help = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(showEditorHelp))
+        help.accessibilityLabel = "说明".localized
+        help.accessibilityIdentifier = "openEditorHelp"
+        navigationItem.rightBarButtonItem = help
         view.backgroundColor = .systemBackground
         let heading = UILabel()
         heading.text = "把声音，写准确。".localized
@@ -39,6 +43,8 @@ final class DemoViewController: UIViewController {
         description.textColor = .secondaryLabel
         description.numberOfLines = 0
         editor.font = PhoneticDisplay.font(ofSize: 28)
+        editor.textColor = .label
+        editor.allowsEditingTextAttributes = false
         editor.text = "[ˌɪntəˈnæʃənəl fəˈnɛtɪk ˈælfəbet]\n"
         editor.backgroundColor = .secondarySystemBackground
         editor.layer.cornerRadius = 14
@@ -149,4 +155,12 @@ final class DemoViewController: UIViewController {
         }
     }
     @objc private func dismissKeyboard() { editor.resignFirstResponder() }
+    @objc private func showEditorHelp() {
+        editor.resignFirstResponder()
+        let navigation = UINavigationController(rootViewController: AppInformationViewController(page: .editorHelp))
+        navigation.modalPresentationStyle = .pageSheet
+        navigation.sheetPresentationController?.detents = [.medium(), .large()]
+        navigation.sheetPresentationController?.prefersGrabberVisible = true
+        present(navigation, animated: true)
+    }
 }

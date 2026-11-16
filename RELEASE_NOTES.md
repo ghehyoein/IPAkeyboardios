@@ -1,5 +1,6 @@
 ## ipa+ keyboard 0.8.1
 
+- Restore the phonetic editor through the keyboard button at the top right of settings, with localized help explaining how to view pasted symbols using the bundled ipa+ font.
 - Add an ⓘ button beside Download ipa+ font, opening a bottom sheet with a concise font introduction and a note about symbol display in other apps and on recipients’ devices.
 - Open the standalone font’s GitHub release page from Download ipa+ font.
 - Add About, Contact, and Useful links pages at the bottom of settings, including email, the QQ feedback group, the author’s website, the International Phonetic Association, Zi Tools, and Phonetic Toolbox.

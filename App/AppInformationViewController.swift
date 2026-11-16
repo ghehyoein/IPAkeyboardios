@@ -11,7 +11,7 @@ enum AppLinks {
 }
 
 enum AppInformationPage: String {
-    case font, about, contact, links
+    case font, about, contact, links, editorHelp
     static let settingsPages: [AppInformationPage] = [.about, .contact, .links]
     var title: String {
         switch self {
@@ -19,11 +19,12 @@ enum AppInformationPage: String {
         case .about: return "关于".localized
         case .contact: return "联系方式".localized
         case .links: return "友情链接".localized
+        case .editorHelp: return "说明".localized
         }
     }
     var icon: String {
         switch self {
-        case .font, .about: return "info.circle"
+        case .font, .about, .editorHelp: return "info.circle"
         case .contact: return "envelope"
         case .links: return "link"
         }
@@ -49,6 +50,11 @@ final class AppInformationViewController: UITableViewController {
             ]
         case .about:
             return [Entry(id: "aboutIntroduction", title: "ipa+ keyboard 是一款适用于 iPhone 和 iPad 的音标输入法。轻点输入字母，四向滑动或长按选择音标变体，也可在符号面板输入附加符号。支持符号检索和输入自定义，让学习、研究与日常转写更便捷。".localized)]
+        case .editorHelp:
+            return [
+                Entry(id: "editorFontExplanation", title: "此输入框使用内置 ipa+ 字体，可显示本应用支持的全部音标符号。若符号在其他地方显示异常，可粘贴到这里查看。".localized),
+                Entry(id: "editorSystemFontExplanation", title: "iOS 可以安装字体，但不能让所有应用统一使用它。这里的字体显示效果也不会随文字一起发送。".localized)
+            ]
         case .contact:
             return [
                 Entry(id: "contact_email", title: "电子邮箱".localized, detail: AppLinks.email, icon: "envelope", url: URL(string: "mailto:" + AppLinks.email), copyValue: AppLinks.email),
@@ -78,9 +84,9 @@ final class AppInformationViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.cellLayoutMarginsFollowReadableWidth = true
-        if page == .font {
+        if page == .font || page == .editorHelp {
             let done = UIBarButtonItem(title: "完成".localized, style: .done, target: self, action: #selector(close))
-            done.accessibilityIdentifier = "closeFontInformation"
+            done.accessibilityIdentifier = page == .font ? "closeFontInformation" : "closeEditorHelp"
             navigationItem.rightBarButtonItem = done
         }
     }

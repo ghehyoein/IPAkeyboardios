@@ -14,6 +14,10 @@ final class SymbolSettingsViewController: UITableViewController {
         super.viewDidLoad()
         title = "ipa+键盘".localized
         navigationItem.largeTitleDisplayMode = .never
+        let keyboard = UIBarButtonItem(image: UIImage(systemName: "keyboard"), style: .plain, target: self, action: #selector(showKeyboard))
+        keyboard.accessibilityLabel = "音标输入框".localized
+        keyboard.accessibilityIdentifier = "openKeyboardDemo"
+        navigationItem.rightBarButtonItem = keyboard
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 64
         tableView.sectionHeaderTopPadding = 12
@@ -179,6 +183,9 @@ final class SymbolSettingsViewController: UITableViewController {
         navigation.sheetPresentationController?.detents = [.medium(), .large()]
         navigation.sheetPresentationController?.prefersGrabberVisible = true
         present(navigation, animated: true)
+    }
+    @objc private func showKeyboard() {
+        navigationController?.pushViewController(DemoViewController(), animated: true)
     }
     @objc private func panelChanged(_ sender: UISwitch) {
         switch sender.tag {

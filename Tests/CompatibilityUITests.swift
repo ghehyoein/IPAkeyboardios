@@ -12,16 +12,31 @@ final class CompatibilityUITests: XCTestCase {
     func testInformationPagesInAllFourLanguages() {
         continueAfterFailure = false
         let cases = [
-            ("zh-Hans", "关于", "联系方式", "友情链接", "部分符号可能缺失或错位"),
-            ("zh-Hant", "關於", "聯絡方式", "相關連結", "部分符號可能缺失或錯位"),
-            ("en", "About", "Contact", "Useful links", "Some symbols may be missing or misaligned"),
-            ("ja", "このアプリについて", "お問い合わせ", "関連リンク", "位置がずれたり")
+            ("zh-Hans", "关于", "联系方式", "友情链接", "部分符号可能缺失或错位", "本应用支持的全部音标符号"),
+            ("zh-Hant", "關於", "聯絡方式", "相關連結", "部分符號可能缺失或錯位", "本應用程式支援的全部音標符號"),
+            ("en", "About", "Contact", "Useful links", "Some symbols may be missing or misaligned", "every phonetic symbol supported by the app"),
+            ("ja", "このアプリについて", "お問い合わせ", "関連リンク", "位置がずれたり", "すべての音声記号")
         ]
-        for (language, about, contact, links, warning) in cases {
+        for (language, about, contact, links, warning, editorExplanation) in cases {
             let app = XCUIApplication()
             app.launchArguments = ["--reset-settings", "-AppleLanguages", "(\(language))"]
             app.launch()
             XCTAssertTrue(app.tables["symbolSettings"].waitForExistence(timeout: 10))
+            app.buttons["openKeyboardDemo"].tap()
+            let editor = app.textViews["transcriptionEditor"]
+            XCTAssertTrue(editor.waitForExistence(timeout: 5))
+            editor.tap()
+            let q = app.descendants(matching: .any)["key_q"]
+            XCTAssertTrue(q.waitForExistence(timeout: 5))
+            q.tap()
+            XCTAssertTrue((editor.value as? String ?? "").contains("q"))
+            app.buttons["openEditorHelp"].tap()
+            XCTAssertTrue(app.tables["information_editorHelp"].waitForExistence(timeout: 5))
+            XCTAssertTrue(app.cells["editorFontExplanation"].staticTexts.firstMatch.label.contains(editorExplanation))
+            app.buttons["closeEditorHelp"].tap()
+            XCTAssertTrue((editor.value as? String ?? "").contains("q"), "Opening help must preserve the transcription")
+            app.buttons["openSymbolSettings"].tap()
+            XCTAssertTrue(app.tables["symbolSettings"].waitForExistence(timeout: 5))
             let info = app.buttons["fontInformation"]
             reveal(info, in: app)
             info.tap()
