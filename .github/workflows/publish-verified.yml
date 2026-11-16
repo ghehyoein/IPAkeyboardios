@@ -10,7 +10,7 @@ permissions:
   actions: read
 jobs:
   publish:
-    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAplus-keyboard-ios'
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}

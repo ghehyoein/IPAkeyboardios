@@ -14,7 +14,7 @@ permissions:
 jobs:
   dispatch:
     if: >-
-      github.repository == 'ghehyoein/IPAkeyboardios' &&
+      github.repository == 'ghehyoein/IPAplus-keyboard-ios' &&
       (github.event_name == 'release' ||
        (github.event.workflow_run.conclusion == 'success' &&
         github.event.workflow_run.head_repository.full_name == github.repository &&

@@ -1,15 +1,9 @@
-## ipa+ keyboard 0.8.0
+## ipa+ keyboard 0.8.1
 
-- Bundle the **ipa+** font in the app and keyboard, covering the current 1,308-codepoint input inventory, including the 51 supplementary modifier letters.
-- Preserve combining-mark positioning, including stacked and enclosing marks.
-- Add **Download ipa+ font** to settings in Simplified Chinese, Traditional Chinese, English and Japanese.
-- Add a fixed, transparent backspace button at the top right of symbol panels, matching the ABC button and supporting press-and-hold deletion.
+- Add an ⓘ button beside Download ipa+ font, opening a bottom sheet with a concise font introduction and a note about symbol display in other apps and on recipients’ devices.
+- Open the standalone font’s GitHub release page from Download ipa+ font.
+- Add About, Contact, and Useful links pages at the bottom of settings, including email, the QQ feedback group, the author’s website, the International Phonetic Association, Zi Tools, and Phonetic Toolbox.
+- Localize the new pages in Simplified Chinese, Traditional Chinese, English, and Japanese, with Dynamic Type, light/dark appearance, and iPhone/iPad layouts.
+- Update application links and release automation for the renamed IPAplus-keyboard-ios repository.
 
-The font is distributed under SIL OFL 1.1 with original copyright notices and the
-full license embedded in its metadata. Download `ipa-plus.ttf` directly or use
-`ipa-plus-font.zip` for the font, notices and coverage report. Some rare glyphs
-retain Unifont's pixel-shaped outlines. Other apps must select the font to use it.
-
-Download **IPAKeyboard-unsigned.ipa** directly and sign both app and keyboard
-extension before installing. Supports iPhone and iPad from iOS 17. A GitHub release
-does not automatically replace the App Store version.
+Download **IPAKeyboard-unsigned.ipa** directly and sign both the app and keyboard extension before installing. Requires iOS 17 or later. GitHub publication does not update the App Store listing.

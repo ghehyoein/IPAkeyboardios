@@ -27,7 +27,7 @@ concurrency:
 jobs:
   distribute:
     environment: testflight
-    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAplus-keyboard-ios'
     runs-on: macos-15
     timeout-minutes: 60
     env:

@@ -25,7 +25,7 @@ enum L10n {
     static func text(_ key: String) -> String {
         switch language {
         case "zh-Hans": return key
-        case "zh-Hant": return traditional(key)
+        case "zh-Hant": return data["ui"]?[key]?["zh-Hant"] ?? traditional(key)
         default: return data["ui"]?[key]?[language] ?? key
         }
     }

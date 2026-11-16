@@ -509,6 +509,7 @@
       "ja": "記号の詳細"
     },
     "已复制": {
+      "zh-Hant": "已複製",
       "en": "Copied",
       "ja": "コピーしました"
     },
@@ -523,6 +524,76 @@
     "下载 ipa+ 字体": {
       "en": "Download ipa+ font",
       "ja": "ipa+ フォントをダウンロード"
+    },
+    "ipa+ 字体介绍": {
+      "zh-Hant": "ipa+ 字型介紹",
+      "en": "About the ipa+ font",
+      "ja": "ipa+ フォントについて"
+    },
+    "关于": {
+      "zh-Hant": "關於",
+      "en": "About",
+      "ja": "このアプリについて"
+    },
+    "联系方式": {
+      "zh-Hant": "聯絡方式",
+      "en": "Contact",
+      "ja": "お問い合わせ"
+    },
+    "友情链接": {
+      "zh-Hant": "相關連結",
+      "en": "Useful links",
+      "ja": "関連リンク"
+    },
+    "电子邮箱": {
+      "zh-Hant": "電子郵件",
+      "en": "Email",
+      "ja": "メール"
+    },
+    "QQ 反馈群": {
+      "zh-Hant": "QQ 意見回饋群",
+      "en": "QQ feedback group",
+      "ja": "QQ フィードバックグループ"
+    },
+    "作者主页": {
+      "zh-Hant": "作者主頁",
+      "en": "Author’s website",
+      "ja": "作者のウェブサイト"
+    },
+    "国际语音学协会（IPA）": {
+      "zh-Hant": "國際語音學協會（IPA）",
+      "en": "International Phonetic Association (IPA)",
+      "ja": "国際音声学会（IPA）"
+    },
+    "字统网": {
+      "zh-Hant": "字統網",
+      "en": "Zi Tools — Chinese character reference",
+      "ja": "字統網 — 漢字データベース"
+    },
+    "轻点复制": {
+      "zh-Hant": "點一下以複製",
+      "en": "Tap to copy",
+      "ja": "タップしてコピー"
+    },
+    "复制": {
+      "zh-Hant": "複製",
+      "en": "Copy",
+      "ja": "コピー"
+    },
+    "ipa+ 为音标转写整合了多种开放许可字体，并补充了新绘与改作字形，以 SIL OFL 1.1 许可证发布。": {
+      "zh-Hant": "ipa+ 為音標轉寫整合了多種開放授權字型，並補充了新繪與改作字形，以 SIL OFL 1.1 授權條款發布。",
+      "en": "ipa+ combines openly licensed fonts with newly drawn and adapted glyphs for phonetic transcription. It is released under the SIL Open Font License 1.1.",
+      "ja": "ipa+ は、オープンライセンスのフォントに新規・改作字形を加えた音声転写用フォントです。SIL Open Font License 1.1 で公開しています。"
+    },
+    "文字复制到其他软件或发送给别人后，显示效果取决于对方使用的字体；部分符号可能缺失或错位。": {
+      "zh-Hant": "文字複製到其他軟體或傳送給別人後，顯示效果取決於對方使用的字型；部分符號可能缺失或錯位。",
+      "en": "When you copy text into another app or send it to someone, its appearance depends on the font used there. Some symbols may be missing or misaligned.",
+      "ja": "他のアプリへのコピーや相手への送信後は、表示先のフォントによって、一部の記号が表示されなかったり、位置がずれたりすることがあります。"
+    },
+    "ipa+ keyboard 是一款适用于 iPhone 和 iPad 的音标输入法。轻点输入字母，四向滑动或长按选择音标变体，也可在符号面板输入附加符号。支持符号检索和输入自定义，让学习、研究与日常转写更便捷。": {
+      "zh-Hant": "ipa+ keyboard 是一款適用於 iPhone 和 iPad 的音標輸入法。輕點輸入字母，四向滑動或長按選擇音標變體，也可在符號面板輸入附加符號。支援符號搜尋與輸入自訂，讓學習、研究與日常轉寫更便捷。",
+      "en": "ipa+ keyboard is a phonetic keyboard for iPhone and iPad. Tap to type letters, swipe in four directions or hold to choose phonetic variants, and use the symbol panel for diacritics. Symbol search and customizable input make it useful for learning, research, and everyday transcription.",
+      "ja": "ipa+ keyboard は iPhone・iPad 用の音声記号キーボードです。タップで文字を入力し、上下左右へのスワイプや長押しで音声記号を選べます。補助記号のパネル、記号検索、入力のカスタマイズで、学習・研究・日々の音声転写をサポートします。"
     }
   },
   "names": {

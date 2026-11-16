@@ -21,7 +21,9 @@ final class SymbolSettingsViewController: UITableViewController {
         tableView.accessibilityIdentifier = "symbolSettings"
     }
     // Keep related choices together; technical signing details do not belong on the home screen.
+    private var informationSection: Int { shareAvailable ? 4 : 5 }
     private func settingsPath(_ path: IndexPath) -> IndexPath {
+        if path.section == informationSection { return IndexPath(row: path.row, section: 9) }
         switch path.section {
         case 0: return IndexPath(row: max(0, path.row - 1), section: path.row == 0 ? 0 : 1)
         case 1: return IndexPath(row: 0, section: [4, 5, 7, 8][path.row])
@@ -30,10 +32,13 @@ final class SymbolSettingsViewController: UITableViewController {
         default: return IndexPath(row: 0, section: 3)
         }
     }
-    override func numberOfSections(in tableView: UITableView) -> Int { shareAvailable ? 4 : 5 }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { [4, 4, 3, 2, 1][section] }
+    override func numberOfSections(in tableView: UITableView) -> Int { informationSection + 1 }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        section == informationSection ? 3 : [4, 4, 3, 2, 1][section]
+    }
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        ["符号".localized, "偏好与参考".localized, "符号面板内容".localized, "输入反馈".localized, "设置同步".localized][section]
+        guard section != informationSection else { return nil }
+        return ["符号".localized, "偏好与参考".localized, "符号面板内容".localized, "输入反馈".localized, "设置同步".localized][section]
     }
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
@@ -55,12 +60,25 @@ final class SymbolSettingsViewController: UITableViewController {
         cell.imageView?.tintColor = .secondaryLabel
         cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.numberOfLines = 0
-        if indexPath.section == 8 {
+        if indexPath.section == 9 {
+            let page = AppInformationPage.settingsPages[indexPath.row]
+            cell.textLabel?.text = page.title
+            cell.imageView?.image = UIImage(systemName: page.icon)
+            cell.accessibilityIdentifier = "open_" + page.rawValue
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .default
+        } else if indexPath.section == 8 {
             cell.textLabel?.text = "下载 ipa+ 字体".localized
             cell.detailTextLabel?.text = "TTF · SIL OFL 1.1"
             cell.accessibilityIdentifier = "downloadIPAFont"
             cell.imageView?.image = UIImage(systemName: "arrow.down.document")
-            cell.accessoryType = .disclosureIndicator
+            let info = UIButton(type: .infoLight)
+            info.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            info.tintColor = .systemBlue
+            info.accessibilityLabel = "ipa+ 字体介绍".localized
+            info.accessibilityIdentifier = "fontInformation"
+            info.addTarget(self, action: #selector(showFontInformation), for: .touchUpInside)
+            cell.accessoryView = info
             cell.selectionStyle = .default
         } else if indexPath.section == 7 {
             cell.textLabel?.text = "语言".localized
@@ -128,9 +146,12 @@ final class SymbolSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let indexPath = settingsPath(indexPath)
+        if indexPath.section == 9 {
+            navigationController?.pushViewController(AppInformationViewController(page: AppInformationPage.settingsPages[indexPath.row]), animated: true)
+            return
+        }
         if indexPath.section == 8 {
-            let url = URL(string: "https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus.ttf")!
-            UIApplication.shared.open(url)
+            UIApplication.shared.open(AppLinks.fontRelease)
             return
         }
         if indexPath.section == 7 {
@@ -150,6 +171,14 @@ final class SymbolSettingsViewController: UITableViewController {
         }
         guard indexPath.section == 4 else { return }
         navigationController?.pushViewController(SymbolCatalogViewController(), animated: true)
+    }
+    @objc private func showFontInformation() {
+        let controller = AppInformationViewController(page: .font)
+        let navigation = UINavigationController(rootViewController: controller)
+        navigation.modalPresentationStyle = .pageSheet
+        navigation.sheetPresentationController?.detents = [.medium(), .large()]
+        navigation.sheetPresentationController?.prefersGrabberVisible = true
+        present(navigation, animated: true)
     }
     @objc private func panelChanged(_ sender: UISwitch) {
         switch sender.tag {
