@@ -27,3 +27,7 @@ iOS 国际音标输入法，包含键盘扩展与符号设置。支持 iOS 17 �
 本项目**公开源码，但不提供一般商业使用授权**。除另有独立许可证的资料外，原创 Swift 程序、键盘实现、构建脚本和原创项目素材采用 [PolyForm Noncommercial License 1.0.0](LICENSE.md)。允许按其条款进行非商业使用、学习、修改及再分发；**如需商业使用、商业分发或将原创代码用于商业产品，请事先取得单独授权**。详情见 [LICENSE.md](LICENSE.md)。
 
 **第三方许可例外：** Unicode 官方数据继续遵守 [Unicode License](Reference/Unicode/LICENSE.txt)；[音标清单与改编数据](Reference/SOURCES.md) 中明确以 CC BY-SA 4.0 发布的部分，仍可依原许可证使用（包括符合原许可证的商业使用），不受本项目非商业源码授权限制。
+
+## ipa+ 字体
+
+字体文件、英文说明、来源记录及完整 OFL 1.1 许可证集中在独立的 [Font 文件夹](Font/README.md)。字体采用独立许可，可在遵守 OFL 条件时随商业软件分发。
