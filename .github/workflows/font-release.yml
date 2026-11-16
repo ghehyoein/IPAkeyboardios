@@ -25,8 +25,8 @@ jobs:
     timeout-minutes: 5
     env:
       GH_TOKEN: ${{ github.token }}
-      FONT_TAG: font-v0.600
-      FONT_SOURCE: 44ef34f2c9a6eacd16b5069c7fc5b4db3e4bbe49
+      FONT_TAG: font-v0.601
+      FONT_SOURCE: a69eeb97344e03d66856ce4ff198c50389f730e8
     steps:
       - uses: actions/checkout@v4
       - name: Prepare and verify approved font assets
@@ -37,7 +37,7 @@ jobs:
           git fetch origin "$FONT_SOURCE"
           git show "$FONT_SOURCE:Font/ipa-plus.ttf" > build/font-release/ipa-plus.ttf
           git show "$FONT_SOURCE:Font/Font-Licenses.txt" > build/font-release/Font-Licenses.txt
-          cp Font/releases/0.600/README.txt Font/releases/0.600/SHA256SUMS.txt build/font-release/
+          cp Font/releases/0.601/README.txt Font/releases/0.601/SHA256SUMS.txt build/font-release/
           cp Font/previews/ipa-plus-original-glyphs.png build/font-release/
           cd build/font-release
           sha256sum --check SHA256SUMS.txt
@@ -57,8 +57,8 @@ jobs:
             build/font-release/SHA256SUMS.txt \
             --repo "$GITHUB_REPOSITORY" \
             --target "$FONT_SOURCE" \
-            --title "ipa+ font 0.600" \
-            --notes-file Font/releases/0.600/release-notes.md \
+            --title "ipa+ font 0.601" \
+            --notes-file Font/releases/0.601/release-notes.md \
             --latest=false
       - name: Update existing release documentation only
         if: inputs.operation == 'update-docs'
@@ -76,7 +76,7 @@ jobs:
             build/font-release/ipa-plus-original-glyphs.png \
             --repo "$GITHUB_REPOSITORY" --clobber
           gh release edit "$FONT_TAG" --repo "$GITHUB_REPOSITORY" \
-            --notes-file Font/releases/0.600/release-notes.md --latest=false
+            --notes-file Font/releases/0.601/release-notes.md --latest=false
       - name: Verify uploaded release assets
         run: |
           set -euo pipefail
