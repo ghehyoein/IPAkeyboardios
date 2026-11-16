@@ -1,72 +1,80 @@
-# ipa+ 字体：来源与授权许可
+# ipa+ Font: Sources and Licensing
 
-本文说明本仓库随 ipa+ keyboard 分发的 **ipa+** 字体的来源、修改方式及许可证。这里的授权依据是上游公开许可证，不是另行签发的商业授权证书或版权登记证书。
+This document records the sources, modifications, and licensing of the **ipa+** font distributed with ipa+ keyboard. Authorization comes from the upstream licenses; this document is not a separately issued commercial license certificate or copyright registration.
 
-## 字体文件
+## Font file
 
-- 字体家族名称：**ipa+**；PostScript 名称：`IPAPlus-Regular`。
-- 仓库文件：[ipa-plus.ttf](Shared/Fonts/ipa-plus.ttf)。
-- 下载：[字体文件](https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus.ttf) · [包含许可证和覆盖报告的字体包](https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus-font.zip)。
-- 本文对应的字体文件覆盖 1,308 个 Unicode 码位，含 1,469 个字形（包括复合字形和排版所需的依赖），大小为 248,288 字节。这是当前键盘输入集合的覆盖范围，不代表全部 Unicode。
-- SHA-256：`77b0ce4f0ba81c4f350b146afff641ff948442a7b74e5feab7b8470b7a3697ce`。
+- Family name: **ipa+**. PostScript name: `IPAPlus-Regular`.
+- Repository file: [ipa-plus.ttf](Shared/Fonts/ipa-plus.ttf).
+- Downloads: [TTF](https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus.ttf) · [Font package with licenses and coverage report](https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus-font.zip).
+- The documented file covers 1,308 Unicode code points and contains 1,469 glyphs, including composite and shaping dependencies. Its size is 248,288 bytes. Coverage targets the keyboard's current input inventory, not all of Unicode.
+- SHA-256: `77b0ce4f0ba81c4f350b146afff641ff948442a7b74e5feab7b8470b7a3697ce`.
 
-## 上游来源
+## Upstream sources
 
-| 来源 | 版本及官方来源 | 在 ipa+ 中的用途 | 采用的许可 |
+| Source | Version and official source | Contribution to ipa+ | License used |
 | --- | --- | --- | --- |
-| Charis | [7.000，SIL 官方发布](https://github.com/silnrsi/font-charis/releases/tag/v7.000) | 主体字形，直接提供 985 个码位；另外参与 51 字符补充字体中的 50 个字符构造 | SIL OFL 1.1 |
-| Gentium | [7.000，SIL 官方发布](https://github.com/silnrsi/font-gentium/releases/tag/v7.000) | 通过补充字体提供 U+1DFF3 的基础 ψ 字形 | SIL OFL 1.1 |
-| BabelStone Roman | [16.000，官方字体页面](https://www.babelstone.co.uk/Fonts/Roman.html) | 补充 113 个码位 | SIL OFL 1.1 |
-| GNU Unifont | [18.0.01，官方发布目录](https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/)；[项目说明](https://unifoundry.com/unifont/) | 普通文件补充 61 个码位，upper 文件补充 98 个码位 | 采用这些编译字体提供的 SIL OFL 1.1 授权选项 |
-| IPA Plus Supplement | [仓库中的补充字体](Reference/Fonts/IPAPlusSupplement-Regular.ttf)及[逐字符来源](Reference/Fonts/supplement-provenance.json) | 51 个补充字符，由已获 OFL 授权的 Charis/Gentium 部件及自行构造的轮廓形成 | [SIL OFL 1.1](Reference/Fonts/Supplement-OFL.txt) |
+| Charis | [7.000, official SIL release](https://github.com/silnrsi/font-charis/releases/tag/v7.000) | Primary source: 985 directly selected code points; also supplies components for 50 of the 51 supplementary characters | SIL OFL 1.1 |
+| Gentium | [7.000, official SIL release](https://github.com/silnrsi/font-gentium/releases/tag/v7.000) | Supplies the base ψ outline for U+1DFF3 through the supplement | SIL OFL 1.1 |
+| BabelStone Roman | [16.000, official font page](https://www.babelstone.co.uk/Fonts/Roman.html) | Supplies 113 additional code points | SIL OFL 1.1 |
+| GNU Unifont | [18.0.01, official release directory](https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/) · [Project information](https://unifoundry.com/unifont/) | The ordinary file supplies 61 code points; the upper file supplies 98 | The SIL OFL 1.1 licensing option offered for these compiled fonts |
+| IPA Plus Supplement | [Supplement font](Reference/Fonts/IPAPlusSupplement-Regular.ttf) · [Per-character provenance](Reference/Fonts/supplement-provenance.json) | 51 supplementary characters derived from OFL-licensed Charis/Gentium components and additional outline constructions | [SIL OFL 1.1](Reference/Fonts/Supplement-OFL.txt) |
 
-补充字体已包含在最终的单一 TTF 内，不需要另行安装。上表中的 Gentium 贡献包含在补充字体的 51 个字符内，不重复计数。
+The supplement is merged into the final TTF and does not require separate installation. Gentium's contribution is included in the supplement's 51 characters, not counted again.
 
-上游字体的版权与保留名称声明见文末原文。修改后的字体使用新名称 **ipa+**，不使用上游的保留字体名称 Charis、Gentium、SIL、BabelStone 作为字体名称，也不表示上游作者为此衍生字体背书。
+The original copyright and Reserved Font Name notices are reproduced below. The derivative uses the new name **ipa+**, rather than the upstream Reserved Font Names Charis, Gentium, SIL, or BabelStone. Attribution does not imply endorsement by upstream authors.
 
-## 合并与修改
+## Merging and modifications
 
-构建按 Charis、补充字体、BabelStone、Unifont、Unifont Upper 的顺序选取所需码位，合并到单一字体文件，并裁剪未使用的映射；复合轮廓和排版功能需要的字形依赖会保留。
+The build selects required code points in this order: Charis, the supplement, BabelStone, Unifont, and Unifont Upper. It merges them into one font and removes unused mappings while retaining glyph dependencies needed for composite outlines and shaping.
 
-补充字符经过缩放、位置和比例调整，部分还包含自行构造的钩、横线或开口。构建保留所需的 OpenType 排版功能，并补充跨来源组合附加符号的定位锚点。部分罕见 Unifont 来源字形仍保留点阵式轮廓。
+Supplementary characters have adjusted scale, placement, and proportions; some also include newly constructed hooks, bars, or openings. The build retains required OpenType shaping features and adds anchors for combining marks across source fonts. Some rare Unifont-derived glyphs retain pixel-shaped outlines.
 
-本字体没有嵌入从 Unicode 码表提取的参考字体或示例图片轮廓。字符名称、码位和组合类别等数据用于字符识别及定位；Unicode 数据的许可证另见 [Unicode LICENSE](Reference/Unicode/LICENSE.txt)。字体轮廓的授权依据是上游 OFL 许可，而不是与参考图形“略有不同”。
+No fonts or example-image outlines extracted from Unicode reference charts are embedded. Unicode character names, code points, and combining properties are used for identification and positioning; the data license is recorded separately in [Unicode LICENSE](Reference/Unicode/LICENSE.txt). Permission to use the font outlines comes from the upstream OFL licenses, not from making them look slightly different from reference images.
 
-## 使用与再分发条件
+## Rights in the 51 supplementary glyphs
 
-**ipa+ 字体整体按 SIL Open Font License 1.1 分发。** 该字体许可独立于 App 源码的许可。
+These 51 glyphs are derivative constructions, not 51 wholly independent drawings. The provenance records identify Charis components for 50 and a Gentium component for one. Of these, 43 are recorded as transformations of licensed base outlines, and eight include additional outline construction while still using Charis components.
 
-- 可在遵守 OFL 条件时使用、嵌入、修改和再分发，包括随商业 App 分发。
-- 字体及其单独组件不可单独出售；可以随软件捆绑销售。
-- 再分发时必须保留适用的版权声明和完整许可证；修改版字体仍须按 OFL 分发，并遵守保留字体名称限制。
-- 不得未经许可使用上游作者或权利人名称为修改版宣传背书；说明来源和贡献除外。
-- 使用字体制作的文档或图片不因此必须采用 OFL。
+Upstream rights in those components remain with their respective rightsholders. Any copyright that arises in eligible original contributions is distinct from those upstream rights. Its existence and ownership depend on authorship, applicable law, and relevant agreements; scaling, moving, or mechanically modifying an outline does not automatically create a new exclusive copyright. AI-assisted or AI-generated contributions also require an assessment of protectable human authorship under applicable law.
 
-以上是便于阅读的摘要，完整条款以文末英文原文为准。许可证按原样提供字体，不提供包括不侵权在内的担保；本文记录来源和许可，不构成独立的权利认证。
+The provenance records document technical sources and changes; they do not establish exclusive ownership of all 51 glyphs by the project owner. Any protectable additions remain subject to the OFL distribution requirements when distributed as part of this derivative font. OFL licensing does not itself transfer copyright ownership to the public.
 
-完整声明也随 [Font-Licenses.txt](Shared/Fonts/Font-Licenses.txt) 分发，并嵌入 TTF 的 name 表：name ID 0 保存版权及来源声明，name ID 13 保存 OFL 正文，name ID 14 指向官方许可页面。
+## Use and redistribution
 
-## 可核查的来源记录
+**The complete ipa+ font is distributed under the SIL Open Font License 1.1.** Its license is separate from the application source-code license.
 
-- [下载地址与文件 SHA-256](tools/fonts/sources.json)：构建输入采用固定哈希校验，防止上游文件更新后被静默替换。
-- [最终字体覆盖与逐码位来源](Reference/Fonts/unified-coverage.json)。
-- [51 个补充字符的基础字形、变换和来源哈希](Reference/Fonts/supplement-provenance.json)。
-- [构建说明](tools/fonts/README.txt)及[合并脚本](tools/fonts/build.py)。
+- Use, embedding, modification, and redistribution are permitted under the OFL conditions, including bundling with commercial apps.
+- The font or its individual components may not be sold by themselves; bundling and sale with software are permitted.
+- Redistribution must retain the applicable copyright notices and complete license. Modified font versions must remain under the OFL and comply with Reserved Font Name restrictions.
+- Upstream authors' or rightsholders' names may not be used to promote or endorse a modified font without permission, except to acknowledge their contributions.
+- Documents and images created using the font do not have to adopt the OFL merely because they use the font.
 
-以下是本次合并输入文件的 SHA-256（压缩包中的字体使用解压后文件的哈希）：
+This is a reading aid; the complete English license below governs. The license provides the font as is, without warranties, including a warranty of noninfringement. This document records provenance and licensing rather than independently certifying rights.
 
-| 文件 | SHA-256 |
+The complete notices are also distributed in [Font-Licenses.txt](Shared/Fonts/Font-Licenses.txt) and embedded in the TTF name table: name ID 0 contains the copyright and source notices, name ID 13 contains the OFL text, and name ID 14 links to the official license page.
+
+## Verifiable source records
+
+- [Download URLs and SHA-256 hashes](tools/fonts/sources.json): pinned hashes prevent silently accepting changed upstream files.
+- [Final coverage and per-code-point source assignments](Reference/Fonts/unified-coverage.json).
+- [Base outlines, transformations, and source hashes for the 51 supplementary characters](Reference/Fonts/supplement-provenance.json).
+- [Build instructions](tools/fonts/README.txt) and [merge script](tools/fonts/build.py).
+
+SHA-256 hashes of the font inputs used in this build follow. For archived fonts, hashes refer to the extracted font files, not the archives.
+
+| File | SHA-256 |
 | --- | --- |
 | `Charis-Regular.ttf` | `c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6` |
 | `IPAPlusSupplement-Regular.ttf` | `cf7afc9bef927e3d6360005aa648c425420f4bbda24c40766bfc499859d11ad3` |
 | `BabelStoneRoman.ttf` | `ffa5663ef462ac7510587cb1bd93ca1d2173567006c0a19a654c48c28cce8a6a` |
 | `unifont-18.0.01.otf` | `88d0a14d4aa9a96419720b39ba5da921a59560d76d4ec7d523acc06ed85cd3c2` |
 | `unifont_upper-18.0.01.otf` | `472201e45a050bff4c7658208b8c73e34ebce3764b287a5a46c7774038ef9391` |
-| `Gentium-Regular.ttf`（补充字形来源） | `158d89548ef28f62abfc2921878fa253b833111e8d3932da7f501daef6d0eccf` |
+| `Gentium-Regular.ttf` (supplement source) | `158d89548ef28f62abfc2921878fa253b833111e8d3932da7f501daef6d0eccf` |
 
-## 随字体分发的版权声明及完整许可证
+## Distributed copyright notices and complete license
 
-以下原文与仓库中的 `Font-Licenses.txt` 一致。
+The following text matches `Font-Licenses.txt` in this repository.
 
 ```text
 ipa+ — SIL Open Font License 1.1

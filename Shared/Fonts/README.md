@@ -12,6 +12,9 @@ Other apps must select this font themselves; bundling it does not replace iOS fo
 
 ## License and sources
 
+See [Sources and licensing](../../FONT_SOURCES_AND_LICENSE.md) for the complete
+source inventory, license text, and rights information for the 51 supplementary glyphs.
+
 This modified font is distributed under **SIL Open Font License 1.1**. The complete
 license and original copyright notices are in [Font-Licenses.txt](Font-Licenses.txt)
 and in the TTF's readable name-table metadata. Keep these notices when distributing
