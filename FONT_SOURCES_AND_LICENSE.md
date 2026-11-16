@@ -32,6 +32,19 @@ Supplementary characters have adjusted scale, placement, and proportions; some a
 
 No fonts or example-image outlines extracted from Unicode reference charts are embedded. Unicode character names, code points, and combining properties are used for identification and positioning; the data license is recorded separately in [Unicode LICENSE](Reference/Unicode/LICENSE.txt). Permission to use the font outlines comes from the upstream OFL licenses, not from making them look slightly different from reference images.
 
+## Project-made contributions to the 51 supplementary glyphs
+
+The supplement includes work carried out for this project, rather than simply copying a ready-made set of superscript and subscript glyphs. OFL-licensed Charis/Gentium components were adapted with changes to scale, superscript or subscript placement, optical proportions, and spacing.
+
+The provenance records describe 43 glyphs made primarily by transforming licensed base outlines and eight with additional outline work:
+
+- **U+1DFCD:** a newly drawn rounded return hook added to a licensed turned-r base.
+- **U+1DFCE and U+1DFCF:** openings cut into licensed o/u outlines.
+- **U+1DFD7, U+1DFD8, and U+1DFDB:** horizontal bars added at selected heights on licensed bases.
+- **U+1DFE0 and U+1DFE4:** licensed consonant outlines joined while preserving their distinguishing curls.
+
+These are project-made adaptations and constructions, not a claim that all 51 glyphs were drawn from scratch or that upstream copyrights have transferred to the project. The original notices remain applicable and the resulting font is distributed under OFL 1.1. Whether any added elements qualify for separate copyright depends on applicable law and the specific creative contribution.
+
 ## Rights in the 51 supplementary glyphs
 
 These 51 glyphs are derivative constructions, not 51 wholly independent drawings. The provenance records identify Charis components for 50 and a Gentium component for one. Of these, 43 are recorded as transformations of licensed base outlines, and eight include additional outline construction while still using Charis components.

@@ -18,6 +18,21 @@ The current font covers 1,308 Unicode code points in the keyboard's input invent
 
 Keep the copyright notices and full license when redistributing the font. The font may not be sold by itself. See the complete license for all conditions.
 
+## Project-made contributions to the 51 supplementary glyphs
+
+The supplement includes work carried out for this project, rather than simply copying a ready-made set of superscript and subscript glyphs. OFL-licensed Charis/Gentium components were adapted with changes to scale, superscript or subscript placement, optical proportions, and spacing.
+
+The provenance records describe 43 glyphs made primarily by transforming licensed base outlines and eight with additional outline work:
+
+- **U+1DFCD:** a newly drawn rounded return hook added to a licensed turned-r base.
+- **U+1DFCE and U+1DFCF:** openings cut into licensed o/u outlines.
+- **U+1DFD7, U+1DFD8, and U+1DFDB:** horizontal bars added at selected heights on licensed bases.
+- **U+1DFE0 and U+1DFE4:** licensed consonant outlines joined while preserving their distinguishing curls.
+
+These are project-made adaptations and constructions, not a claim that all 51 glyphs were drawn from scratch or that upstream copyrights have transferred to the project. The original notices remain applicable and the resulting font is distributed under OFL 1.1. Whether any added elements qualify for separate copyright depends on applicable law and the specific creative contribution.
+
+See the [per-glyph provenance records](supplement-provenance.json) for component sources and transformations.
+
 ## Maintaining this directory
 
 This directory provides a standalone distribution copy. The app continues to bundle the identical font from `Shared/Fonts/ipa-plus.ttf`. When regenerating the font, update this copy, the notices, and the coverage/provenance records together. The source documentation is maintained in `FONT_SOURCES_AND_LICENSE.md`; keep this directory's copy in sync, adjusting relative links.
