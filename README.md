@@ -1,32 +1,32 @@
 # ipa+ keyboard
 
-iOS 国际音标输入法，包含键盘扩展与符号设置。支持 iOS 17 及以上的 iPhone 和 iPad，提供简体中文、繁體中文、English 和日本語界面。
+An International Phonetic Alphabet (IPA) keyboard for iOS, with a keyboard extension and a companion app for symbol settings. Supports iPhone and iPad running iOS 17 or later, with interfaces in Simplified Chinese, Traditional Chinese, English, and Japanese.
 
-## 功能
+## Features
 
-- 轻点输入字母，四向滑动输入音标变体，长按滑选完整候选。
-- 支持现版 IPA、中国通用音标、旧版及非标准 IPA、extIPA 和 Unicode 语音补充。
-- 独立符号面板提供上标、下标、组合附加符号及最近使用，支持连续横向浏览。
-- 数字和标点页支持长按变体；长按空格后左右拖动可移动光标。
-- 可设置符号来源、面板内容、逐键滑动映射，以及声音和触感。
-- 符号参考支持分类浏览、搜索、Unicode 编码和注释。
-- 支持浅色、深色外观和 VoiceOver 操作。
+- Tap to type letters, swipe in four directions for phonetic variants, or touch and hold to slide through all available candidates.
+- Includes current IPA, phonetic symbols used in Chinese linguistics, historical and nonstandard IPA, extIPA, and additional Unicode phonetic characters.
+- A dedicated symbol panel provides superscripts, subscripts, combining diacritics, and recently used symbols, with continuous horizontal browsing.
+- Number and punctuation pages offer variants on long press. Touch and hold the space bar, then drag horizontally to move the cursor.
+- Customize symbol sources, panel contents, swipe mappings for individual keys, sound, and haptic feedback.
+- Browse and search a categorized symbol reference with Unicode code points and annotations.
+- Supports light and dark appearances and VoiceOver.
 
-## 隐私与兼容性
+## Privacy and compatibility
 
-键盘不联网，不收集输入正文或周围文本。设置通过 App Group 在 App 与扩展之间同步；最近使用仅保存在本地。基本输入和设置的只读同步无需完全访问，扩展按键声音需要完全访问。
+The keyboard does not access the network or collect typed text or surrounding text. Settings are shared between the app and its keyboard extension through an App Group; recently used symbols are stored locally. Basic typing and read-only settings synchronization do not require Full Access. Keyboard-extension key sounds require Full Access.
 
-第三方键盘在密码框、部分输入框或禁止扩展的应用中不可用。字符显示与组合效果取决于目标应用及其字体；系统字体缺少字形时，候选显示 Unicode 编码，实际输入仍是原始字符。
+Third-party keyboards are unavailable in password fields, some other input fields, and apps that disallow keyboard extensions. Character display and combining behavior depend on the receiving app and its fonts. When the system font lacks a glyph, the candidate displays its Unicode code point; the inserted text remains the original character.
 
-## 数据来源与许可
+## Data sources and licensing
 
-音标清单、Unicode 数据及其适用许可见 [Reference/SOURCES.md](Reference/SOURCES.md) 和 [Unicode 许可](Reference/Unicode/LICENSE.txt)。来源清单和 Unicode 快照用于离线生成与覆盖校验。键位分配和候选顺序属于本项目设计，不代表标准机构的官方映射。
+See [Reference/SOURCES.md](Reference/SOURCES.md) and the [Unicode license](Reference/Unicode/LICENSE.txt) for the phonetic inventory, Unicode data, and applicable licenses. Source records and Unicode snapshots support offline generation and coverage checks. Key assignments and candidate ordering are project design choices, not official mappings from standards bodies.
 
-## 源码许可与商业使用
+## Source-code license and commercial use
 
-本项目**公开源码，但不提供一般商业使用授权**。除另有独立许可证的资料外，原创 Swift 程序、键盘实现、构建脚本和原创项目素材采用 [PolyForm Noncommercial License 1.0.0](LICENSE.md)。允许按其条款进行非商业使用、学习、修改及再分发；**如需商业使用、商业分发或将原创代码用于商业产品，请事先取得单独授权**。详情见 [LICENSE.md](LICENSE.md)。
+This project's **source code is publicly available, but no general commercial-use permission is granted**. Except for separately licensed materials, the original Swift code, keyboard implementation, build scripts, and original project assets are licensed under the [PolyForm Noncommercial License 1.0.0](LICENSE.md). Noncommercial use, study, modification, and redistribution are permitted under its terms. **Obtain separate authorization before commercial use, commercial distribution, or incorporating the original code into a commercial product.** See [LICENSE.md](LICENSE.md) for details.
 
-**第三方许可例外：** Unicode 官方数据继续遵守 [Unicode License](Reference/Unicode/LICENSE.txt)；[音标清单与改编数据](Reference/SOURCES.md) 中明确以 CC BY-SA 4.0 发布的部分，仍可依原许可证使用（包括符合原许可证的商业使用），不受本项目非商业源码授权限制。
+**Third-party license exceptions:** Official Unicode data remains subject to the [Unicode License](Reference/Unicode/LICENSE.txt). Portions of the [phonetic inventory and adapted data](Reference/SOURCES.md) explicitly released under CC BY-SA 4.0 may still be used under that license, including commercial use that complies with its terms. These materials are not restricted by the project's noncommercial source-code license.
 
 ## ipa+ font
 
