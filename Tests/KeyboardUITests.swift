@@ -101,6 +101,25 @@ final class KeyboardUITests: XCTestCase {
         let result = app.descendants(matching: .any).matching(identifier: "key_" + letter).firstMatch
         XCTAssertTrue(result.waitForExistence(timeout: 5)); return result
     }
+    private func searchCatalog(_ query: String, in app: XCUIApplication) {
+        // On iOS 26 the navigation search field can move into a bottom toolbar
+        // while activating. Wait for its keyboard before sending input, and
+        // resolve it again if the first tap only completed that transition.
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 10))
+        search.tap()
+        let keyboard = app.keyboards.firstMatch
+        if !keyboard.waitForExistence(timeout: 5) {
+            app.searchFields.firstMatch.tap()
+        }
+        guard keyboard.waitForExistence(timeout: 10) else {
+            XCTFail("Catalog search must have an active keyboard before typing")
+            return
+        }
+        // Send keys to the focused responder, without resolving a potentially
+        // reparented UISearchTextField through the entire catalogue again.
+        app.typeText(query)
+    }
     func testFourInterfaceLanguagesAndLocalizedSymbolSearch() {
         let cases = [("zh-Hans", "ipa+键盘", "送气"), ("zh-Hant", "ipa+鍵盤", "送氣"), ("en", "ipa+ keyboard", "Aspirated"), ("ja", "ipa+キーボード", "有気音")]
         for (language, title, note) in cases {
@@ -113,8 +132,7 @@ final class KeyboardUITests: XCTestCase {
             let catalog = app.cells["openSymbolCatalog"]
             for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
             catalog.tap()
-            let search = app.searchFields.firstMatch
-            search.tap(); search.typeText("U+02B0")
+            searchCatalog("U+02B0", in: app)
             XCTAssertTrue(app.staticTexts[note].waitForExistence(timeout: 5))
             attach(app, name: "symbol-search-" + language)
             app.terminate()
@@ -127,8 +145,7 @@ final class KeyboardUITests: XCTestCase {
         let catalog = app.cells["openSymbolCatalog"]
         for _ in 0..<5 { if catalog.isHittable { break }; app.tables.firstMatch.swipeUp() }
         catalog.tap()
-        let search = app.searchFields.firstMatch
-        search.tap(); search.typeText("U+02B0")
+        searchCatalog("U+02B0", in: app)
         let entry = app.cells["catalogEntry_U+02B0"]
         XCTAssertTrue(entry.waitForExistence(timeout: 5))
         entry.tap()
@@ -294,8 +311,7 @@ final class KeyboardUITests: XCTestCase {
         catalog.tap()
         XCTAssertTrue(app.tables["symbolCatalog"].waitForExistence(timeout: 5))
         attach(app, name: "catalog-index")
-        let search = app.searchFields.firstMatch
-        search.tap(); search.typeText("U+0308")
+        searchCatalog("U+0308", in: app)
         XCTAssertTrue(app.staticTexts.containing(NSPredicate(format: "label CONTAINS %@", "U+0308")).firstMatch.waitForExistence(timeout: 5))
         attach(app, name: "symbol-catalog-search")
     }
