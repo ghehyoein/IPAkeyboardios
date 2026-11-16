@@ -1,0 +1,58 @@
+name: Publish standalone ipa+ font
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: standalone-font-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main' && github.repository == 'ghehyoein/IPAkeyboardios'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FONT_TAG: font-v0.600
+      FONT_SOURCE: 44ef34f2c9a6eacd16b5069c7fc5b4db3e4bbe49
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare and verify approved font assets
+        run: |
+          set -euo pipefail
+          mkdir -p build/font-release
+          # Retrieve the approved source, independent of later application changes.
+          git fetch origin "$FONT_SOURCE"
+          git show "$FONT_SOURCE:Font/ipa-plus.ttf" > build/font-release/ipa-plus.ttf
+          git show "$FONT_SOURCE:Font/Font-Licenses.txt" > build/font-release/Font-Licenses.txt
+          cp Font/releases/0.600/README.txt Font/releases/0.600/SHA256SUMS.txt build/font-release/
+          cd build/font-release
+          sha256sum --check SHA256SUMS.txt
+      - name: Publish font without changing the latest App release
+        run: |
+          set -euo pipefail
+          if gh release view "$FONT_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists; refusing to replace published assets."
+            exit 1
+          fi
+          gh release create "$FONT_TAG" \
+            build/font-release/ipa-plus.ttf \
+            build/font-release/Font-Licenses.txt \
+            build/font-release/README.txt \
+            build/font-release/SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$FONT_SOURCE" \
+            --title "ipa+ font 0.600" \
+            --notes-file Font/releases/0.600/release-notes.md \
+            --latest=false
+      - name: Verify uploaded release assets
+        run: |
+          set -euo pipefail
+          gh release download "$FONT_TAG" --repo "$GITHUB_REPOSITORY" --dir build/downloaded
+          cmp build/font-release/SHA256SUMS.txt build/downloaded/SHA256SUMS.txt
+          cd build/downloaded
+          sha256sum --check SHA256SUMS.txt
