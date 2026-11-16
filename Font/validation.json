@@ -1,15 +1,16 @@
 {
-  "new_drawings": 12,
-  "other_mapped_outlines_and_metrics_unchanged": 1296,
-  "codepoints": 1308,
-  "catalog_strings": 1651,
-  "single_mark_attachment_checks": 456,
-  "stack_checks": 36,
-  "canonical_decomposition_cases": 24,
-  "topology_checks": "passed: connected outlines and expected counters",
-  "sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
+  "original_mapped_outlines_and_metrics_unchanged": 1308,
+  "added_mapped_characters": 41,
+  "ordinary_mark_controls_unchanged": 1592,
+  "nfc_nfd_equivalence_cases": 252,
+  "no_unifont_outlines_added": true,
   "limitations": [
-    "Linux HarfBuzz/Pillow validation; no iOS CoreText/device validation",
-    "Visual design remains a review candidate"
-  ]
+    "HarfBuzz and Pillow; no iOS CoreText or physical-device validation in this run."
+  ],
+  "sha256": "56f6f0d19072bed0243309c2b89a9b722cf797396b4afd83807ccecd259a695a",
+  "codepoints": 1349,
+  "enclosure_cases": 216,
+  "enclosure_failures": 0,
+  "base_mark_cases": 2187,
+  "missing_glyph_failures": 0
 }

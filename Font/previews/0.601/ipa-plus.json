@@ -1,0 +1,73 @@
+{
+  "version": "0.601",
+  "added": {
+    "U+01AB": {
+      "glyph": "ipaAdded01AB",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+A7F8": {
+      "glyph": "ipaAddedA7F8",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+A7F9": {
+      "glyph": "ipaAddedA7F9",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+0418": {
+      "glyph": "ipaAdded0418",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+2C7C": {
+      "glyph": "ipaAdded2C7C",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+2C7D": {
+      "glyph": "ipaAdded2C7D",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+A7F2": {
+      "glyph": "ipaAddedA7F2",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+A7F3": {
+      "glyph": "ipaAddedA7F3",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+A7F4": {
+      "glyph": "ipaAddedA7F4",
+      "source": "Charis 7.000 / SIL OFL 1.1"
+    },
+    "U+2E59": {
+      "glyph": "ipaAdded2E59",
+      "source": "Noto Sans 2.015 / SIL OFL 1.1"
+    },
+    "U+2E5A": {
+      "glyph": "ipaAdded2E5A",
+      "source": "Noto Sans 2.015 / SIL OFL 1.1"
+    },
+    "U+2E5B": {
+      "glyph": "ipaAdded2E5B",
+      "source": "Noto Sans 2.015 / SIL OFL 1.1"
+    },
+    "U+2E5C": {
+      "glyph": "ipaAdded2E5C",
+      "source": "Noto Sans 2.015 / SIL OFL 1.1"
+    },
+    "U+A7F1": {
+      "glyph": "ipaAddedA7F1",
+      "source": "Project adaptation of Charis S; scaled to Charis superscript metrics / OFL 1.1"
+    },
+    "U+208F": {
+      "glyph": "ipaAdded208F",
+      "source": "Project arrangement of Charis primary/secondary stress outlines / OFL 1.1"
+    }
+  },
+  "sources": {
+    "positioned.ttf": "8c2ccf8c5fa0ce074372b57f857f5988cd8978ca960775472080c16131f469ce",
+    "Charis-Regular.ttf": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
+    "NotoSans.ttf": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d"
+  },
+  "font_sha256": "56f6f0d19072bed0243309c2b89a9b722cf797396b4afd83807ccecd259a695a",
+  "mapped_codepoints": 1349,
+  "unifont_outlines_used": false
+}

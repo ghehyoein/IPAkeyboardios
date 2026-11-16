@@ -1,0 +1,10 @@
+{
+  "original_mapped_outlines_and_metrics_unchanged": 1308,
+  "added_mapped_characters": 41,
+  "ordinary_mark_controls_unchanged": 1592,
+  "nfc_nfd_equivalence_cases": 252,
+  "no_unifont_outlines_added": true,
+  "limitations": [
+    "HarfBuzz and Pillow; no iOS CoreText or physical-device validation in this run."
+  ]
+}

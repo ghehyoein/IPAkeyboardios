@@ -1,6 +1,6 @@
 # ipa+ font 0.600
 
-![All 197 project-contributed glyphs rendered from ipa+ 0.600: 48 newly drawn and 149 adapted](https://raw.githubusercontent.com/ghehyoein/IPAplus-keyboard-ios/main/Font/previews/ipa-plus-original-glyphs.png)
+![All 197 project-contributed glyphs rendered from ipa+ 0.600: 48 newly drawn and 149 adapted](https://github.com/ghehyoein/IPAplus-keyboard-ios/releases/download/font-v0.600/ipa-plus-original-glyphs.png)
 
 ## Integrated fonts and licenses
 

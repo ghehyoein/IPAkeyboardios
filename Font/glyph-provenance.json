@@ -1,6 +1,6 @@
 {
-  "font_sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
-  "scope": 159,
+  "font_sha256": "56f6f0d19072bed0243309c2b89a9b722cf797396b4afd83807ccecd259a695a",
+  "scope": 161,
   "latest_redraw_scope": 12,
   "glyphs": [
     {
@@ -1913,6 +1913,39 @@
       "design": "One continuously bent top arm, a tapered middle arm and a flared lower arm; no overlaid original E terminal.",
       "source_components": [],
       "contours": 1
+    },
+    {
+      "codepoint": "U+208F",
+      "category": "CharisDerived",
+      "construction": "Align licensed primary and secondary stress strokes vertically.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+02C8"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+02CC"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+A7F1",
+      "category": "CharisDerived",
+      "construction": "Scale licensed S curves to superscript C height and elevation.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0053"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+A7F2"
+        }
+      ],
+      "raster_tracing": false
     }
-  ]
+  ],
+  "latest_addition_scope": 2
 }

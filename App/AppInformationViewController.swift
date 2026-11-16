@@ -1,7 +1,7 @@
 import UIKit
 
 enum AppLinks {
-    static let fontRelease = URL(string: "https://github.com/ghehyoein/IPAplus-keyboard-ios/releases/tag/font-v0.600")!
+    static let fontRelease = URL(string: "https://github.com/ghehyoein/IPAplus-keyboard-ios/releases/tag/font-v0.601")!
     static let email = "contact@ghehyoein.com"
     static let qqGroup = "1127851625"
     static let author = URL(string: "https://ghehyoein.com/")!

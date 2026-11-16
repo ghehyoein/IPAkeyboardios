@@ -30,8 +30,8 @@ This project's **source code is publicly available, but no general commercial-us
 
 ## ipa+ font
 
-The [ipa+ font](Font/README.md) integrates **Charis, Gentium, BabelStone Roman, Noto Sans Math, and Noto Sans Georgian** under the **SIL Open Font License 1.1**.
+The [ipa+ font](Font/README.md) integrates **Charis, Gentium, BabelStone Roman, Noto Sans Math, Noto Sans Georgian, Noto Sans, and Noto Sans Symbols** under the **SIL Open Font License 1.1**.
 
-Contributions by **ghehyoein** cover **197 character glyphs**: **48 newly constructed vector glyphs** and **149 adaptations of licensed glyphs**. Adapted glyphs retain upstream attribution.
+Contributions by **ghehyoein** cover **199 character glyphs**: **48 newly constructed vector glyphs** and **151 adaptations of licensed glyphs**. Adapted glyphs retain upstream attribution.
 
 See [font sources and licenses](FONT_SOURCES_AND_LICENSE.md) and the [complete copyright notices and license](Font/Font-Licenses.txt).

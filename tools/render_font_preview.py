@@ -19,12 +19,12 @@ def main():
     supplement = json.loads((ROOT / 'Font/supplement-provenance.json').read_text())
     groups = [
         ('01  Newly drawn', '48 original vector glyphs', [g for g in provenance if g['category'] in ('ProjectOutlines', 'ProjectVectors')]),
-        ('02  Adapted from licensed fonts', '98 Charis / Gentium-based reconstructions', [g for g in provenance if g['category'] in ('CharisDerived', 'GentiumDerived')]),
+        ('02  Adapted from licensed fonts', '100 Charis / Gentium-based adaptations', [g for g in provenance if g['category'] in ('CharisDerived', 'GentiumDerived')]),
         ('03  Supplement', '51 glyphs adapted from licensed Charis / Gentium components', supplement),
     ]
-    assert [len(g[2]) for g in groups] == [48, 98, 51]
+    assert [len(g[2]) for g in groups] == [48, 100, 51]
     entries = [g for _, _, group in groups for g in group]
-    assert len({g['codepoint'] for g in entries}) == 197
+    assert len({g['codepoint'] for g in entries}) == 199
     cmap = TTFont(FONT).getBestCmap()
     assert 0x25CC in cmap
     assert all(int(g['codepoint'][2:], 16) in cmap for g in entries)
@@ -42,9 +42,9 @@ def main():
     body = ImageFont.truetype(ui, 24)
     heading = ImageFont.truetype(ui, 30)
     draw.text((margin, 35), 'ipa+', font=brand, fill=ink)
-    draw.text((margin, 150), 'All 197 project-contributed glyphs by ghehyoein', font=heading, fill=ink)
-    draw.text((margin, 199), '48 newly drawn + 149 adapted from licensed fonts', font=body, fill=muted)
-    draw.text((width-margin, 85), 'FONT 0.600', font=body, fill=muted, anchor='ra')
+    draw.text((margin, 150), 'All 199 project-contributed glyphs by ghehyoein', font=heading, fill=ink)
+    draw.text((margin, 199), '48 newly drawn + 151 adapted from licensed fonts', font=body, fill=muted)
+    draw.text((width-margin, 85), 'FONT 0.601', font=body, fill=muted, anchor='ra')
     y = 280
     rendered = []
     for group_index, (title, subtitle, group) in enumerate(groups):
@@ -75,7 +75,7 @@ def main():
             rendered.append(cp)
         y += math.ceil(len(group)/columns)*cell_height
         draw.line((margin, y, width-margin, y), fill=line)
-    assert len(rendered) == len(set(rendered)) == 197
+    assert len(rendered) == len(set(rendered)) == 199
     draw.text((margin, y+32), 'Actual font rendering. Dotted circles show combining-mark placement.', font=label, fill=muted)
     draw.text((margin, y+65), 'Upstream attribution is retained for adapted glyphs. SIL Open Font License 1.1.', font=label, fill=muted)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)

@@ -1,3 +1,10 @@
+# 0.601
+
+- Added 15 missing phonetic/transcription characters and 26 circled capitals.
+- Adapted two smooth Charis-based glyphs; no bitmap outline imports.
+- Fixed enclosed diacritic positioning for decomposed and precomposed inputs.
+- Preserved all 1,308 existing mapped outlines and metrics.
+
 # Font changes
 
 ## 0.600 — 2026-11-16

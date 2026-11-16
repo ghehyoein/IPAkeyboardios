@@ -1,16 +1,16 @@
 {
-  "font_version": "0.600",
-  "codepoints": 1308,
-  "glyphs_including_layout_dependencies": 1469,
-  "bytes": 265064,
-  "sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
-  "baseline_font_sha256": "77b0ce4f0ba81c4f350b146afff641ff948442a7b74e5feab7b8470b7a3697ce",
+  "font_version": "0.601",
+  "codepoints": 1349,
+  "glyphs_including_layout_dependencies": 1524,
+  "bytes": 295464,
+  "sha256": "56f6f0d19072bed0243309c2b89a9b722cf797396b4afd83807ccecd259a695a",
+  "baseline_font_sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
   "sources": [
     {
       "source": "Charis",
       "file": "Charis-Regular.ttf",
       "sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
-      "selected_codepoints": 985
+      "selected_codepoints": 994
     },
     {
       "source": "Supplement",
@@ -29,7 +29,7 @@
       "file": "Charis-Regular.ttf",
       "version": "Version 7.000",
       "sha256": "c03738834bd3a43c3e4a59b11878bd6ede3ee505998242ae649ed1f9cd2edcf6",
-      "selected_codepoints": 87,
+      "selected_codepoints": 89,
       "license": "SIL OFL 1.1",
       "upstream": "https://github.com/silnrsi/font-charis/releases/tag/v7.000"
     },
@@ -69,6 +69,20 @@
       "source": "ProjectOutlines",
       "selected_codepoints": 12,
       "description": "Project-authored vector constructions distributed as part of the OFL font."
+    },
+    {
+      "source": "NotoSans",
+      "file": "NotoSans.ttf",
+      "sha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
+      "selected_codepoints": 4,
+      "license": "SIL OFL 1.1"
+    },
+    {
+      "source": "NotoSansSymbols",
+      "file": "NotoSansSymbols-wght.ttf",
+      "sha256": "f7e7e04b4a24b6c78893d50cbfd2b2f6cae49617ab047bfef668d252adb128f7",
+      "selected_codepoints": 26,
+      "license": "SIL OFL 1.1"
     }
   ],
   "assignments": {
@@ -1379,7 +1393,48 @@
     "U+1DFFC": "Supplement",
     "U+1DFFD": "Supplement",
     "U+1DFFE": "Supplement",
-    "U+1DFFF": "Supplement"
+    "U+1DFFF": "Supplement",
+    "U+01AB": "Charis",
+    "U+A7F8": "Charis",
+    "U+A7F9": "Charis",
+    "U+0418": "Charis",
+    "U+2C7C": "Charis",
+    "U+2C7D": "Charis",
+    "U+A7F2": "Charis",
+    "U+A7F3": "Charis",
+    "U+A7F4": "Charis",
+    "U+2E59": "NotoSans",
+    "U+2E5A": "NotoSans",
+    "U+2E5B": "NotoSans",
+    "U+2E5C": "NotoSans",
+    "U+A7F1": "CharisDerived",
+    "U+208F": "CharisDerived",
+    "U+24B6": "NotoSansSymbols",
+    "U+24B7": "NotoSansSymbols",
+    "U+24B8": "NotoSansSymbols",
+    "U+24B9": "NotoSansSymbols",
+    "U+24BA": "NotoSansSymbols",
+    "U+24BB": "NotoSansSymbols",
+    "U+24BC": "NotoSansSymbols",
+    "U+24BD": "NotoSansSymbols",
+    "U+24BE": "NotoSansSymbols",
+    "U+24BF": "NotoSansSymbols",
+    "U+24C0": "NotoSansSymbols",
+    "U+24C1": "NotoSansSymbols",
+    "U+24C2": "NotoSansSymbols",
+    "U+24C3": "NotoSansSymbols",
+    "U+24C4": "NotoSansSymbols",
+    "U+24C5": "NotoSansSymbols",
+    "U+24C6": "NotoSansSymbols",
+    "U+24C7": "NotoSansSymbols",
+    "U+24C8": "NotoSansSymbols",
+    "U+24C9": "NotoSansSymbols",
+    "U+24CA": "NotoSansSymbols",
+    "U+24CB": "NotoSansSymbols",
+    "U+24CC": "NotoSansSymbols",
+    "U+24CD": "NotoSansSymbols",
+    "U+24CE": "NotoSansSymbols",
+    "U+24CF": "NotoSansSymbols"
   },
   "historical_notices_retained": [
     "GNU Unifont / Unifont Upper: all 159 formerly assigned code points now use replacement vector constructions; notices from the merged baseline remain preserved."
