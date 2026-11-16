@@ -38,6 +38,7 @@ jobs:
           git show "$FONT_SOURCE:Font/ipa-plus.ttf" > build/font-release/ipa-plus.ttf
           git show "$FONT_SOURCE:Font/Font-Licenses.txt" > build/font-release/Font-Licenses.txt
           cp Font/releases/0.600/README.txt Font/releases/0.600/SHA256SUMS.txt build/font-release/
+          cp Font/previews/ipa-plus-original-glyphs.png build/font-release/
           cd build/font-release
           sha256sum --check SHA256SUMS.txt
       - name: Publish font without changing the latest App release
@@ -52,6 +53,7 @@ jobs:
             build/font-release/ipa-plus.ttf \
             build/font-release/Font-Licenses.txt \
             build/font-release/README.txt \
+            build/font-release/ipa-plus-original-glyphs.png \
             build/font-release/SHA256SUMS.txt \
             --repo "$GITHUB_REPOSITORY" \
             --target "$FONT_SOURCE" \
@@ -71,6 +73,7 @@ jobs:
           cmp build/font-release/Font-Licenses.txt build/existing/Font-Licenses.txt
           gh release upload "$FONT_TAG" \
             build/font-release/README.txt build/font-release/SHA256SUMS.txt \
+            build/font-release/ipa-plus-original-glyphs.png \
             --repo "$GITHUB_REPOSITORY" --clobber
           gh release edit "$FONT_TAG" --repo "$GITHUB_REPOSITORY" \
             --notes-file Font/releases/0.600/release-notes.md --latest=false
