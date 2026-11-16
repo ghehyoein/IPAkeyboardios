@@ -1,26 +1,26 @@
-Standalone release of **ipa+ font 0.600**, distributed under the **SIL Open Font License 1.1**.
+# ipa+ font 0.600
 
-## Download
+## Integrated fonts and licenses
 
-Download **ipa-plus.ttf** directly from the assets below. **Font-Licenses.txt** contains the required copyright notices and complete license; **README.txt** explains installation and use. Use **SHA256SUMS.txt** to verify the downloaded files.
+| Source font | License |
+| --- | --- |
+| [Charis 7.000](https://github.com/silnrsi/font-charis/releases/tag/v7.000) | [SIL OFL 1.1](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/licenses/Charis-OFL.txt) |
+| [Gentium 7.000](https://github.com/silnrsi/font-gentium/releases/tag/v7.000) | [SIL OFL 1.1](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/licenses/Gentium-OFL.txt) |
+| [BabelStone Roman 16.000](https://www.babelstone.co.uk/Fonts/Roman.html) | [SIL OFL 1.1](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/Font-Licenses.txt) |
+| [Noto Sans Math 3.000](https://github.com/notofonts/math) | [SIL OFL 1.1](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/licenses/NotoSansMath-OFL.txt) |
+| [Noto Sans Georgian 2.005](https://github.com/notofonts/georgian) | [SIL OFL 1.1](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/licenses/NotoSansGeorgian-OFL.txt) |
 
-## Changes
+The earlier merged font also used [GNU Unifont / Unifont Upper 18.0.01](https://unifoundry.com/pub/unifont/unifont-18.0.01/font-builds/) under the compiled fonts' SIL OFL 1.1 option. All 159 of its mapped character glyphs were replaced in this edition; its [original notices](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/Font-Licenses.txt) remain included.
 
-- Replace 159 formerly pixel-shaped mapped glyphs with vector constructions.
-- Redraw twelve characters with contrasting stroke weights, clearer counters, coordinated terminals, and distinct capital/lowercase proportions.
-- Correct letter components, ligature connections, brackets, and combining-mark positioning.
-- Retain the 51-character supplement and coverage of **1,308 Unicode code points**.
+## Project contributions
 
-## License and documentation
+Contributions by **ghehyoein** cover **197 character glyphs**:
 
-The font may be modified, embedded, and bundled with commercial software under OFL conditions. Keep the copyright notices and complete license when redistributing it; it may not be sold by itself.
+- **48 newly constructed vector glyphs**, including the twelve latest redraws.
+- **149 glyphs adapted from licensed fonts**: 98 Charis/Gentium-based reconstructions and the 51-character supplement.
 
-[Documentation and source records](https://github.com/ghehyoein/IPAkeyboardios/tree/font-v0.600/Font) · [Detailed sources and licensing](https://github.com/ghehyoein/IPAkeyboardios/blob/font-v0.600/Font/SOURCES_AND_LICENSE.md) · [Validation record](https://github.com/ghehyoein/IPAkeyboardios/blob/font-v0.600/Font/validation.json)
+Adapted glyphs retain their upstream attribution.
 
-Validation covered 1,651 catalog strings, 456 direct combining-mark attachment checks, 36 stacked-mark checks, and expected contour/counter checks. iOS CoreText and physical-device keyboard layout validation remain outstanding.
+## License
 
-This is a **font-only release**. The keyboard App version and its older bundled font are unchanged. Installing the font does not replace system fonts or force other applications to use it.
-
-TTF SHA-256: `ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8`
-
-Source commit: `44ef34f2c9a6eacd16b5069c7fc5b4db3e4bbe49`
+**ipa+ is distributed under the SIL Open Font License 1.1.** Retain the [complete license and copyright notices](https://github.com/ghehyoein/IPAkeyboardios/blob/main/Font/Font-Licenses.txt) when redistributing the font. Upstream copyrights remain with their respective holders.

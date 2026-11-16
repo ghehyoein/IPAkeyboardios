@@ -30,10 +30,8 @@ This project's **source code is publicly available, but no general commercial-us
 
 ## ipa+ font
 
-The standalone **ipa+ font 0.600** is published in the [Font folder](Font/README.md), with English documentation, source records, and the complete SIL Open Font License 1.1. [Download the TTF](https://github.com/ghehyoein/IPAkeyboardios/raw/refs/heads/main/Font/ipa-plus.ttf).
+The [ipa+ font](Font/README.md) integrates **Charis, Gentium, BabelStone Roman, Noto Sans Math, and Noto Sans Georgian** under the **SIL Open Font License 1.1**. Historical Unifont notices are retained.
 
-This edition replaces 159 formerly pixel-shaped mapped glyphs with vector constructions, including twelve newly drawn outlines, and updates combining-mark positioning. It retains the 51 supplementary characters adapted from licensed Charis/Gentium components. Coverage is 1,308 code points in the keyboard's input inventory.
+Contributions by **ghehyoein** cover **197 character glyphs**: **48 newly constructed vector glyphs** and **149 adaptations of licensed glyphs**. Adapted glyphs retain upstream attribution.
 
-The font has a separate license and may be bundled with commercial software under OFL conditions. See [sources and licensing](FONT_SOURCES_AND_LICENSE.md) for upstream attribution, project-made contributions, and redistribution requirements.
-
-The standalone font is maintained separately from the older App-bundled resource. Publishing this font does not update the installed keyboard or replace fonts in other iOS apps.
+See [font sources and licenses](FONT_SOURCES_AND_LICENSE.md) and the [complete copyright notices and license](Font/Font-Licenses.txt).
