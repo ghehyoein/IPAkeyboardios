@@ -1,40 +1,45 @@
 # ipa+ font
 
-A phonetic font distributed under the **SIL Open Font License 1.1**, independently of the keyboard application's source-code license. The font may be embedded in commercial software under the OFL conditions.
+A phonetic font for IPA, extended phonetic notation, and the input inventory of **ipa+ keyboard**. The font is distributed under the **SIL Open Font License 1.1**, separately from the application's source-code license.
+
+**Current font version: 0.600** · **1,308 Unicode code points**
+
+[Download ipa-plus.ttf](https://github.com/ghehyoein/IPAkeyboardios/raw/refs/heads/main/Font/ipa-plus.ttf) · [Sources and license](SOURCES_AND_LICENSE.md) · [Changes](CHANGELOG.md)
+
+## Installation and use
+
+- On macOS or Windows, open the TTF and use the system font installer. Select **ipa+** in an application that supports font selection.
+- On iOS and iPadOS, use a font-management app or an application that imports custom fonts. Installing a font does not replace the system font or force other apps to use it.
+- Developers can embed the font under the OFL conditions. Family name: `ipa+`; PostScript name: `IPAPlus-Regular`.
+- Keep [Font-Licenses.txt](Font-Licenses.txt) with redistributed copies. Embedding in commercial software is permitted under OFL; selling the font by itself is not.
+
+Coverage follows the keyboard's current input inventory, not all of Unicode. Combining-mark rendering also depends on the host application's shaping and layout engine.
+
+## This edition
+
+159 formerly pixel-shaped mapped glyphs have been replaced with vector constructions. Twelve of those glyphs were subsequently drawn anew with contrasting stroke weights, coordinated terminals, clearer counters, and distinct capital/lowercase proportions. Cross-source combining-mark anchors were updated to match the outlines.
+
+The existing 51-character supplement is retained. It includes project-made adaptations of licensed Charis/Gentium components; it is not a set of 51 wholly independent drawings. See [supplement provenance](supplement-provenance.json) and the [source documentation](SOURCES_AND_LICENSE.md).
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
-| [ipa-plus.ttf](ipa-plus.ttf) | Ready-to-install font; family name **ipa+**, PostScript name `IPAPlus-Regular` |
-| [Font-Licenses.txt](Font-Licenses.txt) | Required upstream copyright notices and complete OFL 1.1 license |
-| [SOURCES_AND_LICENSE.md](SOURCES_AND_LICENSE.md) | Sources, modifications, licensing conditions, and rights information for the 51 supplementary glyphs |
-| [unified-coverage.json](unified-coverage.json) | Coverage, per-code-point sources, and file hashes |
-| [supplement-provenance.json](supplement-provenance.json) | Component sources and transformations for the 51 supplementary glyphs |
+| [ipa-plus.ttf](ipa-plus.ttf) | Complete standalone font |
+| [Font-Licenses.txt](Font-Licenses.txt) | Copyright notices and complete OFL 1.1 text |
+| [SOURCES_AND_LICENSE.md](SOURCES_AND_LICENSE.md) | Source inventory, construction history, and licensing |
+| [unified-coverage.json](unified-coverage.json) | Current coverage, assignments, input hashes, and font checksum |
+| [glyph-provenance.json](glyph-provenance.json) | Construction records for the 159 replacement glyphs, including the 12 new drawings |
+| [supplement-provenance.json](supplement-provenance.json) | Component records for the unchanged 51-character supplement |
+| [validation.json](validation.json) | Coverage, contour, and positioning checks for this font file |
+| [licenses/](licenses/) | Original licenses for the vector sources used in the replacement work |
 
-[Download the TTF](https://github.com/ghehyoein/IPAkeyboardios/raw/refs/heads/main/Font/ipa-plus.ttf) · [Release package](https://github.com/ghehyoein/IPAkeyboardios/releases/latest/download/ipa-plus-font.zip)
+SHA-256 of the TTF: `ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8`.
 
-The current font covers 1,308 Unicode code points in the keyboard's input inventory. It does not cover all of Unicode. Some rare glyphs retain pixel-shaped outlines. Installing the font on iOS does not replace system fonts; other apps must support selecting it.
+## App integration and validation
 
-Keep the copyright notices and full license when redistributing the font. The font may not be sold by itself. See the complete license for all conditions.
+This folder publishes the standalone font. The application resource at `Shared/Fonts/ipa-plus.ttf` is a separately maintained, older bundled version; this publication does not update the App or create an App release. Download links here point to this folder, rather than older App-release assets.
 
-## Project-made contributions to the 51 supplementary glyphs
+The published file passed coverage checks for 1,651 catalog strings, 456 direct combining-mark attachment checks, 36 stacked-mark checks, and expected contour/counter checks for the twelve new drawings. It has not yet been validated with iOS CoreText or physical-device keyboard layouts.
 
-The supplement includes work carried out for this project, rather than simply copying a ready-made set of superscript and subscript glyphs. OFL-licensed Charis/Gentium components were adapted with changes to scale, superscript or subscript placement, optical proportions, and spacing.
-
-The provenance records describe 43 glyphs made primarily by transforming licensed base outlines and eight with additional outline work:
-
-- **U+1DFCD:** a newly drawn rounded return hook added to a licensed turned-r base.
-- **U+1DFCE and U+1DFCF:** openings cut into licensed o/u outlines.
-- **U+1DFD7, U+1DFD8, and U+1DFDB:** horizontal bars added at selected heights on licensed bases.
-- **U+1DFE0 and U+1DFE4:** licensed consonant outlines joined while preserving their distinguishing curls.
-
-These are project-made adaptations and constructions, not a claim that all 51 glyphs were drawn from scratch or that upstream copyrights have transferred to the project. The original notices remain applicable and the resulting font is distributed under OFL 1.1. Whether any added elements qualify for separate copyright depends on applicable law and the specific creative contribution.
-
-See the [per-glyph provenance records](supplement-provenance.json) for component sources and transformations.
-
-## Maintaining this directory
-
-This directory provides a standalone distribution copy. The app continues to bundle the identical font from `Shared/Fonts/ipa-plus.ttf`. When regenerating the font, update this copy, the notices, and the coverage/provenance records together. The source documentation is maintained in `FONT_SOURCES_AND_LICENSE.md`; keep this directory's copy in sync, adjusting relative links.
-
-See the [build instructions](../tools/fonts/README.txt) for the build inputs and validation commands.
+The existing `tools/fonts` build pipeline describes the older App-bundled baseline. It does not reproduce this standalone edition by itself. When updating this folder, keep the binary, checksums, provenance, notices, and validation records together.

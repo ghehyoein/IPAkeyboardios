@@ -1,0 +1,15 @@
+{
+  "new_drawings": 12,
+  "other_mapped_outlines_and_metrics_unchanged": 1296,
+  "codepoints": 1308,
+  "catalog_strings": 1651,
+  "single_mark_attachment_checks": 456,
+  "stack_checks": 36,
+  "canonical_decomposition_cases": 24,
+  "topology_checks": "passed: connected outlines and expected counters",
+  "sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
+  "limitations": [
+    "Linux HarfBuzz/Pillow validation; no iOS CoreText/device validation",
+    "Visual design remains a review candidate"
+  ]
+}

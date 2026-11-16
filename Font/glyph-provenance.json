@@ -1,0 +1,1918 @@
+{
+  "font_sha256": "ac8e01c6c4ede57d08bcfed80777ae1403320143ec0ecc0181f9da996bf323b8",
+  "scope": 159,
+  "latest_redraw_scope": 12,
+  "glyphs": [
+    {
+      "codepoint": "U+0342",
+      "unicode_name": "COMBINING GREEK PERISPOMENI",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+0342"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+0343",
+      "unicode_name": "COMBINING GREEK KORONIS",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+0343"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+0344",
+      "unicode_name": "COMBINING GREEK DIALYTIKA TONOS",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+0344"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+0345",
+      "unicode_name": "COMBINING GREEK YPOGEGRAMMENI",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+0345"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+03B7",
+      "unicode_name": "GREEK SMALL LETTER ETA",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03B7"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+03C5",
+      "unicode_name": "GREEK SMALL LETTER UPSILON",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03C5"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+03C8",
+      "unicode_name": "GREEK SMALL LETTER PSI",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03C8"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+03F1",
+      "unicode_name": "GREEK RHO SYMBOL",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03F1"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+03F5",
+      "unicode_name": "GREEK LUNATE EPSILON SYMBOL",
+      "category": "GentiumDerived",
+      "construction": "Gentium vector curves; restrained width and stem proportions; shaped terminals.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03F5"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+060C",
+      "unicode_name": "ARABIC COMMA",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+060C"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+10DD",
+      "unicode_name": "GEORGIAN LETTER ON",
+      "category": "NotoGeorgian",
+      "construction": "Noto Georgian vector arches; smooth joins and a narrower body.",
+      "source_components": [
+        {
+          "source": "Noto Georgian",
+          "codepoint": "U+10DD"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ACF",
+      "unicode_name": "COMBINING DOUBLE CARON",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD0",
+      "unicode_name": "COMBINING VERTICAL-LINE-ACUTE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD1",
+      "unicode_name": "COMBINING GRAVE-VERTICAL-LINE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD2",
+      "unicode_name": "COMBINING VERTICAL-LINE-GRAVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD3",
+      "unicode_name": "COMBINING ACUTE-VERTICAL-LINE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD4",
+      "unicode_name": "COMBINING VERTICAL-LINE-MACRON",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD5",
+      "unicode_name": "COMBINING MACRON-VERTICAL-LINE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD6",
+      "unicode_name": "COMBINING VERTICAL-LINE-ACUTE-GRAVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD7",
+      "unicode_name": "COMBINING VERTICAL-LINE-GRAVE-ACUTE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD8",
+      "unicode_name": "COMBINING MACRON-ACUTE-GRAVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AD9",
+      "unicode_name": "COMBINING SHARP SIGN",
+      "category": "ProjectVectors",
+      "construction": "New sharp sign: two slanted stems and two separate crossbars; clear central counter.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADA",
+      "unicode_name": "COMBINING FLAT SIGN",
+      "category": "ProjectVectors",
+      "construction": "New flat sign with a large open bowl and a fine upright stem.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADB",
+      "unicode_name": "COMBINING DOWN TACK ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADC",
+      "unicode_name": "COMBINING DIAERESIS WITH RAISED LEFT DOT",
+      "category": "ProjectVectors",
+      "construction": "Two circular dots with explicitly different heights.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADD",
+      "unicode_name": "COMBINING DOT-AND-RING BELOW",
+      "category": "ProjectVectors",
+      "construction": "A round dot and an open circular ring, with separate spacing.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADE",
+      "unicode_name": "COMBINING GRAVE-DOT",
+      "category": "ProjectVectors",
+      "construction": "A straight diagonal accent and separate round dot; no staircase contour.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1ADF",
+      "unicode_name": "COMBINING DOT-ACUTE",
+      "category": "ProjectVectors",
+      "construction": "A straight diagonal accent and separate round dot; no staircase contour.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE0",
+      "unicode_name": "COMBINING LEFT TACK ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE1",
+      "unicode_name": "COMBINING RIGHT TACK ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE2",
+      "unicode_name": "COMBINING MINUS SIGN ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE3",
+      "unicode_name": "COMBINING INVERTED BRIDGE ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE4",
+      "unicode_name": "COMBINING SQUARE ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New rectangular outline with an open counter and even stroke weight.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE5",
+      "unicode_name": "COMBINING SEAGULL ABOVE",
+      "category": "ProjectVectors",
+      "construction": "Seagull wings: shallow spreading arches with a central point; no upright stems as in double arch.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE6",
+      "unicode_name": "COMBINING DOUBLE ARCH BELOW",
+      "category": "ProjectVectors",
+      "construction": "Two explicitly drawn arches; open undersides and smooth shoulders.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE7",
+      "unicode_name": "COMBINING DOUBLE ARCH ABOVE",
+      "category": "ProjectVectors",
+      "construction": "Two explicitly drawn arches; open undersides and smooth shoulders.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE8",
+      "unicode_name": "COMBINING EQUALS SIGN ABOVE",
+      "category": "ProjectVectors",
+      "construction": "Parallel straight rules with equal length and deliberate spacing.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AE9",
+      "unicode_name": "COMBINING LEFT ANGLE CENTRED ABOVE",
+      "category": "ProjectVectors",
+      "construction": "New continuous vector strokes; balanced thickness, open angles and small round terminals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AEA",
+      "unicode_name": "COMBINING UPWARDS ARROW ABOVE",
+      "category": "ProjectVectors",
+      "construction": "A fine arrow stem and open angled head, not a filled blob.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AEB",
+      "unicode_name": "COMBINING DOUBLE RIGHTWARDS ARROW ABOVE",
+      "category": "ProjectVectors",
+      "construction": "Two distinct parallel arrow shafts with a shared open arrowhead.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AEC",
+      "unicode_name": "COMBINING CARON-ACUTE",
+      "category": "ProjectVectors",
+      "construction": "Separate caron and acute with controlled gap and straight diagonals.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AED",
+      "unicode_name": "COMBINING VERTICAL-LINE-DOUBLE-ACUTE",
+      "category": "ProjectVectors",
+      "construction": "A vertical-plus-acute group and a second separate acute.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AEE",
+      "unicode_name": "COMBINING DOUBLE GRAVE ACCENT BELOW",
+      "category": "ProjectVectors",
+      "construction": "Two separate matching diagonal accents; smooth vector edges.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AEF",
+      "unicode_name": "COMBINING DOUBLE ACUTE ACCENT BELOW",
+      "category": "ProjectVectors",
+      "construction": "Two separate matching diagonal accents; smooth vector edges.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1AF0",
+      "unicode_name": "COMBINING DOUBLE COMMA ABOVE",
+      "category": "CharisDerived",
+      "construction": "Two Charis comma components with tapered tails and generous separation.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+002C"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+209D",
+      "unicode_name": "LATIN SUBSCRIPT SMALL LETTER W",
+      "category": "CharisDerived",
+      "construction": "Charis base at optical subscript scale, retaining curves and serifs.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0077"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+209E",
+      "unicode_name": "LATIN SUBSCRIPT SMALL LETTER Y",
+      "category": "CharisDerived",
+      "construction": "Charis base at optical subscript scale, retaining curves and serifs.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0079"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+209F",
+      "unicode_name": "LATIN SUBSCRIPT SMALL LETTER Z",
+      "category": "CharisDerived",
+      "construction": "Charis base at optical subscript scale, retaining curves and serifs.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+007A"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+20D6",
+      "unicode_name": "COMBINING LEFT ARROW ABOVE",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+20D6"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+20E1",
+      "unicode_name": "COMBINING LEFT RIGHT ARROW ABOVE",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+20E1"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+2216",
+      "unicode_name": "SET MINUS",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+2216"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+227A",
+      "unicode_name": "PRECEDES",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+227A"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+22C6",
+      "unicode_name": "STAR OPERATOR",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+22C6"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+25E6",
+      "unicode_name": "WHITE BULLET",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+25E6"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+25EF",
+      "unicode_name": "LARGE CIRCLE",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+25EF"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+2934",
+      "unicode_name": "ARROW POINTING RIGHTWARDS THEN CURVING UPWARDS",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+2934"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+2935",
+      "unicode_name": "ARROW POINTING RIGHTWARDS THEN CURVING DOWNWARDS",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+2935"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+2983",
+      "unicode_name": "LEFT WHITE CURLY BRACKET",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions. The white curly bracket has a curved outside, straight inside and closed ends; it is not a hollow double-curly outline.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+2983"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+2984",
+      "unicode_name": "RIGHT WHITE CURLY BRACKET",
+      "category": "NotoMath",
+      "construction": "Exact-codepoint outline from Noto Sans Math, preserving character identity, stroke topology and source proportions. The white curly bracket has a curved outside, straight inside and closed ends; it is not a hollow double-curly outline.",
+      "source_components": [
+        {
+          "source": "Noto Math",
+          "codepoint": "U+2984"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+3002",
+      "unicode_name": "IDEOGRAPHIC FULL STOP",
+      "category": "ProjectVectors",
+      "construction": "An analytic oval ring with even weight and a slightly narrow aspect ratio.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+A66A",
+      "unicode_name": "CYRILLIC CAPITAL LETTER BINOCULAR O",
+      "category": "ProjectVectors",
+      "construction": "An open oval with two separate round interior dots.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+107BB",
+      "unicode_name": "MODIFIER LETTER SMALL TURNED T",
+      "category": "CharisDerived",
+      "construction": "Modifier constructed from the correctly encoded turned/inverted/stretched/double-bar base, scaled as a superscript.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0287"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+107BC",
+      "unicode_name": "MODIFIER LETTER INVERTED GLOTTAL STOP",
+      "category": "CharisDerived",
+      "construction": "Modifier constructed from the correctly encoded turned/inverted/stretched/double-bar base, scaled as a superscript.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0296"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+107BD",
+      "unicode_name": "MODIFIER LETTER STRETCHED C",
+      "category": "CharisDerived",
+      "construction": "Modifier constructed from the correctly encoded turned/inverted/stretched/double-bar base, scaled as a superscript.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0297"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+107BE",
+      "unicode_name": "MODIFIER LETTER SMALL TURNED K",
+      "category": "CharisDerived",
+      "construction": "Modifier constructed from the correctly encoded turned/inverted/stretched/double-bar base, scaled as a superscript.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+029E"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+107BF",
+      "unicode_name": "MODIFIER LETTER SMALL ESH WITH DOUBLE BAR",
+      "category": "CharisDerived",
+      "construction": "Modifier constructed from the correctly encoded turned/inverted/stretched/double-bar base, scaled as a superscript.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+1DF0B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF1F",
+      "unicode_name": "LATIN SMALL LETTER D-ETH DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Joined Charis components with open bowls, fine joins and preserved identifying strokes.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0064"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+00F0"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF20",
+      "unicode_name": "LATIN SMALL LETTER D-LEZH DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Joined Charis components with open bowls, fine joins and preserved identifying strokes.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0064"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+026E"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF21",
+      "unicode_name": "LATIN SMALL LETTER D-LEZH DIGRAPH WITH RETROFLEX HOOK",
+      "category": "CharisDerived",
+      "construction": "Joined d and encoded LEZH WITH RETROFLEX HOOK (U+1DF05), preserving its actual terminal structure.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0064"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+1DF05"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF22",
+      "unicode_name": "LATIN SMALL LETTER TL DIGRAPH WITH BELT",
+      "category": "CharisDerived",
+      "construction": "Joined Charis components with open bowls, fine joins and preserved identifying strokes.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+026C"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF23",
+      "unicode_name": "LATIN SMALL LETTER TL DIGRAPH WITH RETROFLEX HOOK AND BELT",
+      "category": "CharisDerived",
+      "construction": "Joined t/belted-l components with an added descending hook.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+026C"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF24",
+      "unicode_name": "LATIN SMALL LETTER T-THETA DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Joined Charis components with open bowls, fine joins and preserved identifying strokes.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+03B8"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF2B",
+      "unicode_name": "LATIN SMALL LETTER DEZH DIGRAPH WITH CURL",
+      "category": "CharisDerived",
+      "construction": "Correct dezh-curl: d joined to EZH WITH CURL (U+0293), not DZ WITH CURL (U+02A5).",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0064"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0293"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF2C",
+      "unicode_name": "LATIN SMALL LETTER TESH DIGRAPH WITH CURL",
+      "category": "CharisDerived",
+      "construction": "Correct tesh-curl: t joined to ESH WITH CURL (U+0286), not TC WITH CURL (U+02A8).",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0286"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF2D",
+      "unicode_name": "LATIN SMALL LETTER D WITH HOOK AND PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0257"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF2E",
+      "unicode_name": "LATIN SMALL LETTER DZ DIGRAPH WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+02A3"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF2F",
+      "unicode_name": "LATIN SMALL LETTER ETH WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+00F0"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF30",
+      "unicode_name": "LATIN LETTER SMALL CAPITAL G WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0262"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF31",
+      "unicode_name": "LATIN SMALL LETTER GAMMA WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0263"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF32",
+      "unicode_name": "LATIN SMALL LETTER H WITH STROKE AND PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0127"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF33",
+      "unicode_name": "LATIN SMALL LETTER PHI WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0278"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF34",
+      "unicode_name": "LATIN SMALL LETTER Q WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0071"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF35",
+      "unicode_name": "LATIN LETTER SMALL CAPITAL R WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0280"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF36",
+      "unicode_name": "LATIN LETTER SMALL CAPITAL INVERTED R WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0281"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF37",
+      "unicode_name": "LATIN SMALL LETTER R WITH TAIL AND PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+027D"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF38",
+      "unicode_name": "LATIN SMALL LETTER TS DIGRAPH WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+02A6"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF39",
+      "unicode_name": "LATIN SMALL LETTER V WITH HOOK AND PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+028B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3A",
+      "unicode_name": "LATIN LETTER PHARYNGEAL VOICED FRICATIVE WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0295"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3B",
+      "unicode_name": "LATIN SMALL LETTER BETA WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+03B2"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3C",
+      "unicode_name": "LATIN SMALL LETTER THETA WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+03B8"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3D",
+      "unicode_name": "LATIN SMALL LETTER CHI WITH PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector base with a newly drawn open palatal hook, thin curved return and spacious aperture.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+03C7"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3E",
+      "unicode_name": "LATIN SMALL LETTER BARRED TURNED H",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0265"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF3F",
+      "unicode_name": "LATIN SMALL LETTER BARRED W",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0077"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF40",
+      "unicode_name": "LATIN CAPITAL LETTER BARRED A",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0041"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF41",
+      "unicode_name": "LATIN SMALL LETTER BARRED A",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0061"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF42",
+      "unicode_name": "LATIN SMALL LETTER BARRED OPEN O",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0254"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF43",
+      "unicode_name": "LATIN LETTER SMALL CAPITAL BARRED E",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+1D07"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF44",
+      "unicode_name": "LATIN SMALL LETTER BARRED OPEN E",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+025B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF45",
+      "unicode_name": "LATIN SMALL LETTER G WITH STROKE AND PALATAL HOOK",
+      "category": "CharisDerived",
+      "construction": "Encoded G WITH PALATAL HOOK (U+1D83) with an added crossbar, preserving the donor palatal terminal.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+1D83"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF46",
+      "unicode_name": "LATIN SMALL LETTER BARRED H",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF47",
+      "unicode_name": "LATIN SMALL LETTER BARRED H WITH HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0266"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF48",
+      "unicode_name": "LATIN CAPITAL LETTER BARRED K",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+004B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF49",
+      "unicode_name": "LATIN SMALL LETTER BARRED K",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4A",
+      "unicode_name": "LATIN CAPITAL LETTER BARRED M",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+004D"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4B",
+      "unicode_name": "LATIN SMALL LETTER BARRED M",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006D"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4C",
+      "unicode_name": "LATIN SMALL LETTER BARRED M WITH HOOK",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0271"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4D",
+      "unicode_name": "LATIN CAPITAL LETTER BARRED N",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+004E"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4E",
+      "unicode_name": "LATIN SMALL LETTER BARRED N",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006E"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF4F",
+      "unicode_name": "LATIN SMALL LETTER BARRED ENG",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+014B"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF50",
+      "unicode_name": "LATIN SMALL LETTER TURNED R WITH STROKE",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0279"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF51",
+      "unicode_name": "LATIN CAPITAL LETTER BARRED V",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0056"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF52",
+      "unicode_name": "LATIN SMALL LETTER BARRED V",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0076"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF53",
+      "unicode_name": "LATIN SMALL LETTER BARRED CLOSED OMEGA",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0277"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF54",
+      "unicode_name": "LATIN SMALL LETTER BARRED CHI",
+      "category": "CharisDerived",
+      "construction": "Charis vector letter with a new fine crossbar; bowls remain open and bar ends stay distinct.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+03C7"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF55",
+      "unicode_name": "LATIN SMALL LETTER Y WITH LOW STROKE",
+      "category": "CharisDerived",
+      "construction": "Charis y with a fine low crossbar below the baseline.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0079"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF56",
+      "unicode_name": "LATIN LETTER GLOTTAL STOP WITH DOUBLE STROKE",
+      "category": "CharisDerived",
+      "construction": "Glottal stop with two separate crossbars through its lower upright stem; neither rule floats below the foot.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0294"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF57",
+      "unicode_name": "LATIN SMALL LETTER TURNED R WITH MID-HEIGHT LEFT HOOK",
+      "category": "CharisDerived",
+      "construction": "Turned encoded R WITH MID-HEIGHT LEFT HOOK (U+1DF28); retains the two low spreading arms shown in the reference, without adding a separate curl.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+1DF28"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF58",
+      "unicode_name": "LATIN SMALL LETTER SPLIT O",
+      "category": "CharisDerived",
+      "construction": "Charis curved body with a deliberately positioned open horizontal split.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006F"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF59",
+      "unicode_name": "LATIN SMALL LETTER SPLIT U",
+      "category": "CharisDerived",
+      "construction": "Charis curved body with a deliberately positioned open horizontal split.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0075"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5A",
+      "unicode_name": "LATIN SMALL LETTER HALF A",
+      "category": "CharisDerived",
+      "construction": "Half a: retain the lower bowl and right stem of a, remove the upper-left portion to leave a short open top return; no added ring above alpha.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0061"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5B",
+      "unicode_name": "LATIN SMALL LETTER STRETCHED C-H DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0063"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5C",
+      "unicode_name": "LATIN SMALL LETTER LUNATE EE",
+      "category": "GentiumDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03F5"
+        },
+        {
+          "source": "Gentium",
+          "codepoint": "U+03F5"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5D",
+      "unicode_name": "LATIN SMALL LETTER IE",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0069"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0065"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5E",
+      "unicode_name": "LATIN SMALL LETTER OI DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006F"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0069"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF5F",
+      "unicode_name": "LATIN SMALL LETTER OU DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006F"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0075"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF60",
+      "unicode_name": "LATIN SMALL LETTER OMEGA WITH LOOP",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Sweeping side strokes and a larger central loop; contrasting weights and angled terminals.",
+      "source_components": [],
+      "contours": 2
+    },
+    {
+      "codepoint": "U+1DF61",
+      "unicode_name": "LATIN SMALL LETTER R WITH LEFT TIE",
+      "category": "CharisDerived",
+      "construction": "Charis r with a sweeping left tie, replacing a stepped diagonal.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0072"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF62",
+      "unicode_name": "LATIN SMALL LETTER ESH-H DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0283"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF63",
+      "unicode_name": "LATIN SMALL LETTER STRETCHED T-H DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF64",
+      "unicode_name": "LATIN SMALL LETTER REVERSED T-H DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Reversed t joined to h by its crossbar; the left-facing t foot is retained.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0074"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF65",
+      "unicode_name": "LATIN SMALL LETTER WH DIGRAPH",
+      "category": "CharisDerived",
+      "construction": "Correct connected ligature. Stretched c/t extend below the baseline; ie/ee connect at mid-height; oi/ou join near the shoulder; wh has a rising connection.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0077"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0068"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF66",
+      "unicode_name": "LATIN SMALL LETTER REVERSED Z",
+      "category": "CharisDerived",
+      "construction": "Horizontally reversed Charis z with straight diagonals and shaped terminals.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+007A"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF67",
+      "unicode_name": "LATIN SMALL LETTER LEZH WITH CURL",
+      "category": "CharisDerived",
+      "construction": "Correct lezh-curl: l joined to EZH WITH CURL (U+0293), preserving its lower loop.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006C"
+        },
+        {
+          "source": "Charis",
+          "codepoint": "U+0293"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF68",
+      "unicode_name": "LATIN CAPITAL LETTER PHONOTYPIC A WITH SWASH",
+      "category": "CharisDerived",
+      "construction": "Charis body with a newly drawn upper-left swash (capital) or descending right swash (small).",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0041"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF69",
+      "unicode_name": "LATIN SMALL LETTER PHONOTYPIC A WITH SWASH",
+      "category": "CharisDerived",
+      "construction": "Charis body with a newly drawn upper-left swash (capital) or descending right swash (small).",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0061"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF6A",
+      "unicode_name": "LATIN CAPITAL LETTER PHONOTYPIC ROUNDTOP A",
+      "category": "ProjectVectors",
+      "construction": "New roundtop capital A: cubic dome, open counter, fine crossbar and serif feet.",
+      "source_components": [],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF6B",
+      "unicode_name": "LATIN SMALL LETTER PHONOTYPIC ROUNDTOP A",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Open upper shoulder, lower bowl and left foot return, drawn as filled contours.",
+      "source_components": [],
+      "contours": 2
+    },
+    {
+      "codepoint": "U+1DF6C",
+      "unicode_name": "LATIN CAPITAL LETTER REVERSED SCRUPLE",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Continuous broad outer curve, heavier left stroke and a tapered middle arm.",
+      "source_components": [],
+      "contours": 1
+    },
+    {
+      "codepoint": "U+1DF6D",
+      "unicode_name": "LATIN SMALL LETTER REVERSED SCRUPLE",
+      "category": "GentiumDerived",
+      "construction": "Licensed lunate-e body, one continuous outer arc and a straight center stroke.",
+      "source_components": [
+        {
+          "source": "Gentium",
+          "codepoint": "U+03F5"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF6E",
+      "unicode_name": "LATIN CAPITAL LETTER PHONOTYPIC DIPHTHONG AI",
+      "category": "CharisDerived",
+      "construction": "Charis capital I with a separate extended center stroke.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0049"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF6F",
+      "unicode_name": "LATIN SMALL LETTER PHONOTYPIC DIPHTHONG AI",
+      "category": "CharisDerived",
+      "construction": "Dotted i with a generous open lower-left loop and a curved terminal.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0069"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF70",
+      "unicode_name": "LATIN SMALL LETTER I WITH PIGTAIL AT BOTTOM",
+      "category": "CharisDerived",
+      "construction": "Charis i with a new leftward baseline pigtail and open rising end.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0069"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF71",
+      "unicode_name": "LATIN SMALL LETTER STRETCHED I",
+      "category": "CharisDerived",
+      "construction": "A taller Charis i with a retained separate dot and tapered serif foot.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0069"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF72",
+      "unicode_name": "LATIN CAPITAL LETTER O WITH CURL",
+      "category": "CharisDerived",
+      "construction": "Charis oval with an independent upper curl, retaining a large internal counter.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+004F"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF73",
+      "unicode_name": "LATIN SMALL LETTER O WITH CURL",
+      "category": "CharisDerived",
+      "construction": "Charis oval with an independent upper curl, retaining a large internal counter.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+006F"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF74",
+      "unicode_name": "LATIN CAPITAL LETTER CLOSED OMEGA WITH LONG STEM",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Two counters and a full-length central stem; heavier sides and thinner top and bottom curves.",
+      "source_components": [],
+      "contours": 3
+    },
+    {
+      "codepoint": "U+1DF75",
+      "unicode_name": "LATIN SMALL LETTER CLOSED OMEGA WITH LONG STEM",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Lowercase optical proportions with two clear counters and a long central stem.",
+      "source_components": [],
+      "contours": 3
+    },
+    {
+      "codepoint": "U+1DF76",
+      "unicode_name": "LATIN CAPITAL LETTER TURNED CLOSED OMEGA",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Twin upper shoulders, a deep central descending tongue and a large lower counter.",
+      "source_components": [],
+      "contours": 2
+    },
+    {
+      "codepoint": "U+1DF77",
+      "unicode_name": "LATIN SMALL LETTER TURNED CLOSED OMEGA",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Wider lowercase proportions and a clearly defined descending central stroke.",
+      "source_components": [],
+      "contours": 2
+    },
+    {
+      "codepoint": "U+1DF78",
+      "unicode_name": "LATIN CAPITAL LETTER PHONOTYPIC TH",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Single F-like top arm, lower h-like shoulder and bracketed feet.",
+      "source_components": [],
+      "contours": 1
+    },
+    {
+      "codepoint": "U+1DF79",
+      "unicode_name": "LATIN SMALL LETTER PHONOTYPIC TH",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Pointed crown, upright left stroke, full right bowl and a short crossbar leaving one counter.",
+      "source_components": [],
+      "contours": 2
+    },
+    {
+      "codepoint": "U+1DF7A",
+      "unicode_name": "LATIN CAPITAL LETTER U WITH HOOK TAIL",
+      "category": "CharisDerived",
+      "construction": "Capital U uses a Q-like tail; small u extends the right stem below the baseline into a rightward hook.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0055"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF7B",
+      "unicode_name": "LATIN SMALL LETTER U WITH HOOK TAIL",
+      "category": "CharisDerived",
+      "construction": "Capital U uses a Q-like tail; small u extends the right stem below the baseline into a rightward hook.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0075"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF7C",
+      "unicode_name": "LATIN CAPITAL LETTER U WITH NOTCH AT BOTTOM",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Two curved bowls, a deep central notch and paired bracketed capital serifs.",
+      "source_components": [],
+      "contours": 1
+    },
+    {
+      "codepoint": "U+1DF7D",
+      "unicode_name": "LATIN SMALL LETTER U WITH NOTCH AT BOTTOM",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "Lowercase entry wedges and a separate right exit foot around a deep central notch.",
+      "source_components": [],
+      "contours": 1
+    },
+    {
+      "codepoint": "U+1DF7E",
+      "unicode_name": "LATIN CAPITAL LETTER REVERSED U",
+      "category": "CharisDerived",
+      "construction": "Reversed Charis U with asymmetric terminal treatment and a continuous bowl.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0075"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF7F",
+      "unicode_name": "LATIN SMALL LETTER REVERSED U",
+      "category": "CharisDerived",
+      "construction": "Reversed Charis U with asymmetric terminal treatment and a continuous bowl.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0075"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF80",
+      "unicode_name": "LATIN CAPITAL LETTER A WITH TOPBAR",
+      "category": "CharisDerived",
+      "construction": "Charis A with a separate, slightly extended topbar.",
+      "source_components": [
+        {
+          "source": "Charis",
+          "codepoint": "U+0041"
+        }
+      ],
+      "raster_tracing": false
+    },
+    {
+      "codepoint": "U+1DF81",
+      "unicode_name": "LATIN CAPITAL LETTER E WITH BENT TOPBAR",
+      "category": "ProjectOutlines",
+      "construction": "New project-authored filled cubic outlines; no old target or Unicode chart outline reused.",
+      "design": "One continuously bent top arm, a tapered middle arm and a flared lower arm; no overlaid original E terminal.",
+      "source_components": [],
+      "contours": 1
+    }
+  ]
+}

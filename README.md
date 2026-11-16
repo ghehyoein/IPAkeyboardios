@@ -28,14 +28,12 @@ iOS 国际音标输入法，包含键盘扩展与符号设置。支持 iOS 17 �
 
 **第三方许可例外：** Unicode 官方数据继续遵守 [Unicode License](Reference/Unicode/LICENSE.txt)；[音标清单与改编数据](Reference/SOURCES.md) 中明确以 CC BY-SA 4.0 发布的部分，仍可依原许可证使用（包括符合原许可证的商业使用），不受本项目非商业源码授权限制。
 
-## ipa+ 字体
+## ipa+ font
 
-字体文件、英文说明、来源记录及完整 OFL 1.1 许可证集中在独立的 [Font 文件夹](Font/README.md)。字体采用独立许可，可在遵守 OFL 条件时随商业软件分发。
+The standalone **ipa+ font 0.600** is published in the [Font folder](Font/README.md), with English documentation, source records, and the complete SIL Open Font License 1.1. [Download the TTF](https://github.com/ghehyoein/IPAkeyboardios/raw/refs/heads/main/Font/ipa-plus.ttf).
 
-### 51 个补充字形中的本项目制作部分
+This edition replaces 159 formerly pixel-shaped mapped glyphs with vector constructions, including twelve newly drawn outlines, and updates combining-mark positioning. It retains the 51 supplementary characters adapted from licensed Charis/Gentium components. Coverage is 1,308 code points in the keyboard's input inventory.
 
-这 51 个补充字形包含本项目制作的字形调整与轮廓构造，并非直接复制一套现成的上标、下标字体。制作以获得 OFL 授权的 Charis/Gentium 部件为基础，调整缩放、上标或下标位置、光学比例及间距。
+The font has a separate license and may be bundled with commercial software under OFL conditions. See [sources and licensing](FONT_SOURCES_AND_LICENSE.md) for upstream attribution, project-made contributions, and redistribution requirements.
 
-其中 43 个主要通过基础字形变换制作；另有 8 个包含额外的轮廓加工：绘制回钩、切出开口、添加指定高度的横线，或组合已有辅音轮廓并保留其卷曲特征。逐字形的来源与制作记录见 [补充字形来源表](Font/supplement-provenance.json)。
-
-上述是对本项目制作贡献的说明，不表示全部 51 个字形均为从零绘制，也不表示取得了上游部件的版权。上游版权声明继续保留，最终字体按 OFL 1.1 分发；新增部分能否获得独立版权，取决于适用法律和具体创作情况。
+The standalone font is maintained separately from the older App-bundled resource. Publishing this font does not update the installed keyboard or replace fonts in other iOS apps.

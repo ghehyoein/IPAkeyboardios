@@ -16,6 +16,14 @@ Unifont
 Copyright © 1998-2026 Roman Czyborra, Paul Hardy, Qianqian Fang, Andrew Miller, Johnnie Weaver, David Corbett, Ælla Chiana Moskopp, Rebecca Bettencourt, Ho-Seok Ee, et al.
 The compiled Unifont fonts are used under their SIL OFL 1.1 option.
 
+Noto Sans Math
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts/math)
+Used under SIL OFL 1.1.
+
+Noto Sans Georgian
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts/georgian)
+Used under SIL OFL 1.1.
+
 SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
 -----------------------------------------------------------
 
