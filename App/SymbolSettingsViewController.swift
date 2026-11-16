@@ -165,6 +165,7 @@ final class SymbolSettingsViewController: UITableViewController {
                 self.shareAvailable = SymbolSettingsStore.shared.save(self.visibility)
                 L10n.selection = code
                 self.title = "ipa+键盘".localized
+                self.navigationItem.rightBarButtonItem?.accessibilityLabel = "音标输入框".localized
                 self.tableView.reloadData()
             }
             navigationController?.pushViewController(languages, animated: true)

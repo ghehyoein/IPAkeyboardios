@@ -153,6 +153,7 @@ final class KeyboardUITests: XCTestCase {
         attach(app, name: "language-options")
         app.cells["language_en"].tap()
         XCTAssertTrue(app.navigationBars["ipa+ keyboard"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.buttons["openKeyboardDemo"].label, "Phonetic editor")
         app.terminate()
         app.launchArguments = ["-AppleLanguages", "(zh-Hans)"]
         app.launch()
