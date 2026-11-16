@@ -41,4 +41,4 @@ ipa+ is distributed under the SIL Open Font License 1.1. Retain Font-Licenses.tx
 
 PREVIEW
 
-ipa-plus-original-glyphs.png shows twelve original project glyphs rendered directly from the included font.
+ipa-plus-original-glyphs.png shows all 197 project-contributed glyphs rendered directly from the included font: 48 newly drawn and 149 adapted from licensed fonts.
