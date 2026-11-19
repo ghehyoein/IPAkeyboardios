@@ -571,11 +571,12 @@ final class KeyboardTests: XCTestCase {
         let app = Bundle.main
         let plugins = try XCTUnwrap(app.builtInPlugInsURL)
         let keyboard = try XCTUnwrap(Bundle(url: plugins.appendingPathComponent("IPAKeyboardExtension.appex")))
-        let expected = ["en": "ipa+ keyboard", "zh-Hans": "ipa+键盘", "zh-Hant": "ipa+鍵盤", "ja": "ipa+キーボード"]
+        let languages = ["en", "zh-Hans", "zh-Hant", "ja"]
         for bundle in [app, keyboard] {
             XCTAssertEqual(bundle.infoDictionary?["CFBundleName"] as? String, "ipa+ keyboard")
             XCTAssertEqual(bundle.infoDictionary?["CFBundleDisplayName"] as? String, "ipa+ keyboard")
-            for (language, name) in expected {
+            for language in languages {
+                let name = "ipa+ keyboard"
                 let path = try XCTUnwrap(bundle.path(forResource: "InfoPlist", ofType: "strings", inDirectory: nil, forLocalization: language))
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
                 let values = try XCTUnwrap(PropertyListSerialization.propertyList(from: data, format: nil) as? [String: String])

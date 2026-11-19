@@ -26,14 +26,14 @@ jobs:
             runtime: '26'
             device: iPhone-16-Pro-Max
             family: iPhone
-            tests: '-only-testing:IPAKeyboardTests/UnifiedFontTests -only-testing:IPAKeyboardUITests/CompatibilityUITests/testInformationPagesInAllFourLanguages -only-testing:IPAKeyboardUITests/KeyboardUITests/testNewUnicodeNameSearchOnSystemWithoutItsUnicodeName -only-testing:IPAKeyboardUITests/KeyboardUITests/testNumericPagesAndVariants'
+            tests: '-only-testing:IPAKeyboardTests/KeyboardTests/testSystemBundleNamesAcrossLanguagePreferences -only-testing:IPAKeyboardTests/UnifiedFontTests -only-testing:IPAKeyboardUITests/CompatibilityUITests/testInformationPagesInAllFourLanguages -only-testing:IPAKeyboardUITests/KeyboardUITests/testNewUnicodeNameSearchOnSystemWithoutItsUnicodeName -only-testing:IPAKeyboardUITests/KeyboardUITests/testNumericPagesAndVariants'
           - name: iOS17-iPad
             runner: macos-15-intel
             xcode: '26.3'
             runtime: '17'
             device: iPad-9th-generation
             family: iPad
-            tests: '-only-testing:IPAKeyboardTests/UnifiedFontTests -only-testing:IPAKeyboardUITests/CompatibilityUITests/testTypingSymbolsAndRotation -only-testing:IPAKeyboardUITests/CompatibilityUITests/testFontSheetWithLargeTextAndRotation'
+            tests: '-only-testing:IPAKeyboardTests/KeyboardTests/testSystemBundleNamesAcrossLanguagePreferences -only-testing:IPAKeyboardTests/UnifiedFontTests -only-testing:IPAKeyboardUITests/CompatibilityUITests/testTypingSymbolsAndRotation -only-testing:IPAKeyboardUITests/CompatibilityUITests/testFontSheetWithLargeTextAndRotation'
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 60
     env:
