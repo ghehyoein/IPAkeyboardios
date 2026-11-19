@@ -25,7 +25,9 @@ source_sets={'IPAKeyboard':['App/AppDelegate.swift','App/AppInformationViewContr
 files=sorted(set(sum(source_sets.values(),[])+['Shared/localization.json','Shared/PrivacyInfo.xcprivacy','Shared/ipa-catalog.json','App/Info.plist','KeyboardExtension/Info.plist','App/Assets.xcassets','App/IPAKeyboard.entitlements','KeyboardExtension/IPAKeyboardExtension.entitlements']))
 # Localized system display names for both the containing app and keyboard extension.
 localization_folders=[]
-for language, name in [('en','ipa+ keyboard'),('zh-Hans','ipa+键盘'),('zh-Hant','ipa+鍵盤'),('ja','ipa+キーボード')]:
+for language in ('en', 'zh-Hans', 'zh-Hant', 'ja'):
+ # iOS can resolve the app and extension names using different languages.
+ name='ipa+ keyboard'
  folder=R/'Shared'/f'{language}.lproj'
  folder.mkdir(exist_ok=True)
  (folder/'InfoPlist.strings').write_text(f'"CFBundleDisplayName" = "{name}";\n"CFBundleName" = "{name}";\n')

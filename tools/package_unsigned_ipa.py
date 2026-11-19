@@ -31,7 +31,7 @@ for bundle in [app, extension]:
         if not name_file.is_file():
             raise SystemExit(f'Missing localized system name: {bundle} {language}')
         names = plistlib.loads(subprocess.check_output(['plutil', '-convert', 'xml1', '-o', '-', str(name_file)]))
-        expected_name = {'en': 'ipa+ keyboard', 'zh-Hans': 'ipa+键盘', 'zh-Hant': 'ipa+鍵盤', 'ja': 'ipa+キーボード'}[language]
+        expected_name = 'ipa+ keyboard'
         if names.get('CFBundleName') != expected_name or names.get('CFBundleDisplayName') != expected_name:
             raise SystemExit(f'Inconsistent localized keyboard name: {bundle} {language}')
     print(subprocess.check_output(['file', str(executable)], text=True).strip())

@@ -16,7 +16,8 @@ class BundleNameTests(unittest.TestCase):
             self.assertEqual(set(info['CFBundleLocalizations']), {'en','zh-Hans','zh-Hant','ja'})
 
     def test_localized_name_keys_remain_identical(self):
-        for language, name in [('en','ipa+ keyboard'),('zh-Hans','ipa+键盘'),('zh-Hant','ipa+鍵盤'),('ja','ipa+キーボード')]:
+        for language in ('en', 'zh-Hans', 'zh-Hant', 'ja'):
+            name = "ipa+ keyboard"
             text = (ROOT / 'Shared' / (language + '.lproj') / 'InfoPlist.strings').read_text()
             values = dict(re.findall(r'"([^"\n]+)"\s*=\s*"([^"\n]+)";', text))
             self.assertEqual(values, {'CFBundleName': name, 'CFBundleDisplayName': name})
