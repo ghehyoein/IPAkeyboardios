@@ -60,6 +60,11 @@ final class DemoViewController: UIViewController {
         if !ProcessInfo.processInfo.arguments.contains("--reference-keyboard") { installKeyboardInputView() }
         keyboard.needsGlobe = false
         keyboard.onHeightChange = { [weak self] in self?.installKeyboardInputView() }
+        keyboard.onCalloutHeightChange = { [weak self] in
+            guard let self, let container = self.editor.inputView as? DemoInputView else { return }
+            // Keep the touched key in the same input view throughout the gesture.
+            container.requestedHeight = self.keyboard.intrinsicContentSize.height
+        }
         keyboard.onInsert = { [weak self] text in self?.editor.insertText(text) }
         keyboard.onMoveCursor = { [weak self] offset in
             guard let editor = self?.editor, let range = editor.selectedTextRange else { return }

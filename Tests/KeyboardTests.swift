@@ -311,12 +311,19 @@ final class KeyboardTests: XCTestCase {
             let keyboard = KeyboardSurface(frame: CGRect(origin: .zero, size: size))
             keyboard.systemManagedLayout = true; keyboard.needsGlobe = false; keyboard.layoutIfNeeded()
             for key in keyboard.subviews.compactMap({ $0 as? LetterKey }).filter({ "qwertyuiop".contains($0.letter) }) {
-                let strip = VariantStrip(keyFrame: key.frame, base: key.letter, variants: key.mapping?.variants ?? [], in: keyboard.bounds)
-                XCTAssertEqual(key.frame.minY, 8, accuracy: 0.01)
-                XCTAssertLessThanOrEqual(strip.calloutFrame.minY, key.frame.minY)
-                XCTAssertLessThanOrEqual(strip.calloutFrame.maxY, keyboard.bounds.height)
+                keyboard.layoutIfNeeded()
+                let originalHeight = keyboard.contentHeight(landscape: false, globeFooter: 0)
+                keyboard.showCalloutForSnapshot(key.letter)
+                guard let strip = keyboard.subviews.compactMap({ $0 as? VariantStrip }).first else {
+                    return XCTFail("Expected a long-press candidate strip")
+                }
+                XCTAssertLessThan(strip.calloutFrame.maxY, key.frame.minY)
                 XCTAssertGreaterThanOrEqual(strip.calloutFrame.minY, 0)
                 XCTAssertLessThanOrEqual(strip.calloutFrame.maxX, size.width)
+                keyboard.dismissVariants()
+                keyboard.layoutIfNeeded()
+                XCTAssertEqual(key.frame.minY, 8)
+                XCTAssertEqual(keyboard.contentHeight(landscape: false, globeFooter: 0), originalHeight)
             }
         }
     }

@@ -3,6 +3,9 @@ import UIKit
 /// Native-style transient callout. The originating key owns the entire touch;
 /// this view never presents a menu, intercepts a touch, or survives finger-up.
 final class VariantStrip: UIView {
+    static let selectionHeight: CGFloat = 57
+    static let keyGap: CGFloat = 7
+    static let topMargin: CGFloat = 4
     private let body = UIView()
     private let scroll = UIScrollView()
     private let stem = CAShapeLayer()
@@ -32,10 +35,8 @@ final class VariantStrip: UIView {
         let visibleCount = min(variants.count + 1, max(1, Int((bounds.width - 16) / cellWidth)))
         let width = CGFloat(visibleCount) * cellWidth + 12
         let left = min(max(8, keyFrame.midX - width / 2), bounds.width - width - 8)
-        let height: CGFloat = showsSelection ? 57 : 55
-        // Prefer above-key placement. At the top edge, temporarily overlay the
-        // first row rather than reserving space or drawing outside the extension.
-        let top = max(4, keyFrame.minY - height - 7)
+        let height: CGFloat = showsSelection ? Self.selectionHeight : 55
+        let top = max(Self.topMargin, keyFrame.minY - height - Self.keyGap)
         body.frame = CGRect(x: left, y: top, width: width, height: height)
         baseIndex = min(visibleCount - 1, max(0, Int((keyFrame.midX - left - 6) / cellWidth)))
         values = variants
