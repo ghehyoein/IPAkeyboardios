@@ -490,7 +490,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"INFOPLIST_FILE" = "App/Info.plist";
 				"CODE_SIGN_ENTITLEMENTS" = "App/IPAKeyboard.entitlements";
@@ -507,7 +507,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"INFOPLIST_FILE" = "App/Info.plist";
 				"CODE_SIGN_ENTITLEMENTS" = "App/IPAKeyboard.entitlements";
@@ -653,7 +653,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.Keyboard";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
 				"INFOPLIST_FILE" = "KeyboardExtension/Info.plist";
 				"APPLICATION_EXTENSION_API_ONLY" = "YES";
@@ -671,7 +671,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.Keyboard";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
 				"INFOPLIST_FILE" = "KeyboardExtension/Info.plist";
 				"APPLICATION_EXTENSION_API_ONLY" = "YES";
@@ -750,7 +750,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.IPAKeyboardTests";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/IPAKeyboard.app/IPAKeyboard";
@@ -767,7 +767,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.IPAKeyboardTests";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"TEST_HOST" = "$(BUILT_PRODUCTS_DIR)/IPAKeyboard.app/IPAKeyboard";
@@ -845,7 +845,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.IPAKeyboardUITests";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"TEST_TARGET_NAME" = "IPAKeyboard";
@@ -861,7 +861,7 @@
 				"PRODUCT_NAME" = "$(TARGET_NAME)";
 				"PRODUCT_BUNDLE_IDENTIFIER" = "org.example.IPAKeyboard.IPAKeyboardUITests";
 				"CURRENT_PROJECT_VERSION" = "4";
-				"MARKETING_VERSION" = "0.8.3";
+				"MARKETING_VERSION" = "0.8.4";
 				"LD_RUNPATH_SEARCH_PATHS" = ("$(inherited)", "@executable_path/Frameworks");
 				"GENERATE_INFOPLIST_FILE" = "YES";
 				"TEST_TARGET_NAME" = "IPAKeyboard";

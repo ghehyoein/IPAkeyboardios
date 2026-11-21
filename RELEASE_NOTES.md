@@ -1,5 +1,6 @@
-## ipa+ keyboard 0.8.3
+## ipa+ keyboard 0.8.4
 
-Use the official name **ipa+ keyboard** for the Home Screen and system keyboard picker in all supported languages. This addresses a duplicated label when an app uses a different language from iOS, such as Japanese Google Maps on a Chinese-language iPhone.
+- Long-pressing a top-row key temporarily creates room above the key for its phonetic variants. Releasing the key restores the compact layout.
+- Opt out of ASCII-capable keyboard selection for fields that request a Latin keyboard. The keyboard remains available in ordinary text fields.
 
-Download **IPAKeyboard-unsigned.ipa** and sign the app and keyboard extension before installation. Requires iOS 17 or later.
+The unsigned IPA requires signing the app and its extension before installation. Requires iOS 17 or later.
